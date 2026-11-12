@@ -180,7 +180,7 @@ a {
 }
 
 .logo {
-  height: clamp(3rem, 3.8vw, 4rem);
+  height: clamp(4.75rem, 6.5vw, 7rem);
   width: auto;
 }
 
