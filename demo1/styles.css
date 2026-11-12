@@ -418,19 +418,20 @@ a {
   width: 1.75rem;
   height: 1.75rem;
   flex-shrink: 0;
-  color: var(--navy);
+  color: var(--white);
 }
 
 .mega-login-head .mega-title {
   margin: 0;
   font-size: 1.0625rem;
+  color: var(--white);
 }
 
 .mega-login-text {
   margin: 0 0 1.15rem;
   font-size: 0.8125rem;
   line-height: 1.55;
-  color: color-mix(in srgb, var(--navy) 72%, var(--muted));
+  color: rgba(255, 255, 255, 0.92);
   flex: 1;
 }
 
