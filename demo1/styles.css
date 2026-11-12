@@ -454,7 +454,7 @@ a {
   color: color-mix(in srgb, var(--navy) 70%, var(--muted));
 }
 
-.mega-login-link {
+.mega-menu .mega-login-link {
   display: inline-block;
   width: fit-content;
   margin: 0;
@@ -471,7 +471,7 @@ a {
     border-color 0.15s ease;
 }
 
-.mega-login-link:hover {
+.mega-menu .mega-login-link:hover {
   color: var(--brand-navy);
   border-color: var(--brand-navy);
 }
