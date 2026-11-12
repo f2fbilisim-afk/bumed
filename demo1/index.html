@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261112t" />
+  <link rel="stylesheet" href="styles.css?v=20261112u" />
 </head>
 <body>
   <header class="site-header">
@@ -705,11 +705,24 @@
   <script src="main.js?v=20261109" defer></script>
   <script>
     (function () {
-      var host = document.querySelector(".mega-nav-host");
-      if (!host) return;
-      var trigger = host.querySelector(".nav-trigger");
-      var panel = host.querySelector(".mega-menu-panel");
+      var mainbar = document.querySelector(".mainbar");
+      var host =
+        document.querySelector(".mega-nav-host") ||
+        document.querySelector(".nav-item--mega");
+      var trigger = document.getElementById("nav-uyelik");
+      var mega = document.getElementById("mega-uyelik");
+      if (!mainbar || !host || !trigger || !mega) return;
+
+      var panel = mega.querySelector(".mega-menu-panel");
+      var zone = [trigger, mega];
       var closeTimer = null;
+
+      function inZone(node) {
+        if (!node || !node.nodeType) return false;
+        return zone.some(function (el) {
+          return el === node || el.contains(node);
+        });
+      }
 
       function syncMegaPointer() {
         if (!trigger || !panel) return;
@@ -721,41 +734,54 @@
 
       function setOpen(open) {
         host.classList.toggle("is-open", open);
+        mainbar.classList.toggle("is-mega-open", open);
         trigger.setAttribute("aria-expanded", open ? "true" : "false");
         if (open) syncMegaPointer();
+      }
+
+      function clearClose() {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+      }
+
+      function scheduleClose() {
+        clearClose();
+        closeTimer = setTimeout(function () {
+          setOpen(false);
+        }, 360);
       }
 
       syncMegaPointer();
       window.addEventListener("resize", syncMegaPointer);
 
-      host.addEventListener("mouseenter", function () {
-        clearTimeout(closeTimer);
-        setOpen(true);
-        syncMegaPointer();
-      });
-
-      host.addEventListener("mouseleave", function (e) {
-        if (e.relatedTarget && host.contains(e.relatedTarget)) return;
-        closeTimer = setTimeout(function () {
-          if (host.matches(":hover")) return;
-          setOpen(false);
-        }, 280);
+      zone.forEach(function (el) {
+        el.addEventListener("pointerenter", function () {
+          clearClose();
+          setOpen(true);
+        });
+        el.addEventListener("pointerleave", function (e) {
+          if (inZone(e.relatedTarget)) return;
+          scheduleClose();
+        });
       });
 
       host.addEventListener("focusin", function () {
-        clearTimeout(closeTimer);
+        clearClose();
         setOpen(true);
         syncMegaPointer();
       });
 
       host.addEventListener("focusout", function (e) {
-        if (host.contains(e.relatedTarget)) return;
+        if (inZone(e.relatedTarget)) return;
         setOpen(false);
       });
 
       trigger.addEventListener("click", function (e) {
         e.preventDefault();
-        setOpen(!host.classList.contains("is-open"));
+        clearClose();
+        setOpen(!mainbar.classList.contains("is-mega-open"));
       });
 
       host.addEventListener("keydown", function (e) {

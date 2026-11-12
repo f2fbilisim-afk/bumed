@@ -305,11 +305,29 @@ a {
 
 .mega-nav-host:hover .mega-menu,
 .mega-nav-host:focus-within .mega-menu,
-.mega-nav-host.is-open .mega-menu {
+.mega-nav-host.is-open .mega-menu,
+.mainbar.is-mega-open .mega-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+.mainbar.is-mega-open .mega-nav-host .nav-caret-wrap,
+.mainbar.is-mega-open .nav-item--mega .nav-caret-wrap {
+  background: var(--nav-mega-accent);
+}
+
+.mainbar.is-mega-open .mega-nav-host .nav-caret,
+.mainbar.is-mega-open .nav-item--mega .nav-caret {
+  transform: rotate(180deg);
+  opacity: 1;
+  color: var(--navy);
+}
+
+.mainbar.is-mega-open .mega-nav-host .nav-trigger,
+.mainbar.is-mega-open .nav-item--mega .nav-trigger {
+  color: var(--nav-mega-accent);
 }
 
 .mega-menu-wrap {
