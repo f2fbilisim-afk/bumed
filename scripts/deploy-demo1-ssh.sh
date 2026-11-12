@@ -25,7 +25,7 @@ REMOTE="${USER}@${HOST}:${REMOTE_DIR}/"
 
 echo "Yükleniyor: ${SRC} -> ${REMOTE}"
 
-for f in index.html styles.css instagram-feed.php instagram-1.jpg instagram-2.jpg instagram-3.jpg hero.jpg hero-2.jpg hero-3.jpg logo.png mega-house.jpg mega-house.png; do
+for f in index.html styles.css instagram-feed.php instagram-1.jpg instagram-2.jpg instagram-3.jpg hero.jpg hero-2.jpg hero-3.jpg logo.png mega-house.jpg mega-house.png bond-house.jpg; do
   if [[ -f "${SRC}/${f}" ]]; then
     sshpass -e scp "${SSH_OPTS[@]}" "${SRC}/${f}" "$REMOTE"
   fi
@@ -35,6 +35,6 @@ sshpass -e ssh "${SSH_OPTS[@]}" "${USER}@${HOST}" \
   "php ${REMOTE_DIR}/instagram-feed.php > ${REMOTE_DIR}/instagram-feed.json && chown bumed:bumed ${REMOTE_DIR}/instagram-feed.json"
 
 sshpass -e ssh "${SSH_OPTS[@]}" "${USER}@${HOST}" \
-  "chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,instagram-feed.php,instagram-feed.json,hero.jpg,hero-2.jpg,hero-3.jpg,logo.png,mega-house.jpg} 2>/dev/null || chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png}"
+  "chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,instagram-feed.php,instagram-feed.json,hero.jpg,hero-2.jpg,hero-3.jpg,logo.png,mega-house.jpg,bond-house.jpg} 2>/dev/null || chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png}"
 
 echo "Deploy tamamlandı: https://bumed.webonalti.net/demo1/"
