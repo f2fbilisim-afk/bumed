@@ -232,7 +232,8 @@ a {
   cursor: pointer;
 }
 
-.nav-item--mega {
+.nav-item--mega,
+.mega-nav-host {
   position: static;
 }
 
@@ -247,10 +248,9 @@ a {
   transition: background 0.18s ease;
 }
 
-.nav-item--mega:hover .nav-caret-wrap,
-.nav-item--mega:focus-within .nav-caret-wrap,
-.nav-item--mega.is-open .nav-caret-wrap,
-.mainbar:has(.mega-menu:hover) .nav-item--mega .nav-caret-wrap {
+.mega-nav-host:hover .nav-caret-wrap,
+.mega-nav-host:focus-within .nav-caret-wrap,
+.mega-nav-host.is-open .nav-caret-wrap {
   background: var(--nav-mega-accent);
 }
 
@@ -261,19 +261,17 @@ a {
   transition: transform 0.2s ease, color 0.18s ease;
 }
 
-.nav-item--mega:hover .nav-caret,
-.nav-item--mega:focus-within .nav-caret,
-.nav-item--mega.is-open .nav-caret,
-.mainbar:has(.mega-menu:hover) .nav-item--mega .nav-caret {
+.mega-nav-host:hover .nav-caret,
+.mega-nav-host:focus-within .nav-caret,
+.mega-nav-host.is-open .nav-caret {
   transform: rotate(180deg);
   opacity: 1;
   color: var(--navy);
 }
 
-.nav-item--mega:hover .nav-trigger,
-.nav-item--mega:focus-within .nav-trigger,
-.nav-item--mega.is-open .nav-trigger,
-.mainbar:has(.mega-menu:hover) .nav-item--mega .nav-trigger {
+.mega-nav-host:hover .nav-trigger,
+.mega-nav-host:focus-within .nav-trigger,
+.mega-nav-host.is-open .nav-trigger {
   color: var(--nav-mega-accent);
 }
 
@@ -284,8 +282,8 @@ a {
   left: 0;
   right: 0;
   z-index: 60;
-  padding-top: 0.65rem;
-  margin-top: -0.5rem;
+  padding-top: 0.75rem;
+  margin-top: -0.65rem;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -299,16 +297,15 @@ a {
 .mega-menu::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: -3.25rem;
   left: 0;
   right: 0;
-  height: 0.85rem;
+  height: 4.25rem;
 }
 
-.mainbar:has(.nav-item--mega:hover) .mega-menu,
-.mainbar:has(.nav-item--mega:focus-within) .mega-menu,
-.mainbar:has(.nav-item--mega.is-open) .mega-menu,
-.mainbar:has(.mega-menu:hover) .mega-menu {
+.mega-nav-host:hover .mega-menu,
+.mega-nav-host:focus-within .mega-menu,
+.mega-nav-host.is-open .mega-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
