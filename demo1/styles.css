@@ -1204,7 +1204,7 @@ a {
   background: var(--lime-bright);
 }
 
-/* ——— Hero altı: YouTube 50% | Instagram 50% ——— */
+/* ——— Hikâyemiz altı: YouTube 50% | Instagram 50% ——— */
 .social-hub {
   --social-hub-media-h: clamp(15.5rem, 22vw, 19.5rem);
   padding-block: clamp(2.5rem, 5vw, 3.75rem);
@@ -1574,7 +1574,7 @@ a {
   }
 }
 
-/* ——— Hikâyemiz + YouTube (kartların altı) ——— */
+/* ——— Hikâyemiz (hero slider altı) ——— */
 .story-block {
   position: relative;
   isolation: isolate;
