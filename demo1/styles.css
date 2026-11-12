@@ -10,6 +10,7 @@
   --coral-bg: #ffe5e5;
   --sky: #e6f2ff;
   --turquoise: #16dcd8;
+  --nav-mega-accent: #1dfded;
   --white: #fff;
   --bg: #f7f9fc;
   --bg-section: #fafbfd;
@@ -212,6 +213,10 @@ a {
   color: var(--lime-bright);
 }
 
+.nav-item--mega .nav-trigger:hover {
+  color: var(--nav-mega-accent);
+}
+
 .nav .nav-link {
   margin: 0;
   padding: 0;
@@ -225,17 +230,45 @@ a {
   position: static;
 }
 
+.nav-caret-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.1rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: transparent;
+  transition: background 0.18s ease;
+}
+
+.nav-item--mega:hover .nav-caret-wrap,
+.nav-item--mega:focus-within .nav-caret-wrap,
+.nav-item--mega.is-open .nav-caret-wrap,
+.mainbar:has(.mega-menu:hover) .nav-item--mega .nav-caret-wrap {
+  background: var(--nav-mega-accent);
+}
+
 .nav-caret {
   width: 0.65rem;
   height: 0.65rem;
   opacity: 0.85;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.18s ease;
 }
 
-.nav-item--mega:hover .nav-trigger .nav-caret,
-.nav-item--mega:focus-within .nav-trigger .nav-caret,
-.nav-item--mega.is-open .nav-trigger .nav-caret {
+.nav-item--mega:hover .nav-caret,
+.nav-item--mega:focus-within .nav-caret,
+.nav-item--mega.is-open .nav-caret,
+.mainbar:has(.mega-menu:hover) .nav-item--mega .nav-caret {
   transform: rotate(180deg);
+  opacity: 1;
+  color: var(--navy);
+}
+
+.nav-item--mega:hover .nav-trigger,
+.nav-item--mega:focus-within .nav-trigger,
+.nav-item--mega.is-open .nav-trigger,
+.mainbar:has(.mega-menu:hover) .nav-item--mega .nav-trigger {
+  color: var(--nav-mega-accent);
 }
 
 /* ——— Üyelik mega menü ——— */
@@ -245,20 +278,31 @@ a {
   left: 0;
   right: 0;
   z-index: 60;
-  padding-top: 0.35rem;
+  padding-top: 0.65rem;
+  margin-top: -0.5rem;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(0.4rem);
+  transform: translateY(0.25rem);
   transition:
     opacity 0.22s ease,
     transform 0.22s ease,
     visibility 0.22s;
 }
 
+.mega-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.85rem;
+}
+
 .mainbar:has(.nav-item--mega:hover) .mega-menu,
 .mainbar:has(.nav-item--mega:focus-within) .mega-menu,
-.mainbar:has(.nav-item--mega.is-open) .mega-menu {
+.mainbar:has(.nav-item--mega.is-open) .mega-menu,
+.mainbar:has(.mega-menu:hover) .mega-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
