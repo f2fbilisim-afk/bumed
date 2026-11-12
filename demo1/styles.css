@@ -216,8 +216,10 @@ a {
 }
 
 .nav a:hover,
-.nav .nav-link:hover {
-  color: var(--lime-bright);
+.nav a:focus-visible,
+.nav .nav-link:hover,
+.nav .nav-link:focus-visible {
+  color: var(--nav-mega-accent);
 }
 
 .nav-item--mega .nav-trigger:hover {
