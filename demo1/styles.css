@@ -94,7 +94,7 @@ a {
 .utility-start {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.65rem;
   min-width: 0;
 }
 
@@ -133,28 +133,27 @@ a {
 .utility-social {
   display: flex;
   align-items: center;
-  gap: 1.15rem;
+  gap: 0.5rem;
 }
 
 .utility-social a {
   display: grid;
   place-items: center;
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: var(--navy);
   line-height: 1;
-  transition: color 0.15s ease, transform 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .utility-social a .fa-brands {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   display: block;
   line-height: 1;
 }
 
 .utility-social a:hover {
   color: var(--brand-navy);
-  transform: translateY(-1px);
 }
 
 .utility-bar .lang-switch {
