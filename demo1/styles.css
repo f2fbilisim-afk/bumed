@@ -256,9 +256,9 @@ a {
     visibility 0.22s;
 }
 
-.nav-item--mega:hover .mega-menu,
-.nav-item--mega:focus-within .mega-menu,
-.nav-item--mega.is-open .mega-menu {
+.mainbar:has(.nav-item--mega:hover) .mega-menu,
+.mainbar:has(.nav-item--mega:focus-within) .mega-menu,
+.mainbar:has(.nav-item--mega.is-open) .mega-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -266,14 +266,13 @@ a {
 }
 
 .mega-menu-wrap {
-  display: flex;
-  justify-content: flex-end;
+  width: 100%;
 }
 
 .mega-menu-panel {
   position: relative;
-  width: min(56rem, 100%);
-  margin-right: clamp(0rem, 8vw, 4rem);
+  width: 100%;
+  margin: 0;
   padding: 1.65rem 1.85rem;
   background: var(--white);
   border-radius: 14px;
@@ -281,8 +280,8 @@ a {
     0 4px 6px rgba(16, 31, 90, 0.04),
     0 20px 48px rgba(16, 31, 90, 0.12);
   display: grid;
-  grid-template-columns: 1fr 1fr minmax(12.5rem, 15.5rem);
-  gap: 0 1.25rem;
+  grid-template-columns: 1fr 1fr minmax(12.5rem, 18rem);
+  gap: 0 1.5rem;
   font-family: "Open Sans", var(--font);
   color: var(--navy);
 }
@@ -291,11 +290,11 @@ a {
   content: "";
   position: absolute;
   top: -8px;
-  right: 18%;
+  left: var(--mega-pointer-left, 3rem);
   width: 16px;
   height: 16px;
   background: var(--white);
-  transform: rotate(45deg);
+  transform: translateX(-50%) rotate(45deg);
   box-shadow: -2px -2px 4px rgba(16, 31, 90, 0.06);
 }
 
