@@ -19,8 +19,9 @@
   --muted: #56607a;
   --brand-navy: #202c64;
   --text-body-muted: #5f6b82;
-  --container-max: 1320px;
-  --container-pad: clamp(16px, 4vw, 24px);
+  /* bogazici.edu.tr .container ile hizalı (~1550px) */
+  --container-max: 1550px;
+  --container-pad: clamp(12px, 1.35vw, 28px);
   --pad-y: clamp(4.5rem, 9vw, 7.5rem);
   --font: "Montserrat", system-ui, sans-serif;
   --font-heading: "Montserrat", system-ui, sans-serif;
