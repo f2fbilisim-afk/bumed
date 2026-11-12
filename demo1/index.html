@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261112hub3" />
+  <link rel="stylesheet" href="styles.css?v=20261112split50" />
 </head>
 <body>
   <header class="site-header">
@@ -278,11 +278,11 @@
 
     <section class="social-hub" id="sosyal-hub" aria-labelledby="social-hub-voices-heading">
       <div class="wrap social-hub-grid">
-        <div class="social-hub-voices" aria-labelledby="social-hub-voices-heading">
-          <svg class="social-hub-scribble social-hub-scribble--voices" viewBox="0 0 48 32" aria-hidden="true">
+        <div class="social-hub-pane social-hub-voices" aria-labelledby="social-hub-voices-heading">
+          <svg class="social-hub-scribble" viewBox="0 0 48 32" aria-hidden="true">
             <path d="M6 22c8-14 18-18 28-14M34 4l6 4-4 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
           </svg>
-          <div class="social-hub-shorts-track">
+          <div class="social-hub-media-track social-hub-shorts-track">
             <a class="short-card" href="https://www.youtube.com/shorts/uG89a_67vFo" target="_blank" rel="noopener noreferrer">
               <img src="https://i.ytimg.com/vi/uG89a_67vFo/oardefault.jpg" width="360" height="640" alt="" loading="lazy" />
               <span class="short-card-caption">Olamasak da kalbimiz sizinle!</span>
@@ -302,8 +302,8 @@
               <span class="short-card-brand"><img src="logo.png" width="72" height="24" alt="BÜMED" loading="lazy" /></span>
             </a>
           </div>
-          <div class="social-hub-voices-foot">
-            <div class="social-hub-voices-copy">
+          <div class="social-hub-pane-foot">
+            <div class="social-hub-pane-copy">
               <h2 class="social-hub-title" id="social-hub-voices-heading">BÜMED'DEN SESLER</h2>
               <p class="social-hub-lead">Dünyanın farklı yerlerinden mezunlarımızın yaşamlarına, hikâyelerine ve Boğaziçi ruhuna kulak verin.</p>
             </div>
@@ -313,33 +313,11 @@
             </a>
           </div>
         </div>
-        <div class="social-hub-events" aria-labelledby="social-hub-events-heading">
-          <svg class="social-hub-scribble social-hub-scribble--events-top" viewBox="0 0 40 28" aria-hidden="true">
+        <aside class="social-hub-pane social-hub-insta" aria-labelledby="social-hub-insta-heading">
+          <svg class="social-hub-scribble" viewBox="0 0 40 28" aria-hidden="true">
             <path d="M8 18c6-10 14-14 24-8M28 6l5 3-3 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
           </svg>
-          <h2 class="social-hub-events-title" id="social-hub-events-heading">BÜMED<br />ETKİNLİKLERİ</h2>
-          <p class="social-hub-events-text">Buluşmalar, söyleşiler, atölyeler ve daha fazla etkinlikte bir araya geliyoruz.</p>
-          <a class="btn btn-social-events" href="#etkinlikler">
-            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-            Tüm Etkinlikleri Keşfet
-            <span aria-hidden="true">→</span>
-          </a>
-          <svg class="social-hub-scribble social-hub-scribble--events-btm" viewBox="0 0 56 24" aria-hidden="true">
-            <path d="M4 16c12 4 28-2 40 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-          </svg>
-        </div>
-        <aside class="social-hub-insta" aria-labelledby="social-hub-insta-heading">
-          <header class="social-hub-insta-head">
-            <a class="social-hub-insta-profile" href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-              <span class="social-hub-insta-handle">@bumedofficial</span>
-            </a>
-            <span class="social-hub-insta-divider" aria-hidden="true"></span>
-            <a class="social-hub-insta-recent" href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer" id="social-hub-insta-heading">
-              Son Paylaşımlar <span aria-hidden="true">→</span>
-            </a>
-          </header>
-          <div class="social-hub-insta-grid" role="list">
+          <div class="social-hub-media-track social-hub-insta-grid" role="list">
             <a class="insta-card" href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer" role="listitem">
               <span class="insta-card-type" aria-hidden="true"><i class="fa-regular fa-clone"></i></span>
               <img src="instagram-1.jpg?v=20261112ig1" width="289" height="387" alt="BÜMED Instagram paylaşımı 1" loading="lazy" />
@@ -351,6 +329,23 @@
             <a class="insta-card" href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer" role="listitem">
               <span class="insta-card-type" aria-hidden="true"><i class="fa-regular fa-clone"></i></span>
               <img src="instagram-3.jpg?v=20261112ig1" width="289" height="387" alt="10 Kasım — Saygı, minnet ve özlemle" loading="lazy" />
+            </a>
+          </div>
+          <div class="social-hub-pane-foot social-hub-pane-foot--insta">
+            <div class="social-hub-pane-copy">
+              <h2 class="social-hub-title" id="social-hub-insta-heading">BÜMED ETKİNLİKLERİ</h2>
+              <p class="social-hub-lead">Buluşmalar, söyleşiler, atölyeler ve daha fazla etkinlikte bir araya geliyoruz.</p>
+              <p class="social-hub-insta-meta">
+                <a href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i> @bumedofficial
+                </a>
+                <span aria-hidden="true">·</span> Son paylaşımlar
+              </p>
+            </div>
+            <a class="btn btn-social-events" href="#etkinlikler">
+              <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+              Tüm Etkinlikleri Keşfet
+              <span aria-hidden="true">→</span>
             </a>
           </div>
         </aside>

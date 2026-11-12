@@ -1202,41 +1202,33 @@ a {
   background: var(--lime-bright);
 }
 
-/* ——— Hero altı: Sesler / Etkinlikler / Instagram (mockup) ——— */
+/* ——— Hero altı: YouTube 50% | Instagram 50% ——— */
 .social-hub {
-  --social-hub-media-h: clamp(16rem, 23.5vw, 20.5rem);
+  --social-hub-media-h: clamp(15.5rem, 22vw, 19.5rem);
   padding-block: clamp(2.5rem, 5vw, 3.75rem);
   background: var(--white);
 }
 
 .social-hub-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(9.5rem, 0.34fr) minmax(0, 1fr);
-  gap: clamp(0.85rem, 1.6vw, 1.35rem);
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: stretch;
 }
 
-.social-hub-voices {
-  position: relative;
-  padding-right: clamp(0.35rem, 1vw, 0.75rem);
-}
-
-.social-hub-voices .social-hub-scribble--voices {
-  margin-bottom: 0.4rem;
-}
-
-.social-hub-events {
-  position: relative;
+.social-hub-pane {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding-inline: clamp(0.65rem, 1.2vw, 1rem);
-  border-inline: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
-  min-height: calc(var(--social-hub-media-h) + 4.5rem);
+  min-width: 0;
 }
 
 .social-hub-insta {
-  padding-left: clamp(0.25rem, 0.8vw, 0.5rem);
+  padding-left: clamp(0.85rem, 1.8vw, 1.35rem);
+  border-left: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
+}
+
+.social-hub-pane .social-hub-scribble {
+  margin-bottom: 0.4rem;
 }
 
 .social-hub-title {
@@ -1263,14 +1255,14 @@ a {
   margin-bottom: 0.35rem;
 }
 
-.social-hub-shorts-track {
+.social-hub-media-track {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.55rem, 1vw, 0.85rem);
   height: var(--social-hub-media-h);
 }
 
-.social-hub-voices-foot {
+.social-hub-pane-foot {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -1278,9 +1270,28 @@ a {
   margin-top: clamp(1rem, 2vw, 1.35rem);
 }
 
-.social-hub-voices-copy {
+.social-hub-pane-copy {
   flex: 1 1 auto;
   min-width: 0;
+}
+
+.social-hub-insta-meta {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-body-muted);
+}
+
+.social-hub-insta-meta a {
+  color: var(--navy);
+}
+
+.social-hub-insta-meta a:hover {
+  color: var(--brand-navy);
+}
+
+.social-hub-pane-foot--insta {
+  align-items: flex-end;
 }
 
 .short-card {
@@ -1370,16 +1381,23 @@ a {
 
 .social-hub-videos-cta {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 1.15rem;
+  gap: 0.45rem;
+  padding: 0.52rem 1.05rem;
   border-radius: 999px;
   border: 2px solid var(--nav-mega-accent);
-  background: transparent;
+  background: color-mix(in srgb, var(--nav-mega-accent) 10%, #fff);
   color: var(--navy);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
+  white-space: nowrap;
   transition: background 0.18s ease, gap 0.18s ease;
+}
+
+.social-hub-videos-cta .fa-play {
+  color: var(--nav-mega-accent);
+  font-size: 0.75rem;
 }
 
 .social-hub-videos-cta:hover {
@@ -1387,85 +1405,36 @@ a {
   gap: 0.65rem;
 }
 
-.social-hub-events-head {
-  margin-bottom: 0;
-}
-
 .social-hub-events-title {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.85rem;
   font-family: var(--font-heading);
-  font-size: clamp(1.15rem, 1.55vw, 1.45rem);
+  font-size: clamp(1.35rem, 1.75vw, 1.75rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.06;
   letter-spacing: 0.03em;
   color: var(--navy);
 }
 
 .social-hub-events-text {
-  margin: 0;
-  font-size: 0.82rem;
-  line-height: 1.5;
+  margin: 0 0 1.15rem;
+  font-size: 0.84rem;
+  line-height: 1.52;
   color: var(--text-body-muted);
-}
-
-.social-hub-events-photo {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: var(--social-hub-media-h);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 14px 32px rgba(16, 31, 90, 0.12);
-  border: 2px solid color-mix(in srgb, var(--nav-mega-accent) 28%, transparent);
-}
-
-.social-hub-events-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
-}
-
-.social-hub-events-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    color-mix(in srgb, var(--navy-deep) 72%, transparent) 0%,
-    transparent 55%
-  );
-  pointer-events: none;
-}
-
-.social-hub-events-photo-badge {
-  position: absolute;
-  left: 0.65rem;
-  bottom: 0.6rem;
-  z-index: 1;
-  padding: 0.28rem 0.65rem;
-  border-radius: 6px;
-  background: var(--nav-mega-accent);
-  color: var(--navy);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .btn-social-events {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  padding: 0.68rem 1rem;
+  gap: 0.45rem;
+  padding: 0.58rem 1rem;
   border-radius: 10px;
   background: var(--nav-mega-accent);
   color: var(--navy);
   font-size: 0.78rem;
   font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
   border: none;
   box-shadow: 0 10px 24px rgba(29, 253, 237, 0.22);
   transition: transform 0.18s ease, filter 0.18s ease;
@@ -1476,55 +1445,8 @@ a {
   filter: brightness(0.98);
 }
 
-.social-hub-scribble--events-top {
-  margin-bottom: 0.5rem;
-}
-
-.social-hub-insta-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.55rem 0.75rem;
-  margin-bottom: 0;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--navy);
-}
-
-.social-hub-insta-profile {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.social-hub-insta-profile .fa-instagram {
-  font-size: 1.15rem;
-}
-
-.social-hub-insta-divider {
-  width: 1px;
-  height: 1.1rem;
-  background: color-mix(in srgb, var(--navy) 22%, transparent);
-}
-
-.social-hub-insta-recent {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  color: var(--navy);
-  font-weight: 600;
-}
-
-.social-hub-insta-recent:hover {
-  color: var(--brand-navy);
-}
-
 .social-hub-insta-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.5rem, 0.9vw, 0.75rem);
-  width: 100%;
-  height: var(--social-hub-media-h);
+  /* extends .social-hub-media-track */
 }
 
 .insta-card {
@@ -1614,28 +1536,39 @@ a {
 
 @media (max-width: 1024px) {
   .social-hub {
-    --social-hub-media-h: clamp(12.5rem, 42vw, 15rem);
+    --social-hub-media-h: clamp(13.5rem, 38vw, 17rem);
   }
 
   .social-hub-grid {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: 2.25rem;
   }
 
-  .social-hub-col-head {
-    min-height: 0;
+  .social-hub-insta {
+    padding-left: 0;
+    border-left: none;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
   }
 
-  .social-hub-events {
-    max-width: 28rem;
+  .social-hub-pane-foot {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media (max-width: 640px) {
   .social-hub-shorts-track,
   .social-hub-insta-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 100%;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .short-card,
+  .insta-card {
+    height: auto;
+    aspect-ratio: 9 / 14;
+    max-height: 18rem;
   }
 }
 
