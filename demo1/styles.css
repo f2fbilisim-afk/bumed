@@ -11,6 +11,7 @@
   --sky: #e6f2ff;
   --turquoise: #16dcd8;
   --nav-mega-accent: #1dfded;
+  --mega-menu-bg: #c3c6d5;
   --white: #fff;
   --bg: #f7f9fc;
   --bg-section: #fafbfd;
@@ -318,7 +319,7 @@ a {
   width: 100%;
   margin: 0;
   padding: 1.65rem 1.85rem;
-  background: var(--white);
+  background: var(--mega-menu-bg);
   border-radius: 14px;
   box-shadow:
     0 4px 6px rgba(16, 31, 90, 0.04),
@@ -337,7 +338,7 @@ a {
   left: var(--mega-pointer-left, 3rem);
   width: 16px;
   height: 16px;
-  background: var(--white);
+  background: var(--mega-menu-bg);
   transform: translateX(-50%) rotate(45deg);
   box-shadow: -2px -2px 4px rgba(16, 31, 90, 0.06);
 }
