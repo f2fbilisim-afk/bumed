@@ -637,8 +637,11 @@ a {
 
 /* ——— Hero (mockup: sol lacivert panel + sağda kampüs) ——— */
 .hero {
+  --hero-h: clamp(440px, 52vw, 680px);
   position: relative;
-  min-height: clamp(440px, 52vw, 680px);
+  height: var(--hero-h);
+  min-height: var(--hero-h);
+  max-height: var(--hero-h);
   overflow: hidden;
 }
 
@@ -705,7 +708,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  min-height: clamp(440px, 52vw, 680px);
+  height: 100%;
+  min-height: var(--hero-h);
+  max-height: var(--hero-h);
   padding-bottom: clamp(2.5rem, 6vw, 3.5rem);
   padding-right: clamp(0rem, 2vw, 1rem);
   box-sizing: border-box;
@@ -713,9 +718,14 @@ a {
 
 .hero-inner {
   max-width: 34rem;
+  width: 100%;
+  min-height: 16.5rem;
   padding-block: 0;
   margin: 0;
   font-family: "Open Sans", var(--font);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .kicker {
@@ -734,6 +744,8 @@ a {
   font-size: calc(0.7rem + 3pt);
   color: var(--nav-mega-accent);
   text-shadow: none;
+  flex-shrink: 0;
+  min-height: 1.35rem;
 }
 
 .kicker-bar {
@@ -757,6 +769,8 @@ a {
   letter-spacing: -0.02em;
   color: #fff;
   text-shadow: 0 2px 28px rgba(8, 16, 48, 0.55);
+  flex-shrink: 0;
+  min-height: calc(2 * 1.12em);
 }
 
 .hero-text {
@@ -768,9 +782,13 @@ a {
   line-height: 1.6;
   max-width: 38ch;
   text-shadow: 0 1px 20px rgba(8, 16, 48, 0.5);
+  flex-shrink: 0;
+  min-height: calc(3.35 * 1.6em);
 }
 
 .btn-hero-cta {
+  flex-shrink: 0;
+  align-self: flex-start;
   background: var(--nav-mega-accent);
   color: var(--navy);
   border: none;
