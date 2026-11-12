@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261112he2" />
+  <link rel="stylesheet" href="styles.css?v=20261112he3" />
 </head>
 <body>
   <header class="site-header">
@@ -239,11 +239,15 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-label="Ana tanıtım">
-      <img class="hero-bg" src="hero.jpg?v=20261112he1" width="1024" height="576" alt="" />
+    <section class="hero" id="hero" aria-label="Ana tanıtım" data-hero>
+      <div class="hero-slides" aria-hidden="true">
+        <img class="hero-bg is-active" data-hero-slide width="1024" height="576" alt="" src="hero.jpg?v=20261112he3" />
+        <img class="hero-bg" data-hero-slide width="1024" height="576" alt="" src="hero-2.jpg?v=20261112he3" />
+        <img class="hero-bg" data-hero-slide width="1024" height="576" alt="" src="hero-3.jpg?v=20261112he3" />
+      </div>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="wrap hero-layout">
-        <div class="hero-inner">
+        <div class="hero-inner" data-hero-copy>
           <p class="kicker">
             <span class="kicker-bar" aria-hidden="true"></span>
             BOĞAZİÇİ RUHU
@@ -251,11 +255,11 @@
           <h1>Kuşaklar Boyu<br />Süren Bir Bağ</h1>
           <p class="hero-text">Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.</p>
           <a class="btn btn-hero-ghost" href="https://bumed.webonalti.net/">BÜMED'i Keşfet <span class="hero-arrow" aria-hidden="true">→</span></a>
-          <div class="hero-dots" aria-hidden="true">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-          </div>
+        </div>
+        <div class="hero-dots" data-hero-dots role="tablist" aria-label="Hero slaytları">
+          <button type="button" class="hero-dot is-active" role="tab" aria-selected="true" aria-label="Slayt 1"></button>
+          <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="Slayt 2"></button>
+          <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="Slayt 3"></button>
         </div>
       </div>
     </section>
@@ -785,6 +789,59 @@
   </footer>
   <script src="main.js?v=20261109" defer></script>
   <script>
+    (function () {
+      var hero = document.querySelector("[data-hero]");
+      if (hero) {
+        var slides = hero.querySelectorAll("[data-hero-slide]");
+        var dots = hero.querySelectorAll(".hero-dot");
+        var index = 0;
+        var timer = null;
+        var slideMeta = [
+          { art: false, pos: "55% 38%" },
+          { art: true, pos: "center center" },
+          { art: true, pos: "center center" },
+        ];
+
+        function goTo(i) {
+          index = (i + slides.length) % slides.length;
+          var meta = slideMeta[index] || slideMeta[0];
+          for (var s = 0; s < slides.length; s++) {
+            slides[s].classList.toggle("is-active", s === index);
+            if (s === index) slides[s].style.objectPosition = meta.pos;
+          }
+          for (var d = 0; d < dots.length; d++) {
+            var on = d === index;
+            dots[d].classList.toggle("is-active", on);
+            dots[d].setAttribute("aria-selected", on ? "true" : "false");
+          }
+          hero.classList.toggle("hero--art", meta.art);
+        }
+
+        function schedule() {
+          clearInterval(timer);
+          timer = setInterval(function () {
+            goTo(index + 1);
+          }, 6500);
+        }
+
+        for (var di = 0; di < dots.length; di++) {
+          (function (dotIndex) {
+            dots[dotIndex].addEventListener("click", function () {
+              goTo(dotIndex);
+              schedule();
+            });
+          })(di);
+        }
+
+        hero.addEventListener("mouseenter", function () {
+          clearInterval(timer);
+        });
+        hero.addEventListener("mouseleave", schedule);
+
+        goTo(0);
+        schedule();
+      }
+    })();
     (function () {
       var mainbar = document.querySelector(".mainbar");
       var hosts = document.querySelectorAll(".mega-nav-host");

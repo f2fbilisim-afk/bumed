@@ -644,6 +644,11 @@ a {
   overflow: hidden;
 }
 
+.hero-slides {
+  position: absolute;
+  inset: 0;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -651,6 +656,26 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: 55% 38%;
+  opacity: 0;
+  transition: opacity 0.65s ease;
+}
+
+.hero-bg.is-active {
+  opacity: 1;
+}
+
+.hero.hero--art .hero-shade {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--navy) 22%, transparent) 0%,
+    transparent 42%
+  );
+}
+
+.hero.hero--art [data-hero-copy] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .hero-shade {
@@ -671,6 +696,9 @@ a {
 .hero-layout {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
 }
 
 .hero-inner {
@@ -738,19 +766,30 @@ a {
   display: flex;
   gap: 0.5rem;
   margin-top: 2.75rem;
+  position: relative;
+  z-index: 2;
 }
 
-.hero-dots span {
+.hero-dot {
   width: 7px;
   height: 7px;
+  padding: 0;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.7);
   background: transparent;
+  cursor: pointer;
 }
 
-.hero-dots span.is-active {
+.hero-dot.is-active {
   background: #fff;
   border-color: #fff;
+}
+
+.hero.hero--art .hero-dots {
+  position: absolute;
+  left: 0;
+  bottom: clamp(1.25rem, 3vw, 2rem);
+  margin-top: 0;
 }
 
 .btn {
