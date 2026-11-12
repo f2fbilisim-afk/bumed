@@ -476,24 +476,9 @@ a {
   border-color: var(--brand-navy);
 }
 
-.mega-menu-panel--about {
-  background: var(--white);
-}
-
-.mega-menu-panel--about::before {
-  background: var(--white);
-}
-
-.mega-menu-panel--about .mega-col:nth-child(2) {
-  border-right: 1px solid color-mix(in srgb, var(--navy) 10%, transparent);
-}
-
 .mega-col--feature {
-  margin: -1.65rem -1.85rem -1.65rem 0;
-  padding: 0;
+  padding: 0 0.35rem 0 1.35rem;
   border-right: none;
-  border-radius: 0 14px 14px 0;
-  overflow: hidden;
   min-height: 11.5rem;
 }
 
@@ -501,6 +486,8 @@ a {
   position: relative;
   height: 100%;
   min-height: 11.5rem;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .mega-feature img {

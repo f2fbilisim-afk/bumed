@@ -25,13 +25,13 @@ REMOTE="${USER}@${HOST}:${REMOTE_DIR}/"
 
 echo "Yükleniyor: ${SRC} -> ${REMOTE}"
 
-for f in index.html styles.css hero.jpg logo.png mega-house.jpg; do
+for f in index.html styles.css hero.jpg logo.png mega-house.png; do
   if [[ -f "${SRC}/${f}" ]]; then
     sshpass -e scp "${SSH_OPTS[@]}" "${SRC}/${f}" "$REMOTE"
   fi
 done
 
 sshpass -e ssh "${SSH_OPTS[@]}" "${USER}@${HOST}" \
-  "chown -R bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png,mega-house.jpg} 2>/dev/null || chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png}"
+  "chown -R bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png,mega-house.png} 2>/dev/null || chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png}"
 
 echo "Deploy tamamlandı: https://bumed.webonalti.net/demo1/"
