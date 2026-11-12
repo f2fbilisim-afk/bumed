@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261112storytype" />
+  <link rel="stylesheet" href="styles.css?v=20261112quickdock" />
 </head>
 <body>
   <header class="site-header">
@@ -825,6 +825,39 @@
       </div>
     </div>
   </footer>
+
+  <div class="quick-dock" data-quick-dock>
+    <div class="quick-dock-menu" id="quick-dock-menu" role="menu" aria-label="Hızlı bağlantılar" hidden>
+      <a class="quick-dock-item" role="menuitem" href="https://online.bumed.org.tr/">
+        <i class="fa-solid fa-id-badge" aria-hidden="true"></i>
+        Üyelik
+      </a>
+      <a class="quick-dock-item" role="menuitem" href="https://bogazici.network/" rel="noopener noreferrer" target="_blank">
+        <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+        Boğaziçi Network
+      </a>
+      <a class="quick-dock-item" role="menuitem" href="https://bumed.webonalti.net/uyelik/e-kart">
+        <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+        E-Kart
+      </a>
+      <a class="quick-dock-item" role="menuitem" href="mailto:info@bumed.org.tr">
+        <i class="fa-solid fa-headset" aria-hidden="true"></i>
+        Yardım
+      </a>
+    </div>
+    <button
+      type="button"
+      class="quick-dock-btn"
+      aria-expanded="false"
+      aria-controls="quick-dock-menu"
+      aria-haspopup="menu"
+      aria-label="Hızlı bağlantılar"
+    >
+      <i class="fa-solid fa-circle-nodes quick-dock-ico" aria-hidden="true"></i>
+      <i class="fa-solid fa-xmark quick-dock-close" aria-hidden="true"></i>
+    </button>
+  </div>
+
   <script>
     (function () {
       var hero = document.querySelector("[data-hero]");
@@ -1090,6 +1123,37 @@
         syncScrollHint();
         window.addEventListener("scroll", syncScrollHint, { passive: true });
       }
+    })();
+
+    (function () {
+      var dock = document.querySelector("[data-quick-dock]");
+      if (!dock) return;
+      var btn = dock.querySelector(".quick-dock-btn");
+      var menu = dock.querySelector(".quick-dock-menu");
+      if (!btn || !menu) return;
+
+      function setOpen(open) {
+        dock.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        if (open) menu.removeAttribute("hidden");
+        else menu.setAttribute("hidden", "");
+      }
+
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setOpen(!dock.classList.contains("is-open"));
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!dock.contains(e.target)) setOpen(false);
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          setOpen(false);
+          btn.focus();
+        }
+      });
     })();
 
   </script>
