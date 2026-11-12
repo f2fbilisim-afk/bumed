@@ -140,8 +140,8 @@ a {
 }
 
 .utility-social svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .utility-social a:hover {
@@ -226,14 +226,20 @@ a {
 .search-btn {
   display: grid;
   place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.85rem;
+  height: 2.85rem;
   padding: 0;
   border: none;
   border-radius: 0;
   background: transparent;
   color: #fff;
   cursor: pointer;
+}
+
+.search-btn svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  stroke-width: 2.25;
 }
 
 .search-btn:hover {
