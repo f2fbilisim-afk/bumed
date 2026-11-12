@@ -130,7 +130,7 @@ a {
 .utility-social {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1.05rem;
 }
 
 .utility-social a {
