@@ -7,7 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261112s" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css?v=20261112fa2" />
 </head>
 <body>
   <header class="site-header">
@@ -23,27 +24,16 @@
           <span class="utility-divider" aria-hidden="true"></span>
           <div class="utility-social" aria-label="Sosyal medya">
             <a href="https://www.facebook.com/bumedofficial" rel="noopener noreferrer" aria-label="Facebook">
-              <svg class="utility-social-glyph" viewBox="0 0 24 24" aria-hidden="true">
-                <text x="12" y="18.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="currentColor">f</text>
-              </svg>
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
             </a>
             <a href="https://www.instagram.com/bumedofficial/" rel="noopener noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <rect x="4.25" y="4.25" width="15.5" height="15.5" rx="4"/>
-                <circle cx="12" cy="12" r="3.35"/>
-                <circle cx="17.15" cy="6.85" r="0.85" fill="currentColor" stroke="none"/>
-              </svg>
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
             </a>
             <a href="https://www.youtube.com/@BUMEDofficial" rel="noopener noreferrer" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="7" width="18" height="10" rx="2.75" fill="currentColor"/>
-                <path d="M10 9.8v4.4l5.2-2.2L10 9.8z" fill="#fff"/>
-              </svg>
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
             </a>
             <a href="https://www.linkedin.com/company/bumed/" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg class="utility-social-glyph" viewBox="0 0 24 24" aria-hidden="true">
-                <text x="12" y="17.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="currentColor">in</text>
-              </svg>
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -59,15 +49,172 @@
           <img src="logo.png" alt="Boğaziçi Üniversitesi Mezunlar Derneği" class="logo" />
         </a>
         <nav class="nav" aria-label="Ana menü">
-          <div class="nav-item nav-item--mega">
+          <div class="nav-item nav-item--mega mega-nav-host">
             <button type="button" class="nav-link nav-trigger" aria-expanded="false" aria-controls="mega-uyelik" id="nav-uyelik">
               Üyelik
               <span class="nav-caret-wrap" aria-hidden="true">
                 <svg class="nav-caret" viewBox="0 0 12 12"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
               </span>
             </button>
+            <div class="mega-menu" id="mega-uyelik" role="region" aria-labelledby="nav-uyelik">
+              <div class="wrap mega-menu-wrap">
+                <div class="mega-menu-panel">
+                  <div class="mega-col">
+                    <h3 class="mega-title">Üye İşlemleri</h3>
+                    <ul class="mega-list">
+                      <li>
+                        <a href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="7" r="3.5"/><path d="M3 20v-.5A5.5 5.5 0 0 1 8.5 14H9m8-7h3m-1.5-1.5v3"/><path d="M17.5 14a4 4 0 0 1 4 4v2"/></svg>
+                          Bize Katıl
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://online.bumed.org.tr/odeme">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.66-5.66"/><path d="M20 12a8 8 0 0 1-13.66 5.66"/><path d="M4 4v4h4M20 20v-4h-4"/></svg>
+                          Üyelik Yenileme
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/uyelik/neden-uye-olmalisiniz">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l2.2 6.8H21l-5.5 4 2.1 6.8L12 16.5 6.4 20.6l2.1-6.8L3 9.8h6.8z"/></svg>
+                          Üyelik Avantajları
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h3 class="mega-title">Mezun Merkezi</h3>
+                    <ul class="mega-list">
+                      <li>
+                        <a href="#programlar">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16v12H4z"/><path d="M8 7V5h8v2"/></svg>
+                          Programlar
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/mezunlar">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="8" r="2.5"/><circle cx="16" cy="9" r="2"/><path d="M4 19c.3-3 3.3-5 6-5s5.7 2 6 5M13 19c.2-2.2 2-3.8 4-3.8 1.8 0 3.4 1.2 3.8 3.8"/></svg>
+                          Mezunlar
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bogazici.network/" rel="noopener noreferrer">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 8v8l8 5 8-5V8z"/><path d="M4 8l8 5 8-5M12 13v8"/></svg>
+                          Boğaziçi Network
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/uyelik/e-kart">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="6" width="14" height="10" rx="2"/><rect x="7" y="10" width="14" height="10" rx="2"/></svg>
+                          E-Kartlar
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/mezunlar/ihtiyac-haritasi">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s6-4.5 6-10a6 6 0 1 0-12 0c0 5.5 6 10 6 10z"/><circle cx="12" cy="11" r="2"/></svg>
+                          İhtiyaç Haritası
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="mega-col mega-col--login">
+                    <div class="mega-login">
+                      <div class="mega-login-media">
+                        <img src="story-illustration.png" width="320" height="240" alt="BÜMED mezun topluluğu" loading="lazy" />
+                      </div>
+                      <div class="mega-login-body">
+                        <h3 class="mega-title mega-title--feature">Üye Girişi</h3>
+                        <p class="mega-login-text">Üyelik hesabınıza giriş yaparak size özel hizmetlere erişin.</p>
+                        <a class="mega-login-link" href="https://online.bumed.org.tr/">Giriş Yap</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <a href="#hikayemiz">Hakkımızda <svg class="nav-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          <div class="nav-item nav-item--mega mega-nav-host">
+            <button type="button" class="nav-link nav-trigger" aria-expanded="false" aria-controls="mega-hakkimizda" id="nav-hakkimizda">
+              Hakkımızda
+              <span class="nav-caret-wrap" aria-hidden="true">
+                <svg class="nav-caret" viewBox="0 0 12 12"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </span>
+            </button>
+            <div class="mega-menu" id="mega-hakkimizda" role="region" aria-labelledby="nav-hakkimizda">
+              <div class="wrap mega-menu-wrap">
+                <div class="mega-menu-panel">
+                  <div class="mega-col">
+                    <h3 class="mega-title">Kurumsal</h3>
+                    <ul class="mega-list">
+                      <li>
+                        <a href="https://bumed.webonalti.net/bumed/hakkimizda">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="8" r="2.5"/><circle cx="16" cy="9" r="2"/><path d="M4 19c.3-3 3.3-5 6-5s5.7 2 6 5M13 19c.2-2.2 2-3.8 4-3.8 1.8 0 3.4 1.2 3.8 3.8"/></svg>
+                          Biz Kimiz?
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/bumed/hakkimizda/tarihce">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 4h12v16H6z"/><path d="M9 8h6M9 12h6M9 16h4M12 4v3"/></svg>
+                          Dernek Yapısı
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/bumed/hakkimizda/tuzuk">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 4h10v16H7z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+                          Tüzük
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/bumed/hakkimizda/dokumanlar">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16v12H4z"/><path d="M8 4h8v4H8z"/><path d="M8 14h8"/></svg>
+                          Dökümanlar ve Raporlar
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/bumed/hakkimizda/is-ortaklarimiz">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M17 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M9.5 14.5 11 18h2l1.5-3.5M7 12h3M17 12h-3"/></svg>
+                          İş Ortaklarımız
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h3 class="mega-title">Mezun Evi</h3>
+                    <ul class="mega-list">
+                      <li>
+                        <a href="https://bumed.webonalti.net/bumed/bumed-house">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10 12 4l8 6v10H4z"/><path d="M9 20v-6h6v6"/></svg>
+                          BÜMED House Nedir?
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/bumed/bumed-house/fotograflar">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 16l4.5-5.5L14 16l3-4 3 5"/><circle cx="8" cy="8" r="1.5"/></svg>
+                          Fotoğraflar
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://bumed.webonalti.net/bumed/bumed-house/rezervasyon">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 4v4M16 4v4M4 11h16"/></svg>
+                          Rezervasyon
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="mega-col mega-col--feature">
+                    <div class="mega-feature">
+                      <img src="mega-house.jpg?v=20261112z" width="1024" height="916" alt="BÜMED House binası" loading="lazy" />
+                      <a class="mega-feature-cta" href="https://bumed.webonalti.net/bumed/bumed-house">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s6-4.5 6-10a6 6 0 1 0-12 0c0 5.5 6 10 6 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                        BÜMED House
+                        <span class="mega-feature-arrow" aria-hidden="true">→</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <a href="#etkinlikler">Etkinlikler</a>
           <a href="#destek">BÜMED'e Bağış</a>
         </nav>
@@ -78,155 +225,42 @@
           </button>
         </div>
       </div>
-      <div class="mega-menu" id="mega-uyelik" role="region" aria-labelledby="nav-uyelik">
-        <div class="wrap mega-menu-wrap">
-          <div class="mega-menu-panel">
-            <div class="mega-col">
-              <h3 class="mega-title">Üye İşlemleri</h3>
-              <ul class="mega-list">
-                <li>
-                  <a href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="7" r="3.5"/><path d="M3 20v-.5A5.5 5.5 0 0 1 8.5 14H9m8-7h3m-1.5-1.5v3"/><path d="M17.5 14a4 4 0 0 1 4 4v2"/></svg>
-                    Bize Katıl
-                  </a>
-                </li>
-                <li>
-                  <a href="https://online.bumed.org.tr/odeme">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.66-5.66"/><path d="M20 12a8 8 0 0 1-13.66 5.66"/><path d="M4 4v4h4M20 20v-4h-4"/></svg>
-                    Üyelik Yenileme
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bumed.webonalti.net/uyelik/neden-uye-olmalisiniz">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l2.2 6.8H21l-5.5 4 2.1 6.8L12 16.5 6.4 20.6l2.1-6.8L3 9.8h6.8z"/></svg>
-                    Üyelik Avantajları
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="mega-col">
-              <h3 class="mega-title">Mezun Merkezi</h3>
-              <ul class="mega-list">
-                <li>
-                  <a href="#programlar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16v12H4z"/><path d="M8 7V5h8v2"/></svg>
-                    Programlar
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bumed.webonalti.net/mezunlar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="8" r="2.5"/><circle cx="16" cy="9" r="2"/><path d="M4 19c.3-3 3.3-5 6-5s5.7 2 6 5M13 19c.2-2.2 2-3.8 4-3.8 1.8 0 3.4 1.2 3.8 3.8"/></svg>
-                    Mezunlar
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bogazici.network/" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 8v8l8 5 8-5V8z"/><path d="M4 8l8 5 8-5M12 13v8"/></svg>
-                    Boğaziçi Network
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bumed.webonalti.net/uyelik/e-kart">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="6" width="14" height="10" rx="2"/><rect x="7" y="10" width="14" height="10" rx="2"/></svg>
-                    E-Kartlar
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bumed.webonalti.net/mezunlar/ihtiyac-haritasi">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s6-4.5 6-10a6 6 0 1 0-12 0c0 5.5 6 10 6 10z"/><circle cx="12" cy="11" r="2"/></svg>
-                    İhtiyaç Haritası
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="mega-col mega-col--login">
-              <div class="mega-login">
-                <div class="mega-login-media">
-                  <img src="story-illustration.png" width="320" height="240" alt="BÜMED mezun topluluğu" loading="lazy" />
-                </div>
-                <div class="mega-login-body">
-                  <h3 class="mega-title mega-title--feature">Üye Girişi</h3>
-                  <p class="mega-login-text">Üyelik hesabınıza giriş yaparak size özel hizmetlere erişin.</p>
-                  <a class="mega-login-link" href="https://online.bumed.org.tr/">Giriş Yap</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero" aria-label="Ana tanıtım">
-      <img class="hero-bg" src="hero.jpg" width="2172" height="724" alt="" />
+    <section class="hero" id="hero" aria-label="Ana tanıtım" data-hero tabindex="0">
+      <div class="hero-slides" aria-hidden="true">
+        <img class="hero-bg is-active" data-hero-slide data-hero-pos="62% 38%" width="1024" height="576" alt="" src="hero.jpg?v=20261112he3" />
+        <img class="hero-bg" data-hero-slide data-hero-pos="50% 42%" width="1024" height="576" alt="" src="hero-2.jpg?v=20261112he3" />
+        <img class="hero-bg" data-hero-slide data-hero-pos="50% 42%" width="1024" height="576" alt="" src="hero-3.jpg?v=20261112he3" />
+      </div>
+      <div class="hero-warm" aria-hidden="true"></div>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="wrap hero-layout">
-        <div class="hero-inner">
+        <div class="hero-inner" data-hero-copy>
           <p class="kicker">
             <span class="kicker-bar" aria-hidden="true"></span>
-            BOĞAZİÇİ RUHU
+            <span data-hero-kicker>BOĞAZİÇİ RUHU</span>
           </p>
-          <h1>Kuşaklar Boyu<br />Süren Bir Bağ</h1>
-          <p class="hero-text">Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.</p>
-          <a class="btn btn-hero-ghost" href="https://bumed.webonalti.net/">BÜMED'i Keşfet <span class="hero-arrow" aria-hidden="true">→</span></a>
-          <div class="hero-dots" aria-hidden="true">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-          </div>
+          <h1 data-hero-title>Kuşaklar Boyu<br />Süren Bir Bağ</h1>
+          <p class="hero-text" data-hero-text>Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.</p>
+          <a class="btn btn-hero-cta" data-hero-cta href="https://bumed.webonalti.net/">BÜMED'i Keşfet <span class="hero-arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
-    </section>
-
-    <section class="shortcuts" aria-label="Hızlı erişim">
-      <div class="wrap shortcuts-row">
-        <a class="shortcut shortcut--sky" href="#">
-          <span class="shortcut-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M8 14h3"/></svg>
-          </span>
-          <span class="shortcut-text">
-            <span class="shortcut-name">E-Kart</span>
-            <span class="shortcut-sub">BÜMED Üye Kartı</span>
-          </span>
-        </a>
-        <a class="shortcut shortcut--donate" href="#">
-          <span class="shortcut-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10z"/></svg>
-          </span>
-          <span class="shortcut-text">
-            <span class="shortcut-name">Bağışçı Ol</span>
-            <span class="shortcut-sub">Burslara Destek Ver</span>
-          </span>
-        </a>
-        <a class="shortcut shortcut--dues" href="#">
-          <span class="shortcut-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-          </span>
-          <span class="shortcut-text">
-            <span class="shortcut-name">Aidat Öde</span>
-            <span class="shortcut-sub">Üyeliğini Güncel Tut</span>
-          </span>
-        </a>
-        <a class="shortcut shortcut--sky" href="#programlar">
-          <span class="shortcut-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><path d="M22 10v6M6 12.5V16a6 3 0 0 0 12 0v-3.5"/><path d="M12 6a4 4 0 0 0-4 4v2.5"/></svg>
-          </span>
-          <span class="shortcut-text">
-            <span class="shortcut-name">Akademi</span>
-            <span class="shortcut-sub">Eğitim ve Gelişim</span>
-          </span>
-        </a>
-        <a class="shortcut shortcut--sky" href="#etkinlikler">
-          <span class="shortcut-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          </span>
-          <span class="shortcut-text">
-            <span class="shortcut-name">Etkinlikler</span>
-            <span class="shortcut-sub">BÜMED'de Neler Var?</span>
-          </span>
-        </a>
-      </div>
+      <nav class="hero-rail" data-hero-controls aria-label="Hero kaydırma">
+        <div class="hero-rail-list" data-hero-dots role="tablist" aria-label="Hero slaytları">
+          <button type="button" class="hero-thumb is-active" role="tab" aria-selected="true" aria-label="Slayt 1: Boğaziçi ruhu">
+            <img src="hero.jpg?v=20261112he3" width="80" height="80" alt="" loading="lazy" />
+          </button>
+          <button type="button" class="hero-thumb" role="tab" aria-selected="false" aria-label="Slayt 2: BÜMED Etkinlikleri">
+            <img src="hero-2.jpg?v=20261112he3" width="80" height="80" alt="" loading="lazy" />
+          </button>
+          <button type="button" class="hero-thumb" role="tab" aria-selected="false" aria-label="Slayt 3: BÜMED büyüyor">
+            <img src="hero-3.jpg?v=20261112he3" width="80" height="80" alt="" loading="lazy" />
+          </button>
+        </div>
+      </nav>
     </section>
 
     <section class="block story-block" id="hikayemiz" aria-labelledby="story-heading">
@@ -702,47 +736,256 @@
       </div>
     </div>
   </footer>
-  <script src="main.js?v=20261109" defer></script>
   <script>
     (function () {
-      var item = document.querySelector(".nav-item--mega");
-      if (!item) return;
-      var trigger = item.querySelector(".nav-trigger");
-      var panel = document.querySelector(".mega-menu-panel");
-      var hoverMq = window.matchMedia("(hover: hover) and (pointer: fine)");
+      var hero = document.querySelector("[data-hero]");
+      if (hero) {
+        var slides = hero.querySelectorAll("[data-hero-slide]");
+        var dotsWrap = hero.querySelector("[data-hero-dots]");
+        var dots = dotsWrap ? dotsWrap.querySelectorAll(".hero-thumb") : [];
+        var prevBtn = hero.querySelector("[data-hero-prev]");
+        var nextBtn = hero.querySelector("[data-hero-next]");
+        var index = 0;
+        var timer = null;
+        var kickerEl = hero.querySelector("[data-hero-kicker]");
+        var titleEl = hero.querySelector("[data-hero-title]");
+        var textEl = hero.querySelector("[data-hero-text]");
+        var ctaEl = hero.querySelector("[data-hero-cta]");
+        var slideMeta = [
+          {
+            pos: "62% 38%",
+            kicker: "BOĞAZİÇİ RUHU",
+            title: "Kuşaklar Boyu<br />Süren Bir Bağ",
+            text:
+              "Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.",
+            cta: "BÜMED'i Keşfet",
+            href: "https://bumed.webonalti.net/",
+          },
+          {
+            pos: "50% 42%",
+            kicker: "BÜMED ETKİNLİKLERİ",
+            title: "BÜMED<br />Etkinlikleri",
+            text: "Kuşakları buluşturan, ilgi alanlarına hitap eden etkinliklerimizi keşfet.",
+            cta: "Etkinlikleri Keşfet",
+            href: "#etkinlikler",
+          },
+          {
+            pos: "50% 42%",
+            kicker: "BÜMED BÜYÜYOR",
+            title: "Mezunlar<br />Bir Arada",
+            text: "Kampüste ve şehirde büyüyen mezun topluluğumuza katılın.",
+            cta: "BÜMED'e Katıl",
+            href: "https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026",
+          },
+        ];
 
-      function syncMegaPointer() {
-        if (!trigger || !panel) return;
-        var tr = trigger.getBoundingClientRect();
-        var pr = panel.getBoundingClientRect();
-        var center = tr.left + tr.width / 2 - pr.left;
-        panel.style.setProperty("--mega-pointer-left", center + "px");
+        function applyCopy(meta) {
+          if (kickerEl) kickerEl.textContent = meta.kicker;
+          if (titleEl) titleEl.innerHTML = meta.title;
+          if (textEl) textEl.textContent = meta.text;
+          if (ctaEl) {
+            ctaEl.href = meta.href;
+            ctaEl.innerHTML =
+              meta.cta +
+              ' <span class="hero-arrow" aria-hidden="true">→</span>';
+          }
+        }
+
+        function syncSlidePositions() {
+          for (var s = 0; s < slides.length; s++) {
+            var pos = slideMeta[s] ? slideMeta[s].pos : slides[s].getAttribute("data-hero-pos");
+            if (pos) slides[s].style.objectPosition = pos;
+          }
+        }
+
+        function goTo(i) {
+          index = (i + slides.length) % slides.length;
+          var meta = slideMeta[index] || slideMeta[0];
+          applyCopy(meta);
+          syncSlidePositions();
+          for (var s = 0; s < slides.length; s++) {
+            slides[s].classList.toggle("is-active", s === index);
+          }
+          for (var d = 0; d < dots.length; d++) {
+            var on = d === index;
+            dots[d].classList.toggle("is-active", on);
+            dots[d].setAttribute("aria-selected", on ? "true" : "false");
+          }
+        }
+
+        function schedule() {
+          if (timer) clearInterval(timer);
+          timer = setInterval(function () {
+            goTo(index + 1);
+          }, 3000);
+        }
+
+        function userGo(i) {
+          goTo(i);
+          schedule();
+        }
+
+        for (var di = 0; di < dots.length; di++) {
+          (function (dotIndex) {
+            dots[dotIndex].addEventListener("click", function (e) {
+              e.preventDefault();
+              userGo(dotIndex);
+            });
+          })(di);
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            userGo(index - 1);
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            userGo(index + 1);
+          });
+        }
+
+        hero.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            userGo(index - 1);
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            userGo(index + 1);
+          }
+        });
+
+        hero.addEventListener("mouseenter", function () {
+          if (timer) clearInterval(timer);
+        });
+        hero.addEventListener("mouseleave", schedule);
+
+        syncSlidePositions();
+        goTo(0);
+        schedule();
+      }
+    })();
+    (function () {
+      var mainbar = document.querySelector(".mainbar");
+      var hosts = document.querySelectorAll(".mega-nav-host");
+      if (!mainbar || !hosts.length) return;
+
+      function inHostZone(node, host, trigger, mega) {
+        if (!node || !node.nodeType) return false;
+        return (
+          (trigger && (trigger === node || trigger.contains(node))) ||
+          (mega && (mega === node || mega.contains(node)))
+        );
       }
 
-      syncMegaPointer();
-      window.addEventListener("resize", syncMegaPointer);
-      item.addEventListener("mouseenter", syncMegaPointer);
-      item.addEventListener("focusin", syncMegaPointer);
-
-      trigger.addEventListener("click", function (e) {
-        if (hoverMq.matches) return;
-        e.preventDefault();
-        var open = item.classList.toggle("is-open");
-        trigger.setAttribute("aria-expanded", open ? "true" : "false");
-      });
-
-      document.addEventListener("click", function (e) {
-        if (!item.contains(e.target)) {
-          item.classList.remove("is-open");
-          trigger.setAttribute("aria-expanded", "false");
+      function syncMainbarOpen() {
+        var any = false;
+        for (var i = 0; i < hosts.length; i++) {
+          if (hosts[i].classList.contains("is-open")) any = true;
         }
+        mainbar.classList.toggle("is-mega-open", any);
+      }
+
+      function closeOthers(activeHost) {
+        for (var i = 0; i < hosts.length; i++) {
+          var host = hosts[i];
+          if (host === activeHost) continue;
+          host.classList.remove("is-open");
+          var tr = host.querySelector(".nav-trigger");
+          if (tr) tr.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      hosts.forEach(function (host) {
+        var trigger = host.querySelector(".nav-trigger");
+        var mega = host.querySelector(".mega-menu");
+        if (!trigger || !mega) return;
+
+        var panel = mega.querySelector(".mega-menu-panel");
+        var zone = [trigger, mega];
+        var closeTimer = null;
+
+        function syncMegaPointer() {
+          if (!trigger || !panel) return;
+          var tr = trigger.getBoundingClientRect();
+          var pr = panel.getBoundingClientRect();
+          var center = tr.left + tr.width / 2 - pr.left;
+          panel.style.setProperty("--mega-pointer-left", center + "px");
+        }
+
+        function setOpen(open) {
+          if (open) closeOthers(host);
+          host.classList.toggle("is-open", open);
+          trigger.setAttribute("aria-expanded", open ? "true" : "false");
+          syncMainbarOpen();
+          if (open) syncMegaPointer();
+        }
+
+        function clearClose() {
+          if (closeTimer) {
+            clearTimeout(closeTimer);
+            closeTimer = null;
+          }
+        }
+
+        function scheduleClose() {
+          clearClose();
+          closeTimer = setTimeout(function () {
+            setOpen(false);
+          }, 360);
+        }
+
+        syncMegaPointer();
+
+        zone.forEach(function (el) {
+          el.addEventListener("pointerenter", function () {
+            clearClose();
+            setOpen(true);
+          });
+          el.addEventListener("pointerleave", function (e) {
+            if (inHostZone(e.relatedTarget, host, trigger, mega)) return;
+            scheduleClose();
+          });
+        });
+
+        host.addEventListener("focusin", function () {
+          clearClose();
+          setOpen(true);
+        });
+
+        host.addEventListener("focusout", function (e) {
+          if (inHostZone(e.relatedTarget, host, trigger, mega)) return;
+          setOpen(false);
+        });
+
+        trigger.addEventListener("click", function (e) {
+          e.preventDefault();
+          clearClose();
+          setOpen(!host.classList.contains("is-open"));
+        });
+
+        host.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            setOpen(false);
+            trigger.focus();
+          }
+        });
       });
 
-      item.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          item.classList.remove("is-open");
-          trigger.setAttribute("aria-expanded", "false");
-          trigger.focus();
+      window.addEventListener("resize", function () {
+        for (var i = 0; i < hosts.length; i++) {
+          if (!hosts[i].classList.contains("is-open")) continue;
+          var panel = hosts[i].querySelector(".mega-menu-panel");
+          var trigger = hosts[i].querySelector(".nav-trigger");
+          if (!trigger || !panel) continue;
+          var tr = trigger.getBoundingClientRect();
+          var pr = panel.getBoundingClientRect();
+          panel.style.setProperty(
+            "--mega-pointer-left",
+            tr.left + tr.width / 2 - pr.left + "px"
+          );
         }
       });
     })();
