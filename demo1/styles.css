@@ -639,8 +639,6 @@ a {
 .hero {
   position: relative;
   min-height: clamp(440px, 52vw, 680px);
-  display: flex;
-  align-items: center;
   overflow: hidden;
 }
 
@@ -691,14 +689,16 @@ a {
   position: relative;
   z-index: 2;
   display: flex;
-  flex-direction: column;
-  min-height: inherit;
-  padding-bottom: clamp(3.25rem, 8vw, 4.5rem);
+  align-items: center;
+  justify-content: flex-start;
+  min-height: clamp(440px, 52vw, 680px);
+  padding-bottom: clamp(3.75rem, 9vw, 5rem);
+  box-sizing: border-box;
 }
 
 .hero-inner {
   max-width: 34rem;
-  padding-block: clamp(3rem, 6vw, 4.5rem) clamp(3.5rem, 7vw, 5rem);
+  padding-block: 0;
   margin: 0;
   font-family: "Open Sans", var(--font);
 }
