@@ -1711,7 +1711,7 @@ a {
 
 .bond-stage {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 1.18fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(21rem, 1.28fr) minmax(0, 1fr);
   gap: clamp(1.35rem, 3vw, 2.75rem);
   align-items: stretch;
 }
@@ -1791,12 +1791,13 @@ a {
 .bond-feature-copy h2 {
   margin: 0 0 0.7rem;
   font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  font-size: clamp(0.9rem, 0.48rem + 0.95vw, 1.32rem);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: 0.01em;
+  line-height: 1.2;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
   color: #fff;
+  white-space: nowrap;
 }
 
 .bond-feature-copy p {
