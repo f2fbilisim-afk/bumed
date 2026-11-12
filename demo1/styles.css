@@ -73,10 +73,10 @@ a {
 }
 
 .utility-bar {
-  background: var(--white);
+  background: var(--mega-menu-bg);
   color: var(--navy);
-  border-bottom: 1px solid color-mix(in srgb, var(--navy) 14%, transparent);
-  box-shadow: 0 1px 0 rgba(16, 31, 90, 0.05);
+  border-bottom: 1px solid color-mix(in srgb, var(--navy) 10%, transparent);
+  box-shadow: none;
 }
 
 .utility-row {
@@ -157,8 +157,8 @@ a {
 }
 
 .utility-bar .lang-switch {
-  border-color: color-mix(in srgb, var(--navy) 22%, transparent);
-  background: color-mix(in srgb, var(--navy) 4%, transparent);
+  border-color: color-mix(in srgb, var(--navy) 18%, transparent);
+  background: color-mix(in srgb, var(--white) 72%, var(--mega-menu-bg));
 }
 
 .utility-bar .lang-opt {
