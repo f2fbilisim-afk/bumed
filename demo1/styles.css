@@ -139,21 +139,22 @@ a {
 .utility-social a {
   display: grid;
   place-items: center;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.85rem;
+  height: 1.85rem;
   color: var(--navy);
-  line-height: 0;
+  line-height: 1;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
-.utility-social svg,
-.utility-social-glyph {
-  width: 1.7rem;
-  height: 1.7rem;
-  flex-shrink: 0;
+.utility-social a .fa-brands {
+  font-size: 1.2rem;
+  display: block;
+  line-height: 1;
 }
 
 .utility-social a:hover {
   color: var(--brand-navy);
+  transform: translateY(-1px);
 }
 
 .utility-bar .lang-switch {
