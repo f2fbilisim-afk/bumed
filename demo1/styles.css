@@ -70,8 +70,10 @@ a {
 }
 
 .utility-bar {
-  background: var(--navy-dark);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--white);
+  color: var(--navy);
+  border-bottom: 1px solid color-mix(in srgb, var(--navy) 14%, transparent);
+  box-shadow: 0 1px 0 rgba(16, 31, 90, 0.05);
 }
 
 .utility-row {
@@ -83,7 +85,7 @@ a {
   padding-block: 0.4rem;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
 }
 
 .utility-start {
@@ -102,7 +104,7 @@ a {
 }
 
 .utility-phone:hover {
-  color: var(--lime-bright);
+  color: var(--brand-navy);
 }
 
 .utility-ico {
@@ -111,7 +113,13 @@ a {
   flex-shrink: 0;
 }
 
-.utility-divider,
+.utility-divider {
+  width: 1px;
+  height: 1.25rem;
+  background: color-mix(in srgb, var(--navy) 24%, transparent);
+  flex-shrink: 0;
+}
+
 .nav-divider {
   width: 1px;
   height: 1.25rem;
@@ -128,7 +136,7 @@ a {
 .utility-social a {
   display: grid;
   place-items: center;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
 }
 
 .utility-social svg {
@@ -137,11 +145,26 @@ a {
 }
 
 .utility-social a:hover {
-  color: var(--lime-bright);
+  color: var(--brand-navy);
+}
+
+.utility-bar .lang-switch {
+  border-color: color-mix(in srgb, var(--navy) 22%, transparent);
+  background: color-mix(in srgb, var(--navy) 4%, transparent);
+}
+
+.utility-bar .lang-opt {
+  color: color-mix(in srgb, var(--navy) 55%, transparent);
+}
+
+.utility-bar .lang-opt.is-on {
+  background: var(--navy);
+  color: var(--white);
 }
 
 .mainbar {
   background: var(--navy);
+  box-shadow: 0 4px 24px rgba(8, 16, 48, 0.18);
 }
 
 .mainbar-row {
