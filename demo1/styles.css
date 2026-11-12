@@ -662,10 +662,30 @@ a {
   opacity: 1;
 }
 
-.hero-shade {
+.hero-warm {
   position: absolute;
   inset: 0;
   z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 95% 115% at -14% 36%,
+      rgba(255, 138, 52, 0.52) 0%,
+      rgba(255, 98, 38, 0.24) 30%,
+      transparent 56%
+    ),
+    radial-gradient(
+      ellipse 58% 72% at 2% 92%,
+      rgba(255, 192, 88, 0.3) 0%,
+      transparent 54%
+    );
+  mix-blend-mode: screen;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   pointer-events: none;
   background: linear-gradient(
     90deg,
