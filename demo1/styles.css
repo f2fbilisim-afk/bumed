@@ -2586,6 +2586,186 @@ a {
   opacity: 1;
 }
 
+/* ——— Geçmiş etkinlikler ——— */
+.events-past {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  background: #fff;
+}
+
+.events-intro--left {
+  max-width: none;
+  margin: 0 0 clamp(2rem, 3.5vw, 2.75rem);
+  text-align: left;
+}
+
+.events-intro--left .events-scribble {
+  margin: 0 0 0.65rem;
+}
+
+.past-events-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.past-event {
+  border-bottom: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
+}
+
+.past-event:first-child {
+  border-top: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
+}
+
+.past-event-row {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr) minmax(14rem, 22rem);
+  gap: clamp(1rem, 2.2vw, 1.75rem);
+  align-items: center;
+  padding-block: clamp(1.35rem, 2.5vw, 2rem);
+}
+
+.past-event-when {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: clamp(0.85rem, 1.5vw, 1.35rem);
+  border-right: 1px solid color-mix(in srgb, var(--navy) 14%, transparent);
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.past-event-dow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--navy) 70%, var(--muted));
+}
+
+.past-event-day {
+  margin: 0.15rem 0;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  letter-spacing: -0.03em;
+}
+
+.past-event-mon {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.past-event-time,
+.past-event-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--navy) 82%, var(--muted));
+}
+
+.past-event-time i,
+.past-event-loc i {
+  font-size: 0.72rem;
+  color: var(--navy);
+}
+
+.past-event-main h3 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+.past-event-desc {
+  margin: 0;
+  max-width: 42em;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-body-muted);
+}
+
+.past-event-aside {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.past-event-banner {
+  flex: 1;
+  min-height: 5.25rem;
+  margin: 0;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.past-event-banner--sky {
+  box-shadow: inset 0 0 0 999px color-mix(in srgb, #1a4f9e 35%, transparent);
+}
+
+.past-event-banner--navy {
+  box-shadow: inset 0 0 0 999px color-mix(in srgb, var(--navy) 55%, transparent);
+}
+
+.past-event-banner--peach {
+  box-shadow: inset 0 0 0 999px color-mix(in srgb, #f2c9b8 25%, transparent);
+}
+
+.past-event-go {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  background: var(--nav-mega-accent);
+  color: var(--navy);
+  font-size: 0.85rem;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.past-event-go:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+.past-events-cta {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+.btn-past-events-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.68rem 1.2rem 0.68rem 1.05rem;
+  border-radius: 999px;
+  border: 2px solid var(--nav-mega-accent);
+  background: #fff;
+  color: var(--navy);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.25;
+  transition:
+    background 0.18s ease,
+    gap 0.18s ease;
+}
+
+.btn-past-events-all i {
+  color: var(--nav-mega-accent);
+}
+
+.btn-past-events-all:hover {
+  background: color-mix(in srgb, var(--nav-mega-accent) 12%, #fff);
+  gap: 0.7rem;
+  opacity: 1;
+}
+
 /* ——— Partners ——— */
 .block-partners {
   background: var(--bg);
@@ -2754,6 +2934,17 @@ a {
   .events-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .past-event-row {
+    grid-template-columns: 5rem minmax(0, 1fr);
+  }
+  .past-event-aside {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+  .past-event-banner {
+    max-width: 22rem;
+    min-height: 6rem;
+  }
   .footer-main {
     grid-template-columns: 1fr 1fr;
   }
@@ -2802,6 +2993,17 @@ a {
   }
   .events-grid {
     grid-template-columns: 1fr;
+  }
+  .past-event-row {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .past-event-aside {
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+  .past-event-banner {
+    min-height: 5rem;
   }
   .akademi-head {
     align-items: flex-start;
