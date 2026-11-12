@@ -681,6 +681,8 @@ a {
 .hero-shade {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background: linear-gradient(
     90deg,
     var(--navy-deep) 0%,
@@ -696,10 +698,11 @@ a {
 
 .hero-layout {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   min-height: inherit;
+  padding-bottom: clamp(3.25rem, 8vw, 4.5rem);
 }
 
 .hero-inner {
@@ -763,34 +766,83 @@ a {
   opacity: 0.9;
 }
 
+.hero-controls {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: clamp(1.35rem, 3.2vw, 2.35rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.65rem, 2vw, 1.1rem);
+  pointer-events: none;
+}
+
+.hero-controls > * {
+  pointer-events: auto;
+}
+
+.hero-nav {
+  display: grid;
+  place-items: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--navy-deep) 62%, transparent);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(8, 16, 48, 0.22);
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.hero-nav:hover {
+  background: color-mix(in srgb, var(--navy) 78%, transparent);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
 .hero-dots {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 2.75rem;
-  position: relative;
-  z-index: 2;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 1.25rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--navy-deep) 50%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   padding: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: transparent;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.45);
   cursor: pointer;
+  transition:
+    width 0.22s ease,
+    background 0.22s ease;
 }
 
 .hero-dot.is-active {
+  width: 1.5rem;
   background: #fff;
-  border-color: #fff;
 }
 
-.hero.hero--art .hero-dots {
-  position: absolute;
-  left: 0;
-  bottom: clamp(1.25rem, 3vw, 2rem);
-  margin-top: 0;
+.hero-dot:hover:not(.is-active) {
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .btn {
