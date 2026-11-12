@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261112he10" />
+  <link rel="stylesheet" href="styles.css?v=20261112he12" />
 </head>
 <body>
   <header class="site-header">
@@ -250,17 +250,14 @@
         <div class="hero-inner" data-hero-copy>
           <p class="kicker">
             <span class="kicker-bar" aria-hidden="true"></span>
-            BOĞAZİÇİ RUHU
+            <span data-hero-kicker>BOĞAZİÇİ RUHU</span>
           </p>
-          <h1>Kuşaklar Boyu<br />Süren Bir Bağ</h1>
-          <p class="hero-text">Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.</p>
-          <a class="btn btn-hero-ghost" href="https://bumed.webonalti.net/">BÜMED'i Keşfet <span class="hero-arrow" aria-hidden="true">→</span></a>
+          <h1 data-hero-title>Kuşaklar Boyu<br />Süren Bir Bağ</h1>
+          <p class="hero-text" data-hero-text>Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.</p>
+          <a class="btn btn-hero-cta" data-hero-cta href="https://bumed.webonalti.net/">BÜMED'i Keşfet <span class="hero-arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
       <nav class="hero-rail" data-hero-controls aria-label="Hero kaydırma">
-        <button type="button" class="hero-rail-arrow" data-hero-prev aria-label="Önceki slayt">
-          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M18 15 12 9 6 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
         <div class="hero-rail-list" data-hero-dots role="tablist" aria-label="Hero slaytları">
           <button type="button" class="hero-thumb is-active" role="tab" aria-selected="true" aria-label="Slayt 1: Boğaziçi ruhu">
             <img src="hero.jpg?v=20261112he3" width="80" height="80" alt="" loading="lazy" />
@@ -272,9 +269,6 @@
             <img src="hero-3.jpg?v=20261112he3" width="80" height="80" alt="" loading="lazy" />
           </button>
         </div>
-        <button type="button" class="hero-rail-arrow" data-hero-next aria-label="Sonraki slayt">
-          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
       </nav>
     </section>
 
@@ -812,15 +806,54 @@
         var nextBtn = hero.querySelector("[data-hero-next]");
         var index = 0;
         var timer = null;
+        var kickerEl = hero.querySelector("[data-hero-kicker]");
+        var titleEl = hero.querySelector("[data-hero-title]");
+        var textEl = hero.querySelector("[data-hero-text]");
+        var ctaEl = hero.querySelector("[data-hero-cta]");
         var slideMeta = [
-          { art: false, pos: "62% 38%" },
-          { art: true, pos: "50% 50%" },
-          { art: true, pos: "50% 50%" },
+          {
+            pos: "62% 38%",
+            kicker: "BOĞAZİÇİ RUHU",
+            title: "Kuşaklar Boyu<br />Süren Bir Bağ",
+            text:
+              "Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.",
+            cta: "BÜMED'i Keşfet",
+            href: "https://bumed.webonalti.net/",
+          },
+          {
+            pos: "50% 50%",
+            kicker: "BÜMED AKADEMİ",
+            title: "Yaklaşan<br />Etkinlikler",
+            text: "Kendini keşfet. Ritme katıl. İstanbul'u yeniden tanı.",
+            cta: "Programları Keşfet",
+            href: "#programlar",
+          },
+          {
+            pos: "50% 50%",
+            kicker: "BÜMED BÜYÜYOR",
+            title: "Mezunlar<br />Bir Arada",
+            text: "Kampüste ve şehirde büyüyen mezun topluluğumuza katılın.",
+            cta: "Etkinlikleri Gör",
+            href: "#etkinlikler",
+          },
         ];
+
+        function applyCopy(meta) {
+          if (kickerEl) kickerEl.textContent = meta.kicker;
+          if (titleEl) titleEl.innerHTML = meta.title;
+          if (textEl) textEl.textContent = meta.text;
+          if (ctaEl) {
+            ctaEl.href = meta.href;
+            ctaEl.innerHTML =
+              meta.cta +
+              ' <span class="hero-arrow" aria-hidden="true">→</span>';
+          }
+        }
 
         function goTo(i) {
           index = (i + slides.length) % slides.length;
           var meta = slideMeta[index] || slideMeta[0];
+          applyCopy(meta);
           for (var s = 0; s < slides.length; s++) {
             slides[s].classList.toggle("is-active", s === index);
             slides[s].style.objectPosition = s === index ? meta.pos : "";
@@ -830,7 +863,6 @@
             dots[d].classList.toggle("is-active", on);
             dots[d].setAttribute("aria-selected", on ? "true" : "false");
           }
-          hero.classList.toggle("hero--art", meta.art);
         }
 
         function schedule() {
