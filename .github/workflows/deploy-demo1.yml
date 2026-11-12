@@ -1,0 +1,33 @@
+name: Deploy demo1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "demo1/**"
+      - "scripts/deploy-demo1.sh"
+      - ".github/workflows/deploy-demo1.yml"
+  workflow_dispatch:
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y lftp
+
+      - name: Upload demo1 via FTP
+        env:
+          BUMED_SFTP_HOST: ${{ secrets.BUMED_SFTP_HOST }}
+          BUMED_SFTP_USER: ${{ secrets.BUMED_SFTP_USER }}
+          BUMED_SFTP_PASSWORD: ${{ secrets.BUMED_SFTP_PASSWORD }}
+          BUMED_SFTP_PATH: ${{ secrets.BUMED_SFTP_PATH }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+        run: bash scripts/deploy-demo1.sh
