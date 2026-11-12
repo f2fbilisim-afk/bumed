@@ -132,18 +132,28 @@ a {
 .utility-social {
   display: flex;
   align-items: center;
-  gap: 1.05rem;
+  gap: 1.15rem;
 }
 
 .utility-social a {
   display: grid;
   place-items: center;
   color: var(--navy);
+  line-height: 0;
 }
 
 .utility-social svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.utility-social-glyph {
+  width: 1.1rem;
+  height: 1.35rem;
+}
+
+.utility-social-glyph--in {
+  width: 1.45rem;
 }
 
 .utility-social a:hover {
