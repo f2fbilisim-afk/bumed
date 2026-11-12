@@ -12,6 +12,7 @@
   --turquoise: #16dcd8;
   --nav-mega-accent: #1dfded;
   --mega-menu-bg: color-mix(in srgb, #c3c6d5 50%, white);
+  --mega-login-bg: #bb7ba6;
   --white: #fff;
   --bg: #f7f9fc;
   --bg-section: #fafbfd;
@@ -402,7 +403,7 @@ a {
   display: flex;
   flex-direction: column;
   padding: 1.15rem 1.2rem;
-  background: var(--sky);
+  background: var(--mega-login-bg);
   border-radius: 10px;
 }
 
