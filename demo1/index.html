@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261112he8" />
+  <link rel="stylesheet" href="styles.css?v=20261112he10" />
 </head>
 <body>
   <header class="site-header">
@@ -257,19 +257,25 @@
           <a class="btn btn-hero-ghost" href="https://bumed.webonalti.net/">BÜMED'i Keşfet <span class="hero-arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
-      <div class="wrap hero-controls" data-hero-controls aria-label="Hero kaydırma">
-        <button type="button" class="hero-nav" data-hero-prev aria-label="Önceki slayt">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6 9 12l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <nav class="hero-rail" data-hero-controls aria-label="Hero kaydırma">
+        <button type="button" class="hero-rail-arrow" data-hero-prev aria-label="Önceki slayt">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M18 15 12 9 6 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
-        <div class="hero-dots" data-hero-dots role="tablist" aria-label="Hero slaytları">
-          <button type="button" class="hero-dot is-active" role="tab" aria-selected="true" aria-label="Slayt 1: Boğaziçi ruhu"></button>
-          <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="Slayt 2: BÜMED Akademi"></button>
-          <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="Slayt 3: BÜMED büyüyor"></button>
+        <div class="hero-rail-list" data-hero-dots role="tablist" aria-label="Hero slaytları">
+          <button type="button" class="hero-thumb is-active" role="tab" aria-selected="true" aria-label="Slayt 1: Boğaziçi ruhu">
+            <img src="hero.jpg?v=20261112he3" width="80" height="80" alt="" loading="lazy" />
+          </button>
+          <button type="button" class="hero-thumb" role="tab" aria-selected="false" aria-label="Slayt 2: BÜMED Akademi">
+            <img src="hero-2.jpg?v=20261112he3" width="80" height="80" alt="" loading="lazy" />
+          </button>
+          <button type="button" class="hero-thumb" role="tab" aria-selected="false" aria-label="Slayt 3: BÜMED büyüyor">
+            <img src="hero-3.jpg?v=20261112he3" width="80" height="80" alt="" loading="lazy" />
+          </button>
         </div>
-        <button type="button" class="hero-nav" data-hero-next aria-label="Sonraki slayt">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <button type="button" class="hero-rail-arrow" data-hero-next aria-label="Sonraki slayt">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
-      </div>
+      </nav>
     </section>
 
     <section class="shortcuts" aria-label="Hızlı erişim">
@@ -801,7 +807,7 @@
       if (hero) {
         var slides = hero.querySelectorAll("[data-hero-slide]");
         var dotsWrap = hero.querySelector("[data-hero-dots]");
-        var dots = dotsWrap ? dotsWrap.querySelectorAll(".hero-dot") : [];
+        var dots = dotsWrap ? dotsWrap.querySelectorAll(".hero-thumb") : [];
         var prevBtn = hero.querySelector("[data-hero-prev]");
         var nextBtn = hero.querySelector("[data-hero-next]");
         var index = 0;
