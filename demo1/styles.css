@@ -706,6 +706,21 @@ a {
   );
 }
 
+/* bogazici.edu.tr tarzı: sağ alttan sol üste silik karartma (tüm slaytlar) */
+.hero-corner-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to top left,
+    rgba(6, 12, 36, 0.42) 0%,
+    rgba(8, 16, 48, 0.22) 26%,
+    rgba(12, 20, 58, 0.09) 48%,
+    transparent 68%
+  );
+}
+
 .hero-layout {
   position: relative;
   z-index: 2;
@@ -825,32 +840,26 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.65rem 1.15rem 0.55rem;
+  padding: 0;
   color: #fff;
   text-decoration: none;
   font-family: "Open Sans", var(--font);
   font-size: clamp(0.82rem, 1.05vw, 0.95rem);
   font-weight: 700;
   letter-spacing: 0.03em;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
   transform: translateX(-50%);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--navy-deep) 52%, transparent);
-  box-shadow:
-    0 8px 28px rgba(8, 16, 48, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
   transition:
     opacity 0.25s ease,
-    transform 0.25s ease,
-    background 0.2s ease;
+    transform 0.25s ease;
 }
 
 .hero-scroll-hint:hover {
   color: #fff;
   transform: translateX(-50%) translateY(-2px);
-  background: color-mix(in srgb, var(--navy-deep) 62%, transparent);
 }
 
 .hero-scroll-hint.is-hidden {
