@@ -400,10 +400,12 @@ a {
   color: var(--brand-navy);
 }
 
-.mega-list svg {
+.mega-list .mega-ico {
   width: 1.35rem;
-  height: 1.35rem;
   flex-shrink: 0;
+  text-align: center;
+  font-size: 1.0625rem;
+  line-height: 1;
   color: var(--navy);
 }
 
@@ -560,9 +562,9 @@ a {
     background 0.15s ease;
 }
 
-.mega-feature-cta svg {
-  width: 1.05rem;
-  height: 1.05rem;
+.mega-feature-cta .mega-ico {
+  font-size: 1.05rem;
+  line-height: 1;
   flex-shrink: 0;
 }
 
