@@ -483,17 +483,37 @@ a {
   border-right: none;
   border-radius: 0 14px 14px 0;
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  justify-content: center;
   align-self: stretch;
 }
 
 .mega-feature {
   position: relative;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   width: 100%;
-  min-height: 6.5rem;
+  height: 7.5rem;
   border-radius: 8px;
   overflow: hidden;
+}
+
+/* Hakkımızda: daha az link → panel biraz daha kompakt, foto üyelik login ölçüsüne yakın */
+#mega-hakkimizda .mega-menu-panel {
+  padding: 1.45rem 1.75rem 1.35rem;
+  grid-template-columns: 1fr 1fr minmax(15rem, 21rem);
+}
+
+#mega-hakkimizda .mega-col--feature {
+  margin-top: -1.45rem;
+  margin-bottom: -1.35rem;
+}
+
+#mega-hakkimizda .mega-list {
+  gap: 0.78rem;
+}
+
+#mega-hakkimizda .mega-title {
+  margin-bottom: 0.85rem;
 }
 
 .mega-feature img {
