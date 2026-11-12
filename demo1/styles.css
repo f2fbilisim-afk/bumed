@@ -1656,17 +1656,25 @@ a {
 .story-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
+  padding: 0.7rem 1.25rem 0.7rem 1.35rem;
+  border-radius: 999px;
+  background: var(--nav-mega-accent);
+  color: var(--navy);
   font-size: calc(0.95rem + 3pt);
-  font-weight: 600;
-  color: #101f5a;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s, gap 0.2s;
+  font-weight: 700;
+  line-height: 1.2;
+  box-shadow: 0 10px 24px rgba(29, 253, 237, 0.22);
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease,
+    gap 0.18s ease;
 }
 
 .story-cta:hover {
-  border-bottom-color: color-mix(in srgb, #101f5a 35%, transparent);
-  gap: 0.55rem;
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+  gap: 0.65rem;
 }
 
 .story-video-frame {
