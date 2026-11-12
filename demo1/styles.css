@@ -163,6 +163,7 @@ a {
 }
 
 .mainbar {
+  position: relative;
   background: var(--navy);
   box-shadow: 0 4px 24px rgba(8, 16, 48, 0.18);
 }
@@ -194,7 +195,8 @@ a {
   margin-left: auto;
 }
 
-.nav a {
+.nav a,
+.nav .nav-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -205,14 +207,206 @@ a {
   white-space: nowrap;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav .nav-link:hover {
   color: var(--lime-bright);
+}
+
+.nav .nav-link {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.nav-item--mega {
+  position: static;
 }
 
 .nav-caret {
   width: 0.65rem;
   height: 0.65rem;
   opacity: 0.85;
+  transition: transform 0.2s ease;
+}
+
+.nav-item--mega:hover .nav-trigger .nav-caret,
+.nav-item--mega:focus-within .nav-trigger .nav-caret,
+.nav-item--mega.is-open .nav-trigger .nav-caret {
+  transform: rotate(180deg);
+}
+
+/* ——— Üyelik mega menü ——— */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  padding-top: 0.35rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(0.4rem);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s;
+}
+
+.nav-item--mega:hover .mega-menu,
+.nav-item--mega:focus-within .mega-menu,
+.nav-item--mega.is-open .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mega-menu-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mega-menu-panel {
+  position: relative;
+  width: min(56rem, 100%);
+  margin-right: clamp(0rem, 8vw, 4rem);
+  padding: 1.65rem 1.85rem;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow:
+    0 4px 6px rgba(16, 31, 90, 0.04),
+    0 20px 48px rgba(16, 31, 90, 0.12);
+  display: grid;
+  grid-template-columns: 1fr 1fr minmax(12.5rem, 15.5rem);
+  gap: 0 1.25rem;
+  font-family: "Open Sans", var(--font);
+  color: var(--navy);
+}
+
+.mega-menu-panel::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 18%;
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 4px rgba(16, 31, 90, 0.06);
+}
+
+.mega-col {
+  padding: 0 1.35rem;
+  border-right: 1px solid color-mix(in srgb, var(--navy) 10%, transparent);
+}
+
+.mega-col:first-child {
+  padding-left: 0.25rem;
+}
+
+.mega-col--login {
+  border-right: none;
+  padding-right: 0.25rem;
+}
+
+.mega-title {
+  margin: 0 0 1.1rem;
+  font-family: "Open Sans", var(--font);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.mega-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.mega-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--navy);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.35;
+  transition: color 0.15s ease;
+}
+
+.mega-list a:hover {
+  color: var(--brand-navy);
+}
+
+.mega-list svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+  color: var(--navy);
+}
+
+.mega-login {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem 1.2rem;
+  background: var(--sky);
+  border-radius: 10px;
+}
+
+.mega-login-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.65rem;
+}
+
+.mega-login-head svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  color: var(--navy);
+}
+
+.mega-login-head .mega-title {
+  margin: 0;
+  font-size: 1.0625rem;
+}
+
+.mega-login-text {
+  margin: 0 0 1.15rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--navy) 72%, var(--muted));
+  flex: 1;
+}
+
+.mega-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.mega-login-btn:hover {
+  background: var(--navy-dark);
+  color: var(--white);
 }
 
 .mainbar-end {
