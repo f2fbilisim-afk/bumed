@@ -477,16 +477,20 @@ a {
 }
 
 .mega-col--feature {
-  padding: 0 0.35rem 0 1.35rem;
+  background: var(--white);
+  margin: -1.65rem -1.85rem -1.65rem 0;
+  padding: 1.65rem 1.35rem;
   border-right: none;
-  min-height: 11.5rem;
+  border-radius: 0 14px 14px 0;
+  display: flex;
+  align-items: center;
 }
 
 .mega-feature {
   position: relative;
-  height: 100%;
-  min-height: 11.5rem;
-  border-radius: 10px;
+  width: 100%;
+  height: 6.75rem;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -494,15 +498,14 @@ a {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 11.5rem;
   object-fit: cover;
   object-position: center;
 }
 
 .mega-feature-cta {
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
+  right: 0.55rem;
+  bottom: 0.55rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
