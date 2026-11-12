@@ -32,6 +32,9 @@ for f in index.html styles.css instagram-feed.php hero.jpg hero-2.jpg hero-3.jpg
 done
 
 sshpass -e ssh "${SSH_OPTS[@]}" "${USER}@${HOST}" \
-  "chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,hero-2.jpg,hero-3.jpg,logo.png,mega-house.jpg} 2>/dev/null || chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png}"
+  "php ${REMOTE_DIR}/instagram-feed.php > ${REMOTE_DIR}/instagram-feed.json && chown bumed:bumed ${REMOTE_DIR}/instagram-feed.json"
+
+sshpass -e ssh "${SSH_OPTS[@]}" "${USER}@${HOST}" \
+  "chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,instagram-feed.php,instagram-feed.json,hero.jpg,hero-2.jpg,hero-3.jpg,logo.png,mega-house.jpg} 2>/dev/null || chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png}"
 
 echo "Deploy tamamlandı: https://bumed.webonalti.net/demo1/"

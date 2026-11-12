@@ -9,31 +9,28 @@ $cacheFile = __DIR__ . '/instagram-feed.json';
 $ttl = 1800;
 $username = 'bumedofficial';
 
-if (is_file($cacheFile) && (time() - filemtime($cacheFile)) < $ttl) {
+if (
+    is_file($cacheFile)
+    && filesize($cacheFile) > 24
+    && (time() - filemtime($cacheFile)) < $ttl
+) {
     readfile($cacheFile);
     exit;
 }
 
-function ig_http(string $url, bool $headOnly = false): string
+function ig_http(string $url): string
 {
     if (!function_exists('curl_init')) {
         return '';
     }
     $ch = curl_init($url);
     curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => !$headOnly,
+        CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_NOBODY => $headOnly,
         CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         CURLOPT_TIMEOUT => 20,
         CURLOPT_SSL_VERIFYPEER => true,
     ]);
-    if ($headOnly) {
-        curl_exec($ch);
-        $effective = (string) curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
-        curl_close($ch);
-        return $effective;
-    }
     $body = curl_exec($ch);
     curl_close($ch);
     return is_string($body) ? $body : '';
@@ -41,8 +38,21 @@ function ig_http(string $url, bool $headOnly = false): string
 
 function ig_thumb(string $shortcode): string
 {
-    $url = ig_http("https://www.instagram.com/p/{$shortcode}/media/?size=l", true);
-    if ($url !== '' && str_contains($url, 'cdninstagram')) {
+    if (!function_exists('curl_init')) {
+        return '';
+    }
+    $ch = curl_init("https://www.instagram.com/p/{$shortcode}/media/?size=l");
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        CURLOPT_TIMEOUT => 20,
+        CURLOPT_SSL_VERIFYPEER => true,
+    ]);
+    curl_exec($ch);
+    $url = (string) curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+    curl_close($ch);
+    if ($url !== '' && (str_contains($url, 'cdninstagram') || str_contains($url, 'fbcdn.net'))) {
         return $url;
     }
     return '';

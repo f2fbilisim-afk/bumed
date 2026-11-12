@@ -1107,20 +1107,7 @@
 
       var grid = document.querySelector("[data-instagram-grid]");
       if (!grid) return;
-      var feedUrl = "instagram-feed.php";
-      fetch(feedUrl, { credentials: "same-origin" })
-        .then(function (r) {
-          return r.json();
-        })
-        .then(function (data) {
-          var posts = (data && data.posts) || [];
-          if (!posts.length) {
-            return fetch("instagram-feed.json").then(function (r) {
-              return r.json();
-            });
-          }
-          return data;
-        })
+      fetch("instagram-feed.json", { cache: "no-cache" })
         .then(function (data) {
           var posts = (data && data.posts) || [];
           grid.innerHTML = "";
