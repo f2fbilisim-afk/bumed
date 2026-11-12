@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261112he17" />
+  <link rel="stylesheet" href="styles.css?v=20261112he18" />
 </head>
 <body>
   <header class="site-header">
@@ -242,8 +242,8 @@
     <section class="hero" id="hero" aria-label="Ana tanıtım" data-hero tabindex="0">
       <div class="hero-slides" aria-hidden="true">
         <img class="hero-bg is-active" data-hero-slide data-hero-pos="62% 38%" width="1024" height="576" alt="" src="hero.jpg?v=20261112he3" />
-        <img class="hero-bg" data-hero-slide data-hero-pos="50% 50%" width="1024" height="576" alt="" src="hero-2.jpg?v=20261112he3" />
-        <img class="hero-bg" data-hero-slide data-hero-pos="50% 50%" width="1024" height="576" alt="" src="hero-3.jpg?v=20261112he3" />
+        <img class="hero-bg" data-hero-slide data-hero-pos="50% 42%" width="1024" height="576" alt="" src="hero-2.jpg?v=20261112he3" />
+        <img class="hero-bg" data-hero-slide data-hero-pos="50% 42%" width="1024" height="576" alt="" src="hero-3.jpg?v=20261112he3" />
       </div>
       <div class="hero-warm" aria-hidden="true"></div>
       <div class="hero-shade" aria-hidden="true"></div>
@@ -822,7 +822,7 @@
             href: "https://bumed.webonalti.net/",
           },
           {
-            pos: "50% 50%",
+            pos: "50% 42%",
             kicker: "BÜMED ETKİNLİKLERİ",
             title: "BÜMED<br />Etkinlikleri",
             text: "Kuşakları buluşturan, ilgi alanlarına hitap eden etkinliklerimizi keşfet.",
@@ -830,7 +830,7 @@
             href: "#etkinlikler",
           },
           {
-            pos: "50% 50%",
+            pos: "50% 42%",
             kicker: "BÜMED BÜYÜYOR",
             title: "Mezunlar<br />Bir Arada",
             text: "Kampüste ve şehirde büyüyen mezun topluluğumuza katılın.",
@@ -851,13 +851,20 @@
           }
         }
 
+        function syncSlidePositions() {
+          for (var s = 0; s < slides.length; s++) {
+            var pos = slideMeta[s] ? slideMeta[s].pos : slides[s].getAttribute("data-hero-pos");
+            if (pos) slides[s].style.objectPosition = pos;
+          }
+        }
+
         function goTo(i) {
           index = (i + slides.length) % slides.length;
           var meta = slideMeta[index] || slideMeta[0];
           applyCopy(meta);
+          syncSlidePositions();
           for (var s = 0; s < slides.length; s++) {
             slides[s].classList.toggle("is-active", s === index);
-            slides[s].style.objectPosition = s === index ? meta.pos : "";
           }
           for (var d = 0; d < dots.length; d++) {
             var on = d === index;
@@ -915,6 +922,7 @@
         });
         hero.addEventListener("mouseleave", schedule);
 
+        syncSlidePositions();
         goTo(0);
         schedule();
       }
