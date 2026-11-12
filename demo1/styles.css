@@ -664,14 +664,6 @@ a {
   opacity: 1;
 }
 
-.hero.hero--art .hero-shade {
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--navy) 22%, transparent) 0%,
-    transparent 42%
-  );
-}
-
 .hero.hero--art [data-hero-copy] {
   opacity: 0;
   visibility: hidden;
@@ -685,14 +677,13 @@ a {
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    var(--navy-deep) 0%,
-    var(--navy) 16%,
-    color-mix(in srgb, var(--navy) 97%, transparent) 26%,
-    color-mix(in srgb, var(--navy) 88%, transparent) 34%,
-    color-mix(in srgb, var(--navy) 52%, transparent) 44%,
-    color-mix(in srgb, var(--navy) 22%, transparent) 52%,
-    color-mix(in srgb, var(--navy) 6%, transparent) 58%,
-    transparent 64%
+    color-mix(in srgb, var(--navy-deep) 90%, transparent) 0%,
+    color-mix(in srgb, var(--navy) 72%, transparent) 14%,
+    color-mix(in srgb, var(--navy) 48%, transparent) 26%,
+    color-mix(in srgb, var(--navy) 26%, transparent) 36%,
+    color-mix(in srgb, var(--navy) 10%, transparent) 44%,
+    color-mix(in srgb, var(--navy) 3%, transparent) 50%,
+    transparent 56%
   );
 }
 
@@ -721,6 +712,7 @@ a {
   font-weight: 700;
   letter-spacing: 0.2em;
   color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 16px rgba(8, 16, 48, 0.45);
 }
 
 .kicker-bar {
@@ -739,16 +731,18 @@ a {
   line-height: 1.12;
   letter-spacing: -0.02em;
   color: #fff;
+  text-shadow: 0 2px 28px rgba(8, 16, 48, 0.55);
 }
 
 .hero-text {
   margin: 0 0 2rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.94);
   font-family: "Open Sans", var(--font);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   max-width: 38ch;
+  text-shadow: 0 1px 20px rgba(8, 16, 48, 0.5);
 }
 
 .btn-hero-ghost {
