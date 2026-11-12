@@ -816,6 +816,69 @@ a {
   opacity: 0.9;
 }
 
+.hero-scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.1rem, 2.8vw, 1.75rem);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.25rem 0.75rem;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Open Sans", var(--font);
+  font-size: clamp(0.82rem, 1.05vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 18px rgba(8, 16, 48, 0.55);
+  transform: translateX(-50%);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero-scroll-hint:hover {
+  color: #fff;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.hero-scroll-hint.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-scroll-hint-text {
+  white-space: nowrap;
+}
+
+.hero-scroll-hint-mouse svg {
+  display: block;
+  width: 1.5rem;
+  height: auto;
+  filter: drop-shadow(0 2px 10px rgba(8, 16, 48, 0.45));
+}
+
+.hero-scroll-hint-arrows {
+  color: var(--nav-mega-accent);
+  font-size: 1.25rem;
+  line-height: 1;
+  animation: hero-scroll-bounce 1.75s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 0.88;
+  }
+}
+
 .hero-rail {
   position: absolute;
   z-index: 4;
@@ -894,6 +957,16 @@ a {
 }
 
 @media (max-width: 720px) {
+  .hero-scroll-hint {
+    bottom: 4.25rem;
+    font-size: 0.78rem;
+    gap: 0.4rem;
+  }
+
+  .hero-scroll-hint-mouse svg {
+    width: 1.25rem;
+  }
+
   .hero-rail {
     top: auto;
     bottom: 0.85rem;
