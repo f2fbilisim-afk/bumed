@@ -1238,42 +1238,10 @@ a {
   position: relative;
 }
 
-.social-hub-shorts-nav {
-  position: absolute;
-  left: -0.15rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.social-hub-arrow {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--navy) 16%, transparent);
-  background: var(--white);
-  color: color-mix(in srgb, var(--navy) 70%, transparent);
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(16, 31, 90, 0.08);
-  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
-}
-
-.social-hub-arrow:hover {
-  border-color: var(--nav-mega-accent);
-  color: var(--navy);
-  transform: scale(1.04);
-}
-
 .social-hub-shorts-track {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.65rem, 1.4vw, 1rem);
-  padding-left: 2.35rem;
 }
 
 .short-card {
@@ -1297,7 +1265,8 @@ a {
   object-fit: cover;
 }
 
-.short-card.is-active {
+.short-card--accent,
+.short-card:hover {
   border-color: var(--nav-mega-accent);
   box-shadow:
     0 16px 36px rgba(29, 253, 237, 0.18),
@@ -1361,7 +1330,6 @@ a {
 
 .social-hub-videos-cta {
   margin-top: 1.15rem;
-  margin-left: 2.35rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1479,12 +1447,28 @@ a {
 .insta-card {
   position: relative;
   display: block;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 289 / 387;
   max-height: clamp(15.5rem, 28vw, 19.5rem);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 12px 32px rgba(16, 31, 90, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.insta-card-type {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
+  font-size: 0.72rem;
+  box-shadow: 0 2px 8px rgba(16, 31, 90, 0.12);
 }
 
 .insta-card:hover {
@@ -1550,10 +1534,6 @@ a {
     gap: 2.5rem;
   }
 
-  .social-hub-shorts-nav {
-    left: 0;
-  }
-
   .social-hub-events {
     max-width: 26rem;
   }
@@ -1566,9 +1546,6 @@ a {
     max-width: 16.5rem;
   }
 
-  .social-hub-videos-cta {
-    margin-left: 2.35rem;
-  }
 }
 
 /* ——— Hikâyemiz + YouTube (kartların altı) ——— */

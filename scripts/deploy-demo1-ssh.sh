@@ -25,7 +25,7 @@ REMOTE="${USER}@${HOST}:${REMOTE_DIR}/"
 
 echo "Yükleniyor: ${SRC} -> ${REMOTE}"
 
-for f in index.html styles.css instagram-feed.php hero.jpg hero-2.jpg hero-3.jpg logo.png mega-house.jpg mega-house.png; do
+for f in index.html styles.css instagram-feed.php instagram-1.jpg instagram-2.jpg instagram-3.jpg hero.jpg hero-2.jpg hero-3.jpg logo.png mega-house.jpg mega-house.png; do
   if [[ -f "${SRC}/${f}" ]]; then
     sshpass -e scp "${SSH_OPTS[@]}" "${SRC}/${f}" "$REMOTE"
   fi

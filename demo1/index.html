@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261112scroll2" />
+  <link rel="stylesheet" href="styles.css?v=20261112hub2" />
 </head>
 <body>
   <header class="site-header">
@@ -285,30 +285,21 @@
             <h2 class="social-hub-title" id="social-hub-voices-heading">BÜMED'DEN SESLER</h2>
             <p class="social-hub-lead">Dünyanın farklı yerlerinden mezunlarımızın yaşamlarına, hikâyelerine ve Boğaziçi ruhuna kulak verin.</p>
           </div>
-          <div class="social-hub-shorts" data-shorts-carousel>
-            <div class="social-hub-shorts-nav" aria-hidden="true">
-              <button type="button" class="social-hub-arrow" data-shorts-prev aria-label="Önceki video">
-                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-              </button>
-              <button type="button" class="social-hub-arrow" data-shorts-next aria-label="Sonraki video">
-                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-              </button>
-            </div>
-            <span class="social-hub-arrow-host" aria-hidden="true"></span>
-            <div class="social-hub-shorts-track" data-shorts-track>
-              <a class="short-card is-active" data-short-card href="https://www.youtube.com/shorts/uG89a_67vFo" target="_blank" rel="noopener noreferrer" data-index="0">
+          <div class="social-hub-shorts">
+            <div class="social-hub-shorts-track">
+              <a class="short-card" href="https://www.youtube.com/shorts/uG89a_67vFo" target="_blank" rel="noopener noreferrer">
                 <img src="https://i.ytimg.com/vi/uG89a_67vFo/oardefault.jpg" width="360" height="640" alt="" loading="lazy" />
                 <span class="short-card-caption">Olamasak da kalbimiz sizinle!</span>
                 <span class="short-card-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
                 <span class="short-card-brand"><img src="logo.png" width="72" height="24" alt="BÜMED" loading="lazy" /></span>
               </a>
-              <a class="short-card" data-short-card href="https://www.youtube.com/shorts/i1RJDNf8U7Q" target="_blank" rel="noopener noreferrer" data-index="1">
+              <a class="short-card" href="https://www.youtube.com/shorts/i1RJDNf8U7Q" target="_blank" rel="noopener noreferrer">
                 <img src="https://i.ytimg.com/vi/i1RJDNf8U7Q/oardefault.jpg" width="360" height="640" alt="" loading="lazy" />
                 <span class="short-card-caption">San Francisco'dan selamlar!</span>
                 <span class="short-card-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
                 <span class="short-card-brand"><img src="logo.png" width="72" height="24" alt="BÜMED" loading="lazy" /></span>
               </a>
-              <a class="short-card" data-short-card href="https://www.youtube.com/shorts/mkfA1wTqWdU" target="_blank" rel="noopener noreferrer" data-index="2">
+              <a class="short-card short-card--accent" href="https://www.youtube.com/shorts/mkfA1wTqWdU" target="_blank" rel="noopener noreferrer">
                 <img src="https://i.ytimg.com/vi/mkfA1wTqWdU/oardefault.jpg" width="360" height="640" alt="" loading="lazy" />
                 <span class="short-card-caption">Boğaziçi'li olmaktan gurur duyuyorum.</span>
                 <span class="short-card-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
@@ -336,7 +327,7 @@
             <path d="M4 16c12 4 28-2 40 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
           </svg>
         </div>
-        <aside class="social-hub-insta" aria-labelledby="social-hub-insta-heading" data-instagram-feed>
+        <aside class="social-hub-insta" aria-labelledby="social-hub-insta-heading">
           <header class="social-hub-insta-head">
             <a class="social-hub-insta-profile" href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-instagram" aria-hidden="true"></i>
@@ -347,10 +338,19 @@
               Son Paylaşımlar <span aria-hidden="true">→</span>
             </a>
           </header>
-          <div class="social-hub-insta-grid" data-instagram-grid role="list">
-            <div class="social-hub-insta-skeleton" data-instagram-skeleton aria-hidden="true"></div>
-            <div class="social-hub-insta-skeleton" aria-hidden="true"></div>
-            <div class="social-hub-insta-skeleton" aria-hidden="true"></div>
+          <div class="social-hub-insta-grid" role="list">
+            <a class="insta-card" href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer" role="listitem">
+              <span class="insta-card-type" aria-hidden="true"><i class="fa-regular fa-clone"></i></span>
+              <img src="instagram-1.jpg?v=20261112ig1" width="289" height="387" alt="BÜMED Instagram paylaşımı 1" loading="lazy" />
+            </a>
+            <a class="insta-card" href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer" role="listitem">
+              <span class="insta-card-type" aria-hidden="true"><i class="fa-regular fa-clone"></i></span>
+              <img src="instagram-2.jpg?v=20261112ig1" width="289" height="387" alt="Prof. Dr. Üstün Ergüder'e fahri doktora unvanı" loading="lazy" />
+            </a>
+            <a class="insta-card" href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer" role="listitem">
+              <span class="insta-card-type" aria-hidden="true"><i class="fa-regular fa-clone"></i></span>
+              <img src="instagram-3.jpg?v=20261112ig1" width="289" height="387" alt="10 Kasım — Saygı, minnet ve özlemle" loading="lazy" />
+            </a>
           </div>
         </aside>
       </div>
@@ -1096,78 +1096,6 @@
       }
     })();
 
-    (function () {
-      var carousel = document.querySelector("[data-shorts-carousel]");
-      if (carousel) {
-        var cards = carousel.querySelectorAll("[data-short-card]");
-        var active = 0;
-        function syncShorts() {
-          for (var i = 0; i < cards.length; i++) {
-            cards[i].classList.toggle("is-active", i === active);
-          }
-        }
-        var prev = carousel.querySelector("[data-shorts-prev]");
-        var next = carousel.querySelector("[data-shorts-next]");
-        if (prev) {
-          prev.addEventListener("click", function () {
-            active = (active - 1 + cards.length) % cards.length;
-            syncShorts();
-          });
-        }
-        if (next) {
-          next.addEventListener("click", function () {
-            active = (active + 1) % cards.length;
-            syncShorts();
-          });
-        }
-        for (var c = 0; c < cards.length; c++) {
-          (function (idx) {
-            cards[idx].addEventListener("mouseenter", function () {
-              active = idx;
-              syncShorts();
-            });
-          })(c);
-        }
-      }
-
-      var grid = document.querySelector("[data-instagram-grid]");
-      if (!grid) return;
-      fetch("instagram-feed.json", { cache: "no-cache" })
-        .then(function (data) {
-          var posts = (data && data.posts) || [];
-          grid.innerHTML = "";
-          if (!posts.length) {
-            grid.innerHTML =
-              '<p class="social-hub-insta-empty">Instagram gönderileri yüklenemedi. <a href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer">@bumedofficial</a></p>';
-            return;
-          }
-          for (var i = 0; i < Math.min(3, posts.length); i++) {
-            var post = posts[i];
-            var a = document.createElement("a");
-            a.className = "insta-card";
-            a.href = post.url || "https://www.instagram.com/bumedofficial/";
-            a.target = "_blank";
-            a.rel = "noopener noreferrer";
-            a.setAttribute("role", "listitem");
-            var img = document.createElement("img");
-            img.src = post.thumbnail;
-            img.alt = post.caption || "BÜMED Instagram";
-            img.width = 360;
-            img.height = 450;
-            img.loading = "lazy";
-            a.appendChild(img);
-            var brand = document.createElement("span");
-            brand.className = "insta-card-brand";
-            brand.innerHTML = '<img src="logo.png" width="72" height="24" alt="BÜMED" loading="lazy" />';
-            a.appendChild(brand);
-            grid.appendChild(a);
-          }
-        })
-        .catch(function () {
-          grid.innerHTML =
-            '<p class="social-hub-insta-empty">Instagram gönderileri yüklenemedi. <a href="https://www.instagram.com/bumedofficial/" target="_blank" rel="noopener noreferrer">@bumedofficial</a></p>';
-        });
-    })();
   </script>
 </body>
 </html>
