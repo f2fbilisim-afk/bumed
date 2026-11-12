@@ -305,29 +305,11 @@ a {
 
 .mega-nav-host:hover .mega-menu,
 .mega-nav-host:focus-within .mega-menu,
-.mega-nav-host.is-open .mega-menu,
-.mainbar.is-mega-open .mega-menu {
+.mega-nav-host.is-open .mega-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
-}
-
-.mainbar.is-mega-open .mega-nav-host .nav-caret-wrap,
-.mainbar.is-mega-open .nav-item--mega .nav-caret-wrap {
-  background: var(--nav-mega-accent);
-}
-
-.mainbar.is-mega-open .mega-nav-host .nav-caret,
-.mainbar.is-mega-open .nav-item--mega .nav-caret {
-  transform: rotate(180deg);
-  opacity: 1;
-  color: var(--navy);
-}
-
-.mainbar.is-mega-open .mega-nav-host .nav-trigger,
-.mainbar.is-mega-open .nav-item--mega .nav-trigger {
-  color: var(--nav-mega-accent);
 }
 
 .mega-menu-wrap {
@@ -492,6 +474,78 @@ a {
 .mega-login-link:hover {
   color: var(--brand-navy);
   border-color: var(--brand-navy);
+}
+
+.mega-menu-panel--about {
+  background: var(--white);
+}
+
+.mega-menu-panel--about::before {
+  background: var(--white);
+}
+
+.mega-menu-panel--about .mega-col:nth-child(2) {
+  border-right: 1px solid color-mix(in srgb, var(--navy) 10%, transparent);
+}
+
+.mega-col--feature {
+  margin: -1.65rem -1.85rem -1.65rem 0;
+  padding: 0;
+  border-right: none;
+  border-radius: 0 14px 14px 0;
+  overflow: hidden;
+  min-height: 11.5rem;
+}
+
+.mega-feature {
+  position: relative;
+  height: 100%;
+  min-height: 11.5rem;
+}
+
+.mega-feature img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 11.5rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mega-feature-cta {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: calc(0.875rem + 2pt);
+  font-weight: 600;
+  line-height: 1.2;
+  box-shadow: 0 10px 28px rgba(8, 16, 48, 0.28);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.mega-feature-cta svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
+}
+
+.mega-feature-arrow {
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+.mega-feature-cta:hover {
+  background: color-mix(in srgb, var(--navy) 88%, white);
+  transform: translateY(-1px);
 }
 
 .mainbar-end {
