@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113pastev" />
+  <link rel="stylesheet" href="styles.css?v=20261113duyuru" />
 </head>
 <body>
   <header class="site-header">
@@ -688,28 +688,26 @@
       </div>
     </section>
 
-    <section class="duyurular" aria-labelledby="duyuru-heading">
+    <section class="duyurular duyurular--news" aria-labelledby="duyuru-heading">
       <div class="wrap duyuru-head">
         <header class="duyuru-intro">
           <span class="accent-bar light" aria-hidden="true"></span>
-          <p class="duyuru-kicker">DUYURULAR</p>
-          <h2 id="duyuru-heading">BÜMED Duyurular</h2>
-          <p class="duyuru-lead">Derneğimizden güncel duyurular, önemli bilgilendirmeler ve çağrılar.</p>
+          <p class="duyuru-kicker">DUYURULAR &amp; HABERLER</p>
+          <h2 id="duyuru-heading">BÜMED’den Duyurular</h2>
+          <p class="duyuru-lead">Derneğimizden güncel duyurular, etkinlik haberleri ve önemli bilgilendirmeler.</p>
         </header>
         <div class="duyuru-head-actions">
           <div class="duyuru-arrows" aria-label="Duyuru kaydırma">
             <button type="button" class="duyuru-arrow" data-duyuru-prev aria-label="Önceki duyurular">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
             </button>
             <button type="button" class="duyuru-arrow" data-duyuru-next aria-label="Sonraki duyurular">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
-          <a class="btn duyuru-all-btn" href="#">
+          <a class="btn duyuru-all-btn" href="https://bumed.webonalti.net/duyurular">
             Tüm Duyurular
-            <span class="duyuru-all-ico" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
+            <span class="duyuru-all-ico" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
           </a>
         </div>
       </div>
@@ -717,81 +715,57 @@
         <div class="duyuru-track" data-duyuru-track tabindex="0">
           <article class="duyuru-card">
             <a class="duyuru-card-link" href="#">
-              <div class="duyuru-card-top">
-                <time class="duyuru-date" datetime="2026-10-30"><span class="duyuru-day">30</span><span class="duyuru-mon">Ekim</span></time>
-                <div class="duyuru-copy">
-                  <h3 class="duyuru-card-title">Öğretim Görevlisi Alım İlanı</h3>
-                  <p class="duyuru-excerpt">BÜMED bünyesinde görevlendirilmek üzere öğretim görevlisi alımı yapılacaktır.</p>
+              <div class="duyuru-card-media" style="background-image:url('https://images.unsplash.com/photo-1519671482749-fc621c070fab?w=640&q=80')"></div>
+              <div class="duyuru-card-body">
+                <div class="duyuru-card-meta">
+                  <span class="duyuru-tag"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Etkinlik</span>
+                  <time class="duyuru-card-date" datetime="2026-05-07"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 7 Mayıs</time>
                 </div>
-              </div>
-              <div class="duyuru-card-foot">
-                <span class="duyuru-cat">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 11v2a3 3 0 0 0 3 3h1"/><path d="M20 11v2a3 3 0 0 1-3 3h-1"/><path d="M8 14h8"/><path d="M12 6v12"/><path d="M7 8l5-3 5 3"/></svg>
-                  İlan
-                </span>
-                <span class="duyuru-go" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-                </span>
+                <h3 class="duyuru-card-title">Reunion Kokteyli 2026’da BÜMED House’da Mezunlarımızla Birlikteydik!</h3>
+                <p class="duyuru-excerpt">Yıllar sonra aynı çatı altında buluşan mezunlarımızla gecenin haber ve kareleri.</p>
+                <span class="duyuru-more">Devamını Oku <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </article>
           <article class="duyuru-card">
             <a class="duyuru-card-link" href="#">
-              <div class="duyuru-card-top">
-                <time class="duyuru-date" datetime="2026-10-30"><span class="duyuru-day">30</span><span class="duyuru-mon">Ekim</span></time>
-                <div class="duyuru-copy">
-                  <h3 class="duyuru-card-title">Araştırma Görevlisi Alımı İptal İlanı</h3>
-                  <p class="duyuru-excerpt">30.10.2026 tarihli ve 33415 sayılı Resmi Gazete'de yayımlanan araştırma görevlisi alımı ilanı iptal edilmiştir.</p>
+              <div class="duyuru-card-media duyuru-card-media--rose" style="background-image:url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=640&q=80')"></div>
+              <div class="duyuru-card-body">
+                <div class="duyuru-card-meta">
+                  <span class="duyuru-tag"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Etkinlik</span>
+                  <time class="duyuru-card-date" datetime="2026-03-06"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 6 Mart</time>
                 </div>
-              </div>
-              <div class="duyuru-card-foot">
-                <span class="duyuru-cat">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>
-                  Bilgilendirme
-                </span>
-                <span class="duyuru-go" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-                </span>
+                <h3 class="duyuru-card-title">BÜMED House’ta Dünya Emekçi Kadınlar Günü Etkinlikleri Yoğun İlgiyle Karşılandı</h3>
+                <p class="duyuru-excerpt">Panel, atölye ve networking programlarıyla kutlanan gün, mezun ağımızda güçlü bir iz bıraktı.</p>
+                <span class="duyuru-more">Devamını Oku <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </article>
           <article class="duyuru-card">
             <a class="duyuru-card-link" href="#">
-              <div class="duyuru-card-top">
-                <time class="duyuru-date" datetime="2026-10-27"><span class="duyuru-day">27</span><span class="duyuru-mon">Ekim</span></time>
-                <div class="duyuru-copy">
-                  <h3 class="duyuru-card-title">Yabancı Diller Yüksekokulu İngilizce Öğretim Görevlisi Ön Değerlendirme Sonuçları</h3>
-                  <p class="duyuru-excerpt">İngilizce öğretim görevlisi alımına ilişkin ön değerlendirme sonuçları açıklandı.</p>
+              <div class="duyuru-card-media duyuru-card-media--violet" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=640&q=80')"></div>
+              <div class="duyuru-card-body">
+                <div class="duyuru-card-meta">
+                  <span class="duyuru-tag duyuru-tag--program"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Program</span>
+                  <time class="duyuru-card-date" datetime="2026-02-27"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 27 Şubat</time>
                 </div>
-              </div>
-              <div class="duyuru-card-foot">
-                <span class="duyuru-cat">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>
-                  Sonuç
-                </span>
-                <span class="duyuru-go" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-                </span>
+                <h3 class="duyuru-card-title">BÜMED NextGen Mentor ve Menteeleri ile Buluştuk</h3>
+                <p class="duyuru-excerpt">Genç mezunlar ve deneyimli mentorlarımız kariyer yolculuklarını paylaştı.</p>
+                <span class="duyuru-more">Devamını Oku <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </article>
           <article class="duyuru-card">
             <a class="duyuru-card-link" href="#">
-              <div class="duyuru-card-top">
-                <time class="duyuru-date" datetime="2026-10-22"><span class="duyuru-day">22</span><span class="duyuru-mon">Ekim</span></time>
-                <div class="duyuru-copy">
-                  <h3 class="duyuru-card-title">Araştırma Görevlisi Alımı İlanı</h3>
-                  <p class="duyuru-excerpt">22.10.2026 tarihli ve 33408 sayılı Resmi Gazete'de yayımlanan araştırma görevlisi alımı ilanı.</p>
+              <div class="duyuru-card-media" style="background-image:url('mega-house.jpg?v=20261112z')"></div>
+              <div class="duyuru-card-body">
+                <div class="duyuru-card-meta">
+                  <span class="duyuru-tag duyuru-tag--house"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i> BÜMED House</span>
+                  <time class="duyuru-card-date" datetime="2026-04-28"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 28 Nisan</time>
                 </div>
-              </div>
-              <div class="duyuru-card-foot">
-                <span class="duyuru-cat">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 11v2a3 3 0 0 0 3 3h1"/><path d="M20 11v2a3 3 0 0 1-3 3h-1"/><path d="M8 14h8"/><path d="M12 6v12"/><path d="M7 8l5-3 5 3"/></svg>
-                  İlan
-                </span>
-                <span class="duyuru-go" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-                </span>
+                <h3 class="duyuru-card-title">BÜMED House Toplantı Salonları</h3>
+                <p class="duyuru-excerpt">Topluluğumuz için yenilenen salonlar; buluşmalar ve etkinliklere ev sahipliği yapıyor.</p>
+                <span class="duyuru-more">Devamını Oku <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </article>
@@ -1166,6 +1140,22 @@
         }
         syncScrollHint();
         window.addEventListener("scroll", syncScrollHint, { passive: true });
+      }
+    })();
+
+    (function () {
+      var track = document.querySelector("[data-duyuru-track]");
+      var prev = document.querySelector("[data-duyuru-prev]");
+      var next = document.querySelector("[data-duyuru-next]");
+      if (track) {
+        function duyuruScroll(dir) {
+          var card = track.querySelector(".duyuru-card");
+          var gap = 16;
+          var step = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
+          track.scrollBy({ left: dir * step, behavior: "smooth" });
+        }
+        if (prev) prev.addEventListener("click", function () { duyuruScroll(-1); });
+        if (next) next.addEventListener("click", function () { duyuruScroll(1); });
       }
     })();
 

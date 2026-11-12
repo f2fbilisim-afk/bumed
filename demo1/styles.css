@@ -2154,7 +2154,7 @@ a {
   text-transform: uppercase;
 }
 
-/* ——— Duyurular (lacivert şerit + slider) ——— */
+/* ——— Duyurular & Haberler (lacivert şerit + görsel kartlar) ——— */
 .duyurular {
   position: relative;
   z-index: 2;
@@ -2194,6 +2194,7 @@ a {
   margin: 0;
   width: 42px;
   height: 3px;
+  background: var(--nav-mega-accent);
 }
 
 .duyuru-kicker {
@@ -2207,10 +2208,10 @@ a {
 .duyuru-intro h2 {
   margin: 0.35rem 0 0;
   font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 2.2vw, 1.5rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.35rem);
   font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
   color: #fff;
 }
 
@@ -2249,6 +2250,7 @@ a {
   border-radius: 50%;
   background: rgba(8, 16, 40, 0.35);
   color: #fff;
+  font-size: 0.7rem;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
 }
@@ -2260,11 +2262,21 @@ a {
 
 .duyuru-all-btn {
   gap: 0.65rem;
-  padding: 0.6rem 0.85rem 0.6rem 1.15rem;
-  background: #fff;
-  color: var(--navy);
-  border: none;
+  padding: 0.58rem 0.85rem 0.58rem 1.15rem;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.65);
   font-weight: 600;
+  border-radius: 999px;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.duyuru-all-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.9);
+  opacity: 1;
 }
 
 .duyuru-all-ico {
@@ -2273,9 +2285,10 @@ a {
   justify-content: center;
   width: 1.65rem;
   height: 1.65rem;
-  border: 1px solid color-mix(in srgb, var(--navy) 25%, white);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 50%;
-  color: var(--navy);
+  color: #fff;
+  font-size: 0.65rem;
 }
 
 .duyuru-track {
@@ -2301,107 +2314,111 @@ a {
 .duyuru-card-link {
   display: flex;
   flex-direction: column;
-  min-height: 12.5rem;
   height: 100%;
-  padding: 1.1rem 1.05rem 1rem;
-  background: rgba(6, 16, 48, 0.52);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  min-height: 100%;
+  overflow: hidden;
+  background: #fff;
   border-radius: 12px;
-  backdrop-filter: blur(8px);
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  box-shadow: 0 12px 32px rgba(4, 10, 32, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .duyuru-card-link:hover {
-  background: rgba(10, 24, 68, 0.65);
-  border-color: rgba(255, 255, 255, 0.42);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(4, 10, 32, 0.28);
 }
 
-.duyuru-card-top {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.85rem 1rem;
-  align-items: start;
-  flex: 1;
+.duyuru-card-media {
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center;
 }
 
-.duyuru-date {
+.duyuru-card-media--rose {
+  box-shadow: inset 0 0 0 999px color-mix(in srgb, #a8325c 22%, transparent);
+}
+
+.duyuru-card-media--violet {
+  box-shadow: inset 0 0 0 999px color-mix(in srgb, #5a3d9e 28%, transparent);
+}
+
+.duyuru-card-body {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  gap: 0.55rem;
+  padding: 0.95rem 1rem 1.1rem;
+}
+
+.duyuru-card-meta {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  padding: 0.45rem 0.55rem;
-  background: #fff;
-  border-radius: 8px;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
+}
+
+.duyuru-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: var(--nav-mega-accent);
   color: var(--navy);
-  line-height: 1.05;
-  text-align: center;
-}
-
-.duyuru-day {
-  font-size: 1.4rem;
+  font-size: 0.68rem;
   font-weight: 700;
+  line-height: 1.2;
 }
 
-.duyuru-mon {
-  margin-top: 0.12rem;
-  font-size: 0.7rem;
+.duyuru-tag--program {
+  background: color-mix(in srgb, var(--nav-mega-accent) 88%, #e8d4ff);
+}
+
+.duyuru-tag--house {
+  background: color-mix(in srgb, var(--nav-mega-accent) 75%, #fff);
+}
+
+.duyuru-card-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: color-mix(in srgb, var(--navy) 80%, var(--muted));
+  color: color-mix(in srgb, var(--navy) 75%, var(--muted));
+  white-space: nowrap;
+}
+
+.duyuru-card-date i {
+  font-size: 0.68rem;
+  color: var(--navy);
 }
 
 .duyuru-card-title {
-  margin: 0 0 0.45rem;
-  font-size: 0.88rem;
+  margin: 0;
+  font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.38;
-  color: #fff;
+  color: var(--navy);
 }
 
 .duyuru-excerpt {
   margin: 0;
-  font-size: 0.76rem;
+  flex: 1;
+  font-size: 0.78rem;
   font-weight: 400;
-  line-height: 1.48;
-  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+  color: var(--text-body-muted);
 }
 
-.duyuru-card-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-top: 1rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.duyuru-cat {
+.duyuru-more {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--lime-bright);
-}
-
-.duyuru-cat svg {
-  flex-shrink: 0;
-  stroke: var(--lime-bright);
-}
-
-.duyuru-go {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.85rem;
-  height: 1.85rem;
-  flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 50%;
-  color: #fff;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
 }
 
 /* ——— Yaklaşan etkinlikler (sosyal hub altı) ——— */
