@@ -506,17 +506,21 @@ a {
 #mega-hakkimizda .mega-col--feature {
   margin-top: -1.45rem;
   margin-bottom: -1.35rem;
-  padding-top: 0.65rem;
-  padding-bottom: 0.65rem;
+  padding: 0.85rem 0.75rem 0.85rem 0.95rem;
+  align-items: stretch;
 }
 
 #mega-hakkimizda .mega-feature {
-  height: 10rem;
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  min-height: 8.5rem;
+  align-self: stretch;
 }
 
 #mega-hakkimizda .mega-feature img {
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center center;
 }
 
 #mega-hakkimizda .mega-list {
