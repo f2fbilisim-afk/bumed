@@ -1204,15 +1204,51 @@ a {
 
 /* ——— Hero altı: Sesler / Etkinlikler / Instagram ——— */
 .social-hub {
-  padding-block: clamp(2.75rem, 5.5vw, 4rem);
+  --social-hub-media-h: clamp(14rem, 21vw, 17.25rem);
+  padding-block: clamp(2.5rem, 5vw, 3.75rem);
   background: var(--white);
 }
 
 .social-hub-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(10.5rem, 0.48fr) minmax(0, 1fr);
-  gap: clamp(1.25rem, 2.8vw, 2.25rem);
-  align-items: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.55rem, 1.1vw, 0.95rem);
+  align-items: stretch;
+}
+
+.social-hub-voices,
+.social-hub-events,
+.social-hub-insta {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: clamp(0.65rem, 1.2vw, 1rem) clamp(0.55rem, 1vw, 0.85rem);
+}
+
+.social-hub-events {
+  background: color-mix(in srgb, var(--mega-menu-bg) 72%, #fff);
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--navy) 8%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nav-mega-accent) 12%, transparent);
+}
+
+.social-hub-col-head {
+  flex-shrink: 0;
+  min-height: 7.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.social-hub-col-media {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: stretch;
+  min-height: var(--social-hub-media-h);
+}
+
+.social-hub-col-foot {
+  flex-shrink: 0;
+  margin-top: auto;
+  padding-top: 0.95rem;
 }
 
 .social-hub-title {
@@ -1239,25 +1275,25 @@ a {
   margin-bottom: 0.35rem;
 }
 
-.social-hub-voices-head {
-  margin-bottom: 1.35rem;
-}
-
 .social-hub-shorts {
   position: relative;
+  width: 100%;
 }
 
 .social-hub-shorts-track {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.65rem, 1.4vw, 1rem);
+  gap: clamp(0.5rem, 0.9vw, 0.75rem);
+  width: 100%;
+  height: var(--social-hub-media-h);
 }
 
 .short-card {
   position: relative;
   display: block;
-  aspect-ratio: 9 / 16;
-  max-height: clamp(15.5rem, 28vw, 19.5rem);
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
   border-radius: 14px;
   overflow: hidden;
   border: 2px solid transparent;
@@ -1338,7 +1374,6 @@ a {
 }
 
 .social-hub-videos-cta {
-  margin-top: 1.15rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1357,38 +1392,84 @@ a {
   gap: 0.65rem;
 }
 
-.social-hub-events {
-  position: relative;
-  text-align: left;
-  padding-top: 0.35rem;
+.social-hub-events-head {
+  margin-bottom: 0;
 }
 
 .social-hub-events-title {
-  margin: 0 0 1rem;
+  margin: 0 0 0.55rem;
   font-family: var(--font-heading);
-  font-size: clamp(1.65rem, 2.4vw, 2.05rem);
+  font-size: clamp(1.15rem, 1.55vw, 1.45rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.12;
   letter-spacing: 0.03em;
   color: var(--navy);
 }
 
 .social-hub-events-text {
-  margin: 0 0 1.35rem;
-  font-size: 0.88rem;
-  line-height: 1.55;
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
   color: var(--text-body-muted);
+}
+
+.social-hub-events-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: var(--social-hub-media-h);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(16, 31, 90, 0.12);
+  border: 2px solid color-mix(in srgb, var(--nav-mega-accent) 28%, transparent);
+}
+
+.social-hub-events-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.social-hub-events-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--navy-deep) 72%, transparent) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.social-hub-events-photo-badge {
+  position: absolute;
+  left: 0.65rem;
+  bottom: 0.6rem;
+  z-index: 1;
+  padding: 0.28rem 0.65rem;
+  border-radius: 6px;
+  background: var(--nav-mega-accent);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .btn-social-events {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.72rem 1.1rem;
+  width: 100%;
+  padding: 0.68rem 1rem;
   border-radius: 10px;
   background: var(--nav-mega-accent);
   color: var(--navy);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   border: none;
   box-shadow: 0 10px 24px rgba(29, 253, 237, 0.22);
@@ -1404,16 +1485,12 @@ a {
   margin-bottom: 0.5rem;
 }
 
-.social-hub-scribble--events-btm {
-  margin-top: 1.25rem;
-}
-
 .social-hub-insta-head {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.55rem 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--navy);
@@ -1450,14 +1527,17 @@ a {
 .social-hub-insta-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.65rem, 1.4vw, 1rem);
+  gap: clamp(0.5rem, 0.9vw, 0.75rem);
+  width: 100%;
+  height: var(--social-hub-media-h);
 }
 
 .insta-card {
   position: relative;
   display: block;
-  aspect-ratio: 289 / 387;
-  max-height: clamp(15.5rem, 28vw, 19.5rem);
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 12px 32px rgba(16, 31, 90, 0.1);
@@ -1537,24 +1617,31 @@ a {
   color: var(--text-body-muted);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
+  .social-hub {
+    --social-hub-media-h: clamp(12.5rem, 42vw, 15rem);
+  }
+
   .social-hub-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 1.75rem;
+  }
+
+  .social-hub-col-head {
+    min-height: 0;
   }
 
   .social-hub-events {
-    max-width: 26rem;
+    max-width: 28rem;
   }
 }
 
 @media (max-width: 640px) {
   .social-hub-shorts-track,
   .social-hub-insta-grid {
-    grid-template-columns: 1fr;
-    max-width: 16.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 100%;
   }
-
 }
 
 /* ——— Hikâyemiz + YouTube (kartların altı) ——— */
