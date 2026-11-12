@@ -11,7 +11,7 @@
   --sky: #e6f2ff;
   --turquoise: #16dcd8;
   --nav-mega-accent: #1dfded;
-  --mega-menu-bg: #c3c6d5;
+  --mega-menu-bg: color-mix(in srgb, #c3c6d5 50%, white);
   --white: #fff;
   --bg: #f7f9fc;
   --bg-section: #fafbfd;
