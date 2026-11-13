@@ -735,6 +735,97 @@
   align-self: flex-end;
 }
 
+/* ——— BÜMED Etkinlikleri (Instagram) ——— */
+.m-insta-hub {
+  padding: 0.25rem 0 1.25rem;
+}
+
+.m-insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  padding: 0 0.75rem 0.7rem;
+  list-style: none;
+}
+
+.m-insta-grid .insta-card {
+  height: auto;
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+  border-radius: 0.7rem;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--navy) 10%, transparent);
+}
+
+.m-insta-grid .insta-card-type {
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  font-size: 0.55rem;
+  border-radius: 3px;
+}
+
+.m-insta-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 0.75rem;
+}
+
+.m-insta-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.m-insta-lead {
+  margin: 0 0 0.5rem;
+  max-width: 18rem;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.m-insta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.m-insta-link .fa-instagram {
+  font-size: 0.85rem;
+  color: var(--navy);
+}
+
+.m-insta-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-end;
+  margin: 0;
+  padding: 0.55rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--m-accent);
+  color: var(--navy);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--m-accent) 35%, transparent);
+}
+
+.m-insta-cta .fa-calendar {
+  font-size: 0.72rem;
+}
+
 /* ——— Etkinlik kartları ——— */
 .m-events-home {
   display: flex;
