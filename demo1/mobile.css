@@ -663,6 +663,15 @@
   object-position: center;
 }
 
+.layout-mobile .bumed-events--mobile-feature .event-card-image--duyuru {
+  background: #1a2850;
+}
+
+.layout-mobile .bumed-events--mobile-feature .event-card-image--duyuru img {
+  object-fit: cover;
+  object-position: center;
+}
+
 .layout-mobile .bumed-events--mobile-feature .event-card-date {
   top: 0.4rem;
   left: 0.4rem;

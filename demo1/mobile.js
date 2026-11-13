@@ -334,24 +334,26 @@
   })();
 
   (function initMobileEventCarousel() {
-    var track = root.querySelector(".m-events-scroll");
-    if (!track) return;
+    var tracks = root.querySelectorAll(".m-events-scroll--more");
+    if (!tracks.length) return;
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
 
-    setInterval(function () {
-      var card = track.querySelector(".m-event-card");
-      if (!card) return;
-      var gap = 10;
-      var step = card.offsetWidth + gap;
-      var maxScroll = track.scrollWidth - track.clientWidth - 2;
-      if (maxScroll <= 0) return;
-      if (track.scrollLeft >= maxScroll) {
-        track.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        track.scrollBy({ left: step, behavior: "smooth" });
-      }
-    }, 4200);
+    tracks.forEach(function (track) {
+      setInterval(function () {
+        var card = track.querySelector(".m-event-card");
+        if (!card) return;
+        var gap = 10;
+        var step = card.offsetWidth + gap;
+        var maxScroll = track.scrollWidth - track.clientWidth - 2;
+        if (maxScroll <= 0) return;
+        if (track.scrollLeft >= maxScroll) {
+          track.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          track.scrollBy({ left: step, behavior: "smooth" });
+        }
+      }, 4200);
+    });
   })();
 
   activatePanel("home");
