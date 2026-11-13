@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css?v=20261113ftline" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="events.css?v=20261113mavi" />
-  <link rel="stylesheet" href="mobile.css?v=20261114tabbar" />
+  <link rel="stylesheet" href="mobile.css?v=20261114nav2" />
   <meta name="theme-color" content="#101f5a" />
 </head>
 <body>
@@ -1401,83 +1401,34 @@
       </section>
     </main>
 
-    <div class="m-help" data-m-help>
-      <div
-        class="m-help-pop"
-        data-m-help-pop
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="m-help-pop-title"
-        id="m-help-pop-panel"
-        hidden
-      >
-        <p class="m-help-pop-title" id="m-help-pop-title">İletişim</p>
-        <a class="m-help-pop-link" href="tel:+902123595800">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          <span>0 212 359 58 00</span>
-        </a>
-        <a class="m-help-pop-link" href="mailto:bumed@bumed.org.tr">
-          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-          <span>bumed@bumed.org.tr</span>
-        </a>
-        <p class="m-help-pop-address">
-          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-          <span>Altunizade Mah. Atıf Bey Sok. No:12/1 Acıbadem Üsküdar İSTANBUL</span>
-        </p>
-        <button type="button" class="m-help-pop-close" data-m-help-close aria-label="Kapat">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="m-help-dock" data-m-help-dock>
-        <button type="button" class="m-help-dismiss" data-m-help-dismiss aria-label="Yardımı kenara gizle">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-        </button>
-        <button type="button" class="m-help-trigger" data-m-help-toggle aria-expanded="false" aria-controls="m-help-pop-panel">
-          <span class="m-help-label">Yardım</span>
-          <span class="m-help-cap" aria-hidden="true">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </span>
-        </button>
-      </div>
-      <button type="button" class="m-help-tab" data-m-help-expand hidden aria-label="Yardımı göster">
-        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-      </button>
-    </div>
-
     <nav class="m-tabbar" aria-label="Alt gezinme">
       <div class="m-tabbar-wave" aria-hidden="true"></div>
       <div class="m-tabbar-inner">
-        <div class="m-tabbar-side">
-          <button type="button" class="m-tab" data-m-tab="uyelik" aria-selected="false">
-            <i class="fa-solid fa-users" aria-hidden="true"></i>
-            <span>Üyelik</span>
-          </button>
-          <a class="m-tab" href="https://bumed.webonalti.net/bumed/hakkimizda">
-            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-            <span>Hakkımızda</span>
-          </a>
-        </div>
-        <div class="m-tabbar-fab-slot">
-          <button
-            type="button"
-            class="m-tabbar-fab is-active"
-            data-m-tab="home"
-            aria-label="Ana sayfa"
-            aria-selected="true"
-          >
-            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="m-tabbar-side">
-          <button type="button" class="m-tab" data-m-tab="events" aria-selected="false">
-            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-            <span>Etkinlikler</span>
-          </button>
-          <a class="m-tab" href="https://online.bumed.org.tr/bumed-e-destek-ol-tl">
-            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
-            <span>BÜMED'e Bağış</span>
-          </a>
-        </div>
+        <a class="m-tab" href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026">
+          <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+          <span>Bize Katıl</span>
+        </a>
+        <a class="m-tab" href="https://online.bumed.org.tr/">
+          <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+          <span>Üye Girişi</span>
+        </a>
+        <button
+          type="button"
+          class="m-tabbar-fab is-active"
+          data-m-tab="home"
+          aria-label="Ana sayfa"
+          aria-selected="true"
+        >
+          <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+        </button>
+        <a class="m-tab" href="https://online.bumed.org.tr/odeme">
+          <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+          <span>Üyelik Yenileme</span>
+        </a>
+        <a class="m-tab" href="https://online.bumed.org.tr/bumed-e-destek-ol-tl">
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+          <span>Bağış Yap</span>
+        </a>
       </div>
     </nav>
   </div>
@@ -2171,6 +2122,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" crossorigin="anonymous"></script>
   <script src="events.js?v=20261113akademi"></script>
-  <script src="mobile.js?v=20261114tabbar"></script>
+  <script src="mobile.js?v=20261114nav2"></script>
 </body>
 </html>

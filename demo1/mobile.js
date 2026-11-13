@@ -182,84 +182,10 @@
     });
   });
 
-  (function initMobileHelp() {
-    var help = root.querySelector("[data-m-help]");
-    if (!help) return;
-    var toggle = help.querySelector("[data-m-help-toggle]");
-    var pop = help.querySelector("[data-m-help-pop]");
-    var closeBtn = help.querySelector("[data-m-help-close]");
-    var dismissBtn = help.querySelector("[data-m-help-dismiss]");
-    var expandTab = help.querySelector("[data-m-help-expand]");
-    var storageKey = "bumed-m-help-collapsed-v1";
-    if (!toggle || !pop) return;
-
-    function setHelpOpen(open) {
-      help.classList.toggle("is-open", open);
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      pop.hidden = !open;
-    }
-
-    function setCollapsed(collapsed) {
-      help.classList.toggle("is-collapsed", collapsed);
-      if (collapsed) setHelpOpen(false);
-      if (expandTab) expandTab.hidden = !collapsed;
-      try {
-        sessionStorage.setItem(storageKey, collapsed ? "1" : "0");
-      } catch (err) {
-        /* ignore */
-      }
-    }
-
-    try {
-      if (sessionStorage.getItem(storageKey) === "1") setCollapsed(true);
-    } catch (err) {
-      /* ignore */
-    }
-
-    toggle.addEventListener("click", function () {
-      if (help.classList.contains("is-collapsed")) return;
-      setHelpOpen(!help.classList.contains("is-open"));
-    });
-
-    if (closeBtn) {
-      closeBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        setHelpOpen(false);
-      });
-    }
-
-    if (dismissBtn) {
-      dismissBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        setCollapsed(true);
-      });
-    }
-
-    if (expandTab) {
-      expandTab.addEventListener("click", function () {
-        setCollapsed(false);
-      });
-    }
-
-    document.addEventListener("click", function (e) {
-      if (!help.classList.contains("is-open")) return;
-      if (help.contains(e.target)) return;
-      setHelpOpen(false);
-    });
-  })();
-
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
     setDrawer(false);
     setSearch(false);
-    var help = root.querySelector("[data-m-help]");
-    var toggle = help && help.querySelector("[data-m-help-toggle]");
-    var pop = help && help.querySelector("[data-m-help-pop]");
-    if (help && help.classList.contains("is-open") && toggle && pop) {
-      help.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      pop.hidden = true;
-    }
   });
 
   (function initMobileHero() {
