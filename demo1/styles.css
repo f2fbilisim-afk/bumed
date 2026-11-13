@@ -189,8 +189,11 @@ a {
 }
 
 .logo {
-  height: clamp(4.75rem, 6.5vw, 7rem);
+  display: block;
+  height: clamp(2.65rem, 4.2vw, 3.55rem);
   width: auto;
+  max-width: min(20rem, 54vw);
+  object-fit: contain;
 }
 
 .nav {
@@ -3335,10 +3338,11 @@ a {
   position: relative;
   z-index: 1;
   display: block;
-  width: min(14.5rem, 42vw);
+  width: min(18.5rem, 88vw);
   height: auto;
+  max-height: 5.5rem;
   padding: 0 1.25rem;
-  background: var(--navy-footer);
+  object-fit: contain;
 }
 
 .footer-body {
@@ -4063,10 +4067,13 @@ a {
   border-right: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
 }
 
-.cookie-consent__brand img {
+.cookie-consent__brand img,
+.cookie-consent__logo {
   display: block;
-  width: clamp(5.5rem, 9vw, 7.25rem);
-  height: auto;
+  width: auto;
+  height: clamp(2.35rem, 4.5vw, 2.85rem);
+  max-width: min(11rem, 42vw);
+  object-fit: contain;
 }
 
 .cookie-consent__site {
