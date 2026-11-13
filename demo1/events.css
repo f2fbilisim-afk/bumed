@@ -1,4 +1,4 @@
-/* ——— BÜMED Etkinlikleri (Swiper) ——— */
+/* ——— BÜMED Etkinlikleri & Akademi (aynı kart + Swiper) ——— */
 .bumed-events {
   --events-accent: #00e5df;
   --events-navy: #101f5a;
@@ -6,6 +6,10 @@
   --events-gap-dt: 28px;
   background: #fff;
   padding-block: clamp(2.75rem, 5vw, 4rem);
+}
+
+.bumed-events--akademi {
+  background: linear-gradient(180deg, #eef8fc 0%, #e2f3f9 48%, #f4fafc 100%);
 }
 
 .bumed-events .events-container {

@@ -1,12 +1,5 @@
 (function () {
-  var root = document.querySelector(".bumed-events");
-  if (!root || typeof Swiper === "undefined") return;
-
-  var wrapper = root.querySelector(".events-swiper .swiper-wrapper");
-  var swiperEl = root.querySelector(".events-swiper");
-  var prevEl = root.querySelector(".events-prev");
-  var nextEl = root.querySelector(".events-next");
-  if (!wrapper || !swiperEl) return;
+  if (typeof Swiper === "undefined") return;
 
   var waveSvg =
     '<span class="event-card-wave" aria-hidden="true">' +
@@ -14,7 +7,7 @@
     '<path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>';
 
   function esc(s) {
-  return String(s)
+    return String(s)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/"/g, "&quot;");
@@ -64,9 +57,39 @@
     );
   }
 
-  var swiperInstance = null;
+  function swiperConfig(swiperEl, prevEl, nextEl) {
+    return {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      slidesPerGroup: 1,
+      loop: true,
+      speed: 800,
+      watchOverflow: false,
+      grabCursor: true,
+      autoplay: {
+        delay: 6500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      navigation: {
+        nextEl: nextEl,
+        prevEl: prevEl,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+          slidesPerGroup: 1,
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 28,
+          slidesPerGroup: 1,
+        },
+      },
+    };
+  }
 
-  /** Swiper loop için yeterli slayt (masaüstü 3 görünümde akış devam etsin). */
   function expandForLoop(list) {
     var base = list.slice();
     if (base.length < 1) return base;
@@ -76,121 +99,76 @@
     return base;
   }
 
-  function duplicateDomSlides() {
-    var slides = wrapper.querySelectorAll(".swiper-slide:not([data-loop-clone])");
-    if (slides.length >= 6) return;
-    slides.forEach(function (sl) {
-      var dup = sl.cloneNode(true);
-      dup.setAttribute("data-loop-clone", "1");
-      dup.setAttribute("aria-hidden", "true");
-      wrapper.appendChild(dup);
-    });
-  }
+  function initBumedEventsSection(root) {
+    var wrapper = root.querySelector(".events-swiper .swiper-wrapper");
+    var swiperEl = root.querySelector(".events-swiper");
+    var prevEl = root.querySelector(".events-prev");
+    var nextEl = root.querySelector(".events-next");
+    if (!wrapper || !swiperEl) return;
 
-  function mountSwiper(events) {
-    var list = Array.isArray(events) ? events.slice() : [];
-    if (!list.length) return;
+    var swiperInstance = null;
+    var isAkademi = root.classList.contains("bumed-events--akademi");
 
-    list = expandForLoop(list);
-
-    wrapper.innerHTML = list.map(slideHtml).join("");
-
-    if (swiperInstance) {
-      swiperInstance.destroy(true, true);
-      swiperInstance = null;
+    function duplicateDomSlides() {
+      var slides = wrapper.querySelectorAll(".swiper-slide:not([data-loop-clone])");
+      if (slides.length >= 6) return;
+      slides.forEach(function (sl) {
+        var dup = sl.cloneNode(true);
+        dup.setAttribute("data-loop-clone", "1");
+        dup.setAttribute("aria-hidden", "true");
+        wrapper.appendChild(dup);
+      });
     }
 
-    swiperInstance = new Swiper(swiperEl, {
-      slidesPerView: 1,
-      spaceBetween: 16,
-      slidesPerGroup: 1,
-      loop: true,
-      speed: 800,
-      watchOverflow: false,
-      grabCursor: true,
-      autoplay: {
-        delay: 6500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-      navigation: {
-        nextEl: nextEl,
-        prevEl: prevEl,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-          slidesPerGroup: 1,
-        },
-        1200: {
-          slidesPerView: 3,
-          spaceBetween: 28,
-          slidesPerGroup: 1,
-        },
-      },
-    });
-
-    if (swiperInstance.autoplay) {
-      swiperInstance.autoplay.start();
-    }
-  }
-
-  fetch("events-feed.php", { credentials: "same-origin" })
-    .then(function (res) {
-      return res.ok ? res.json() : Promise.reject(new Error("feed"));
-    })
-    .then(function (data) {
-      if (data && Array.isArray(data.events) && data.events.length) {
-        mountSwiper(data.events);
-      } else {
-        mountSwiperFromExisting();
+    function startSwiper() {
+      if (swiperInstance) {
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
       }
-    })
-    .catch(function () {
-      mountSwiperFromExisting();
-    });
-
-  function mountSwiperFromExisting() {
-    var cards = wrapper.querySelectorAll(".swiper-slide");
-    if (!cards.length) return;
-    if (swiperInstance) return;
-
-    duplicateDomSlides();
-
-    swiperInstance = new Swiper(swiperEl, {
-      slidesPerView: 1,
-      spaceBetween: 16,
-      slidesPerGroup: 1,
-      loop: true,
-      speed: 800,
-      watchOverflow: false,
-      grabCursor: true,
-      autoplay: {
-        delay: 6500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-      navigation: {
-        nextEl: nextEl,
-        prevEl: prevEl,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-          slidesPerGroup: 1,
-        },
-        1200: {
-          slidesPerView: 3,
-          spaceBetween: 28,
-          slidesPerGroup: 1,
-        },
-      },
-    });
-
-    if (swiperInstance.autoplay) {
-      swiperInstance.autoplay.start();
+      swiperInstance = new Swiper(swiperEl, swiperConfig(swiperEl, prevEl, nextEl));
+      if (swiperInstance.autoplay) {
+        swiperInstance.autoplay.start();
+      }
     }
+
+    function mountFromExisting() {
+      var cards = wrapper.querySelectorAll(".swiper-slide");
+      if (!cards.length) return;
+      duplicateDomSlides();
+      startSwiper();
+    }
+
+    function mountFromFeed(events) {
+      var list = Array.isArray(events) ? events.slice() : [];
+      if (!list.length) {
+        mountFromExisting();
+        return;
+      }
+      list = expandForLoop(list);
+      wrapper.innerHTML = list.map(slideHtml).join("");
+      startSwiper();
+    }
+
+    if (isAkademi) {
+      mountFromExisting();
+      return;
+    }
+
+    fetch("events-feed.php", { credentials: "same-origin" })
+      .then(function (res) {
+        return res.ok ? res.json() : Promise.reject(new Error("feed"));
+      })
+      .then(function (data) {
+        if (data && Array.isArray(data.events) && data.events.length) {
+          mountFromFeed(data.events);
+        } else {
+          mountFromExisting();
+        }
+      })
+      .catch(function () {
+        mountFromExisting();
+      });
   }
+
+  document.querySelectorAll(".bumed-events").forEach(initBumedEventsSection);
 })();
