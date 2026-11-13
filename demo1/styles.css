@@ -2505,12 +2505,44 @@ a {
   color: var(--navy);
 }
 
-/* ——— Yaklaşan etkinlikler (mockup) ——— */
-.events-block--upcoming {
+/* ——— Ortak kaydırıcı şerit (etkinlik / akademi / duyuru) ——— */
+.home-carousel {
   position: relative;
   isolation: isolate;
   padding-block: clamp(2.75rem, 5.5vw, 4.25rem);
+  overflow: hidden;
+}
+
+.home-carousel--etkinlik {
   background: #fff;
+}
+
+.home-carousel--akademi {
+  background: linear-gradient(180deg, #eef8fc 0%, #e2f3f9 48%, #f4fafc 100%);
+}
+
+.home-carousel--duyuru {
+  z-index: 2;
+  color: #fff;
+  background-color: #0c183f;
+  background-image:
+    radial-gradient(ellipse 95% 85% at 100% 85%, rgba(56, 98, 190, 0.4) 0%, transparent 58%),
+    radial-gradient(ellipse 70% 55% at 0% 15%, rgba(18, 36, 88, 0.8) 0%, transparent 52%),
+    linear-gradient(118deg, #070e22 0%, #0f1d4a 38%, #132558 62%, #1a3370 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.home-carousel--duyuru .events-title-block h2 {
+  color: #fff;
+}
+
+.home-carousel--duyuru .events-lead {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.home-carousel--duyuru .events-nav {
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .events-head {
@@ -2593,11 +2625,7 @@ a {
 }
 
 .events-track.events-track--loop {
-  animation: events-loop 28s linear infinite;
-}
-
-.events-viewport:hover .events-track.events-track--loop {
-  animation-play-state: paused;
+  animation: events-loop 54s linear infinite;
 }
 
 @keyframes events-loop {

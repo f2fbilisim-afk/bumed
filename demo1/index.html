@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113hb" />
+  <link rel="stylesheet" href="styles.css?v=20261113strip" />
   <link rel="stylesheet" href="mobile.css?v=20261113mlogo" />
   <meta name="theme-color" content="#101f5a" />
 </head>
@@ -432,7 +432,7 @@
       </div>
     </section>
 
-    <section class="events-block events-block--upcoming" id="etkinlikler" aria-labelledby="events-heading">
+    <section class="home-carousel home-carousel--etkinlik" id="etkinlikler" aria-labelledby="events-heading">
       <div class="wrap events-head">
         <header class="events-title-block">
           <p class="events-kicker"><span class="events-kicker-bar" aria-hidden="true"></span>ETKİNLİKLER</p>
@@ -446,11 +446,11 @@
         </a>
       </div>
       <div class="wrap events-slider">
-        <button type="button" class="events-nav events-nav--prev" data-events-prev aria-label="Önceki etkinlikler">
+        <button type="button" class="events-nav events-nav--prev" data-carousel-prev aria-label="Önceki etkinlikler">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
-        <div class="events-viewport" data-events-viewport>
-          <div class="events-track" data-events-track>
+        <div class="events-viewport" data-carousel-viewport>
+          <div class="events-track" data-carousel-track>
             <article class="event-up-card">
               <a class="event-up-link" href="https://bumed.webonalti.net/etkinlikler">
                 <div class="event-up-media event-up-media--banner">
@@ -507,7 +507,7 @@
             </article>
           </div>
         </div>
-        <button type="button" class="events-nav events-nav--next" data-events-next aria-label="Sonraki etkinlikler">
+        <button type="button" class="events-nav events-nav--next" data-carousel-next aria-label="Sonraki etkinlikler">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
@@ -591,230 +591,183 @@
       </div>
     </section>
 
-    <section class="block block-akademi" id="programlar" aria-labelledby="akademi-heading">
-      <div class="akademi-head-deco" aria-hidden="true"></div>
-      <div class="wrap akademi-head">
-        <header class="akademi-title">
-          <p class="akademi-kicker"><span class="akademi-kicker-bar" aria-hidden="true"></span>BÜMED AKADEMİ</p>
-          <h2 id="akademi-heading"><span class="akademi-heading-brand">BÜMED</span> <span class="akademi-heading-accent">Akademi</span></h2>
-          <p class="akademi-lead">Sanat, tarih ve yaşam alanlarında öğrenmeye açık topluluk.</p>
+    <section class="home-carousel home-carousel--akademi" id="programlar" aria-labelledby="akademi-heading">
+      <div class="wrap events-head">
+        <header class="events-title-block">
+          <p class="events-kicker"><span class="events-kicker-bar" aria-hidden="true"></span>BÜMED AKADEMİ</p>
+          <h2 id="akademi-heading">BÜMED Akademi</h2>
+          <p class="events-lead">Sanat, tarih ve yaşam alanlarında öğrenmeye açık topluluk.</p>
         </header>
-        <div class="akademi-btns">
-          <a class="btn btn-akademi-solid" href="https://bumed.webonalti.net/akademi">
-            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-            Akademi Takvimi
-          </a>
-        </div>
+        <a class="btn btn-events-see-all btn-events-see-all--head" href="https://bumed.webonalti.net/akademi">
+          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+          Akademi Takvimi
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
-      <div class="wrap akademi-carousel">
-        <button type="button" class="akademi-nav akademi-nav--side" data-akademi-prev aria-label="Önceki programlar">
+      <div class="wrap events-slider">
+        <button type="button" class="events-nav events-nav--prev" data-carousel-prev aria-label="Önceki programlar">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
-        <div class="akademi-track" data-akademi-track tabindex="0">
-          <article class="akademi-card">
-            <a class="akademi-card-link" href="#">
-              <div class="akademi-card-media akademi-card-media--bizans" style="background-image:url('https://images.unsplash.com/photo-1544984243-ec57ea16fe65?w=720&q=80')">
-                <time class="akademi-date" datetime="2026-10-27">27<span>Eki</span></time>
-                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
-              </div>
-              <div class="akademi-card-body">
-                <h3>Bizans İmparatorluğu'nun Renkli Tarihi</h3>
-                <p class="akademi-meta">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-                  27 Ekim 2026 · 16:00
-                </p>
-                <p class="akademi-meta">
-                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                  BÜMED Merkezi
-                </p>
-                <footer class="akademi-card-foot">
-                  <span class="akademi-tag tag-tarih">Tarih</span>
-                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
-                </footer>
-              </div>
-            </a>
-          </article>
-          <article class="akademi-card">
-            <a class="akademi-card-link" href="#">
-              <div class="akademi-card-media" style="background-image:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=640&q=80')">
-                <time class="akademi-date" datetime="2026-11-02">2<span>Kas</span></time>
-                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
-              </div>
-              <div class="akademi-card-body">
-                <h3>Film Okuma Atölyesi</h3>
-                <p class="akademi-meta">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-                  2 Kasım 2026 · 18:00
-                </p>
-                <p class="akademi-meta">
-                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                  Online
-                </p>
-                <footer class="akademi-card-foot">
-                  <span class="akademi-tag tag-sinema">Sinema</span>
-                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
-                </footer>
-              </div>
-            </a>
-          </article>
-          <article class="akademi-card">
-            <a class="akademi-card-link" href="#">
-              <div class="akademi-card-media" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=640&q=80')">
-                <time class="akademi-date" datetime="2026-11-08">8<span>Kas</span></time>
-                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
-              </div>
-              <div class="akademi-card-body">
-                <h3>Kent ve Sürdürülebilirlik Söyleşisi</h3>
-                <p class="akademi-meta">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-                  8 Kasım 2026 · 20:00
-                </p>
-                <p class="akademi-meta">
-                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                  BÜMED Teras
-                </p>
-                <footer class="akademi-card-foot">
-                  <span class="akademi-tag tag-toplum">Toplum</span>
-                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
-                </footer>
-              </div>
-            </a>
-          </article>
-          <article class="akademi-card">
-            <a class="akademi-card-link" href="#">
-              <div class="akademi-card-media" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=640&q=80')">
-                <time class="akademi-date" datetime="2026-11-15">15<span>Kas</span></time>
-                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
-              </div>
-              <div class="akademi-card-body">
-                <h3>Gençler için Kariyer Rotası</h3>
-                <p class="akademi-meta">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-                  15 Kasım 2026 · 17:00
-                </p>
-                <p class="akademi-meta">
-                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                  Hibrit
-                </p>
-                <footer class="akademi-card-foot">
-                  <span class="akademi-tag tag-egitim">Eğitim</span>
-                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
-                </footer>
-              </div>
-            </a>
-          </article>
-          <article class="akademi-card">
-            <a class="akademi-card-link" href="#">
-              <div class="akademi-card-media" style="background-image:url('https://images.unsplash.com/photo-1478720568477-152d9b8e9e9d?w=640&q=80')">
-                <time class="akademi-date" datetime="2026-11-24">24<span>Kas</span></time>
-                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
-              </div>
-              <div class="akademi-card-body">
-                <h3>Savaş Filmleri ve Propaganda</h3>
-                <p class="akademi-meta">
-                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-                  24 Kasım 2026 · 19:30
-                </p>
-                <p class="akademi-meta">
-                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                  BÜMED House
-                </p>
-                <footer class="akademi-card-foot">
-                  <span class="akademi-tag tag-tarih">Tarih</span>
-                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
-                </footer>
-              </div>
-            </a>
-          </article>
+        <div class="events-viewport" data-carousel-viewport>
+          <div class="events-track" data-carousel-track>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/akademi">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe65?w=720&q=80" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-10-27">27<span>Eki</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 16:00 – 18:00</p>
+                  <h3>Bizans İmparatorluğu'nun Renkli Tarihi</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> BÜMED Merkezi</p>
+                </div>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/akademi">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=640&q=80" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-11-02">2<span>Kas</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 18:00 – 20:00</p>
+                  <h3>Film Okuma Atölyesi</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Online</p>
+                </div>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/akademi">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=640&q=80" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-11-08">8<span>Kas</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 20:00 – 21:30</p>
+                  <h3>Kent ve Sürdürülebilirlik Söyleşisi</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> BÜMED Teras</p>
+                </div>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/akademi">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=640&q=80" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-11-15">15<span>Kas</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 17:00 – 19:00</p>
+                  <h3>Gençler için Kariyer Rotası</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Hibrit</p>
+                </div>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/akademi">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="https://images.unsplash.com/photo-1478720568477-152d9b8e9e9d?w=640&q=80" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-11-24">24<span>Kas</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 19:30 – 21:00</p>
+                  <h3>Savaş Filmleri ve Propaganda</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> BÜMED House</p>
+                </div>
+              </a>
+            </article>
+          </div>
         </div>
-        <button type="button" class="akademi-nav akademi-nav--side" data-akademi-next aria-label="Sonraki programlar">
+        <button type="button" class="events-nav events-nav--next" data-carousel-next aria-label="Sonraki programlar">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
     </section>
 
-    <section class="duyurular duyurular--news" aria-labelledby="duyuru-heading">
-      <div class="wrap duyuru-head">
-        <header class="duyuru-intro">
-          <span class="accent-bar light" aria-hidden="true"></span>
-          <p class="duyuru-kicker">DUYURULAR &amp; HABERLER</p>
+    <section class="home-carousel home-carousel--duyuru" id="duyurular" aria-labelledby="duyuru-heading">
+      <div class="wrap events-head">
+        <header class="events-title-block">
+          <p class="events-kicker"><span class="events-kicker-bar" aria-hidden="true"></span>DUYURULAR &amp; HABERLER</p>
           <h2 id="duyuru-heading">BÜMED’den Duyurular</h2>
-          <p class="duyuru-lead">Derneğimizden güncel duyurular, etkinlik haberleri ve önemli bilgilendirmeler.</p>
+          <p class="events-lead">Derneğimizden güncel duyurular, etkinlik haberleri ve önemli bilgilendirmeler.</p>
         </header>
-        <div class="duyuru-head-actions">
-          <div class="duyuru-arrows" aria-label="Duyuru kaydırma">
-            <button type="button" class="duyuru-arrow" data-duyuru-prev aria-label="Önceki duyurular">
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-            </button>
-            <button type="button" class="duyuru-arrow" data-duyuru-next aria-label="Sonraki duyurular">
-              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            </button>
-          </div>
-          <a class="btn duyuru-all-btn" href="https://bumed.webonalti.net/duyurular">
-            Tüm Duyurular
-            <span class="duyuru-all-ico" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-          </a>
-        </div>
+        <a class="btn btn-events-see-all btn-events-see-all--head" href="https://bumed.webonalti.net/duyurular">
+          <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+          Tüm Duyurular
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
-      <div class="wrap duyuru-slider">
-        <div class="duyuru-track" data-duyuru-track tabindex="0">
-          <article class="duyuru-card">
-            <a class="duyuru-card-link" href="#">
-              <div class="duyuru-card-media" style="background-image:url('duyuru-reunion.jpg?v=20261113du')"></div>
-              <div class="duyuru-card-body">
-                <div class="duyuru-card-meta">
-                  <span class="duyuru-tag"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Etkinlik</span>
-                  <time class="duyuru-card-date" datetime="2026-05-07"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 7 Mayıs</time>
+      <div class="wrap events-slider">
+        <button type="button" class="events-nav events-nav--prev" data-carousel-prev aria-label="Önceki duyurular">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="events-viewport" data-carousel-viewport>
+          <div class="events-track" data-carousel-track>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/duyurular">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="duyuru-reunion.jpg?v=20261113du" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-05-07">7<span>May</span></time>
                 </div>
-                <h3 class="duyuru-card-title">Reunion Kokteyli 2026’da BÜMED House’da Mezunlarımızla Birlikteydik!</h3>
-                <p class="duyuru-excerpt">Reunion Kokteyli 2026 için 7 Mayıs’ta BÜMED House’da mezuniyetlerinin 5. 10. 15. 20. 25. 30. ve 35. yıllarını kutlayan…</p>
-                <span class="duyuru-more">Devamını Oku <span aria-hidden="true">→</span></span>
-              </div>
-            </a>
-          </article>
-          <article class="duyuru-card">
-            <a class="duyuru-card-link" href="#">
-              <div class="duyuru-card-media" style="background-image:url('duyuru-kadin.jpg?v=20261113du')"></div>
-              <div class="duyuru-card-body">
-                <div class="duyuru-card-meta">
-                  <span class="duyuru-tag"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Etkinlik</span>
-                  <time class="duyuru-card-date" datetime="2026-03-06"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 6 Mart</time>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Etkinlik</p>
+                  <h3>Reunion Kokteyli 2026’da BÜMED House’da Mezunlarımızla Birlikteydik!</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> BÜMED House</p>
                 </div>
-                <h3 class="duyuru-card-title">BÜMED House’ta Dünya Emekçi Kadınlar Günü Etkinlikleri Yoğun İlgiyle…</h3>
-                <p class="duyuru-excerpt">Dünya Emekçi Kadınlar Günü kapsamında 4, 5 ve 6 Mart tarihlerinde BÜMED House’ta yüz yüze ve çevrimiçi olarak…</p>
-                <span class="duyuru-more">Devamını Oku <span aria-hidden="true">→</span></span>
-              </div>
-            </a>
-          </article>
-          <article class="duyuru-card">
-            <a class="duyuru-card-link" href="#">
-              <div class="duyuru-card-media" style="background-image:url('duyuru-nextgen.jpg?v=20261113du')"></div>
-              <div class="duyuru-card-body">
-                <div class="duyuru-card-meta">
-                  <span class="duyuru-tag duyuru-tag--program"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Program</span>
-                  <time class="duyuru-card-date" datetime="2026-02-27"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 27 Şubat</time>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/duyurular">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="duyuru-kadin.jpg?v=20261113du" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-03-06">6<span>Mar</span></time>
                 </div>
-                <h3 class="duyuru-card-title">BÜMED NextGen Mentor ve Menteeleri ile Buluştuk</h3>
-                <p class="duyuru-excerpt">BÜMED NextGen Mentorluk Programı kapsamında mentor ve mentee’lerimizi 20 ve 27 Şubat tarihlerinde…</p>
-                <span class="duyuru-more">Devamını Oku <span aria-hidden="true">→</span></span>
-              </div>
-            </a>
-          </article>
-          <article class="duyuru-card">
-            <a class="duyuru-card-link" href="#">
-              <div class="duyuru-card-media" style="background-image:url('duyuru-house.jpg?v=20261113du')"></div>
-              <div class="duyuru-card-body">
-                <div class="duyuru-card-meta">
-                  <span class="duyuru-tag duyuru-tag--house"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> BÜMED House</span>
-                  <time class="duyuru-card-date" datetime="2026-04-28"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 28 Nisan</time>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Etkinlik</p>
+                  <h3>BÜMED House’ta Dünya Emekçi Kadınlar Günü Etkinlikleri Yoğun İlgiyle…</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> BÜMED House</p>
                 </div>
-                <h3 class="duyuru-card-title">BÜMED House Toplantı Salonları</h3>
-                <p class="duyuru-excerpt">Boğaziçililerin yeni buluşma noktası BÜMED House; eğitim, toplantı ve etkinlikler için hizmetinizde.</p>
-                <span class="duyuru-more">Devamını Oku <span aria-hidden="true">→</span></span>
-              </div>
-            </a>
-          </article>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/duyurular">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="duyuru-nextgen.jpg?v=20261113du" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-02-27">27<span>Şub</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Program</p>
+                  <h3>BÜMED NextGen Mentor ve Menteeleri ile Buluştuk</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> BÜMED House</p>
+                </div>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/duyurular">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="duyuru-house.jpg?v=20261113du" width="499" height="451" alt="" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-04-28">28<span>Nis</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true"><svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" /></svg></span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> BÜMED House</p>
+                  <h3>BÜMED House Toplantı Salonları</h3>
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> Hizmetinizde</p>
+                </div>
+              </a>
+            </article>
+          </div>
         </div>
+        <button type="button" class="events-nav events-nav--next" data-carousel-next aria-label="Sonraki duyurular">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
     </section>
 
@@ -1682,90 +1635,89 @@
     })();
 
     (function () {
-      var viewport = document.querySelector("[data-events-viewport]");
-      var track = document.querySelector("[data-events-track]");
-      var prevBtn = document.querySelector("[data-events-prev]");
-      var nextBtn = document.querySelector("[data-events-next]");
-      if (!viewport || !track) return;
-
       var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      var originals = track.querySelectorAll(".event-up-card").length;
-      var manualOffset = 0;
 
-      track.querySelectorAll(".event-up-card").forEach(function (card) {
-        var clone = card.cloneNode(true);
-        clone.classList.add("event-up-card--clone");
-        clone.setAttribute("aria-hidden", "true");
-        track.appendChild(clone);
-      });
+      function initHomeCarousel(track) {
+        var viewport = track.closest("[data-carousel-viewport]");
+        if (!viewport) return;
+        var slider = viewport.closest(".events-slider");
+        var prevBtn = slider ? slider.querySelector("[data-carousel-prev]") : null;
+        var nextBtn = slider ? slider.querySelector("[data-carousel-next]") : null;
+        var originals = track.querySelectorAll(".event-up-card:not(.event-up-card--clone)").length;
+        var manualOffset = 0;
 
-      function readVisible() {
-        if (window.matchMedia("(max-width: 600px)").matches) return 1;
-        if (window.matchMedia("(max-width: 1024px)").matches) return 2;
-        return 3;
-      }
-
-      function gapPx() {
-        var g = getComputedStyle(track).gap;
-        if (!g) return 16;
-        return parseFloat(g) || 16;
-      }
-
-      function layoutCards() {
-        var vis = Math.max(1, readVisible());
-        var g = gapPx();
-        var cardW = (viewport.clientWidth - g * (vis - 1)) / vis;
-        if (cardW < 1) return;
-        track.querySelectorAll(".event-up-card").forEach(function (card) {
-          card.style.width = cardW + "px";
-          card.style.flexBasis = cardW + "px";
-          card.style.maxWidth = cardW + "px";
+        track.querySelectorAll(".event-up-card:not(.event-up-card--clone)").forEach(function (card) {
+          var clone = card.cloneNode(true);
+          clone.classList.add("event-up-card--clone");
+          clone.setAttribute("aria-hidden", "true");
+          track.appendChild(clone);
         });
-      }
+        originals = track.querySelectorAll(".event-up-card:not(.event-up-card--clone)").length;
 
-      function stepPx() {
-        var card = track.querySelector(".event-up-card");
-        return card ? card.getBoundingClientRect().width + gapPx() : 0;
-      }
+        function readVisible() {
+          if (window.matchMedia("(max-width: 600px)").matches) return 1;
+          if (window.matchMedia("(max-width: 1024px)").matches) return 2;
+          return 3;
+        }
 
-      function setManualTransform() {
-        track.style.transform = "translate3d(" + -manualOffset * stepPx() + "px,0,0)";
-      }
+        function gapPx() {
+          var g = getComputedStyle(track).gap;
+          if (!g) return 16;
+          return parseFloat(g) || 16;
+        }
 
-      function pauseLoop() {
-        track.classList.remove("events-track--loop");
-        track.style.animation = "none";
-      }
+        function layoutCards() {
+          var vis = Math.max(1, readVisible());
+          var g = gapPx();
+          var cardW = (viewport.clientWidth - g * (vis - 1)) / vis;
+          if (cardW < 1) return;
+          track.querySelectorAll(".event-up-card").forEach(function (card) {
+            card.style.width = cardW + "px";
+            card.style.flexBasis = cardW + "px";
+            card.style.maxWidth = cardW + "px";
+          });
+        }
 
-      function resumeLoop() {
-        if (reduceMotion) return;
-        track.style.transform = "";
-        track.style.animation = "";
-        track.classList.add("events-track--loop");
-      }
+        function stepPx() {
+          var card = track.querySelector(".event-up-card");
+          return card ? card.getBoundingClientRect().width + gapPx() : 0;
+        }
 
-      function nudge(dir) {
-        pauseLoop();
-        manualOffset += dir;
-        var max = originals;
-        if (manualOffset >= max) manualOffset = 0;
-        if (manualOffset < 0) manualOffset = max - 1;
-        track.style.transition = reduceMotion ? "none" : "transform 0.9s ease";
-        setManualTransform();
-        window.setTimeout(resumeLoop, reduceMotion ? 0 : 950);
-      }
+        function setManualTransform() {
+          track.style.transform = "translate3d(" + -manualOffset * stepPx() + "px,0,0)";
+        }
 
-      if (prevBtn) prevBtn.addEventListener("click", function () { nudge(-1); });
-      if (nextBtn) nextBtn.addEventListener("click", function () { nudge(1); });
+        function pauseLoop() {
+          track.classList.remove("events-track--loop");
+          track.style.animation = "none";
+        }
 
-      window.addEventListener("resize", function () {
+        function resumeLoop() {
+          if (reduceMotion) return;
+          track.style.transform = "";
+          track.style.animation = "";
+          track.classList.add("events-track--loop");
+        }
+
+        function nudge(dir) {
+          pauseLoop();
+          manualOffset += dir;
+          var max = originals;
+          if (manualOffset >= max) manualOffset = 0;
+          if (manualOffset < 0) manualOffset = max - 1;
+          track.style.transition = reduceMotion ? "none" : "transform 0.9s ease";
+          setManualTransform();
+          window.setTimeout(resumeLoop, reduceMotion ? 0 : 950);
+        }
+
+        if (prevBtn) prevBtn.addEventListener("click", function () { nudge(-1); });
+        if (nextBtn) nextBtn.addEventListener("click", function () { nudge(1); });
+        window.addEventListener("resize", layoutCards);
         layoutCards();
-      });
-
-      layoutCards();
-      if (!reduceMotion) {
-        track.classList.add("events-track--loop");
+        if (!reduceMotion) track.classList.add("events-track--loop");
       }
+
+      document.querySelectorAll("[data-carousel-track]").forEach(initHomeCarousel);
     })();
 
     (function () {
@@ -1843,38 +1795,6 @@
       apply(false);
       if (!reduceMotion) {
         autoTimer = setInterval(tick, 4200);
-      }
-    })();
-
-    (function () {
-      var track = document.querySelector("[data-akademi-track]");
-      var prev = document.querySelector("[data-akademi-prev]");
-      var next = document.querySelector("[data-akademi-next]");
-      if (track) {
-        function akademiScroll(dir) {
-          var card = track.querySelector(".akademi-card");
-          var gap = 18;
-          var step = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
-          track.scrollBy({ left: dir * step, behavior: "smooth" });
-        }
-        if (prev) prev.addEventListener("click", function () { akademiScroll(-1); });
-        if (next) next.addEventListener("click", function () { akademiScroll(1); });
-      }
-    })();
-
-    (function () {
-      var track = document.querySelector("[data-duyuru-track]");
-      var prev = document.querySelector("[data-duyuru-prev]");
-      var next = document.querySelector("[data-duyuru-next]");
-      if (track) {
-        function duyuruScroll(dir) {
-          var card = track.querySelector(".duyuru-card");
-          var gap = 16;
-          var step = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
-          track.scrollBy({ left: dir * step, behavior: "smooth" });
-        }
-        if (prev) prev.addEventListener("click", function () { duyuruScroll(-1); });
-        if (next) next.addEventListener("click", function () { duyuruScroll(1); });
       }
     })();
 
