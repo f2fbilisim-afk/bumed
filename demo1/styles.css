@@ -2490,28 +2490,56 @@ a {
 .events-viewport {
   --events-gap: clamp(0.85rem, 1.6vw, 1.25rem);
   overflow: hidden;
+  overflow-y: hidden;
   min-width: 0;
 }
 
 .events-track {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap !important;
   align-items: stretch;
   gap: var(--events-gap);
+  width: max-content;
+  min-width: 100%;
   will-change: transform;
+}
+
+.events-track.events-track--loop {
+  animation: events-loop 34s linear infinite;
+}
+
+.events-viewport:hover .events-track.events-track--loop {
+  animation-play-state: paused;
+}
+
+@keyframes events-loop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.event-up-card {
+  flex: 0 0 auto;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .event-up-card--clone {
   pointer-events: none;
+  user-select: none;
 }
 
 .event-up-card--clone a {
   pointer-events: none;
 }
 
-.event-up-card {
-  flex: 0 0 calc((100% - 2 * var(--events-gap)) / 3);
-  min-width: 0;
+@media (prefers-reduced-motion: reduce) {
+  .events-track.events-track--loop {
+    animation: none;
+  }
 }
 
 .events-nav {
