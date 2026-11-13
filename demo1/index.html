@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113partnerslg" />
+  <link rel="stylesheet" href="styles.css?v=20261113evsoft" />
 </head>
 <body>
   <header class="site-header">
@@ -1202,12 +1202,14 @@
       }
 
       function step() {
-        var card = track.querySelector(".event-up-card");
-        return card ? card.offsetWidth + gap() : 0;
+        var card = track.querySelector(".event-up-card:not(.event-up-card--clone)");
+        if (!card) card = track.querySelector(".event-up-card");
+        return card ? card.getBoundingClientRect().width + gap() : 0;
       }
 
       function apply(animate) {
-        track.style.transition = animate && !reduceMotion ? "transform 0.9s ease" : "none";
+        track.style.transition =
+          animate && !reduceMotion ? "transform 1.05s cubic-bezier(0.42, 0, 0.2, 1)" : "none";
         track.style.transform = "translate3d(" + -index * step() + "px,0,0)";
       }
 
@@ -1227,7 +1229,7 @@
         armAuto();
       }
 
-      function autoStep() {
+      function tick() {
         if (originals <= 1) return;
         index += 1;
         apply(true);
@@ -1236,7 +1238,7 @@
       function armAuto() {
         if (autoTimer) clearInterval(autoTimer);
         if (reduceMotion) return;
-        autoTimer = setInterval(autoStep, 5200);
+        autoTimer = setInterval(tick, 4200);
       }
 
       track.addEventListener("transitionend", function (e) {
@@ -1258,9 +1260,7 @@
       });
 
       apply(false);
-      if (!reduceMotion) {
-        autoTimer = setInterval(autoStep, 5200);
-      }
+      armAuto();
     })();
 
     (function () {
@@ -1291,7 +1291,8 @@
       }
 
       function apply(animate) {
-        track.style.transition = animate && !reduceMotion ? "transform 0.85s ease" : "none";
+        track.style.transition =
+          animate && !reduceMotion ? "transform 1.05s cubic-bezier(0.42, 0, 0.2, 1)" : "none";
         track.style.transform = "translate3d(" + -index * step() + "px,0,0)";
       }
 
@@ -1306,7 +1307,12 @@
       }
 
       function tick() {
-        if (originals <= visibleCount()) return;
+        if (originals <= 1) return;
+        if (originals <= visibleCount()) {
+          index = (index + 1) % originals;
+          apply(true);
+          return;
+        }
         index += 1;
         apply(true);
       }
@@ -1320,8 +1326,9 @@
         if (autoTimer) clearInterval(autoTimer);
       });
       viewport.addEventListener("mouseleave", function () {
+        if (autoTimer) clearInterval(autoTimer);
         if (reduceMotion) return;
-        autoTimer = setInterval(tick, 3800);
+        autoTimer = setInterval(tick, 4200);
       });
 
       window.addEventListener("resize", function () {
@@ -1330,7 +1337,7 @@
 
       apply(false);
       if (!reduceMotion) {
-        autoTimer = setInterval(tick, 3800);
+        autoTimer = setInterval(tick, 4200);
       }
     })();
 

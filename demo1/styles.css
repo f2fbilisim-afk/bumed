@@ -2495,8 +2495,18 @@ a {
 
 .events-track {
   display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: var(--events-gap);
   will-change: transform;
+}
+
+.event-up-card--clone {
+  pointer-events: none;
+}
+
+.event-up-card--clone a {
+  pointer-events: none;
 }
 
 .event-up-card {
