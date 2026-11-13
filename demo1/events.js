@@ -66,12 +66,32 @@
 
   var swiperInstance = null;
 
+  /** Swiper loop için yeterli slayt (masaüstü 3 görünümde akış devam etsin). */
+  function expandForLoop(list) {
+    var base = list.slice();
+    if (base.length < 1) return base;
+    while (base.length < 6) {
+      base = base.concat(list);
+    }
+    return base;
+  }
+
+  function duplicateDomSlides() {
+    var slides = wrapper.querySelectorAll(".swiper-slide:not([data-loop-clone])");
+    if (slides.length >= 6) return;
+    slides.forEach(function (sl) {
+      var dup = sl.cloneNode(true);
+      dup.setAttribute("data-loop-clone", "1");
+      dup.setAttribute("aria-hidden", "true");
+      wrapper.appendChild(dup);
+    });
+  }
+
   function mountSwiper(events) {
     var list = Array.isArray(events) ? events.slice() : [];
     if (!list.length) return;
 
-    var slidesPerViewMax = 3;
-    var useLoop = list.length > slidesPerViewMax;
+    list = expandForLoop(list);
 
     wrapper.innerHTML = list.map(slideHtml).join("");
 
@@ -84,12 +104,12 @@
       slidesPerView: 1,
       spaceBetween: 16,
       slidesPerGroup: 1,
-      loop: useLoop,
-      rewind: !useLoop,
-      speed: 500,
-      watchOverflow: true,
+      loop: true,
+      speed: 800,
+      watchOverflow: false,
+      grabCursor: true,
       autoplay: {
-        delay: 5000,
+        delay: 6500,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
@@ -111,8 +131,8 @@
       },
     });
 
-    if (!useLoop && list.length <= 3 && window.matchMedia("(min-width: 1200px)").matches) {
-      swiperInstance.autoplay.stop();
+    if (swiperInstance.autoplay) {
+      swiperInstance.autoplay.start();
     }
   }
 
@@ -136,19 +156,18 @@
     if (!cards.length) return;
     if (swiperInstance) return;
 
-    var count = cards.length;
-    var useLoop = count > 3;
+    duplicateDomSlides();
 
     swiperInstance = new Swiper(swiperEl, {
       slidesPerView: 1,
       spaceBetween: 16,
       slidesPerGroup: 1,
-      loop: useLoop,
-      rewind: !useLoop,
-      speed: 500,
-      watchOverflow: true,
+      loop: true,
+      speed: 800,
+      watchOverflow: false,
+      grabCursor: true,
       autoplay: {
-        delay: 5000,
+        delay: 6500,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
@@ -160,16 +179,18 @@
         768: {
           slidesPerView: 2,
           spaceBetween: 20,
+          slidesPerGroup: 1,
         },
         1200: {
           slidesPerView: 3,
           spaceBetween: 28,
+          slidesPerGroup: 1,
         },
       },
     });
 
-    if (!useLoop && count <= 3 && window.matchMedia("(min-width: 1200px)").matches) {
-      swiperInstance.autoplay.stop();
+    if (swiperInstance.autoplay) {
+      swiperInstance.autoplay.start();
     }
   }
 })();
