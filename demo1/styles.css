@@ -2844,23 +2844,114 @@ a {
   opacity: 1;
 }
 
-/* ——— Partners ——— */
+/* ——— İş ortakları (kayan logo bandı) ——— */
 .block-partners {
   background: var(--bg);
+  padding-bottom: clamp(2.75rem, 5vw, 4rem);
 }
 
-.partners-logos {
+.block-partners .partners-head {
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.block-partners .partners-head h2 {
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-navy);
+}
+
+.partners-accent {
+  background: var(--nav-mega-accent);
+  width: 52px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.partners-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+
+.partners-marquee-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.5rem 3.5rem;
+  width: max-content;
+  animation: partners-marquee 42s linear infinite;
 }
 
-.partners-logos span {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #9aa3b8;
-  letter-spacing: 0.02em;
+.partners-marquee:hover .partners-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes partners-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.partners-logos-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  margin: 0;
+  padding: 0 clamp(1.25rem, 3vw, 2.25rem);
+  list-style: none;
+}
+
+li.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.partner-logo img {
+  width: auto;
+  height: clamp(2.75rem, 5.5vw, 4.25rem);
+  max-width: min(14.5rem, 38vw);
+  object-fit: contain;
+}
+
+.partner-logo:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+    gap: 1.5rem 2rem;
+  }
+
+  .partners-marquee {
+    mask-image: none;
+    overflow: visible;
+  }
+
+  .partners-logos-row[aria-hidden="true"] {
+    display: none;
+  }
+
+  .partners-logos-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 /* ——— Footer (mockup) ——— */
