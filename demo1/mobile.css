@@ -20,7 +20,7 @@
 
 .m-app {
   --m-tab-h: calc(3.65rem + env(safe-area-inset-bottom, 0px));
-  --m-top-h: 3.65rem;
+  --m-top-h: 4.35rem;
   --m-accent: var(--nav-mega-accent);
   min-height: 100dvh;
   background: var(--bg);
@@ -35,12 +35,13 @@
   top: 0;
   z-index: 120;
   display: grid;
-  grid-template-columns: 2.75rem 1fr 2.75rem;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
   align-items: center;
-  gap: 0.5rem;
-  height: var(--m-top-h);
-  padding: 0 0.65rem;
-  padding-top: env(safe-area-inset-top, 0px);
+  gap: 0.35rem;
+  min-height: var(--m-top-h);
+  height: auto;
+  padding: 0.35rem 0.5rem;
+  padding-top: calc(0.35rem + env(safe-area-inset-top, 0px));
   background: var(--navy);
   color: #fff;
   box-shadow: 0 2px 12px color-mix(in srgb, var(--navy) 25%, transparent);
@@ -67,17 +68,21 @@
 }
 
 .m-topbar-logo-link {
-  justify-self: center;
+  justify-self: stretch;
   display: flex;
   align-items: center;
-  max-width: calc(100% - 5.5rem);
+  justify-content: center;
+  min-width: 0;
+  padding: 0 0.15rem;
 }
 
 .m-topbar-logo {
   display: block;
-  height: 2.2rem;
-  width: auto;
-  max-width: 100%;
+  width: min(100%, 17.5rem);
+  height: auto;
+  max-height: clamp(2.65rem, 11vw, 3.15rem);
+  object-fit: contain;
+  object-position: center;
 }
 
 /* ——— Drawer ——— */
