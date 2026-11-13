@@ -2961,7 +2961,7 @@ a {
 .partners-vrule {
   width: 1px;
   align-self: stretch;
-  min-height: 5.5rem;
+  min-height: clamp(6.5rem, 10vw, 8.25rem);
   background: color-mix(in srgb, var(--navy) 14%, transparent);
 }
 
@@ -2983,16 +2983,17 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 4.5rem;
-  padding: 0.35rem clamp(0.65rem, 1.4vw, 1.15rem);
+  min-height: clamp(6.5rem, 10vw, 8.25rem);
+  padding: clamp(0.65rem, 1.6vw, 1.1rem) clamp(0.85rem, 1.8vw, 1.45rem);
   border-right: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
   box-sizing: border-box;
 }
 
 .partner-logo-cell img {
-  width: auto;
-  height: clamp(2.35rem, 4.2vw, 3.35rem);
-  max-width: 100%;
+  display: block;
+  width: min(100%, 16.5rem);
+  height: auto;
+  max-height: clamp(3.75rem, 7.5vw, 5.75rem);
   object-fit: contain;
 }
 
