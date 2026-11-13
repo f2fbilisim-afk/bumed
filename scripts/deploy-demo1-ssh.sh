@@ -32,7 +32,7 @@ deploy_file() {
   fi
 }
 
-for f in index.html styles.css mobile.css mobile.js instagram-feed.php; do
+for f in index.html styles.css events.css events.js events-feed.php mobile.css mobile.js instagram-feed.php; do
   deploy_file "$f"
 done
 
@@ -43,6 +43,6 @@ done
 shopt -u nullglob
 
 sshpass -e ssh "${SSH_OPTS[@]}" "${USER}@${HOST}" \
-  "php ${REMOTE_DIR}/instagram-feed.php > ${REMOTE_DIR}/instagram-feed.json && chown -R bumed:bumed ${REMOTE_DIR}"
+  "php ${REMOTE_DIR}/instagram-feed.php > ${REMOTE_DIR}/instagram-feed.json && php ${REMOTE_DIR}/events-feed.php > ${REMOTE_DIR}/events-feed.json && chown -R bumed:bumed ${REMOTE_DIR}"
 
 echo "Deploy tamamlandı: https://bumed.webonalti.net/demo1/"
