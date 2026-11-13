@@ -864,51 +864,50 @@
   right: 0;
   bottom: 0;
   z-index: 130;
-  min-height: 4.1rem;
-  padding: 1.35rem 0.2rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
+  padding: 1.55rem 0.3rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
   background: var(--navy);
   border-radius: 2.1rem 2.1rem 0 0;
   border-top: 0;
-  box-shadow:
-    0 -14px 44px rgba(8, 16, 48, 0.26),
-    0 -1px 0 rgba(255, 255, 255, 0.07) inset;
-}
-
-.m-tabbar-wave {
-  position: absolute;
-  top: -2rem;
-  left: -2%;
-  right: -2%;
-  height: 3.25rem;
-  pointer-events: none;
-  background: radial-gradient(
-    72% 140% at 50% 100%,
-    color-mix(in srgb, var(--m-accent) 28%, #dffcff) 0%,
-    color-mix(in srgb, var(--m-accent) 10%, #f4fbfd) 38%,
-    rgba(255, 255, 255, 0) 72%
-  );
-  filter: blur(0.35px);
+  box-shadow: 0 -8px 28px rgba(8, 16, 48, 0.22);
 }
 
 .m-tabbar-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 3.75rem minmax(0, 1fr) minmax(0, 1fr);
-  align-items: flex-end;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 3.85rem minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
   gap: 0.05rem;
   width: 100%;
   max-width: 26rem;
+  min-height: 2.85rem;
   margin: 0 auto;
 }
 
+.m-tabbar-inner .m-tab:nth-child(1) {
+  grid-column: 1;
+}
+
+.m-tabbar-inner .m-tab:nth-child(2) {
+  grid-column: 2;
+}
+
+.m-tabbar-inner .m-tab:nth-child(3) {
+  grid-column: 4;
+}
+
+.m-tabbar-inner .m-tab:nth-child(4) {
+  grid-column: 5;
+}
+
 .m-tabbar-fab {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 0;
   z-index: 2;
-  justify-self: center;
   display: grid;
   place-items: center;
   width: 3.55rem;
   height: 3.55rem;
-  margin: 0 0 0.1rem;
+  margin: 0;
   padding: 0;
   border: 3px solid var(--m-accent);
   border-radius: 50%;
@@ -916,19 +915,17 @@
   color: #fff;
   font-size: 1.38rem;
   cursor: pointer;
-  transform: translateY(-42%);
+  transform: translate(-50%, -40%);
   box-shadow:
-    0 12px 30px rgba(8, 16, 48, 0.38),
-    0 0 0 4px color-mix(in srgb, var(--m-accent) 32%, transparent),
-    0 0 24px color-mix(in srgb, var(--m-accent) 48%, transparent);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+    0 10px 24px rgba(8, 16, 48, 0.32),
+    0 0 0 3px color-mix(in srgb, var(--m-accent) 28%, transparent);
+  transition: box-shadow 0.2s ease;
 }
 
 .m-tabbar-fab.is-active {
   box-shadow:
-    0 14px 34px rgba(8, 16, 48, 0.42),
-    0 0 0 5px color-mix(in srgb, var(--m-accent) 48%, transparent),
-    0 0 30px color-mix(in srgb, var(--m-accent) 62%, transparent);
+    0 12px 28px rgba(8, 16, 48, 0.38),
+    0 0 0 4px color-mix(in srgb, var(--m-accent) 42%, transparent);
 }
 
 .m-tabbar-fab:focus-visible {
@@ -940,10 +937,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  gap: 0.14rem;
+  justify-content: center;
+  gap: 0.18rem;
   min-width: 0;
-  padding: 0 0.05rem 0.1rem;
+  padding: 0.1rem 0.05rem;
   border: 0;
   background: transparent;
   color: rgba(255, 255, 255, 0.9);
