@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css?v=20261113sk2" />
-  <link rel="stylesheet" href="mobile.css?v=20261113mobile" />
+  <link rel="stylesheet" href="mobile.css?v=20261113mhero" />
   <meta name="theme-color" content="#101f5a" />
 </head>
 <body>
@@ -1056,7 +1056,7 @@
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
       <a href="#" class="m-topbar-logo-link" data-m-tab="home" aria-label="BÜMED ana sayfa">
-        <img src="logo.png" alt="" class="m-topbar-logo" width="160" height="38" />
+        <img src="logo.png" alt="" class="m-topbar-logo" width="200" height="48" />
       </a>
       <button type="button" class="m-icon-btn" data-m-search-open aria-expanded="false" aria-controls="m-search" aria-label="Ara">
         <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
@@ -1135,15 +1135,35 @@
 
     <main class="m-main" id="m-main">
       <div class="m-panel is-active" data-m-panel="home">
-        <section class="m-hero" aria-label="Karşılama">
-          <img class="m-hero-img" src="hero.jpg?v=20261112he3" width="1024" height="576" alt="" decoding="async" />
+        <section class="m-hero" id="m-hero" aria-label="Karşılama" data-m-hero tabindex="0">
+          <div class="m-hero-slides" aria-hidden="true">
+            <img class="m-hero-bg is-active" data-m-hero-slide data-m-hero-pos="62% 38%" width="1024" height="576" alt="" src="hero.jpg?v=20261112he3" decoding="async" />
+            <img class="m-hero-bg" data-m-hero-slide data-m-hero-pos="50% 42%" width="1024" height="576" alt="" src="hero-2.jpg?v=20261112he3" decoding="async" />
+            <img class="m-hero-bg" data-m-hero-slide data-m-hero-pos="50% 42%" width="1024" height="576" alt="" src="hero-3.jpg?v=20261112he3" decoding="async" />
+          </div>
           <div class="m-hero-shade" aria-hidden="true"></div>
           <div class="m-hero-copy">
-            <p class="m-hero-kicker">Boğaziçi ruhu</p>
-            <h1 class="m-hero-title">Kuşaklar boyu süren bir bağ</h1>
-            <p class="m-hero-text">Etkinliklere katılın, Akademi programlarını keşfedin, duyuruları takip edin.</p>
-            <a class="m-hero-cta" href="https://bumed.webonalti.net/">BÜMED'i keşfet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <p class="m-hero-kicker">
+              <span class="m-hero-kicker-bar" aria-hidden="true"></span>
+              <span data-m-hero-kicker>BOĞAZİÇİ RUHU</span>
+            </p>
+            <h1 class="m-hero-title" data-m-hero-title>Kuşaklar Boyu Süren Bir Bağ</h1>
+            <p class="m-hero-text" data-m-hero-text>Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.</p>
+            <a class="m-hero-cta" data-m-hero-cta href="https://bumed.webonalti.net/">BÜMED'i Keşfet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
+          <nav class="m-hero-rail" data-m-hero-controls aria-label="Hero kaydırma">
+            <div class="m-hero-rail-list" data-m-hero-dots role="tablist" aria-label="Hero slaytları">
+              <button type="button" class="m-hero-thumb is-active" role="tab" aria-selected="true" aria-label="Slayt 1: Boğaziçi ruhu">
+                <img src="hero.jpg?v=20261112he3" width="56" height="56" alt="" loading="lazy" decoding="async" />
+              </button>
+              <button type="button" class="m-hero-thumb" role="tab" aria-selected="false" aria-label="Slayt 2: BÜMED Etkinlikleri">
+                <img src="hero-2.jpg?v=20261112he3" width="56" height="56" alt="" loading="lazy" decoding="async" />
+              </button>
+              <button type="button" class="m-hero-thumb" role="tab" aria-selected="false" aria-label="Slayt 3: BÜMED büyüyor">
+                <img src="hero-3.jpg?v=20261112he3" width="56" height="56" alt="" loading="lazy" decoding="async" />
+              </button>
+            </div>
+          </nav>
         </section>
 
         <section class="m-quick" aria-label="Hızlı işlemler">
@@ -1852,6 +1872,6 @@
     })();
 
   </script>
-  <script src="mobile.js?v=20261113mobile"></script>
+  <script src="mobile.js?v=20261113mhero"></script>
 </body>
 </html>

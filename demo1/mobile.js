@@ -175,5 +175,132 @@
     setSearch(false);
   });
 
+  (function initMobileHero() {
+    var hero = root.querySelector("[data-m-hero]");
+    if (!hero) return;
+
+    var slides = hero.querySelectorAll("[data-m-hero-slide]");
+    var dots = hero.querySelectorAll(".m-hero-thumb");
+    var kickerEl = hero.querySelector("[data-m-hero-kicker]");
+    var titleEl = hero.querySelector("[data-m-hero-title]");
+    var textEl = hero.querySelector("[data-m-hero-text]");
+    var ctaEl = hero.querySelector("[data-m-hero-cta]");
+    var index = 0;
+    var timer = null;
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var slideMeta = [
+      {
+        pos: "62% 38%",
+        kicker: "BOĞAZİÇİ RUHU",
+        title: "Kuşaklar Boyu Süren Bir Bağ",
+        text:
+          "Boğaziçi Üniversitesi mezunlarını bir araya getiren, bağları güçlendiren, dayanışmayı büyüten mezunlar derneği.",
+        cta: "BÜMED'i Keşfet",
+        href: "https://bumed.webonalti.net/",
+      },
+      {
+        pos: "50% 42%",
+        kicker: "BÜMED ETKİNLİKLERİ",
+        title: "BÜMED Etkinlikleri",
+        text: "Kuşakları buluşturan, ilgi alanlarına hitap eden etkinliklerimizi keşfet.",
+        cta: "Etkinlikleri Keşfet",
+        href: "https://bumed.webonalti.net/etkinlikler",
+      },
+      {
+        pos: "50% 42%",
+        kicker: "BÜMED BÜYÜYOR",
+        title: "Mezunlar Bir Arada",
+        text: "Kampüste ve şehirde büyüyen mezun topluluğumuza katılın.",
+        cta: "BÜMED'e Katıl",
+        href: "https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026",
+      },
+    ];
+
+    function applyCopy(meta) {
+      if (kickerEl) kickerEl.textContent = meta.kicker;
+      if (titleEl) titleEl.textContent = meta.title;
+      if (textEl) textEl.textContent = meta.text;
+      if (ctaEl) {
+        ctaEl.href = meta.href;
+        ctaEl.innerHTML =
+          meta.cta + ' <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
+      }
+    }
+
+    function syncSlidePositions() {
+      for (var s = 0; s < slides.length; s++) {
+        var pos = slideMeta[s] ? slideMeta[s].pos : slides[s].getAttribute("data-m-hero-pos");
+        if (pos) slides[s].style.objectPosition = pos;
+      }
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      var meta = slideMeta[index] || slideMeta[0];
+      applyCopy(meta);
+      syncSlidePositions();
+      for (var s = 0; s < slides.length; s++) {
+        slides[s].classList.toggle("is-active", s === index);
+      }
+      for (var d = 0; d < dots.length; d++) {
+        var on = d === index;
+        dots[d].classList.toggle("is-active", on);
+        dots[d].setAttribute("aria-selected", on ? "true" : "false");
+      }
+    }
+
+    function schedule() {
+      if (timer) clearInterval(timer);
+      if (reduceMotion) return;
+      timer = setInterval(function () {
+        goTo(index + 1);
+      }, 3000);
+    }
+
+    function userGo(i) {
+      goTo(i);
+      schedule();
+    }
+
+    for (var di = 0; di < dots.length; di++) {
+      (function (dotIndex) {
+        dots[dotIndex].addEventListener("click", function (e) {
+          e.preventDefault();
+          userGo(dotIndex);
+        });
+      })(di);
+    }
+
+    hero.addEventListener("focusin", function () {
+      if (timer) clearInterval(timer);
+    });
+    hero.addEventListener("focusout", schedule);
+
+    goTo(0);
+    schedule();
+  })();
+
+  (function initMobileEventCarousel() {
+    var track = root.querySelector(".m-events-scroll");
+    if (!track) return;
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    setInterval(function () {
+      var card = track.querySelector(".m-event-card");
+      if (!card) return;
+      var gap = 10;
+      var step = card.offsetWidth + gap;
+      var maxScroll = track.scrollWidth - track.clientWidth - 2;
+      if (maxScroll <= 0) return;
+      if (track.scrollLeft >= maxScroll) {
+        track.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        track.scrollBy({ left: step, behavior: "smooth" });
+      }
+    }, 4200);
+  })();
+
   activatePanel("home");
 })();
