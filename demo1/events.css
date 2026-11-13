@@ -1,4 +1,4 @@
-/* ——— BÜMED Etkinlikleri (Swiper) ——— */
+/* ——— BÜMED Etkinlikleri (Akademi ile aynı carousel) ——— */
 .bumed-events {
   --events-accent: #00e5df;
   --events-navy: #101f5a;
@@ -94,51 +94,13 @@
   color: #fff;
 }
 
-.bumed-events .events-slider-wrapper {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(0.35rem, 1.2vw, 0.85rem);
+.bumed-events .events-slider {
+  margin-top: 0.25rem;
 }
 
-.bumed-events .events-prev,
-.bumed-events .events-next {
-  display: grid;
-  place-items: center;
-  width: 2.65rem;
-  height: 2.65rem;
-  flex-shrink: 0;
-  padding: 0;
-  border: 1px solid color-mix(in srgb, var(--events-navy) 12%, white);
-  border-radius: 50%;
-  background: #fff;
-  color: var(--events-navy);
-  font-size: 0.85rem;
-  cursor: pointer;
-  box-shadow: 0 6px 20px color-mix(in srgb, var(--events-navy) 10%, transparent);
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-}
-
-.bumed-events .events-prev:hover,
-.bumed-events .events-next:hover {
-  background: var(--sky);
-  transform: translateY(-1px);
-}
-
-.bumed-events .events-swiper {
-  width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
-
-.bumed-events .swiper-wrapper {
-  align-items: stretch;
-}
-
-.bumed-events .swiper-slide {
-  height: auto;
-  display: flex;
-  box-sizing: border-box;
+.bumed-events .event-up-card.event-card {
+  width: var(--carousel-col-w);
+  max-width: var(--carousel-col-w);
 }
 
 .bumed-events .event-card {

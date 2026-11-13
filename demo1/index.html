@@ -9,8 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css?v=20261113past" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="events.css?v=20261113fit" />
+  <link rel="stylesheet" href="events.css?v=20261113flow" />
   <link rel="stylesheet" href="mobile.css?v=20261113mlogo" />
   <meta name="theme-color" content="#101f5a" />
 </head>
@@ -448,14 +447,13 @@
             <span aria-hidden="true">→</span>
           </a>
         </div>
-        <div class="events-slider-wrapper">
-          <button type="button" class="events-prev" aria-label="Önceki etkinlikler">
+        <div class="events-slider">
+          <button type="button" class="events-nav events-nav--prev" data-carousel-prev aria-label="Önceki etkinlikler">
             <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
           </button>
-          <div class="swiper events-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <article class="event-card">
+          <div class="events-viewport" data-carousel-viewport>
+            <div class="events-track" data-carousel-track>
+                <article class="event-up-card event-card">
                   <a class="event-card-link" href="https://bumed.webonalti.net/etkinlikler">
                     <div class="event-card-image event-card-image--poster event-card-image--poster-odyssey">
                       <img src="event-up-odyssey.jpg?v=20261113ody" width="640" height="360" alt="Odyssey: Destandan Sinemaya Bir Yolculuk" loading="lazy" decoding="async" />
@@ -469,9 +467,7 @@
                     </div>
                   </a>
                 </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="event-card">
+                <article class="event-up-card event-card">
                   <a class="event-card-link" href="https://bumed.webonalti.net/etkinlikler">
                     <div class="event-card-image event-card-image--poster event-card-image--poster-beach">
                       <img src="event-up-beach-party.jpg?v=20261113bch" width="640" height="360" alt="BÜMED Beach Party 2026 İçin Geri Sayım Başladı!" loading="lazy" decoding="async" />
@@ -485,9 +481,7 @@
                     </div>
                   </a>
                 </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="event-card">
+                <article class="event-up-card event-card">
                   <a class="event-card-link" href="https://bumed.webonalti.net/etkinlikler">
                     <div class="event-card-image event-card-image--poster event-card-image--poster-finans">
                       <img src="event-up-finans.jpg?v=20261113fin" width="640" height="360" alt="Kişisel Finans İçin Finansal Okuryazarlık" loading="lazy" decoding="async" />
@@ -501,10 +495,9 @@
                     </div>
                   </a>
                 </article>
-              </div>
             </div>
           </div>
-          <button type="button" class="events-next" aria-label="Sonraki etkinlikler">
+          <button type="button" class="events-nav events-nav--next" data-carousel-next aria-label="Sonraki etkinlikler">
             <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
           </button>
         </div>
@@ -541,7 +534,7 @@
         <article class="past-event past-event-card">
           <div class="past-event-row">
             <time class="past-event-when" datetime="2026-04-25">
-              <span class="past-event-dow">Cts</span>
+              <span class="past-event-dow">ÇTS</span>
               <span class="past-event-day">25</span>
               <span class="past-event-mon">NİS</span>
             </time>
@@ -560,7 +553,7 @@
         <article class="past-event past-event-card">
           <div class="past-event-row">
             <time class="past-event-when" datetime="2026-04-28">
-              <span class="past-event-dow">Sal</span>
+              <span class="past-event-dow">SAL</span>
               <span class="past-event-day">28</span>
               <span class="past-event-mon">NİS</span>
             </time>
@@ -1633,6 +1626,17 @@
     (function () {
       var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+      function resetHomeCarousel(track) {
+        track.dataset.carouselReady = "0";
+        track.classList.remove("events-track--loop");
+        track.style.transform = "";
+        track.style.animation = "";
+        track.style.transition = "";
+        track.querySelectorAll(".event-up-card--clone").forEach(function (c) {
+          c.remove();
+        });
+      }
+
       function initHomeCarousel(track) {
         if (track.dataset.carouselReady === "1") return;
         track.dataset.carouselReady = "1";
@@ -1714,6 +1718,9 @@
       }
 
       document.querySelectorAll("[data-carousel-track]").forEach(initHomeCarousel);
+
+      window.bumedResetCarousel = resetHomeCarousel;
+      window.bumedInitCarousel = initHomeCarousel;
     })();
 
     (function () {
@@ -1826,8 +1833,7 @@
     })();
 
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" crossorigin="anonymous"></script>
-  <script src="events.js?v=20261113auto"></script>
+  <script src="events.js?v=20261113flow"></script>
   <script src="mobile.js?v=20261113mhero"></script>
 </body>
 </html>
