@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113fnobg" />
+  <link rel="stylesheet" href="styles.css?v=20261113akdm" />
   <link rel="stylesheet" href="mobile.css?v=20261113mlogo" />
   <meta name="theme-color" content="#101f5a" />
 </head>
@@ -579,43 +579,45 @@
     </section>
 
     <section class="block block-akademi" id="programlar" aria-labelledby="akademi-heading">
+      <div class="akademi-head-deco" aria-hidden="true"></div>
       <div class="wrap akademi-head">
         <header class="akademi-title">
-          <span class="accent-bar" aria-hidden="true"></span>
-          <p class="akademi-kicker">BÜMED AKADEMİ</p>
-          <h2 id="akademi-heading">BÜMED Akademi</h2>
+          <p class="akademi-kicker"><span class="akademi-kicker-bar" aria-hidden="true"></span>BÜMED AKADEMİ</p>
+          <h2 id="akademi-heading"><span class="akademi-heading-brand">BÜMED</span> <span class="akademi-heading-accent">Akademi</span></h2>
           <p class="akademi-lead">Sanat, tarih ve yaşam alanlarında öğrenmeye açık topluluk.</p>
         </header>
         <div class="akademi-btns">
-          <a class="btn btn-akademi-solid" href="#">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <a class="btn btn-akademi-solid" href="https://bumed.webonalti.net/akademi">
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
             Akademi Takvimi
-          </a>
-          <a class="btn btn-akademi-outline" href="#">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v18M3 8h6M3 13h9M3 18h12"/></svg>
-            Tüm Akademi Programları
-            <span class="btn-arrow" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
-      <div class="wrap akademi-slider">
+      <div class="wrap akademi-carousel">
+        <button type="button" class="akademi-nav akademi-nav--side" data-akademi-prev aria-label="Önceki programlar">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
         <div class="akademi-track" data-akademi-track tabindex="0">
           <article class="akademi-card">
             <a class="akademi-card-link" href="#">
-              <div class="akademi-card-media akademi-card-media--bizans" style="background-image:url('akademi-bizans.png')">
+              <div class="akademi-card-media akademi-card-media--bizans" style="background-image:url('https://images.unsplash.com/photo-1544984243-ec57ea16fe65?w=720&q=80')">
                 <time class="akademi-date" datetime="2026-10-27">27<span>Eki</span></time>
+                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
               </div>
               <div class="akademi-card-body">
                 <h3>Bizans İmparatorluğu'nun Renkli Tarihi</h3>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  27 Ekim · 16:00
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                  27 Ekim 2026 · 16:00
                 </p>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                   BÜMED Merkezi
                 </p>
-                <span class="akademi-tag tag-tarih">Tarih</span>
+                <footer class="akademi-card-foot">
+                  <span class="akademi-tag tag-tarih">Tarih</span>
+                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+                </footer>
               </div>
             </a>
           </article>
@@ -623,18 +625,22 @@
             <a class="akademi-card-link" href="#">
               <div class="akademi-card-media" style="background-image:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=640&q=80')">
                 <time class="akademi-date" datetime="2026-11-02">2<span>Kas</span></time>
+                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
               </div>
               <div class="akademi-card-body">
                 <h3>Film Okuma Atölyesi</h3>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  2 Aralık · 18:00
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                  2 Kasım 2026 · 18:00
                 </p>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                   Online
                 </p>
-                <span class="akademi-tag tag-sinema">Sinema</span>
+                <footer class="akademi-card-foot">
+                  <span class="akademi-tag tag-sinema">Sinema</span>
+                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+                </footer>
               </div>
             </a>
           </article>
@@ -642,18 +648,22 @@
             <a class="akademi-card-link" href="#">
               <div class="akademi-card-media" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=640&q=80')">
                 <time class="akademi-date" datetime="2026-11-08">8<span>Kas</span></time>
+                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
               </div>
               <div class="akademi-card-body">
                 <h3>Kent ve Sürdürülebilirlik Söyleşisi</h3>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  8 Aralık · 20:00
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                  8 Kasım 2026 · 20:00
                 </p>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                   BÜMED Teras
                 </p>
-                <span class="akademi-tag tag-toplum">Toplum</span>
+                <footer class="akademi-card-foot">
+                  <span class="akademi-tag tag-toplum">Toplum</span>
+                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+                </footer>
               </div>
             </a>
           </article>
@@ -661,18 +671,22 @@
             <a class="akademi-card-link" href="#">
               <div class="akademi-card-media" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=640&q=80')">
                 <time class="akademi-date" datetime="2026-11-15">15<span>Kas</span></time>
+                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
               </div>
               <div class="akademi-card-body">
                 <h3>Gençler için Kariyer Rotası</h3>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  15 Aralık · 17:00
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                  15 Kasım 2026 · 17:00
                 </p>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                   Hibrit
                 </p>
-                <span class="akademi-tag tag-egitim">Eğitim</span>
+                <footer class="akademi-card-foot">
+                  <span class="akademi-tag tag-egitim">Eğitim</span>
+                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+                </footer>
               </div>
             </a>
           </article>
@@ -680,31 +694,29 @@
             <a class="akademi-card-link" href="#">
               <div class="akademi-card-media" style="background-image:url('https://images.unsplash.com/photo-1478720568477-152d9b8e9e9d?w=640&q=80')">
                 <time class="akademi-date" datetime="2026-11-24">24<span>Kas</span></time>
+                <span class="akademi-bookmark" aria-hidden="true"><i class="fa-regular fa-bookmark"></i></span>
               </div>
               <div class="akademi-card-body">
                 <h3>Savaş Filmleri ve Propaganda</h3>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  24 Kasım · 19:30
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                  24 Kasım 2026 · 19:30
                 </p>
                 <p class="akademi-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                   BÜMED House
                 </p>
-                <span class="akademi-tag tag-tarih">Tarih</span>
+                <footer class="akademi-card-foot">
+                  <span class="akademi-tag tag-tarih">Tarih</span>
+                  <span class="akademi-card-go" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+                </footer>
               </div>
             </a>
           </article>
         </div>
-        <div class="akademi-controls" aria-label="Akademi kaydırma">
-          <button type="button" class="akademi-nav" data-akademi-prev aria-label="Önceki programlar">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
-          </button>
-          <div class="akademi-dots" data-akademi-dots role="tablist" aria-label="Sayfalar"></div>
-          <button type="button" class="akademi-nav" data-akademi-next aria-label="Sonraki programlar">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-          </button>
-        </div>
+        <button type="button" class="akademi-nav akademi-nav--side" data-akademi-next aria-label="Sonraki programlar">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
     </section>
 
@@ -1818,6 +1830,22 @@
       apply(false);
       if (!reduceMotion) {
         autoTimer = setInterval(tick, 4200);
+      }
+    })();
+
+    (function () {
+      var track = document.querySelector("[data-akademi-track]");
+      var prev = document.querySelector("[data-akademi-prev]");
+      var next = document.querySelector("[data-akademi-next]");
+      if (track) {
+        function akademiScroll(dir) {
+          var card = track.querySelector(".akademi-card");
+          var gap = 18;
+          var step = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
+          track.scrollBy({ left: dir * step, behavior: "smooth" });
+        }
+        if (prev) prev.addEventListener("click", function () { akademiScroll(-1); });
+        if (next) next.addEventListener("click", function () { akademiScroll(1); });
       }
     })();
 

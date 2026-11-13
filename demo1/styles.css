@@ -1839,13 +1839,27 @@ a {
   color: var(--navy);
 }
 
-/* ——— BÜMED Akademi carousel ——— */
+/* ——— BÜMED Akademi (mockup) ——— */
 .block-akademi {
   position: relative;
   isolation: isolate;
-  padding-block: clamp(2.5rem, 5vw, 4rem);
+  padding-block: clamp(2.75rem, 5vw, 4.25rem);
   background: #fff;
   overflow: hidden;
+}
+
+.akademi-head-deco {
+  position: absolute;
+  left: 50%;
+  top: clamp(1.5rem, 4vw, 2.75rem);
+  z-index: 0;
+  width: min(520px, 72vw);
+  height: clamp(8rem, 22vw, 11rem);
+  transform: translateX(-50%);
+  background: url("footer-campus-sketch.jpg?v=20261113sk2") center bottom / contain no-repeat;
+  opacity: 0.14;
+  filter: contrast(1.1) saturate(0.4);
+  pointer-events: none;
 }
 
 .block-akademi .wrap {
@@ -1857,47 +1871,60 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-end;
-  gap: 1.5rem 2rem;
-  margin-bottom: clamp(1.75rem, 3.2vw, 2.5rem);
+  align-items: flex-start;
+  gap: 1.25rem 2rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .akademi-title {
   flex: 1 1 16rem;
-  max-width: 38rem;
-}
-
-.akademi-title .accent-bar {
-  margin: 0;
-  width: 42px;
-  height: 3px;
+  max-width: 40rem;
 }
 
 .akademi-kicker {
-  margin: 0.55rem 0 0;
-  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  color: color-mix(in srgb, var(--navy) 82%, var(--muted));
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nav-mega-accent);
+}
+
+.akademi-kicker-bar {
+  width: 2.35rem;
+  height: 3px;
+  background: var(--nav-mega-accent);
+  flex-shrink: 0;
 }
 
 .akademi-title h2 {
-  margin: 0.35rem 0 0;
-  font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 2.2vw, 1.5rem);
+  margin: 0.45rem 0 0;
+  font-family: "Open Sans", var(--font);
+  font-size: clamp(1.85rem, 3.6vw, 2.35rem);
   font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
-  color: var(--brand-navy);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.akademi-heading-brand {
+  color: var(--navy);
+}
+
+.akademi-heading-accent {
+  color: var(--nav-mega-accent);
 }
 
 .akademi-lead {
-  margin: 0.75rem 0 0;
+  margin: 0.65rem 0 0;
+  font-family: "Open Sans", var(--font);
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.625;
+  line-height: 1.55;
   color: var(--text-body-muted);
-  max-width: 30rem;
+  max-width: 32rem;
 }
 
 .akademi-btns {
@@ -1905,44 +1932,42 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.6rem;
+  padding-top: 0.35rem;
 }
 
 .btn-akademi-solid {
-  gap: 0.5rem;
-  padding: 0.62rem 1.1rem;
-  background: var(--navy);
-  color: #fff;
-  border: 1px solid var(--navy);
-}
-
-.btn-akademi-outline {
+  display: inline-flex;
+  align-items: center;
   gap: 0.45rem;
-  padding: 0.62rem 1rem;
-  background: #fff;
+  padding: 0.58rem 1.15rem;
+  border-radius: 999px;
+  background: var(--nav-mega-accent);
   color: var(--navy);
-  border: 1px solid color-mix(in srgb, var(--navy) 35%, white);
+  border: none;
+  font-family: "Open Sans", var(--font);
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--nav-mega-accent) 35%, transparent);
 }
 
-.btn-akademi-outline .btn-arrow {
-  margin-left: 0.15rem;
-  font-size: 1.05em;
-  line-height: 1;
+.btn-akademi-solid:hover {
+  filter: brightness(0.97);
 }
 
-.akademi-slider {
-  display: flex;
-  flex-direction: column;
-  gap: 1.35rem;
+.akademi-carousel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(0.35rem, 1.2vw, 0.85rem);
 }
 
 .akademi-track {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.15rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 2px;
-  padding-block: 0.15rem 0.35rem;
+  scroll-padding-inline: 4px;
+  padding-block: 0.25rem 0.5rem;
   margin: 0;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -1953,8 +1978,8 @@ a {
 }
 
 .akademi-card {
-  flex: 0 0 calc((100% - 3.75rem) / 4);
-  min-width: min(100%, 15.5rem);
+  flex: 0 0 calc((100% - 3.45rem) / 4);
+  min-width: min(100%, 16rem);
   scroll-snap-align: start;
 }
 
@@ -1962,51 +1987,82 @@ a {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(16, 31, 90, 0.04);
-  transition: box-shadow 0.2s;
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--navy) 12%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .akademi-card-link:hover {
-  box-shadow: 0 6px 22px rgba(16, 31, 90, 0.09);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px color-mix(in srgb, var(--navy) 16%, transparent);
 }
 
 .akademi-card-media {
   position: relative;
-  aspect-ratio: 4 / 3.35;
+  aspect-ratio: 1.12 / 1;
   background-size: cover;
   background-position: center;
 }
 
 .akademi-card-media--bizans {
-  background-position: center 42%;
+  background-position: center 40%;
+}
+
+.akademi-card-media::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--navy) 82%, #2a3778) 8%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .akademi-date {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  min-width: 3rem;
-  padding: 0.4rem 0.55rem;
-  background: var(--navy);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.05;
+  z-index: 2;
+  top: 0.55rem;
+  left: 0.55rem;
+  min-width: 2.85rem;
+  padding: 0.35rem 0.45rem 0.4rem;
+  border-radius: 4px;
+  background: var(--nav-mega-accent);
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1;
   text-align: center;
 }
 
 .akademi-date span {
   display: block;
-  margin-top: 0.1rem;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  margin-top: 0.12rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  opacity: 0.9;
+}
+
+.akademi-bookmark {
+  position: absolute;
+  z-index: 2;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+  font-size: 0.78rem;
+  box-shadow: 0 2px 8px rgba(16, 31, 90, 0.15);
 }
 
 .akademi-card-body {
@@ -2014,117 +2070,132 @@ a {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0.95rem 1rem 2.35rem;
+  margin-top: -0.35rem;
+  padding: 0.85rem 0.9rem 0.8rem;
+  background: linear-gradient(
+    175deg,
+    color-mix(in srgb, var(--navy) 92%, #3d4f9a) 0%,
+    var(--navy) 42%,
+    color-mix(in srgb, var(--navy) 88%, #0a0f28) 100%
+  );
+  color: #fff;
+}
+
+.akademi-card-body::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.65rem;
+  height: 1.1rem;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--navy) 70%, #4a5fad));
+  clip-path: ellipse(85% 100% at 50% 100%);
+  pointer-events: none;
 }
 
 .akademi-card-body h3 {
-  margin: 0 0 0.55rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+  font-family: "Open Sans", var(--font);
+  font-size: 0.88rem;
   font-weight: 700;
-  line-height: 1.38;
-  color: var(--navy);
+  line-height: 1.35;
+  color: #fff;
 }
 
 .akademi-meta {
   display: flex;
   align-items: flex-start;
   gap: 0.4rem;
-  margin: 0 0 0.32rem;
-  font-size: 0.72rem;
+  margin: 0 0 0.35rem;
+  font-family: "Open Sans", var(--font);
+  font-size: 0.68rem;
   line-height: 1.4;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.88);
 }
 
-.akademi-meta svg {
+.akademi-meta i {
   flex-shrink: 0;
-  width: 13px;
-  height: 13px;
-  margin-top: 1px;
-  opacity: 0.65;
+  width: 0.85rem;
+  margin-top: 0.1rem;
+  opacity: 0.85;
+  text-align: center;
+}
+
+.akademi-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.65rem;
 }
 
 .akademi-tag {
-  position: absolute;
-  left: 1rem;
-  bottom: 0.95rem;
-  padding: 0.25rem 0.55rem;
-  font-size: 0.62rem;
+  padding: 0.28rem 0.55rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .tag-tarih {
-  background: color-mix(in srgb, var(--lime-bright) 28%, white);
-  color: var(--navy-deep);
+  background: color-mix(in srgb, var(--lime-bright) 35%, white);
+  color: var(--navy);
 }
 
 .tag-sinema {
-  background: var(--sky);
-  color: var(--navy-deep);
+  background: #e6dff5;
+  color: var(--navy);
 }
 
 .tag-toplum {
-  background: var(--sky);
-  color: var(--navy-deep);
+  background: #dcecf8;
+  color: var(--navy);
 }
 
 .tag-egitim {
-  background: color-mix(in srgb, var(--lime) 20%, white);
-  color: var(--navy-dark);
+  background: color-mix(in srgb, var(--lime) 25%, white);
+  color: var(--navy);
 }
 
-.akademi-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
+.akademi-card-go {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--nav-mega-accent);
+  color: var(--navy);
+  font-size: 0.65rem;
+  flex-shrink: 0;
 }
 
 .akademi-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.35rem;
-  height: 2.35rem;
+  width: 2.65rem;
+  height: 2.65rem;
   margin: 0;
   padding: 0;
-  border: 1px solid color-mix(in srgb, var(--navy) 22%, white);
+  border: 1px solid color-mix(in srgb, var(--navy) 12%, white);
   border-radius: 50%;
   background: #fff;
   color: var(--navy);
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--navy) 8%, transparent);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 
 .akademi-nav:hover {
   background: var(--sky);
-  border-color: color-mix(in srgb, var(--navy) 35%, white);
+  border-color: color-mix(in srgb, var(--navy) 22%, white);
 }
 
-.akademi-dots {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 1rem;
-}
-
-.akademi-dot {
-  width: 7px;
-  height: 7px;
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--navy) 18%, white);
-  cursor: pointer;
-  transition: transform 0.15s, background 0.15s;
-}
-
-.akademi-dot.is-active {
-  background: var(--navy);
-  transform: scale(1.15);
+.akademi-nav--side {
+  flex-shrink: 0;
 }
 
 /* Etkinlik / duyuru pill’leri */
@@ -3346,12 +3417,6 @@ a {
     max-width: 28rem;
   }
 
-  .footer-art-img {
-    width: min(100%, 28rem);
-    object-position: center bottom;
-    opacity: 0.38;
-  }
-
 }
 
 @media (max-width: 720px) {
@@ -3438,10 +3503,17 @@ a {
     width: 100%;
     justify-content: flex-start;
   }
+  .akademi-carousel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .akademi-nav--side {
+    display: none;
+  }
   .akademi-card {
     flex: 0 0 86%;
   }
-  .akademi-btns .btn {
+  .btn-akademi-solid {
     width: 100%;
     justify-content: center;
   }
