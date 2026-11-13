@@ -71,6 +71,19 @@
   outline-offset: 2px;
 }
 
+.m-topbar .m-icon-btn i {
+  display: block;
+  line-height: 1;
+}
+
+.m-topbar .m-icon-btn--menu {
+  font-size: 1.28rem;
+}
+
+.m-topbar .m-icon-btn--search {
+  font-size: 1.32rem;
+}
+
 .m-topbar-logo-link {
   justify-self: stretch;
   display: flex;
