@@ -182,10 +182,49 @@
     });
   });
 
+  (function initTabbarContact() {
+    var tabbar = root.querySelector(".m-tabbar");
+    var fab = root.querySelector("[data-m-tabbar-fab]");
+    var pop = root.querySelector("[data-m-tabbar-contact]");
+    var closeBtn = root.querySelector("[data-m-tabbar-contact-close]");
+    if (!fab || !pop) return;
+
+    function setContactOpen(open) {
+      fab.classList.toggle("is-open", open);
+      fab.setAttribute("aria-expanded", open ? "true" : "false");
+      pop.hidden = !open;
+    }
+
+    fab.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setContactOpen(pop.hidden);
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setContactOpen(false);
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      if (pop.hidden) return;
+      if (tabbar && tabbar.contains(e.target)) return;
+      setContactOpen(false);
+    });
+  })();
+
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
     setDrawer(false);
     setSearch(false);
+    var fab = root.querySelector("[data-m-tabbar-fab]");
+    var pop = root.querySelector("[data-m-tabbar-contact]");
+    if (fab && pop && !pop.hidden) {
+      fab.classList.remove("is-open");
+      fab.setAttribute("aria-expanded", "false");
+      pop.hidden = true;
+    }
   });
 
   (function initMobileHero() {

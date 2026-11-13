@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css?v=20261113ftline" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="events.css?v=20261113mavi" />
-  <link rel="stylesheet" href="mobile.css?v=20261114tablow" />
+  <link rel="stylesheet" href="mobile.css?v=20261114fabpop" />
   <meta name="theme-color" content="#101f5a" />
 </head>
 <body>
@@ -1407,12 +1407,35 @@
     </main>
 
     <nav class="m-tabbar" aria-label="Alt gezinme">
+      <div
+        class="m-tabbar-contact"
+        id="m-tabbar-contact"
+        data-m-tabbar-contact
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="m-tabbar-contact-title"
+        hidden
+      >
+        <p class="m-tabbar-contact-title" id="m-tabbar-contact-title">Yardım &amp; İletişim</p>
+        <a class="m-tabbar-contact-link" href="tel:+902123595800">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span>0 212 359 58 00</span>
+        </a>
+        <a class="m-tabbar-contact-link" href="mailto:bumed@bumed.org.tr">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <span>bumed@bumed.org.tr</span>
+        </a>
+        <button type="button" class="m-tabbar-contact-close" data-m-tabbar-contact-close aria-label="Kapat">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
       <button
         type="button"
-        class="m-tabbar-fab is-active"
-        data-m-tab="home"
-        aria-label="Ana sayfa"
-        aria-selected="true"
+        class="m-tabbar-fab"
+        data-m-tabbar-fab
+        aria-label="İletişim bilgileri"
+        aria-expanded="false"
+        aria-controls="m-tabbar-contact"
       >
         <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
       </button>
@@ -2126,6 +2149,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" crossorigin="anonymous"></script>
   <script src="events.js?v=20261113akademi"></script>
-  <script src="mobile.js?v=20261114nav2"></script>
+  <script src="mobile.js?v=20261114fabpop"></script>
 </body>
 </html>

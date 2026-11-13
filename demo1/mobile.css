@@ -23,7 +23,7 @@
 }
 
 .m-app {
-  --m-tab-h: calc(4.95rem + env(safe-area-inset-bottom, 0px));
+  --m-tab-h: calc(4.55rem + env(safe-area-inset-bottom, 0px));
   --m-top-h: 4.85rem;
   --m-accent: var(--nav-mega-accent);
   min-height: 100dvh;
@@ -863,7 +863,7 @@
   right: 0;
   bottom: 0;
   z-index: 130;
-  padding: 1.22rem 0.3rem calc(0.38rem + env(safe-area-inset-bottom, 0px));
+  padding: 1.02rem 0.3rem calc(0.32rem + env(safe-area-inset-bottom, 0px));
   background: var(--navy);
   border-radius: 2.1rem 2.1rem 0 0;
   border-top: 0;
@@ -877,7 +877,7 @@
   gap: 0.05rem;
   width: 100%;
   max-width: 26rem;
-  min-height: 2.65rem;
+  min-height: 2.42rem;
   margin: 0 auto;
 }
 
@@ -914,17 +914,99 @@
   color: #fff;
   font-size: 1.38rem;
   cursor: pointer;
-  transform: translate(-50%, -28%);
+  transform: translate(-50%, -24%);
   box-shadow:
     0 10px 24px rgba(8, 16, 48, 0.32),
     0 0 0 3px color-mix(in srgb, var(--m-accent) 28%, transparent);
   transition: box-shadow 0.2s ease;
 }
 
-.m-tabbar-fab.is-active {
+.m-tabbar-fab.is-open {
   box-shadow:
     0 12px 28px rgba(8, 16, 48, 0.38),
     0 0 0 4px color-mix(in srgb, var(--m-accent) 42%, transparent);
+}
+
+.m-tabbar-contact {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.4rem);
+  z-index: 6;
+  width: min(16.25rem, calc(100vw - 2rem));
+  padding: 0.8rem 2.15rem 0.8rem 0.85rem;
+  border-radius: 0.9rem;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--navy) 9%, #e8eaf2);
+  box-shadow:
+    0 14px 36px rgba(16, 31, 90, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.65) inset;
+  transform: translateX(-50%);
+  animation: m-tabbar-contact-in 0.2s ease;
+}
+
+.m-tabbar-contact[hidden] {
+  display: none;
+}
+
+@keyframes m-tabbar-contact-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0.35rem) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.m-tabbar-contact-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--navy) 52%, #6b7280);
+}
+
+.m-tabbar-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.48rem 0;
+  color: var(--navy);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.m-tabbar-contact-link + .m-tabbar-contact-link {
+  border-top: 1px solid color-mix(in srgb, var(--navy) 8%, transparent);
+}
+
+.m-tabbar-contact-link i {
+  width: 1.1rem;
+  text-align: center;
+  color: var(--m-accent);
+  font-size: 0.92rem;
+}
+
+.m-tabbar-contact-close {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  display: grid;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--navy) 5%, #fff);
+  color: var(--navy);
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 .m-tabbar-fab:focus-visible {
