@@ -71,7 +71,9 @@
     tabs.forEach(function (tab) {
       var on = tab.getAttribute("data-m-tab") === name;
       tab.classList.toggle("is-active", on);
-      tab.setAttribute("aria-selected", on ? "true" : "false");
+      if (tab.hasAttribute("aria-selected")) {
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+      }
     });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
