@@ -211,6 +211,10 @@
   background: #0b1528;
 }
 
+.bumed-events .event-card-image--poster-bizans {
+  background: #fff;
+}
+
 .bumed-events .event-card-date {
   position: absolute;
   top: 0.65rem;
