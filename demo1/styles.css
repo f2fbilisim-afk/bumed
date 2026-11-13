@@ -3978,6 +3978,12 @@ a {
   pointer-events: none;
 }
 
+.cookie-consent[hidden] {
+  display: none !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .cookie-consent:not([hidden]) {
   pointer-events: auto;
 }
@@ -4029,7 +4035,7 @@ a {
   position: absolute;
   top: 0.85rem;
   right: 0.95rem;
-  z-index: 3;
+  z-index: 5;
   display: grid;
   place-items: center;
   width: 2rem;
