@@ -519,8 +519,7 @@
 
 .m-quick-tile--house {
   background: linear-gradient(160deg, #efe4f0 0%, #dcc8e0 55%, #c9b0d2 100%);
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(16, 31, 90, 0.12);
+  color: var(--navy);
 }
 
 .m-quick-tile-ico {
