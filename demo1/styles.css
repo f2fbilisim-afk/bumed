@@ -2479,10 +2479,81 @@ a {
   max-width: 34rem;
 }
 
-.events-grid {
+.events-slider {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.85rem, 1.6vw, 1.25rem);
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(0.35rem, 1.2vw, 0.85rem);
+}
+
+.events-viewport {
+  --events-gap: clamp(0.85rem, 1.6vw, 1.25rem);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.events-track {
+  display: flex;
+  gap: var(--events-gap);
+  will-change: transform;
+}
+
+.event-up-card {
+  flex: 0 0 calc((100% - 2 * var(--events-gap)) / 3);
+  min-width: 0;
+}
+
+.events-nav {
+  display: grid;
+  place-items: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  flex-shrink: 0;
+  padding: 0;
+  border: 2px solid color-mix(in srgb, var(--nav-mega-accent) 82%, var(--navy));
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(16, 31, 90, 0.1);
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.events-nav:hover {
+  background: color-mix(in srgb, var(--nav-mega-accent) 12%, #fff);
+  border-color: var(--nav-mega-accent);
+  transform: translateY(-1px);
+}
+
+.events-nav:focus-visible {
+  outline: 2px solid var(--nav-mega-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1024px) {
+  .event-up-card {
+    flex: 0 0 calc((100% - var(--events-gap)) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .events-slider {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .events-nav {
+    display: none;
+  }
+
+  .event-up-card {
+    flex: 0 0 100%;
+  }
 }
 
 .event-up-link {
@@ -2505,25 +2576,21 @@ a {
 
 .event-up-media {
   position: relative;
-  aspect-ratio: 386 / 248;
+  aspect-ratio: 499 / 451;
   background-size: cover;
   background-position: center;
 }
 
 .event-up-media--banner {
-  background: var(--navy);
+  background: #f0f3f8;
 }
 
 .event-up-media--banner img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-}
-
-.event-up-media--finans img {
-  object-position: 42% center;
 }
 
 .visually-hidden {
@@ -3100,9 +3167,6 @@ li.partner-logo {
   .story-layout {
     grid-template-columns: 1fr;
   }
-  .events-grid {
-    grid-template-columns: 1fr 1fr;
-  }
   .events-past-shell {
     grid-template-columns: 5rem minmax(0, 1fr);
   }
@@ -3159,9 +3223,6 @@ li.partner-logo {
   .duyuru-head-actions {
     width: 100%;
     justify-content: space-between;
-  }
-  .events-grid {
-    grid-template-columns: 1fr;
   }
   .events-past-shell {
     grid-template-columns: 4.5rem minmax(0, 1fr);

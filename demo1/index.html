@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113dockpulse" />
+  <link rel="stylesheet" href="styles.css?v=20261113evslider" />
 </head>
 <body>
   <header class="site-header">
@@ -437,11 +437,16 @@
         <h2 id="events-heading">YAKLAŞAN ETKİNLİKLER</h2>
         <p class="events-lead">BÜMED'in düzenlediği buluşmalar, söyleşiler, atölyeler ve daha fazlası.</p>
       </div>
-      <div class="wrap events-grid">
+      <div class="wrap events-slider">
+        <button type="button" class="events-nav events-nav--prev" data-events-prev aria-label="Önceki etkinlikler">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="events-viewport" data-events-viewport>
+          <div class="events-track" data-events-track">
         <article class="event-up-card">
           <a class="event-up-link" href="#">
             <div class="event-up-media event-up-media--banner">
-              <img src="event-up-odyssey.jpg?v=20261113ev" width="772" height="496" alt="" decoding="async" loading="lazy" />
+              <img src="event-up-odyssey.jpg?v=20261113ev2" width="499" height="451" alt="Odyssey: Film Analizi etkinlik görseli" decoding="async" loading="lazy" />
               <span class="visually-hidden"><time datetime="2026-08-19">19 Ağustos 2026, 20:00 – 21:30</time> — Odyssey: Destandan Sinemaya Bir Yolculuk, Online Program</span>
             </div>
             <div class="event-up-body">
@@ -454,7 +459,7 @@
         <article class="event-up-card">
           <a class="event-up-link" href="#">
             <div class="event-up-media event-up-media--banner">
-              <img src="event-up-beach-party.jpg?v=20261113ev" width="772" height="496" alt="" decoding="async" loading="lazy" />
+              <img src="event-up-beach-party.jpg?v=20261113ev2" width="499" height="451" alt="BÜMED Beach Party etkinlik görseli" decoding="async" loading="lazy" />
               <span class="visually-hidden"><time datetime="2026-08-15">15 Ağustos 2026, 11:00 – 22:00</time> — BÜMED Beach Party 2026 için Geri Sayım Başladı!, Goga Beach, Kilyos</span>
             </div>
             <div class="event-up-body">
@@ -466,8 +471,8 @@
         </article>
         <article class="event-up-card">
           <a class="event-up-link" href="#">
-            <div class="event-up-media event-up-media--banner event-up-media--finans">
-              <img src="event-up-finans.jpg?v=20261113ev" width="772" height="496" alt="" decoding="async" loading="lazy" />
+            <div class="event-up-media event-up-media--banner">
+              <img src="event-up-finans.jpg?v=20261113ev2" width="499" height="451" alt="Finansal Okuryazarlık etkinlik görseli" decoding="async" loading="lazy" />
               <span class="visually-hidden"><time datetime="2026-06-18">18 Haziran 2026, 20:30 – 21:45</time> — Kişisel Finans için Finansal Okuryazarlık, Online Program</span>
             </div>
             <div class="event-up-body">
@@ -477,6 +482,11 @@
             </div>
           </a>
         </article>
+          </div>
+        </div>
+        <button type="button" class="events-nav events-nav--next" data-events-next aria-label="Sonraki etkinlikler">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
       <div class="wrap events-cta-row">
         <a class="btn btn-events-see-all" href="https://bumed.webonalti.net/etkinlikler">
@@ -1165,6 +1175,99 @@
         }
         syncScrollHint();
         window.addEventListener("scroll", syncScrollHint, { passive: true });
+      }
+    })();
+
+    (function () {
+      var viewport = document.querySelector("[data-events-viewport]");
+      var track = document.querySelector("[data-events-track]");
+      var prevBtn = document.querySelector("[data-events-prev]");
+      var nextBtn = document.querySelector("[data-events-next]");
+      if (!viewport || !track) return;
+
+      var index = 0;
+      var autoTimer = null;
+      var originals = track.querySelectorAll(".event-up-card").length;
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      track.querySelectorAll(".event-up-card").forEach(function (card) {
+        var clone = card.cloneNode(true);
+        clone.classList.add("event-up-card--clone");
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+      });
+
+      function readVisible() {
+        if (window.matchMedia("(max-width: 600px)").matches) return 1;
+        if (window.matchMedia("(max-width: 1024px)").matches) return 2;
+        return 3;
+      }
+
+      function gap() {
+        var g = getComputedStyle(track).gap;
+        if (!g) return 16;
+        return parseFloat(g) || 16;
+      }
+
+      function step() {
+        var card = track.querySelector(".event-up-card");
+        return card ? card.offsetWidth + gap() : 0;
+      }
+
+      function apply(animate) {
+        track.style.transition = animate && !reduceMotion ? "transform 0.9s ease" : "none";
+        track.style.transform = "translate3d(" + -index * step() + "px,0,0)";
+      }
+
+      function normalize() {
+        if (index >= originals) {
+          index -= originals;
+          apply(false);
+        } else if (index < 0) {
+          index += originals;
+          apply(false);
+        }
+      }
+
+      function move(dir) {
+        index += dir;
+        apply(true);
+        armAuto();
+      }
+
+      function autoStep() {
+        if (originals <= 1) return;
+        index += 1;
+        apply(true);
+      }
+
+      function armAuto() {
+        if (autoTimer) clearInterval(autoTimer);
+        if (reduceMotion) return;
+        autoTimer = setInterval(autoStep, 5200);
+      }
+
+      track.addEventListener("transitionend", function (e) {
+        if (e.propertyName !== "transform") return;
+        normalize();
+      });
+
+      if (prevBtn) prevBtn.addEventListener("click", function () { move(-1); });
+      if (nextBtn) nextBtn.addEventListener("click", function () { move(1); });
+
+      viewport.addEventListener("mouseenter", function () {
+        if (autoTimer) clearInterval(autoTimer);
+      });
+      viewport.addEventListener("mouseleave", armAuto);
+
+      window.addEventListener("resize", function () {
+        apply(false);
+        armAuto();
+      });
+
+      apply(false);
+      if (!reduceMotion) {
+        autoTimer = setInterval(autoStep, 5200);
       }
     })();
 
