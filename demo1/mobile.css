@@ -637,11 +637,34 @@
   gap: 0.65rem;
 }
 
-.m-events-home > .m-event-card--lead {
-  box-sizing: border-box;
-  width: auto;
+.layout-mobile .bumed-events--mobile-feature {
   margin: 0 0.75rem;
-  flex: none;
+  padding: 0;
+  background: transparent;
+}
+
+.layout-mobile .bumed-events--mobile-feature .event-card {
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--navy) 14%, transparent);
+}
+
+.layout-mobile .bumed-events--mobile-feature .event-card-image {
+  aspect-ratio: 16 / 10;
+}
+
+.layout-mobile .bumed-events--mobile-feature .event-card-content {
+  min-height: 0;
+  padding: 1rem 1.1rem 1.15rem;
+  gap: 0.4rem;
+}
+
+.layout-mobile .bumed-events--mobile-feature .event-card-title {
+  font-size: 1.02rem;
+  -webkit-line-clamp: 3;
+}
+
+.layout-mobile .bumed-events--mobile-feature .event-card-time,
+.layout-mobile .bumed-events--mobile-feature .event-card-location {
+  font-size: 0.78rem;
 }
 
 .m-events-scroll--more .m-event-card {
