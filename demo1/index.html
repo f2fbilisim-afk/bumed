@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113dock" />
+  <link rel="stylesheet" href="styles.css?v=20261113evmock" />
   <link rel="stylesheet" href="mobile.css?v=20261113mlogo" />
   <meta name="theme-color" content="#101f5a" />
 </head>
@@ -433,70 +433,83 @@
     </section>
 
     <section class="events-block events-block--upcoming" id="etkinlikler" aria-labelledby="events-heading">
-      <div class="wrap events-intro">
-        <svg class="events-scribble" viewBox="0 0 48 32" aria-hidden="true">
-          <path d="M6 22c8-14 18-18 28-14M34 4l6 4-4 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-        <h2 id="events-heading">YAKLAŞAN ETKİNLİKLER</h2>
-        <p class="events-lead">BÜMED'in düzenlediği buluşmalar, söyleşiler, atölyeler ve daha fazlası.</p>
+      <div class="wrap events-head">
+        <header class="events-title-block">
+          <p class="events-kicker"><span class="events-kicker-bar" aria-hidden="true"></span>ETKİNLİKLER</p>
+          <h2 id="events-heading">BÜMED Etkinlikleri</h2>
+          <p class="events-lead">BÜMED'in düzenlediği buluşmalar, söyleşiler, atölyeler ve daha fazlası.</p>
+        </header>
+        <a class="btn btn-events-see-all btn-events-see-all--head" href="https://bumed.webonalti.net/etkinlikler">
+          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+          Tüm Etkinlikleri Gör
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
       <div class="wrap events-slider">
         <button type="button" class="events-nav events-nav--prev" data-events-prev aria-label="Önceki etkinlikler">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
         <div class="events-viewport" data-events-viewport>
-          <div class="events-track" data-events-track">
-        <article class="event-up-card">
-          <a class="event-up-link" href="#">
-            <div class="event-up-media event-up-media--banner">
-              <img src="event-up-odyssey.jpg?v=20261113ev2" width="499" height="451" alt="Odyssey: Film Analizi etkinlik görseli" decoding="async" loading="lazy" />
-              <span class="visually-hidden"><time datetime="2026-08-19">19 Ağustos 2026, 20:00 – 21:30</time> — Odyssey: Destandan Sinemaya Bir Yolculuk, Online Program</span>
-            </div>
-            <div class="event-up-body">
-              <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 20:00 – 21:30</p>
-              <h3>Odyssey: Destandan Sinemaya Bir Yolculuk</h3>
-              <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Online Program</p>
-            </div>
-          </a>
-        </article>
-        <article class="event-up-card">
-          <a class="event-up-link" href="#">
-            <div class="event-up-media event-up-media--banner">
-              <img src="event-up-beach-party.jpg?v=20261113ev2" width="499" height="451" alt="BÜMED Beach Party etkinlik görseli" decoding="async" loading="lazy" />
-              <span class="visually-hidden"><time datetime="2026-08-15">15 Ağustos 2026, 11:00 – 22:00</time> — BÜMED Beach Party 2026 için Geri Sayım Başladı!, Goga Beach, Kilyos</span>
-            </div>
-            <div class="event-up-body">
-              <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 11:00 – 22:00</p>
-              <h3>BÜMED Beach Party 2026 için Geri Sayım Başladı!</h3>
-              <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Goga Beach, Kilyos</p>
-            </div>
-          </a>
-        </article>
-        <article class="event-up-card">
-          <a class="event-up-link" href="#">
-            <div class="event-up-media event-up-media--banner">
-              <img src="event-up-finans.jpg?v=20261113ev2" width="499" height="451" alt="Finansal Okuryazarlık etkinlik görseli" decoding="async" loading="lazy" />
-              <span class="visually-hidden"><time datetime="2026-06-18">18 Haziran 2026, 20:30 – 21:45</time> — Kişisel Finans için Finansal Okuryazarlık, Online Program</span>
-            </div>
-            <div class="event-up-body">
-              <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 20:30 – 21:45</p>
-              <h3>Kişisel Finans için Finansal Okuryazarlık</h3>
-              <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Online Program</p>
-            </div>
-          </a>
-        </article>
+          <div class="events-track" data-events-track>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/etkinlikler">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="event-up-odyssey.jpg?v=20261113ev3" width="499" height="451" alt="Odyssey: Film Analizi etkinlik görseli" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-08-19">19<span>Ağu</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true">
+                  <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 20:00 – 21:30</p>
+                  <h3>Odyssey: Destandan Sinemaya Bir Yolculuk</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Online Program</p>
+                </div>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/etkinlikler">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="event-up-beach-party.jpg?v=20261113ev3" width="499" height="451" alt="BÜMED Beach Party etkinlik görseli" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-08-15">15<span>Ağu</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true">
+                  <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 11:00 – 22:00</p>
+                  <h3>BÜMED Beach Party 2026 için Geri Sayım Başladı!</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Goga Beach, Kilyos</p>
+                </div>
+              </a>
+            </article>
+            <article class="event-up-card">
+              <a class="event-up-link" href="https://bumed.webonalti.net/etkinlikler">
+                <div class="event-up-media event-up-media--banner">
+                  <img src="event-up-finans.jpg?v=20261113ev3" width="499" height="451" alt="Finansal Okuryazarlık etkinlik görseli" decoding="async" loading="lazy" />
+                  <time class="event-up-date" datetime="2026-06-18">18<span>Haz</span></time>
+                </div>
+                <span class="event-up-wave" aria-hidden="true">
+                  <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 28 C200 4 400 44 600 22 S1000 6 1200 26 L1200 48 L0 48 Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <div class="event-up-body">
+                  <p class="event-up-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> 20:30 – 21:45</p>
+                  <h3>Kişisel Finans için Finansal Okuryazarlık</h3>
+                  <p class="event-up-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Online Program</p>
+                </div>
+              </a>
+            </article>
           </div>
         </div>
         <button type="button" class="events-nav events-nav--next" data-events-next aria-label="Sonraki etkinlikler">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </button>
-      </div>
-      <div class="wrap events-cta-row">
-        <a class="btn btn-events-see-all" href="https://bumed.webonalti.net/etkinlikler">
-          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-          Tüm Etkinlikleri Gör
-          <span aria-hidden="true">→</span>
-        </a>
       </div>
     </section>
 
