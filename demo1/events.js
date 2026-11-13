@@ -25,6 +25,7 @@
     var title = esc(ev.title || "");
     var url = esc(ev.url || "#");
     var alt = esc(ev.title || "Etkinlik görseli");
+    var poster = ev.poster ? " event-card-image--poster event-card-image--poster-" + esc(String(ev.poster)) : "";
 
     return (
       '<div class="swiper-slide">' +
@@ -32,7 +33,9 @@
       '<a class="event-card-link" href="' +
       url +
       '">' +
-      '<div class="event-card-image">' +
+      '<div class="event-card-image' +
+      poster +
+      '">' +
       '<img src="' +
       img +
       '" alt="' +

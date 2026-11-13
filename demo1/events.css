@@ -189,6 +189,24 @@
   object-position: center;
 }
 
+/* Etkinlik posterleri (2:1 banner) — tam görünsün, kesilmesin */
+.bumed-events .event-card-image--poster {
+  background: #101f5a;
+}
+
+.bumed-events .event-card-image--poster img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.bumed-events .event-card-image--poster-beach {
+  background: linear-gradient(180deg, #5eb8e8 0%, #3a8fc4 100%);
+}
+
+.bumed-events .event-card-image--poster-odyssey {
+  background: #0b1528;
+}
+
 .bumed-events .event-card-date {
   position: absolute;
   top: 0.65rem;

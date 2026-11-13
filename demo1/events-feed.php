@@ -27,6 +27,7 @@ function bumed_events_fallback(): array
             'title' => 'Odyssey: Destandan Sinemaya Bir Yolculuk',
             'location' => 'Online Program',
             'image' => "event-up-odyssey.jpg?v={$imgV}",
+            'poster' => 'odyssey',
             'url' => 'https://bumed.webonalti.net/etkinlikler',
         ],
         [
@@ -38,6 +39,7 @@ function bumed_events_fallback(): array
             'title' => 'BÜMED Beach Party 2026 İçin Geri Sayım Başladı!',
             'location' => 'Goga Beach, Kilyos',
             'image' => 'event-up-beach-party.jpg?v=20261113bch',
+            'poster' => 'beach',
             'url' => 'https://bumed.webonalti.net/etkinlikler',
         ],
         [
@@ -49,6 +51,7 @@ function bumed_events_fallback(): array
             'title' => 'Kişisel Finans İçin Finansal Okuryazarlık',
             'location' => 'Online Program',
             'image' => 'event-up-finans.jpg?v=20261113fin',
+            'poster' => 'finans',
             'url' => 'https://bumed.webonalti.net/etkinlikler',
         ],
     ];
