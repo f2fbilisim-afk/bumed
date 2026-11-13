@@ -2911,113 +2911,109 @@ a {
   opacity: 1;
 }
 
-/* ——— İş ortakları (kayan logo bandı) ——— */
+/* ——— İş ortakları (sol başlık + 4’lü slider) ——— */
 .block-partners {
-  background: var(--bg);
-  padding-bottom: clamp(2.75rem, 5vw, 4rem);
+  background: #fff;
+  padding-block: clamp(2.25rem, 4.5vw, 3.25rem);
+  border-top: 1px solid color-mix(in srgb, var(--navy) 8%, transparent);
 }
 
-.block-partners .partners-head {
-  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+.partners-shell {
+  display: grid;
+  grid-template-columns: minmax(9.5rem, 12.5rem) 1px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 2.8vw, 2.35rem);
 }
 
-.block-partners .partners-head h2 {
-  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+.partners-brand {
+  align-self: center;
+}
+
+.partners-accent {
+  display: block;
+  width: 46px;
+  height: 4px;
+  margin: 0 0 0.85rem;
+  border-radius: 2px;
+  background: var(--nav-mega-accent);
+}
+
+.partners-kicker {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: var(--brand-navy);
+}
+
+.partners-brand h2 {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--brand-navy);
 }
 
-.partners-accent {
-  background: var(--nav-mega-accent);
-  width: 52px;
-  height: 4px;
-  border-radius: 2px;
+.partners-vrule {
+  width: 1px;
+  align-self: stretch;
+  min-height: 5.5rem;
+  background: color-mix(in srgb, var(--navy) 14%, transparent);
 }
 
-.partners-marquee {
+.partners-viewport {
   overflow: hidden;
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 6%,
-    #000 94%,
-    transparent 100%
-  );
+  min-width: 0;
 }
 
-.partners-marquee-track {
+.partners-track {
   display: flex;
-  width: max-content;
-  animation: partners-marquee 42s linear infinite;
-}
-
-.partners-marquee:hover .partners-marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes partners-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.partners-logos-row {
-  display: flex;
-  align-items: center;
-  gap: clamp(2.5rem, 5vw, 4.5rem);
   margin: 0;
-  padding: 0 clamp(1.25rem, 3vw, 2.25rem);
+  padding: 0;
   list-style: none;
+  will-change: transform;
 }
 
-li.partner-logo {
+.partner-logo-cell {
+  flex: 0 0 25%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 auto;
+  min-height: 4.5rem;
+  padding: 0.35rem clamp(0.65rem, 1.4vw, 1.15rem);
+  border-right: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
+  box-sizing: border-box;
 }
 
-.partner-logo img {
+.partner-logo-cell img {
   width: auto;
-  height: clamp(2.75rem, 5.5vw, 4.25rem);
-  max-width: min(14.5rem, 38vw);
+  height: clamp(2.35rem, 4.2vw, 3.35rem);
+  max-width: 100%;
   object-fit: contain;
 }
 
-.partner-logo:hover {
-  opacity: 1;
-  transform: scale(1.03);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .partners-marquee-track {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    max-width: var(--container-max);
-    margin-inline: auto;
-    padding-inline: var(--container-pad);
-    gap: 1.5rem 2rem;
+@media (max-width: 900px) {
+  .partners-shell {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
-  .partners-marquee {
-    mask-image: none;
-    overflow: visible;
-  }
-
-  .partners-logos-row[aria-hidden="true"] {
+  .partners-vrule {
     display: none;
   }
 
-  .partners-logos-row {
-    flex-wrap: wrap;
-    justify-content: center;
+  .partner-logo-cell {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 520px) {
+  .partner-logo-cell {
+    flex: 0 0 100%;
   }
 }
 
