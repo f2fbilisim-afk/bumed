@@ -15,7 +15,7 @@ $ttl = 600;
  */
 function bumed_events_fallback(): array
 {
-    $imgV = '20261113ev3';
+    $imgV = '20261113ody';
 
     return [
         [
@@ -144,7 +144,7 @@ function bumed_events_from_wordpress(): ?array
                 'time' => $time !== '' ? $time : '—',
                 'title' => $title,
                 'location' => $location,
-                'image' => $img !== '' ? $img : 'event-up-odyssey.jpg?v=20261113ev3',
+                'image' => $img !== '' ? $img : 'event-up-odyssey.jpg?v=20261113ody',
                 'url' => $link,
             ];
 
