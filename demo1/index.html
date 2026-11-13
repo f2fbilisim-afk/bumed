@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113events" />
+  <link rel="stylesheet" href="styles.css?v=20261113pastalign" />
 </head>
 <body>
   <header class="site-header">
@@ -486,14 +486,15 @@
     </section>
 
     <section class="events-past" id="gecmis-etkinlikler" aria-labelledby="past-events-heading">
-      <div class="wrap events-intro events-intro--left">
-        <svg class="events-scribble" viewBox="0 0 48 32" aria-hidden="true">
-          <path d="M6 22c8-14 18-18 28-14M34 4l6 4-4 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-        <h2 id="past-events-heading">GEÇMİŞ ETKİNLİKLER</h2>
-        <p class="events-lead">Gerçekleşen etkinliklerimizden öne çıkanlar.</p>
-      </div>
-      <div class="wrap past-events-list">
+      <div class="wrap events-past-shell">
+        <header class="events-past-head">
+          <svg class="events-scribble events-scribble--past" viewBox="0 0 48 32" aria-hidden="true">
+            <path d="M6 22c8-14 18-18 28-14M34 4l6 4-4 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <h2 id="past-events-heading">GEÇMİŞ ETKİNLİKLER</h2>
+          <p class="events-lead events-lead--past">Gerçekleşen etkinliklerimizden öne çıkanlar.</p>
+        </header>
+        <div class="past-events-list">
         <article class="past-event">
           <div class="past-event-row">
             <time class="past-event-when" datetime="2026-04-17">
@@ -551,13 +552,14 @@
             </div>
           </div>
         </article>
-      </div>
-      <div class="wrap past-events-cta">
-        <a class="btn btn-past-events-all" href="https://bumed.webonalti.net/etkinlikler/gecmis">
-          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
-          Tüm Geçmiş Etkinlikleri Gör
-          <span aria-hidden="true">→</span>
-        </a>
+        </div>
+        <div class="past-events-cta">
+          <a class="btn btn-past-events-all" href="https://bumed.webonalti.net/etkinlikler/gecmis">
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+            Tüm Geçmiş Etkinlikleri Gör
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </section>
 
