@@ -2493,16 +2493,37 @@ a {
 
 .event-up-media {
   position: relative;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 386 / 248;
   background-size: cover;
   background-position: center;
 }
 
-.event-up-media--navy::after {
-  content: "";
+.event-up-media--banner {
+  background: var(--navy);
+}
+
+.event-up-media--banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.event-up-media--finans img {
+  object-position: 42% center;
+}
+
+.visually-hidden {
   position: absolute;
-  inset: 0;
-  background: color-mix(in srgb, var(--navy) 72%, transparent);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .event-up-date {
