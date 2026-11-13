@@ -630,6 +630,111 @@
   font-family: inherit;
 }
 
+/* ——— BÜMED'den Sesler ——— */
+.m-voices {
+  padding: 0.5rem 0 1.15rem;
+}
+
+.m-voices-shorts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  padding: 0 0.75rem 0.7rem;
+}
+
+.m-voices-shorts .short-card {
+  height: auto;
+  aspect-ratio: 9 / 14;
+  min-height: 0;
+  border-radius: 0.7rem;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--navy) 10%, transparent);
+}
+
+.m-voices-shorts .short-card--accent {
+  border-color: var(--m-accent);
+}
+
+.m-voices-shorts .short-card-caption {
+  top: 0.3rem;
+  left: 0.3rem;
+  right: 0.3rem;
+  padding: 0.25rem 0.35rem;
+  font-size: 0.48rem;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.m-voices-shorts .short-card-play {
+  font-size: 0.85rem;
+}
+
+.m-voices-shorts .short-card-play i {
+  width: 1.55rem;
+  height: 1.55rem;
+  font-size: 0.58rem;
+  padding-left: 0.1rem;
+}
+
+.m-voices-shorts .short-card-brand {
+  padding: 0.3rem;
+}
+
+.m-voices-shorts .short-card-brand img {
+  height: 0.72rem;
+}
+
+.m-voices-foot {
+  padding: 0 0.75rem;
+}
+
+.m-voices-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.m-voices-lead {
+  margin: 0 0 0.7rem;
+  max-width: 18rem;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.m-voices-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: var(--m-accent);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--m-accent) 35%, transparent);
+}
+
+.m-voices-cta .fa-play {
+  font-size: 0.62rem;
+}
+
+.m-voices-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.m-voices-cta {
+  align-self: flex-end;
+}
+
 /* ——— Etkinlik kartları ——— */
 .m-events-home {
   display: flex;
