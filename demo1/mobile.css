@@ -71,17 +71,20 @@
   outline-offset: 2px;
 }
 
+.m-topbar .m-icon-btn .m-topbar-svg,
 .m-topbar .m-icon-btn i {
   display: block;
   line-height: 1;
 }
 
-.m-topbar .m-icon-btn--menu {
-  font-size: 1.28rem;
+.m-topbar .m-icon-btn--menu .m-topbar-svg {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
-.m-topbar .m-icon-btn--search {
-  font-size: 1.32rem;
+.m-topbar .m-icon-btn--search .m-topbar-svg {
+  width: 1.38rem;
+  height: 1.38rem;
 }
 
 .m-topbar-logo-link {
