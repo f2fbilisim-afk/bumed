@@ -1598,12 +1598,14 @@ a {
 
 .story-block .story-layout {
   position: relative;
+  z-index: 1;
 }
 
-/* Karakalem illüstrasyon: Hikâyemiz altından Akademi’ye kadar */
+/* Karakalem illüstrasyon: Hikâyemiz + bağ alanı tek parça */
 .sketch-band {
   position: relative;
   isolation: isolate;
+  background: #fff;
 }
 
 .sketch-band::before {
@@ -1612,27 +1614,14 @@ a {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("story-illustration.png") center top / cover no-repeat;
+  background: url("story-illustration.png") center center / cover no-repeat;
   opacity: 0.045;
 }
 
-.sketch-band > section,
-.sketch-band > .block {
+.sketch-band > section {
   position: relative;
   z-index: 1;
-}
-
-.sketch-band .bond-showcase,
-.sketch-band .social-hub,
-.sketch-band .events-past,
-.sketch-band .block-akademi {
   background: transparent;
-}
-
-.sketch-band .events-block--upcoming {
-  background:
-    radial-gradient(ellipse 90% 65% at 0% 0%, color-mix(in srgb, var(--nav-mega-accent) 22%, transparent), transparent 58%),
-    radial-gradient(ellipse 80% 70% at 100% 100%, color-mix(in srgb, var(--nav-mega-accent) 20%, transparent), transparent 60%);
 }
 
 .story-layout {
@@ -1650,6 +1639,7 @@ a {
   line-height: 1.25;
   color: var(--brand-navy);
   letter-spacing: 0.02em;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.65);
 }
 
 .story-rule {
@@ -1668,6 +1658,7 @@ a {
   font-weight: 400;
   line-height: 1.625;
   color: var(--text-body-muted);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.55);
 }
 
 .story-copy p:last-of-type {
