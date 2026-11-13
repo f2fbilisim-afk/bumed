@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113logobig" />
+  <link rel="stylesheet" href="styles.css?v=20261113megahover" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="events.css?v=20261113mavi" />
   <link rel="stylesheet" href="mobile.css?v=20261113logo" />
@@ -1594,14 +1594,12 @@
     (function () {
       var mainbar = document.querySelector(".mainbar");
       var hosts = document.querySelectorAll(".mega-nav-host");
+      var hoverFine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
       if (!mainbar || !hosts.length) return;
 
-      function inHostZone(node, host, trigger, mega) {
+      function inHostZone(node, host) {
         if (!node || !node.nodeType) return false;
-        return (
-          (trigger && (trigger === node || trigger.contains(node))) ||
-          (mega && (mega === node || mega.contains(node)))
-        );
+        return host === node || host.contains(node);
       }
 
       function syncMainbarOpen() {
@@ -1628,7 +1626,6 @@
         if (!trigger || !mega) return;
 
         var panel = mega.querySelector(".mega-menu-panel");
-        var zone = [trigger, mega];
         var closeTimer = null;
 
         function syncMegaPointer() {
@@ -1644,7 +1641,11 @@
           host.classList.toggle("is-open", open);
           trigger.setAttribute("aria-expanded", open ? "true" : "false");
           syncMainbarOpen();
-          if (open) syncMegaPointer();
+          if (open) {
+            syncMegaPointer();
+          } else if (hoverFine && !host.matches(":hover") && document.activeElement === trigger) {
+            trigger.blur();
+          }
         }
 
         function clearClose() {
@@ -1658,20 +1659,19 @@
           clearClose();
           closeTimer = setTimeout(function () {
             setOpen(false);
-          }, 360);
+          }, 140);
         }
 
         syncMegaPointer();
 
-        zone.forEach(function (el) {
-          el.addEventListener("pointerenter", function () {
-            clearClose();
-            setOpen(true);
-          });
-          el.addEventListener("pointerleave", function (e) {
-            if (inHostZone(e.relatedTarget, host, trigger, mega)) return;
-            scheduleClose();
-          });
+        host.addEventListener("pointerenter", function () {
+          clearClose();
+          setOpen(true);
+        });
+
+        host.addEventListener("pointerleave", function (e) {
+          if (inHostZone(e.relatedTarget, host)) return;
+          scheduleClose();
         });
 
         host.addEventListener("focusin", function () {
@@ -1680,11 +1680,15 @@
         });
 
         host.addEventListener("focusout", function (e) {
-          if (inHostZone(e.relatedTarget, host, trigger, mega)) return;
+          if (inHostZone(e.relatedTarget, host)) return;
           setOpen(false);
         });
 
         trigger.addEventListener("click", function (e) {
+          if (hoverFine) {
+            e.preventDefault();
+            return;
+          }
           e.preventDefault();
           clearClose();
           setOpen(!host.classList.contains("is-open"));
@@ -1696,6 +1700,19 @@
             trigger.focus();
           }
         });
+      });
+
+      mainbar.addEventListener("pointerleave", function (e) {
+        if (e.relatedTarget && mainbar.contains(e.relatedTarget)) return;
+        for (var i = 0; i < hosts.length; i++) {
+          var tr = hosts[i].querySelector(".nav-trigger");
+          hosts[i].classList.remove("is-open");
+          if (tr) {
+            tr.setAttribute("aria-expanded", "false");
+            if (hoverFine && document.activeElement === tr) tr.blur();
+          }
+        }
+        mainbar.classList.remove("is-mega-open");
       });
 
       window.addEventListener("resize", function () {

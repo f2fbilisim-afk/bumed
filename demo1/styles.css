@@ -303,10 +303,11 @@ a {
 .mega-menu::before {
   content: "";
   position: absolute;
-  top: -3.25rem;
+  top: 0;
   left: 0;
   right: 0;
-  height: 4.25rem;
+  height: 0.85rem;
+  pointer-events: none;
 }
 
 .mega-nav-host:hover .mega-menu,
