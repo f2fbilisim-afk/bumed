@@ -2606,26 +2606,26 @@ a {
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  align-items: center;
+  align-items: stretch;
   gap: clamp(0.35rem, 1.2vw, 0.85rem);
 }
 
 .events-viewport {
   --events-gap: clamp(0.85rem, 1.6vw, 1.25rem);
+  --carousel-col-w: 20rem;
   overflow: hidden;
   overflow-x: clip;
   overflow-y: hidden;
   min-width: 0;
-  contain: layout paint;
+  align-self: stretch;
 }
 
 .events-track {
   display: flex;
   flex-wrap: nowrap !important;
-  align-items: stretch;
+  align-items: flex-start;
   gap: var(--events-gap);
   width: max-content;
-  min-width: 100%;
   will-change: transform;
 }
 
@@ -2643,9 +2643,14 @@ a {
 }
 
 .event-up-card {
-  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 var(--carousel-col-w);
+  width: var(--carousel-col-w);
+  max-width: var(--carousel-col-w);
   min-width: 0;
   box-sizing: border-box;
+  align-self: flex-start;
 }
 
 .event-up-card--clone {
@@ -2694,12 +2699,6 @@ a {
   outline-offset: 2px;
 }
 
-@media (max-width: 1024px) {
-  .event-up-card {
-    flex: 0 0 calc((100% - var(--events-gap)) / 2);
-  }
-}
-
 @media (max-width: 600px) {
   .events-slider {
     grid-template-columns: 1fr;
@@ -2709,17 +2708,13 @@ a {
   .events-nav {
     display: none;
   }
-
-  .event-up-card {
-    flex: 0 0 100%;
-  }
 }
 
 .event-up-link {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  width: 100%;
   border-radius: 14px;
   overflow: hidden;
   background: #fff;
@@ -2750,7 +2745,7 @@ a {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -2759,12 +2754,15 @@ a {
   width: 100%;
   height: 1.15rem;
   max-height: 1.2rem;
-  margin-top: -0.55rem;
+  margin: -0.65rem 0 0;
   color: var(--nav-mega-accent);
   line-height: 0;
+  flex: 0 0 1.15rem;
   flex-shrink: 0;
   overflow: hidden;
   pointer-events: none;
+  position: relative;
+  z-index: 2;
 }
 
 .event-up-wave svg {
@@ -2823,12 +2821,15 @@ a {
 }
 
 .event-up-body {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
-  padding: 0.35rem 1rem 1.1rem;
+  margin-top: -0.15rem;
+  padding: 0.55rem 1rem 1.1rem;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 .event-up-meta {
@@ -2851,7 +2852,7 @@ a {
 
 .event-up-body h3 {
   margin: 0;
-  flex: 1;
+  flex: 0 0 auto;
   font-family: "Open Sans", var(--font);
   font-size: clamp(0.84rem, 1.05vw, 0.94rem);
   font-weight: 700;
