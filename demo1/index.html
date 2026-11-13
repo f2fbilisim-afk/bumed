@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css?v=20261113ftline" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="events.css?v=20261113mavi" />
-  <link rel="stylesheet" href="mobile.css?v=20261113mhdr" />
+  <link rel="stylesheet" href="mobile.css?v=20261113mnav" />
   <meta name="theme-color" content="#101f5a" />
 </head>
 <body>
@@ -1165,10 +1165,21 @@
 
         <section class="m-quick" aria-label="Hızlı işlemler">
           <div class="m-quick-grid">
-            <button type="button" class="m-quick-tile" data-m-goto="events"><i class="fa-regular fa-calendar" aria-hidden="true"></i>Etkinlikler</button>
-            <button type="button" class="m-quick-tile" data-m-goto="akademi"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>Akademi</button>
-            <button type="button" class="m-quick-tile" data-m-goto="duyurular"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>Duyurular</button>
-            <button type="button" class="m-quick-tile" data-m-goto="uyelik"><i class="fa-solid fa-users" aria-hidden="true"></i>Üyelik</button>
+            <a class="m-quick-tile" href="https://bogazici.network/" rel="noopener noreferrer"
+              ><i class="fa-solid fa-share-nodes" aria-hidden="true"></i>Boğaziçi Network</a
+            >
+            <a class="m-quick-tile" href="https://bumed.webonalti.net/uyelik/e-kart"
+              ><i class="fa-solid fa-id-card" aria-hidden="true"></i>E-Kartlar</a
+            >
+            <a class="m-quick-tile" href="https://bumed.webonalti.net/mezunlar/ihtiyac-haritasi"
+              ><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>İhtiyaç Haritası</a
+            >
+            <a
+              class="m-quick-tile"
+              href="https://www.google.com/maps/search/?api=1&amp;query=B%C3%9CMED+House+Akat+Mah.+Hare+Sok.+No+3+Be%C5%9Fikta%C5%9F"
+              rel="noopener noreferrer"
+              ><i class="fa-solid fa-location-dot" aria-hidden="true"></i>BÜMED House</a
+            >
           </div>
           <div class="m-quick-row2">
             <a class="m-quick-chip" href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026"><i class="fa-solid fa-user-plus" aria-hidden="true"></i>Üye Ol</a>
@@ -1389,11 +1400,18 @@
     </main>
 
     <nav class="m-tabbar" aria-label="Alt gezinme">
-      <button type="button" class="m-tab is-active" data-m-tab="home" aria-selected="true"><i class="fa-solid fa-house" aria-hidden="true"></i>Ana Sayfa</button>
-      <button type="button" class="m-tab" data-m-tab="events" aria-selected="false"><i class="fa-regular fa-calendar" aria-hidden="true"></i>Etkinlikler</button>
-      <button type="button" class="m-tab" data-m-tab="akademi" aria-selected="false"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>Akademi</button>
-      <button type="button" class="m-tab" data-m-tab="duyurular" aria-selected="false"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>Duyurular</button>
-      <button type="button" class="m-tab" data-m-tab="uyelik" aria-selected="false"><i class="fa-solid fa-user" aria-hidden="true"></i>Üyelik</button>
+      <a class="m-tab" href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026"
+        ><i class="fa-solid fa-user-plus" aria-hidden="true"></i>Bize Katıl</a
+      >
+      <a class="m-tab" href="https://online.bumed.org.tr/"
+        ><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Üye Girişi</a
+      >
+      <a class="m-tab" href="https://online.bumed.org.tr/odeme"
+        ><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>Üyelik Yenileme</a
+      >
+      <a class="m-tab" href="https://online.bumed.org.tr/bumed-e-destek-ol-tl"
+        ><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>Bağış Yap</a
+      >
     </nav>
   </div>
 
@@ -2086,6 +2104,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" crossorigin="anonymous"></script>
   <script src="events.js?v=20261113akademi"></script>
-  <script src="mobile.js?v=20261113mhero"></script>
+  <script src="mobile.js?v=20261113mnav"></script>
 </body>
 </html>

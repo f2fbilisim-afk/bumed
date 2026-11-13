@@ -25,6 +25,13 @@
     { label: "Aidat Öde", href: "https://online.bumed.org.tr/odeme", keywords: "aidat ödeme yenileme" },
     { label: "BÜMED House", href: "https://bumed.webonalti.net/bumed/bumed-house", keywords: "house rezervasyon" },
     { label: "Boğaziçi Network", href: "https://bogazici.network/", keywords: "network mezun" },
+    { label: "E-Kartlar", href: "https://bumed.webonalti.net/uyelik/e-kart", keywords: "e-kart kart dijital" },
+    { label: "İhtiyaç Haritası", href: "https://bumed.webonalti.net/mezunlar/ihtiyac-haritasi", keywords: "ihtiyaç harita" },
+    { label: "BÜMED House konum", href: "https://www.google.com/maps/search/?api=1&query=BÜMED+House+Akat+Mah.+Hare+Sok.+No+3+Beşiktaş", keywords: "house konum adres maps" },
+    { label: "Bize Katıl", href: "https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026", keywords: "bize katıl üye ol" },
+    { label: "Üye Girişi", href: "https://online.bumed.org.tr/", keywords: "giriş login" },
+    { label: "Üyelik Yenileme", href: "https://online.bumed.org.tr/odeme", keywords: "yenileme aidat" },
+    { label: "Bağış Yap", href: "https://online.bumed.org.tr/bumed-e-destek-ol-tl", keywords: "bağış donate" },
     { label: "İletişim", href: "https://bumed.webonalti.net/bumed/iletisim", keywords: "iletişim form mail" }
   ];
 
@@ -141,8 +148,10 @@
   }
 
   tabs.forEach(function (tab) {
+    var panelName = tab.getAttribute("data-m-tab");
+    if (!panelName) return;
     tab.addEventListener("click", function () {
-      activatePanel(tab.getAttribute("data-m-tab"));
+      activatePanel(panelName);
     });
   });
 
