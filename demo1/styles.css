@@ -190,9 +190,9 @@ a {
 
 .logo {
   display: block;
-  height: clamp(2.65rem, 4.2vw, 3.55rem);
+  height: clamp(2.35rem, 3.8vw, 3.25rem);
   width: auto;
-  max-width: min(20rem, 54vw);
+  max-width: min(21rem, 56vw);
   object-fit: contain;
 }
 
@@ -3338,9 +3338,9 @@ a {
   position: relative;
   z-index: 1;
   display: block;
-  width: min(18.5rem, 88vw);
+  width: min(19.5rem, 90vw);
   height: auto;
-  max-height: 5.5rem;
+  max-height: 4.75rem;
   padding: 0 1.25rem;
   object-fit: contain;
 }
