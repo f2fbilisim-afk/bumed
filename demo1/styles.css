@@ -180,8 +180,8 @@ a {
   display: flex;
   align-items: center;
   gap: clamp(1rem, 2.5vw, 2.5rem);
-  min-height: 5.25rem;
-  padding-block: 0.85rem;
+  min-height: 5.85rem;
+  padding-block: 0.95rem;
 }
 
 .logo-link {
@@ -190,9 +190,9 @@ a {
 
 .logo {
   display: block;
-  height: clamp(2.35rem, 3.8vw, 3.25rem);
+  height: clamp(3.05rem, 5.4vw, 4.35rem);
   width: auto;
-  max-width: min(21rem, 56vw);
+  max-width: min(26rem, 64vw);
   object-fit: contain;
 }
 
