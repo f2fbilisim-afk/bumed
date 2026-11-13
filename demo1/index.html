@@ -9,8 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css?v=20261113footnavy" />
+  <link rel="stylesheet" href="mobile.css?v=20261113mobile" />
+  <meta name="theme-color" content="#101f5a" />
 </head>
 <body>
+  <div class="layout-desktop">
   <header class="site-header">
     <div class="utility-bar">
       <div class="wrap utility-row">
@@ -1045,6 +1048,329 @@
       <i class="fa-solid fa-xmark quick-dock-close" aria-hidden="true"></i>
     </button>
   </div>
+  </div>
+
+  <div class="layout-mobile m-app" id="bumed-mobile-app">
+    <header class="m-topbar">
+      <button type="button" class="m-icon-btn" data-m-menu-open aria-expanded="false" aria-controls="m-drawer" aria-label="Menüyü aç">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <a href="#" class="m-topbar-logo-link" data-m-tab="home" aria-label="BÜMED ana sayfa">
+        <img src="logo.png" alt="" class="m-topbar-logo" width="160" height="38" />
+      </a>
+      <button type="button" class="m-icon-btn" data-m-search-open aria-expanded="false" aria-controls="m-search" aria-label="Ara">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <div class="m-scrim" data-m-scrim aria-hidden="true"></div>
+    <aside class="m-drawer" id="m-drawer" data-m-drawer aria-hidden="true" aria-label="Ana menü">
+      <div class="m-drawer-head">
+        <img src="logo.png" alt="BÜMED" width="140" height="34" />
+        <button type="button" class="m-icon-btn" data-m-menu-close aria-label="Menüyü kapat">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <nav class="m-drawer-body" aria-label="Site menüsü">
+        <div class="m-drawer-group">
+          <p class="m-drawer-group-title">Üyelik İşlemleri</p>
+          <ul class="m-drawer-list">
+            <li><a href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026"><i class="fa-solid fa-user-plus" aria-hidden="true"></i>Bize Katıl</a></li>
+            <li><a href="https://online.bumed.org.tr/odeme"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>Üyelik Yenileme</a></li>
+            <li><a href="https://online.bumed.org.tr/"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Üye Girişi</a></li>
+            <li><a href="https://bumed.webonalti.net/uyelik/neden-uye-olmalisiniz"><i class="fa-solid fa-gift" aria-hidden="true"></i>Üyelik Avantajları</a></li>
+          </ul>
+        </div>
+        <div class="m-drawer-group">
+          <p class="m-drawer-group-title">Kurumsal</p>
+          <ul class="m-drawer-list">
+            <li><a href="https://bumed.webonalti.net/bumed/hakkimizda"><i class="fa-solid fa-building-columns" aria-hidden="true"></i>Biz Kimiz?</a></li>
+            <li><a href="https://bumed.webonalti.net/bumed/hakkimizda/tarihce"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>Dernek Yapısı</a></li>
+            <li><a href="https://bumed.webonalti.net/bumed/hakkimizda/dokumanlar"><i class="fa-solid fa-folder-open" aria-hidden="true"></i>Dökümanlar</a></li>
+            <li><a href="https://bumed.webonalti.net/bumed/hakkimizda/is-ortaklarimiz"><i class="fa-solid fa-handshake" aria-hidden="true"></i>İş Ortaklarımız</a></li>
+          </ul>
+        </div>
+        <div class="m-drawer-group">
+          <p class="m-drawer-group-title">Mezun Merkezi</p>
+          <ul class="m-drawer-list">
+            <li><a href="https://bumed.webonalti.net/mezunlar"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i>Mezunlar</a></li>
+            <li><a href="https://bogazici.network/" rel="noopener noreferrer"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i>Boğaziçi Network</a></li>
+            <li><a href="https://bumed.webonalti.net/uyelik/e-kart"><i class="fa-solid fa-id-card" aria-hidden="true"></i>E-Kartlar</a></li>
+            <li><a href="https://bumed.webonalti.net/mezunlar/ihtiyac-haritasi"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>İhtiyaç Haritası</a></li>
+          </ul>
+        </div>
+        <div class="m-drawer-group">
+          <p class="m-drawer-group-title">Mezun Evi</p>
+          <ul class="m-drawer-list">
+            <li><a href="https://bumed.webonalti.net/bumed/bumed-house"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i>BÜMED House</a></li>
+            <li><a href="https://bumed.webonalti.net/bumed/bumed-house/rezervasyon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i>Rezervasyon</a></li>
+          </ul>
+        </div>
+        <div class="m-drawer-group">
+          <p class="m-drawer-group-title">İletişim &amp; Yasal</p>
+          <ul class="m-drawer-list">
+            <li><a href="https://bumed.webonalti.net/bumed/iletisim"><i class="fa-solid fa-envelope" aria-hidden="true"></i>İletişim Formu</a></li>
+            <li><a href="tel:+902123591010"><i class="fa-solid fa-phone" aria-hidden="true"></i>+90 212 359 10 10</a></li>
+            <li><a href="https://bumed.webonalti.net/kvkk"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>KVKK</a></li>
+            <li><a href="https://bumed.webonalti.net/gizlilik-politikasi"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Gizlilik Politikası</a></li>
+            <li><a href="https://bumed.webonalti.net/cerez-politikasi"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i>Çerez Politikası</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="m-search" data-m-search id="m-search" aria-hidden="true">
+      <div class="m-search-top">
+        <button type="button" class="m-icon-btn" data-m-search-close aria-label="Aramayı kapat">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </button>
+        <form class="m-search-form" data-m-search-form role="search" action="https://bumed.webonalti.net/" method="get">
+          <input type="search" name="s" placeholder="BÜMED'de ara…" autocomplete="off" aria-label="Arama" />
+          <button type="submit">Ara</button>
+        </form>
+      </div>
+      <p class="m-search-hint">Etkinlik, Akademi, duyuru veya üyelik için yazın; öneriler anında listelenir.</p>
+      <ul class="m-search-results" data-m-search-results></ul>
+    </div>
+
+    <main class="m-main" id="m-main">
+      <div class="m-panel is-active" data-m-panel="home">
+        <section class="m-hero" aria-label="Karşılama">
+          <img class="m-hero-img" src="hero.jpg?v=20261112he3" width="1024" height="576" alt="" decoding="async" />
+          <div class="m-hero-shade" aria-hidden="true"></div>
+          <div class="m-hero-copy">
+            <p class="m-hero-kicker">Boğaziçi ruhu</p>
+            <h1 class="m-hero-title">Kuşaklar boyu süren bir bağ</h1>
+            <p class="m-hero-text">Etkinliklere katılın, Akademi programlarını keşfedin, duyuruları takip edin.</p>
+            <a class="m-hero-cta" href="https://bumed.webonalti.net/">BÜMED'i keşfet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </section>
+
+        <section class="m-quick" aria-label="Hızlı işlemler">
+          <div class="m-quick-grid">
+            <button type="button" class="m-quick-tile" data-m-goto="events"><i class="fa-regular fa-calendar" aria-hidden="true"></i>Etkinlikler</button>
+            <button type="button" class="m-quick-tile" data-m-goto="akademi"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>Akademi</button>
+            <button type="button" class="m-quick-tile" data-m-goto="duyurular"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>Duyurular</button>
+            <button type="button" class="m-quick-tile" data-m-goto="uyelik"><i class="fa-solid fa-users" aria-hidden="true"></i>Üyelik</button>
+          </div>
+          <div class="m-quick-row2">
+            <a class="m-quick-chip" href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026"><i class="fa-solid fa-user-plus" aria-hidden="true"></i>Üye Ol</a>
+            <a class="m-quick-chip" href="https://online.bumed.org.tr/odeme"><i class="fa-solid fa-credit-card" aria-hidden="true"></i>Aidat Öde</a>
+            <a class="m-quick-chip" href="https://bogazici.network/" rel="noopener noreferrer"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i>BÜMED Network</a>
+            <a class="m-quick-chip" href="https://bumed.webonalti.net/bumed/bumed-house"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i>BÜMED House</a>
+          </div>
+        </section>
+
+        <section class="m-section" aria-labelledby="m-home-events">
+          <div class="m-section-head">
+            <h2 class="m-section-title" id="m-home-events">Yaklaşan Etkinlikler</h2>
+            <button type="button" class="m-section-all" data-m-section-all="events">Tümü <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+          </div>
+          <div class="m-events-scroll">
+            <a class="m-event-card m-event-card--link" href="https://bumed.webonalti.net/etkinlikler">
+              <div class="m-event-date"><span>12</span><small>Kas</small></div>
+              <div class="m-event-body">
+                <h3>BÜMED Networking Buluşması</h3>
+                <p class="m-event-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i>12 Kasım 2026, 18:30</p>
+                <p class="m-event-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>BÜMED House</p>
+              </div>
+              <img class="m-event-thumb" src="event-up-beach-party.jpg?v=20261113ev2" width="120" height="92" alt="" loading="lazy" decoding="async" />
+            </a>
+            <a class="m-event-card m-event-card--link" href="https://bumed.webonalti.net/etkinlikler">
+              <div class="m-event-date"><span>20</span><small>Kas</small></div>
+              <div class="m-event-body">
+                <h3>Kişisel Finans için Finansal Okuryazarlık</h3>
+                <p class="m-event-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i>20 Kasım 2026, 20:30</p>
+                <p class="m-event-meta"><i class="fa-solid fa-globe" aria-hidden="true"></i>Online Program</p>
+              </div>
+              <img class="m-event-thumb" src="event-up-finans.jpg?v=20261113ev2" width="120" height="92" alt="" loading="lazy" decoding="async" />
+            </a>
+          </div>
+        </section>
+
+        <section class="m-section" aria-labelledby="m-home-akademi">
+          <div class="m-section-head">
+            <h2 class="m-section-title" id="m-home-akademi">BÜMED Akademi</h2>
+            <button type="button" class="m-section-all" data-m-section-all="akademi">Tümü <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+          </div>
+          <a class="m-akademi-card" href="https://bumed.webonalti.net/akademi">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=320&q=80" width="320" height="180" alt="" loading="lazy" decoding="async" />
+            <div>
+              <h3>Liderlik Programı</h3>
+              <p>Yönetim, iletişim ve kişisel gelişim odaklı mezunlar için eğitim serisi.</p>
+              <span class="m-akademi-ghost">Programa göz at <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </a>
+        </section>
+
+        <section class="m-section" aria-labelledby="m-home-duyuru">
+          <div class="m-section-head">
+            <h2 class="m-section-title" id="m-home-duyuru">Güncel Duyurular</h2>
+            <button type="button" class="m-section-all" data-m-section-all="duyurular">Tümü <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+          </div>
+          <a class="m-news-card" href="https://bumed.webonalti.net/duyurular">
+            <span class="m-news-ico"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></span>
+            <div>
+              <h3>Öğretim Görevlisi Alım İlanı</h3>
+              <p>BÜMED Akademi kapsamında yarı zamanlı öğretim görevlisi başvuruları başladı.</p>
+            </div>
+            <i class="fa-solid fa-chevron-right m-news-chevron" aria-hidden="true"></i>
+          </a>
+        </section>
+      </div>
+
+      <section class="m-panel" data-m-panel="events" hidden>
+        <header class="m-page-head">
+          <h1>Yaklaşan Etkinlikler</h1>
+          <p>BÜMED'in düzenlediği buluşmalar, söyleşiler ve atölyeler.</p>
+        </header>
+        <div class="m-event-list">
+          <a class="m-event-card m-event-card--link" href="https://bumed.webonalti.net/etkinlikler">
+            <div class="m-event-date"><span>12</span><small>Kas</small></div>
+            <div class="m-event-body">
+              <h3>BÜMED Networking Buluşması</h3>
+              <p class="m-event-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i>12 Kasım 2026, 18:30</p>
+              <p class="m-event-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>BÜMED House</p>
+            </div>
+            <img class="m-event-thumb" src="event-up-beach-party.jpg?v=20261113ev2" alt="" loading="lazy" decoding="async" />
+          </a>
+          <a class="m-event-card m-event-card--link" href="https://bumed.webonalti.net/etkinlikler">
+            <div class="m-event-date"><span>20</span><small>Kas</small></div>
+            <div class="m-event-body">
+              <h3>Kişisel Finans için Finansal Okuryazarlık</h3>
+              <p class="m-event-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i>20 Kasım 2026, 20:30 – 21:45</p>
+              <p class="m-event-meta"><i class="fa-solid fa-globe" aria-hidden="true"></i>Online Program</p>
+            </div>
+            <img class="m-event-thumb" src="event-up-finans.jpg?v=20261113ev2" alt="" loading="lazy" decoding="async" />
+          </a>
+          <a class="m-event-card m-event-card--link" href="https://bumed.webonalti.net/etkinlikler">
+            <div class="m-event-date"><span>28</span><small>Kas</small></div>
+            <div class="m-event-body">
+              <h3>Odyssey: Destandan Sinemaya Bir Yolculuk</h3>
+              <p class="m-event-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i>28 Kasım 2026, 20:00</p>
+              <p class="m-event-meta"><i class="fa-solid fa-globe" aria-hidden="true"></i>Online Program</p>
+            </div>
+            <img class="m-event-thumb" src="event-up-odyssey.jpg?v=20261113ev2" alt="" loading="lazy" decoding="async" />
+          </a>
+          <a class="m-event-card m-event-card--link" href="https://bumed.webonalti.net/etkinlikler">
+            <div class="m-event-date"><span>5</span><small>Ara</small></div>
+            <div class="m-event-body">
+              <h3>BÜMED Yıl Sonu Mezun Buluşması</h3>
+              <p class="m-event-meta"><i class="fa-regular fa-clock" aria-hidden="true"></i>5 Aralık 2026, 19:00</p>
+              <p class="m-event-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>BÜMED House</p>
+            </div>
+            <img class="m-event-thumb" src="past-event-talks.jpg" alt="" loading="lazy" decoding="async" />
+          </a>
+        </div>
+        <p style="padding:0.75rem;text-align:center;font-size:0.75rem;color:#56607a">
+          <a href="https://bumed.webonalti.net/etkinlikler" style="color:#101f5a;font-weight:700">Tüm etkinlikleri sitede görüntüle</a>
+        </p>
+      </section>
+
+      <section class="m-panel" data-m-panel="akademi" hidden>
+        <header class="m-page-head">
+          <h1>BÜMED Akademi</h1>
+          <p>Eğitim programları, takvim ve başvuru bilgileri.</p>
+        </header>
+        <div class="m-akademi-list">
+          <a class="m-akademi-card" href="https://bumed.webonalti.net/akademi">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=320&q=80" alt="" loading="lazy" decoding="async" />
+            <div>
+              <h3>Liderlik Programı</h3>
+              <p>24 Kasım · BÜMED House — Başvurular açık.</p>
+              <span class="m-akademi-ghost">Başvur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </a>
+          <a class="m-akademi-card" href="https://bumed.webonalti.net/akademi">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=320&q=80" alt="" loading="lazy" decoding="async" />
+            <div>
+              <h3>Film Okuma Atölyesi</h3>
+              <p>2 Aralık · Online — Kayıt gerekli.</p>
+              <span class="m-akademi-ghost">Detaylar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </a>
+          <a class="m-akademi-card" href="https://bumed.webonalti.net/akademi">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=320&q=80" alt="" loading="lazy" decoding="async" />
+            <div>
+              <h3>Gençler için Kariyer Rotası</h3>
+              <p>15 Aralık · Hibrit — Kontenjan sınırlı.</p>
+              <span class="m-akademi-ghost">Programa göz at <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </a>
+        </div>
+        <p style="padding:0.75rem;text-align:center;font-size:0.75rem;color:#56607a">
+          <a href="https://bumed.webonalti.net/akademi" style="color:#101f5a;font-weight:700">Akademi takvimi</a>
+        </p>
+      </section>
+
+      <section class="m-panel" data-m-panel="duyurular" hidden>
+        <header class="m-page-head">
+          <h1>Duyurular &amp; Haberler</h1>
+          <p>Öncelikli güncellemeler ve bilgilendirmeler.</p>
+        </header>
+        <div class="m-news-list">
+          <a class="m-news-card" href="https://bumed.webonalti.net/duyurular">
+            <span class="m-news-ico"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></span>
+            <div>
+              <h3>Öğretim Görevlisi Alım İlanı</h3>
+              <p>BÜMED Akademi kapsamında yarı zamanlı öğretim görevlisi başvuruları.</p>
+            </div>
+            <i class="fa-solid fa-chevron-right m-news-chevron" aria-hidden="true"></i>
+          </a>
+          <a class="m-news-card" href="https://bumed.webonalti.net/duyurular">
+            <span class="m-news-ico"><i class="fa-regular fa-calendar" aria-hidden="true"></i></span>
+            <div>
+              <h3>Reunion Kokteyli 2026</h3>
+              <p>BÜMED House'ta mezuniyet yıldönümü kutlamaları için kayıtlar devam ediyor.</p>
+            </div>
+            <i class="fa-solid fa-chevron-right m-news-chevron" aria-hidden="true"></i>
+          </a>
+          <a class="m-news-card" href="https://bumed.webonalti.net/duyurular">
+            <span class="m-news-ico"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></span>
+            <div>
+              <h3>BÜMED House toplantı salonları</h3>
+              <p>Eğitim ve etkinlikleriniz için rezervasyon formu güncellendi.</p>
+            </div>
+            <i class="fa-solid fa-chevron-right m-news-chevron" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <section class="m-panel" data-m-panel="uyelik" hidden>
+        <header class="m-page-head">
+          <h1>Üyelik</h1>
+          <p>Üyelik ve aidat işlemlerine hızlı erişim.</p>
+        </header>
+        <p class="m-membership-lead">İki dokunuşla üye olabilir, aidat ödeyebilir veya hesabınıza giriş yapabilirsiniz.</p>
+        <div class="m-membership-actions">
+          <a class="m-membership-card" href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026">
+            <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+            Bize Katıl
+          </a>
+          <a class="m-membership-card" href="https://online.bumed.org.tr/odeme">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+            Aidat Öde / Yenile
+          </a>
+          <a class="m-membership-card" href="https://online.bumed.org.tr/">
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            Üye Girişi
+          </a>
+          <a class="m-membership-card" href="https://bumed.webonalti.net/uyelik/neden-uye-olmalisiniz">
+            <i class="fa-solid fa-gift" aria-hidden="true"></i>
+            Üyelik Avantajları
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <nav class="m-tabbar" aria-label="Alt gezinme">
+      <button type="button" class="m-tab is-active" data-m-tab="home" aria-selected="true"><i class="fa-solid fa-house" aria-hidden="true"></i>Ana Sayfa</button>
+      <button type="button" class="m-tab" data-m-tab="events" aria-selected="false"><i class="fa-regular fa-calendar" aria-hidden="true"></i>Etkinlikler</button>
+      <button type="button" class="m-tab" data-m-tab="akademi" aria-selected="false"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>Akademi</button>
+      <button type="button" class="m-tab" data-m-tab="duyurular" aria-selected="false"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>Duyurular</button>
+      <button type="button" class="m-tab" data-m-tab="uyelik" aria-selected="false"><i class="fa-solid fa-user" aria-hidden="true"></i>Üyelik</button>
+    </nav>
+  </div>
 
   <script>
     (function () {
@@ -1526,5 +1852,6 @@
     })();
 
   </script>
+  <script src="mobile.js?v=20261113mobile"></script>
 </body>
 </html>
