@@ -178,10 +178,49 @@
     });
   });
 
+  (function initMobileHelp() {
+    var help = root.querySelector("[data-m-help]");
+    if (!help) return;
+    var toggle = help.querySelector("[data-m-help-toggle]");
+    var pop = help.querySelector("[data-m-help-pop]");
+    var closeBtn = help.querySelector("[data-m-help-close]");
+    if (!toggle || !pop) return;
+
+    function setHelpOpen(open) {
+      help.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      pop.hidden = !open;
+    }
+
+    toggle.addEventListener("click", function () {
+      setHelpOpen(!help.classList.contains("is-open"));
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        setHelpOpen(false);
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      if (!help.classList.contains("is-open")) return;
+      if (help.contains(e.target)) return;
+      setHelpOpen(false);
+    });
+  })();
+
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
     setDrawer(false);
     setSearch(false);
+    var help = root.querySelector("[data-m-help]");
+    var toggle = help && help.querySelector("[data-m-help-toggle]");
+    var pop = help && help.querySelector("[data-m-help-pop]");
+    if (help && help.classList.contains("is-open") && toggle && pop) {
+      help.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      pop.hidden = true;
+    }
   });
 
   (function initMobileHero() {

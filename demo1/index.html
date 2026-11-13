@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css?v=20261113ftline" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="events.css?v=20261113mavi" />
-  <link rel="stylesheet" href="mobile.css?v=20261113mnav" />
+  <link rel="stylesheet" href="mobile.css?v=20261113mhelp" />
   <meta name="theme-color" content="#101f5a" />
 </head>
 <body>
@@ -1398,6 +1398,37 @@
         </div>
       </section>
     </main>
+
+    <div class="m-help" data-m-help>
+      <div
+        class="m-help-pop"
+        data-m-help-pop
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="m-help-pop-title"
+        id="m-help-pop-panel"
+        hidden
+      >
+        <p class="m-help-pop-title" id="m-help-pop-title">İletişim</p>
+        <a class="m-help-pop-link" href="tel:+902123591010">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span>0 212 359 10 10</span>
+        </a>
+        <a class="m-help-pop-link" href="mailto:info@bumed.org.tr">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <span>info@bumed.org.tr</span>
+        </a>
+        <button type="button" class="m-help-pop-close" data-m-help-close aria-label="Kapat">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <button type="button" class="m-help-trigger" data-m-help-toggle aria-expanded="false" aria-controls="m-help-pop-panel">
+        <span class="m-help-label">Yardım</span>
+        <span class="m-help-cap" aria-hidden="true">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </span>
+      </button>
+    </div>
 
     <nav class="m-tabbar" aria-label="Alt gezinme">
       <a class="m-tab" href="https://online.bumed.org.tr/form/bumed-yeni-uyelik-formu-2026"
