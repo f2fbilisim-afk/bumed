@@ -3,7 +3,7 @@
   --navy: #101f5a;
   --navy-deep: #101f5a;
   --navy-dark: #0c183f;
-  --navy-footer: #0a1432;
+  --navy-footer: var(--navy);
   --lime: #a8e61d;
   --lime-bright: #cfff00;
   --coral: #f17c83;
@@ -3120,7 +3120,8 @@ a {
   width: 100%;
   height: auto;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.35) brightness(1.55);
+  filter: grayscale(1) contrast(1.2) brightness(2.2);
+  mix-blend-mode: screen;
 }
 
 .footer-columns {
@@ -3180,8 +3181,9 @@ a {
 }
 
 .footer-socials a:hover {
-  border-color: var(--nav-mega-accent);
-  color: var(--nav-mega-accent);
+  border-color: #fff;
+  color: #fff;
+  background: color-mix(in srgb, var(--navy) 78%, #fff);
 }
 
 .footer-list {
@@ -3210,7 +3212,7 @@ a {
 }
 
 .footer-list a:hover {
-  color: var(--nav-mega-accent);
+  color: #fff;
 }
 
 .footer-ico {
@@ -3219,7 +3221,7 @@ a {
   margin-top: 0.12rem;
   text-align: center;
   font-size: 0.78rem;
-  color: var(--nav-mega-accent);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .footer-col--contact .footer-list li {
@@ -3240,7 +3242,7 @@ a {
   padding: 0.7rem 1rem;
   border-radius: 999px;
   background: #fff;
-  color: var(--navy-footer);
+  color: var(--navy);
   font-size: 0.78rem;
   font-weight: 700;
   text-align: center;
@@ -3249,11 +3251,12 @@ a {
 
 .footer-contact-cta i {
   font-size: 0.85rem;
-  color: var(--navy-footer);
+  color: var(--navy);
 }
 
 .footer-contact-cta:hover {
-  background: color-mix(in srgb, #fff 92%, var(--nav-mega-accent));
+  background: color-mix(in srgb, #fff 90%, var(--navy));
+  color: var(--navy);
 }
 
 .footer-legal {
