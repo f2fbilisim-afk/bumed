@@ -3100,28 +3100,45 @@ a {
 .footer-body {
   position: relative;
   padding: clamp(1.5rem, 3vw, 2.25rem) 0 clamp(1.75rem, 3.5vw, 2.5rem);
+  overflow: hidden;
 }
 
 .footer-art {
   position: absolute;
+  top: 0;
   right: 0;
   bottom: 0;
-  width: min(32vw, 22rem);
-  max-height: 88%;
+  left: clamp(20%, 28vw, 38%);
   pointer-events: none;
   overflow: hidden;
-  opacity: 0.14;
-  mask-image: linear-gradient(105deg, transparent 12%, #000 55%);
-  -webkit-mask-image: linear-gradient(105deg, transparent 12%, #000 55%);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 12%,
+    #000 28%,
+    #000 78%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 12%,
+    #000 28%,
+    #000 78%,
+    transparent 100%
+  );
 }
 
 .footer-art-img {
   display: block;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  max-width: none;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.2) brightness(2.2);
-  mix-blend-mode: screen;
+  object-position: left bottom;
+  filter: brightness(0) invert(1);
+  opacity: 0.26;
 }
 
 .footer-columns {
@@ -3370,8 +3387,14 @@ a {
   }
 
   .footer-art {
-    width: min(40vw, 16rem);
-    opacity: 0.1;
+    left: 0;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 88%, transparent 100%);
+  }
+
+  .footer-art-img {
+    object-position: center bottom;
+    opacity: 0.14;
   }
 }
 
