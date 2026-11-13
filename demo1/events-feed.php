@@ -37,7 +37,7 @@ function bumed_events_fallback(): array
             'time' => '11:00 – 22:00',
             'title' => 'BÜMED Beach Party 2026 İçin Geri Sayım Başladı!',
             'location' => 'Goga Beach, Kilyos',
-            'image' => "event-up-beach-party.jpg?v={$imgV}",
+            'image' => 'event-up-beach-party.jpg?v=20261113bch',
             'url' => 'https://bumed.webonalti.net/etkinlikler',
         ],
         [
