@@ -32,7 +32,9 @@
     { label: "Üye Girişi", href: "https://online.bumed.org.tr/", keywords: "giriş login" },
     { label: "Üyelik Yenileme", href: "https://online.bumed.org.tr/odeme", keywords: "yenileme aidat" },
     { label: "Bağış Yap", href: "https://online.bumed.org.tr/bumed-e-destek-ol-tl", keywords: "bağış donate" },
-    { label: "İletişim", href: "https://bumed.webonalti.net/bumed/iletisim", keywords: "iletişim form mail" }
+    { label: "İletişim", href: "https://bumed.webonalti.net/bumed/iletisim", keywords: "iletişim form mail" },
+    { label: "bumed@bumed.org.tr", href: "mailto:bumed@bumed.org.tr", keywords: "e-posta mail bumed" },
+    { label: "0 212 359 58 00", href: "tel:+902123595800", keywords: "telefon arama iletişim" }
   ];
 
   function setDrawer(open) {

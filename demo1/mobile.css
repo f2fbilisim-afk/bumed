@@ -189,6 +189,24 @@
   color: var(--m-accent);
 }
 
+.m-drawer-address {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.m-drawer-address i {
+  width: 1.1rem;
+  margin-top: 0.15rem;
+  text-align: center;
+  color: var(--m-accent);
+  flex-shrink: 0;
+}
+
 /* ——— Arama ——— */
 .m-search {
   position: fixed;
@@ -935,6 +953,27 @@
 
 .m-help-pop-link + .m-help-pop-link {
   border-top: 1px solid color-mix(in srgb, var(--navy) 8%, transparent);
+}
+
+.m-help-pop-address {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0.55rem 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--navy) 8%, transparent);
+  color: color-mix(in srgb, var(--navy) 78%, #4b5563);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.m-help-pop-address i {
+  width: 1.1rem;
+  margin-top: 0.1rem;
+  text-align: center;
+  color: var(--m-accent);
+  flex-shrink: 0;
 }
 
 .m-help-pop-link i {
