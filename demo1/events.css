@@ -213,7 +213,8 @@
 
 .bumed-events .event-card-image--poster-bizans,
 .bumed-events .event-card-image--poster-film,
-.bumed-events .event-card-image--poster-lego {
+.bumed-events .event-card-image--poster-lego,
+.bumed-events .event-card-image--poster-ai {
   background: #fff;
 }
 
