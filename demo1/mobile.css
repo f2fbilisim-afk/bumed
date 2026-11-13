@@ -529,38 +529,6 @@
   box-shadow: 0 2px 8px color-mix(in srgb, var(--navy) 8%, transparent);
 }
 
-.m-quick-row2 {
-  display: flex;
-  gap: 0.45rem;
-  padding: 0.5rem 0.75rem 0.25rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.m-quick-row2::-webkit-scrollbar {
-  display: none;
-}
-
-.m-quick-chip {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--navy) 14%, transparent);
-  background: #fff;
-  color: var(--navy);
-  font-size: 0.68rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.m-quick-chip i {
-  color: var(--m-accent);
-  font-size: 0.75rem;
-}
-
 /* ——— Bölüm başlıkları ——— */
 .m-section {
   padding: 0.85rem 0 1.1rem;
