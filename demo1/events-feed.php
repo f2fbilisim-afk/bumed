@@ -48,7 +48,7 @@ function bumed_events_fallback(): array
             'time' => '20:30 – 21:45',
             'title' => 'Kişisel Finans İçin Finansal Okuryazarlık',
             'location' => 'Online Program',
-            'image' => "event-up-finans.jpg?v={$imgV}",
+            'image' => 'event-up-finans.jpg?v=20261113fin',
             'url' => 'https://bumed.webonalti.net/etkinlikler',
         ],
     ];
