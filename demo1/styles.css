@@ -3318,31 +3318,28 @@ a {
 }
 
 .footer-top-inner {
-  position: relative;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  column-gap: clamp(1rem, 3vw, 2rem);
   min-height: 3.25rem;
 }
 
-.footer-top-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
+.footer-top-inner::before,
+.footer-top-inner::after {
+  content: "";
   height: 1px;
   background: rgba(255, 255, 255, 0.22);
-  pointer-events: none;
 }
 
 .footer-top-logo {
-  position: relative;
-  z-index: 1;
+  grid-column: 2;
   display: block;
   width: min(19.5rem, 90vw);
   height: auto;
   max-height: 4.75rem;
-  padding: 0 1.25rem;
+  padding: 0 clamp(0.35rem, 1.2vw, 0.85rem);
+  background: var(--navy-footer);
   object-fit: contain;
 }
 
