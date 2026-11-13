@@ -3709,6 +3709,7 @@ a {
   flex-direction: column;
   align-items: flex-end;
   gap: 0.7rem;
+  overflow: visible;
 }
 
 .quick-dock-btn {
@@ -3719,6 +3720,7 @@ a {
   width: 3.65rem;
   height: 3.65rem;
   padding: 0;
+  overflow: visible;
   border: 3px solid var(--nav-mega-accent);
   border-radius: 50%;
   background: var(--navy);
@@ -3847,7 +3849,7 @@ a {
 }
 
 .quick-dock-btn .quick-dock-close,
-.quick-dock.is-open .quick-dock-ico {
+.quick-dock.is-open .quick-dock-btn:not(.is-tossing) .quick-dock-ico {
   opacity: 0;
   transform: scale(0.6) rotate(-40deg);
   pointer-events: none;
@@ -3856,6 +3858,33 @@ a {
 .quick-dock.is-open .quick-dock-close {
   opacity: 1;
   transform: scale(1) rotate(0deg);
+  transition-delay: 0.15s;
+}
+
+@keyframes quick-dock-cap-toss {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(-1.35rem) rotate(-24deg) scale(0.95);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-2.65rem) rotate(18deg) scale(0.55);
+  }
+}
+
+.quick-dock-btn.is-tossing .quick-dock-ico {
+  opacity: 1 !important;
+  pointer-events: none;
+  animation: quick-dock-cap-toss 0.52s cubic-bezier(0.22, 0.85, 0.35, 1) forwards;
+}
+
+.quick-dock:hover .quick-dock-btn,
+.quick-dock.is-open .quick-dock-btn {
+  animation-play-state: paused;
 }
 
 .quick-dock-menu {
@@ -3919,7 +3948,8 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .quick-dock-btn,
   .quick-dock-btn i,
-  .quick-dock.is-open .quick-dock-menu {
+  .quick-dock.is-open .quick-dock-menu,
+  .quick-dock-btn.is-tossing .quick-dock-ico {
     transition: none;
     animation: none;
     transform: none;

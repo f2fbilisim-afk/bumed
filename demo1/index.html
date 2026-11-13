@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113duyuru" />
+  <link rel="stylesheet" href="styles.css?v=20261113dock" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="events.css?v=20261113film" />
   <link rel="stylesheet" href="mobile.css?v=20261113mlogo" />
@@ -1823,6 +1823,9 @@
       var menu = dock.querySelector(".quick-dock-menu");
       if (!btn || !menu) return;
 
+      var tossTimer = null;
+      var hoverOpen = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
       function setOpen(open) {
         dock.classList.toggle("is-open", open);
         btn.setAttribute("aria-expanded", open ? "true" : "false");
@@ -1830,18 +1833,52 @@
         else menu.setAttribute("hidden", "");
       }
 
+      function playCapToss() {
+        btn.classList.remove("is-tossing");
+        void btn.offsetWidth;
+        btn.classList.add("is-tossing");
+        if (tossTimer) window.clearTimeout(tossTimer);
+        tossTimer = window.setTimeout(function () {
+          btn.classList.remove("is-tossing");
+        }, 540);
+      }
+
+      function openDock() {
+        setOpen(true);
+        playCapToss();
+      }
+
+      if (hoverOpen) {
+        dock.addEventListener("mouseenter", function () {
+          openDock();
+        });
+        dock.addEventListener("mouseleave", function () {
+          if (tossTimer) window.clearTimeout(tossTimer);
+          btn.classList.remove("is-tossing");
+          setOpen(false);
+        });
+      }
+
       btn.addEventListener("click", function (e) {
         e.stopPropagation();
-        setOpen(!dock.classList.contains("is-open"));
+        if (dock.classList.contains("is-open")) {
+          setOpen(false);
+          btn.classList.remove("is-tossing");
+        } else {
+          openDock();
+        }
       });
 
-      document.addEventListener("click", function (e) {
-        if (!dock.contains(e.target)) setOpen(false);
-      });
+      if (!hoverOpen) {
+        document.addEventListener("click", function (e) {
+          if (!dock.contains(e.target)) setOpen(false);
+        });
+      }
 
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
           setOpen(false);
+          btn.classList.remove("is-tossing");
           btn.focus();
         }
       });
