@@ -2520,11 +2520,7 @@ a {
   background: #fff;
 }
 
-/* Etkinlik posterleri — banner oranı, tam görünsün (Akademi kart yapısıyla) */
-.home-carousel--etkinlik .event-up-media--poster {
-  aspect-ratio: 16 / 9;
-}
-
+/* Etkinlik posterleri — Akademi ile aynı kart oranı (499/451), sadece zemin rengi */
 .home-carousel--etkinlik .event-up-media--poster-odyssey {
   background: #0b1528;
 }
@@ -2847,6 +2843,7 @@ a {
   background: #fff;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .event-up-meta {
@@ -2875,6 +2872,33 @@ a {
   font-weight: 700;
   line-height: 1.38;
   color: var(--navy);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: calc(1.38em * 3);
+}
+
+.home-carousel--etkinlik .event-up-link,
+.home-carousel--akademi .event-up-link {
+  border-radius: 14px;
+}
+
+.home-carousel--etkinlik .events-track,
+.home-carousel--akademi .events-track {
+  align-items: stretch;
+}
+
+.home-carousel--etkinlik .event-up-card,
+.home-carousel--akademi .event-up-card {
+  align-self: auto;
+  height: auto;
+}
+
+.home-carousel--etkinlik .event-up-link,
+.home-carousel--akademi .event-up-link {
+  flex: 1 1 auto;
+  height: 100%;
 }
 
 .btn-events-see-all {
