@@ -660,9 +660,9 @@
   max-height: 8.75rem;
 }
 
-.layout-mobile .bumed-events--mobile-feature .event-card-image img {
-  object-fit: cover;
-  object-position: center top;
+.layout-mobile .bumed-events--mobile-feature .event-card-image--poster img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .layout-mobile .bumed-events--mobile-feature .event-card-date {
