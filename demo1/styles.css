@@ -2520,6 +2520,23 @@ a {
   background: #fff;
 }
 
+/* Etkinlik posterleri — banner oranı, tam görünsün (Akademi kart yapısıyla) */
+.home-carousel--etkinlik .event-up-media--poster {
+  aspect-ratio: 16 / 9;
+}
+
+.home-carousel--etkinlik .event-up-media--poster-odyssey {
+  background: #0b1528;
+}
+
+.home-carousel--etkinlik .event-up-media--poster-beach {
+  background: linear-gradient(180deg, #5eb8e8 0%, #3a8fc4 100%);
+}
+
+.home-carousel--etkinlik .event-up-media--poster-finans {
+  background: #101f5a;
+}
+
 .home-carousel--akademi {
   background: linear-gradient(180deg, #eef8fc 0%, #e2f3f9 48%, #f4fafc 100%);
 }
