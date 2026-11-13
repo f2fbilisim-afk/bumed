@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css?v=20261113dock" />
+  <link rel="stylesheet" href="styles.css?v=20261113cookie" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="events.css?v=20261113film" />
   <link rel="stylesheet" href="mobile.css?v=20261113mlogo" />
@@ -1371,6 +1371,68 @@
     </nav>
   </div>
 
+  <div class="cookie-consent" data-cookie-consent role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title" hidden>
+    <div class="cookie-consent__panel">
+      <button type="button" class="cookie-consent__close" data-cookie-close aria-label="Kapat">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="cookie-consent__inner">
+        <div class="cookie-consent__brand">
+          <img src="logo.png" width="156" height="52" alt="BÜMED" loading="lazy" decoding="async" />
+          <p class="cookie-consent__site">bumed.org.tr</p>
+        </div>
+        <div class="cookie-consent__body">
+          <h2 id="cookie-consent-title" class="cookie-consent__title">Verilerinizin sizin mülkiyetiniz olduğuna inanıyor; gizlilik ve şeffaflık hakkınızı destekliyoruz.</h2>
+          <p class="cookie-consent__lead">Verilerinizi nasıl kullanacağımızı ve paylaşacağımızı seçmek için bir Veri Erişim Seviyesi ve Süresi seçin.</p>
+          <div class="cookie-consent__controls">
+            <div class="cookie-consent__levels" role="radiogroup" aria-label="Veri erişim seviyesi">
+              <label class="cookie-consent__level is-active" data-cookie-level="kisitli">
+                <input type="radio" name="cookie-level" value="kisitli" checked />
+                <span class="cookie-consent__dot cookie-consent__dot--navy" aria-hidden="true"></span>
+                <span>Kısıtlı</span>
+              </label>
+              <label class="cookie-consent__level" data-cookie-level="dengeli">
+                <input type="radio" name="cookie-level" value="dengeli" />
+                <span class="cookie-consent__dot cookie-consent__dot--gold" aria-hidden="true"></span>
+                <span>Dengeli</span>
+              </label>
+              <label class="cookie-consent__level" data-cookie-level="kisisel">
+                <input type="radio" name="cookie-level" value="kisisel" />
+                <span class="cookie-consent__dot cookie-consent__dot--violet" aria-hidden="true"></span>
+                <span>Kişiselleştirilmiş</span>
+              </label>
+            </div>
+            <label class="cookie-consent__duration">
+              <span class="visually-hidden">Süre</span>
+              <select data-cookie-duration aria-label="Tercih süresi">
+                <option value="1">1 Ay</option>
+                <option value="3">3 Ay</option>
+                <option value="6">6 Ay</option>
+                <option value="12">12 Ay</option>
+              </select>
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </label>
+          </div>
+          <p class="cookie-consent__hint" data-cookie-hint>En yüksek düzeyde gizlilik. Verilere yalnızca gerekli temel işlemler için erişilir. Sitenin güvenli olmasını ve cihazınızda çalışmasını sağlamak için 3. taraflarla paylaşılan veriler için.</p>
+          <div class="cookie-consent__foot">
+            <a class="cookie-consent__link" href="https://bumed.webonalti.net/cerez-politikasi#ozellestirme">
+              <span class="cookie-consent__chip" aria-hidden="true"></span>
+              Özelleştirme
+            </a>
+            <button type="button" class="cookie-consent__save" data-cookie-save>Tercihlerimi kaydet</button>
+            <a class="cookie-consent__policy" href="https://bumed.webonalti.net/cerez-politikasi">Gizlilik Politikası</a>
+          </div>
+        </div>
+      </div>
+      <div class="cookie-consent__wave" aria-hidden="true">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 40 C180 70 360 8 600 32 S960 58 1200 22 L1200 80 L0 80 Z" fill="currentColor" opacity="0.35" />
+          <path d="M0 52 C220 18 420 62 640 38 S980 12 1200 44 L1200 80 L0 80 Z" fill="currentColor" opacity="0.22" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       var hero = document.querySelector("[data-hero]");
@@ -1814,6 +1876,94 @@
       if (!reduceMotion) {
         autoTimer = setInterval(tick, 4200);
       }
+    })();
+
+    (function () {
+      var banner = document.querySelector("[data-cookie-consent]");
+      if (!banner) return;
+
+      var storageKey = "bumed-cookie-consent-v1";
+      var hintEl = banner.querySelector("[data-cookie-hint]");
+      var durationEl = banner.querySelector("[data-cookie-duration]");
+      var levels = banner.querySelectorAll("[data-cookie-level]");
+      var hints = {
+        kisitli:
+          "En yüksek düzeyde gizlilik. Verilere yalnızca gerekli temel işlemler için erişilir. Sitenin güvenli olmasını ve cihazınızda çalışmasını sağlamak için 3. taraflarla paylaşılan veriler için.",
+        dengeli:
+          "Temel işlevler ve sınırlı analitik. Site deneyimini iyileştirmek için anonim istatistikler toplanabilir; kişisel profilleme yapılmaz.",
+        kisisel:
+          "Tercihlerinize göre özelleştirilmiş içerik ve hatırlatmalar. İstediğiniz zaman bu bannerdan veya çerez politikasından güncelleyebilirsiniz.",
+      };
+
+      function readStored() {
+        try {
+          var raw = localStorage.getItem(storageKey);
+          return raw ? JSON.parse(raw) : null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function isActive(stored) {
+        if (!stored || !stored.savedAt) return false;
+        var months = parseInt(stored.duration, 10) || 1;
+        var maxMs = months * 30 * 24 * 60 * 60 * 1000;
+        return Date.now() - stored.savedAt < maxMs;
+      }
+
+      function hideBanner() {
+        banner.classList.remove("is-enter");
+        banner.setAttribute("hidden", "");
+        document.body.classList.remove("has-cookie-consent");
+      }
+
+      function showBanner() {
+        document.body.classList.add("has-cookie-consent");
+        banner.removeAttribute("hidden");
+        banner.classList.add("is-enter");
+      }
+
+      function setLevel(value) {
+        levels.forEach(function (label) {
+          var on = label.getAttribute("data-cookie-level") === value;
+          label.classList.toggle("is-active", on);
+          var input = label.querySelector("input");
+          if (input) input.checked = on;
+        });
+        if (hintEl) hintEl.textContent = hints[value] || hints.kisitli;
+      }
+
+      function saveConsent() {
+        var levelInput = banner.querySelector('input[name="cookie-level"]:checked');
+        var level = levelInput ? levelInput.value : "kisitli";
+        var duration = durationEl ? durationEl.value : "1";
+        var payload = { level: level, duration: duration, savedAt: Date.now() };
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(payload));
+        } catch (e) {}
+        hideBanner();
+      }
+
+      if (isActive(readStored())) {
+        hideBanner();
+        return;
+      }
+
+      showBanner();
+
+      levels.forEach(function (label) {
+        label.addEventListener("click", function () {
+          var value = label.getAttribute("data-cookie-level");
+          if (value) setLevel(value);
+        });
+      });
+
+      banner.querySelector("[data-cookie-save]")?.addEventListener("click", saveConsent);
+
+      banner.querySelector("[data-cookie-close]")?.addEventListener("click", function () {
+        setLevel("kisitli");
+        saveConsent();
+      });
     })();
 
     (function () {
