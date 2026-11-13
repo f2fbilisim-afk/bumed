@@ -186,6 +186,9 @@
     var toggle = help.querySelector("[data-m-help-toggle]");
     var pop = help.querySelector("[data-m-help-pop]");
     var closeBtn = help.querySelector("[data-m-help-close]");
+    var dismissBtn = help.querySelector("[data-m-help-dismiss]");
+    var expandTab = help.querySelector("[data-m-help-expand]");
+    var storageKey = "bumed-m-help-collapsed-v1";
     if (!toggle || !pop) return;
 
     function setHelpOpen(open) {
@@ -194,13 +197,45 @@
       pop.hidden = !open;
     }
 
+    function setCollapsed(collapsed) {
+      help.classList.toggle("is-collapsed", collapsed);
+      if (collapsed) setHelpOpen(false);
+      if (expandTab) expandTab.hidden = !collapsed;
+      try {
+        sessionStorage.setItem(storageKey, collapsed ? "1" : "0");
+      } catch (err) {
+        /* ignore */
+      }
+    }
+
+    try {
+      if (sessionStorage.getItem(storageKey) === "1") setCollapsed(true);
+    } catch (err) {
+      /* ignore */
+    }
+
     toggle.addEventListener("click", function () {
+      if (help.classList.contains("is-collapsed")) return;
       setHelpOpen(!help.classList.contains("is-open"));
     });
 
     if (closeBtn) {
-      closeBtn.addEventListener("click", function () {
+      closeBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
         setHelpOpen(false);
+      });
+    }
+
+    if (dismissBtn) {
+      dismissBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setCollapsed(true);
+      });
+    }
+
+    if (expandTab) {
+      expandTab.addEventListener("click", function () {
+        setCollapsed(false);
       });
     }
 

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css?v=20261113ftline" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="events.css?v=20261113mavi" />
-  <link rel="stylesheet" href="mobile.css?v=20261114nochips" />
+  <link rel="stylesheet" href="mobile.css?v=20261114helpdock" />
   <meta name="theme-color" content="#101f5a" />
 </head>
 <body>
@@ -1428,11 +1428,19 @@
           <i class="fa-solid fa-xmark" aria-hidden="true"></i>
         </button>
       </div>
-      <button type="button" class="m-help-trigger" data-m-help-toggle aria-expanded="false" aria-controls="m-help-pop-panel">
-        <span class="m-help-label">Yardım</span>
-        <span class="m-help-cap" aria-hidden="true">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </span>
+      <div class="m-help-dock" data-m-help-dock>
+        <button type="button" class="m-help-dismiss" data-m-help-dismiss aria-label="Yardımı kenara gizle">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="m-help-trigger" data-m-help-toggle aria-expanded="false" aria-controls="m-help-pop-panel">
+          <span class="m-help-label">Yardım</span>
+          <span class="m-help-cap" aria-hidden="true">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </span>
+        </button>
+      </div>
+      <button type="button" class="m-help-tab" data-m-help-expand hidden aria-label="Yardımı göster">
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
       </button>
     </div>
 
@@ -2141,6 +2149,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" crossorigin="anonymous"></script>
   <script src="events.js?v=20261113akademi"></script>
-  <script src="mobile.js?v=20261114contact"></script>
+  <script src="mobile.js?v=20261114helpdock"></script>
 </body>
 </html>
