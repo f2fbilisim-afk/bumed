@@ -628,6 +628,23 @@
 }
 
 /* ——— Etkinlik kartları ——— */
+.m-events-home {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.m-events-home > .m-event-card--lead {
+  box-sizing: border-box;
+  width: auto;
+  margin: 0 0.75rem;
+  flex: none;
+}
+
+.m-events-scroll--more .m-event-card {
+  flex: 0 0 min(92%, calc(100% - 2.75rem));
+}
+
 .m-events-scroll {
   display: flex;
   gap: 0.65rem;
