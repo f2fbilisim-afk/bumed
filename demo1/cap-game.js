@@ -38,7 +38,6 @@
   var winNoteEl;
   var winRetryBtn;
   var winCardEl;
-  var classHudEl;
   var rafId = 0;
   var lastTs = 0;
   var capY = 0;
@@ -52,13 +51,6 @@
   function setYear(year) {
     currentYear = Math.max(1, Math.min(4, year));
     physics = CLASS_LEVELS[currentYear - 1];
-    updateClassHud();
-  }
-
-  function updateClassHud() {
-    if (!classHudEl) return;
-    classHudEl.textContent = physics.label + " · BÜMED yolculuğu";
-    classHudEl.hidden = false;
   }
 
   function measureBounds() {
@@ -90,7 +82,6 @@
       '<p class="m-cap-game-brief-line" id="m-cap-game-brief-line">' +
       "1. sınıftan başla; her sınıfı geçince bir üst sınıfa yüksel. 4. sınıfı tamamlayınca mezun ol!" +
       "</p></div></div>" +
-      '<p class="m-cap-game-class-hud" data-cap-game-class hidden></p>' +
       '<div class="m-cap-game-trail" data-cap-game-trail aria-hidden="true"></div>' +
       '<div class="m-cap-game-cap" data-cap-game-cap aria-hidden="true">' +
       '<i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>' +
@@ -124,8 +115,6 @@
     winNoteEl = layer.querySelector(".m-cap-game-win-note");
     winRetryBtn = layer.querySelector("[data-cap-game-retry]");
     winCardEl = layer.querySelector(".m-cap-game-win-card");
-    classHudEl = layer.querySelector("[data-cap-game-class]");
-
     layer.querySelector("[data-cap-game-win-close]").addEventListener("click", endGame);
     winRetryBtn.addEventListener("click", onWinRetry);
 
@@ -283,7 +272,6 @@
   }
 
   function startPlaying() {
-    updateClassHud();
     bounds = measureBounds();
     capY = bounds.startY;
     velocity = 0;
@@ -445,7 +433,6 @@
       briefEl.hidden = true;
       briefEl.classList.remove("is-open");
     }
-    if (classHudEl) classHudEl.hidden = true;
     clearFabGuide();
     lockScroll(false);
   }
@@ -459,7 +446,6 @@
       briefEl.hidden = true;
       briefEl.classList.remove("is-open");
     }
-    if (classHudEl) classHudEl.hidden = true;
     clearFabGuide();
     lockScroll(false);
   }
@@ -482,7 +468,6 @@
     }
     clearFabGuide();
     scheduleFabGuide(2000);
-    updateClassHud();
     lockScroll(true);
   }
 
