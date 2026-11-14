@@ -2,12 +2,12 @@
   var root = document.getElementById("bumed-mobile-app");
   if (!root) return;
 
-  var GRAVITY = 820;
-  var TAP_IMPULSE = 400;
-  var MAX_UP_SPEED = 1150;
+  var GRAVITY = 1580;
+  var TAP_IMPULSE = 320;
+  var MAX_UP_SPEED = 980;
   var CAP_SIZE = 60;
-  var CONTACT_DELAY_MS = 420;
-  var RAPID_GAP_MS = 520;
+  var CONTACT_DELAY_MS = 1000;
+  var RAPID_GAP_MS = 1000;
 
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -41,7 +41,7 @@
     var startY = window.innerHeight - 100;
     if (header) {
       var hr = header.getBoundingClientRect();
-      goalY = hr.bottom + 22;
+      goalY = hr.bottom + 6;
     }
     if (tabbar) {
       var tr = tabbar.getBoundingClientRect();
@@ -199,6 +199,10 @@
     layer.classList.add("is-active", "is-playing");
     layer.setAttribute("aria-hidden", "false");
     capEl.setAttribute("aria-hidden", "false");
+    if (hintEl) {
+      hintEl.textContent = "Kepi tıklayarak en yükseğe ulaştır, mezun ol!";
+      hintEl.classList.add("is-visible");
+    }
     lockScroll(true);
     updateCapTransform();
 
@@ -277,11 +281,13 @@
       fab.classList.add("is-cap-arming");
     }
     if (hintEl) {
-      hintEl.textContent = "Kepine bas, zirveye fırlat!";
+      hintEl.textContent = "1 · 2 · 3 — Başla!";
       hintEl.classList.add("is-visible");
       window.setTimeout(function () {
-        if (hintEl) hintEl.classList.remove("is-visible");
-      }, 2800);
+        if (hintEl) {
+          hintEl.textContent = "Kepi tıklayarak en yükseğe ulaştır, mezun ol!";
+        }
+      }, 700);
     }
     window.setTimeout(startPlaying, 380);
   }
