@@ -3,7 +3,7 @@
 .bumed-events--akademi {
   --events-accent: #00e5df;
   --events-navy: #101f5a;
-  --events-max: 1440px;
+  --events-max: var(--container-max);
   --events-gap-dt: 28px;
   background: linear-gradient(180deg, #eef8fc 0%, #e2f3f9 48%, #f4fafc 100%);
   padding-block: clamp(2.75rem, 5vw, 4rem);
@@ -13,7 +13,7 @@
   width: 100%;
   max-width: var(--events-max);
   margin-inline: auto;
-  padding-inline: clamp(16px, 2.5vw, 28px);
+  padding-inline: var(--container-pad);
 }
 
 .bumed-events .events-header {
