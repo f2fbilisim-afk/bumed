@@ -216,15 +216,36 @@
     }
   }
 
-  function showToast(msg) {
+  function showToast(msg, opts) {
     if (!toastEl) return;
+    var duration = opts && opts.durationMs ? opts.durationMs : 1600;
+    var warn = opts && opts.warn;
     toastEl.hidden = false;
     toastEl.textContent = msg;
+    toastEl.classList.toggle("is-warn", !!warn);
     toastEl.classList.add("is-visible");
     window.setTimeout(function () {
-      toastEl.classList.remove("is-visible");
+      toastEl.classList.remove("is-visible", "is-warn");
       toastEl.hidden = true;
-    }, 1600);
+    }, duration);
+  }
+
+  function onCapFellToFloor() {
+    if (currentYear <= 1) {
+      showToast("1. sınıftan öte yok — tekrar fırlat! :D", { warn: true, durationMs: 2200 });
+      return;
+    }
+    setYear(currentYear - 1);
+    bounds = measureBounds();
+    showToast("Kep yere düştü! Bir sınıf geriden devam — " + physics.label + " 😅", {
+      warn: true,
+      durationMs: 2600,
+    });
+    try {
+      if (navigator.vibrate) navigator.vibrate(28);
+    } catch (err) {
+      /* ignore */
+    }
   }
 
   function stopLoop() {
@@ -251,7 +272,9 @@
     }
 
     if (capY >= bounds.startY) {
+      var landed = velocity > 90;
       capY = bounds.startY;
+      if (landed) onCapFellToFloor();
       velocity = 0;
     }
 

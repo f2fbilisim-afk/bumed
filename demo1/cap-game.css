@@ -240,6 +240,14 @@
   opacity: 1;
 }
 
+.m-cap-game-toast.is-warn {
+  border: 1px solid color-mix(in srgb, #ffb347 70%, #10ede0);
+  background: linear-gradient(165deg, #2a1f4a 0%, #202c62 100%);
+  color: #fff3e0;
+  max-width: min(18rem, calc(100vw - 2rem));
+  line-height: 1.35;
+}
+
 .m-cap-game-confetti {
   position: fixed;
   inset: 0;
