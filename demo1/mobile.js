@@ -195,8 +195,17 @@
       pop.hidden = !open;
     }
 
+    if (window.BumedCapGame && window.BumedCapGame.registerContactToggle) {
+      window.BumedCapGame.registerContactToggle(function () {
+        setContactOpen(pop.hidden);
+      });
+    }
+
     fab.addEventListener("click", function (e) {
       e.stopPropagation();
+      if (window.BumedCapGame && window.BumedCapGame.onFabClick(e)) {
+        return;
+      }
       setContactOpen(pop.hidden);
     });
 
