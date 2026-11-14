@@ -502,7 +502,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.45rem;
-  padding: 0 0.65rem;
+  padding: 0 var(--m-gutter);
 }
 
 .m-quick-tile {
