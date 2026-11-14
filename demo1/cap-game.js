@@ -2,9 +2,9 @@
   var root = document.getElementById("bumed-mobile-app");
   if (!root) return;
 
-  var GRAVITY = 2680;
-  var TAP_IMPULSE = 185;
-  var MAX_UP_SPEED = 720;
+  var GRAVITY = 1900;
+  var TAP_IMPULSE = 265;
+  var MAX_UP_SPEED = 820;
   var CAP_SIZE = 60;
   var CONTACT_DELAY_MS = 1000;
   var RAPID_GAP_MS = 1000;
