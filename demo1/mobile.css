@@ -39,7 +39,7 @@
   top: 0;
   z-index: 120;
   display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+  grid-template-columns: 3.15rem minmax(0, 1fr) 3.15rem;
   align-items: center;
   gap: 0.35rem;
   min-height: var(--m-top-h);
@@ -54,16 +54,27 @@
 .m-icon-btn {
   display: grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.15rem;
+  height: 3.15rem;
   margin: 0;
   padding: 0;
   border: 0;
-  border-radius: 0.5rem;
-  background: transparent;
-  color: inherit;
-  font-size: 1.15rem;
+  border-radius: 0.72rem;
+  background: color-mix(in srgb, #fff 11%, transparent);
+  color: #fff;
+  font-size: 1.45rem;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.12s ease;
+}
+
+.m-icon-btn:active {
+  transform: scale(0.96);
+  background: color-mix(in srgb, var(--m-accent) 22%, transparent);
+  color: var(--m-accent);
 }
 
 .m-icon-btn:focus-visible {
@@ -71,20 +82,18 @@
   outline-offset: 2px;
 }
 
-.m-topbar .m-icon-btn .m-topbar-svg,
 .m-topbar .m-icon-btn i {
   display: block;
   line-height: 1;
+  pointer-events: none;
 }
 
-.m-topbar .m-icon-btn--menu .m-topbar-svg {
-  width: 1.35rem;
-  height: 1.35rem;
+.m-topbar .m-icon-btn--menu i {
+  font-size: 1.52rem;
 }
 
-.m-topbar .m-icon-btn--search .m-topbar-svg {
-  width: 1.38rem;
-  height: 1.38rem;
+.m-topbar .m-icon-btn--search i {
+  font-size: 1.46rem;
 }
 
 .m-topbar-logo-link {
