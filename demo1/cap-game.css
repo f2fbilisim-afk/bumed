@@ -362,6 +362,85 @@
   animation: m-cap-fab-pulse 0.45s ease;
 }
 
+.m-tabbar-fab.is-cap-game-guide {
+  z-index: 4;
+  animation: m-cap-fab-guide-glow 1.55s ease-in-out infinite;
+}
+
+.m-tabbar-fab.is-cap-game-guide::before {
+  content: "";
+  position: absolute;
+  inset: -0.45rem;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, #10ede0 85%, #a8e61d);
+  opacity: 0;
+  pointer-events: none;
+  animation: m-cap-fab-guide-ring 1.55s ease-out infinite;
+}
+
+.m-tabbar-fab.is-cap-game-guide::after {
+  content: "";
+  position: absolute;
+  inset: -0.85rem;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, #a8e61d 55%, #10ede0);
+  opacity: 0;
+  pointer-events: none;
+  animation: m-cap-fab-guide-ring 1.55s ease-out 0.35s infinite;
+}
+
+.m-tabbar-fab.is-cap-game-press {
+  animation: m-cap-fab-press 0.36s ease !important;
+}
+
+@keyframes m-cap-fab-guide-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 24px rgba(8, 16, 48, 0.32),
+      0 0 0 3px color-mix(in srgb, #10ede0 35%, transparent),
+      0 0 14px color-mix(in srgb, #10ede0 25%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 14px 30px rgba(8, 16, 48, 0.38),
+      0 0 0 6px color-mix(in srgb, #10ede0 55%, transparent),
+      0 0 22px color-mix(in srgb, #10ede0 45%, transparent),
+      0 0 36px color-mix(in srgb, #a8e61d 22%, transparent);
+  }
+}
+
+@keyframes m-cap-fab-guide-ring {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.92);
+  }
+  70% {
+    opacity: 0.15;
+    transform: scale(1.28);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.38);
+  }
+}
+
+@keyframes m-cap-fab-press {
+  0% {
+    transform: translate(-50%, -24%) scale(1);
+  }
+  45% {
+    transform: translate(-50%, -22%) scale(0.86);
+    box-shadow:
+      0 8px 20px rgba(8, 16, 48, 0.35),
+      0 0 0 8px color-mix(in srgb, #10ede0 65%, transparent),
+      0 0 28px color-mix(in srgb, #a8e61d 35%, transparent);
+  }
+  100% {
+    transform: translate(-50%, -24%) scale(1);
+  }
+}
+
 @keyframes m-cap-fab-pulse {
   0% {
     box-shadow:

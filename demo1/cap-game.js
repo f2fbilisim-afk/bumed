@@ -19,7 +19,6 @@
   var layer;
   var capEl;
   var trailEl;
-  var hintEl;
   var briefEl;
   var toastEl;
   var winEl;
@@ -32,6 +31,8 @@
   var bounds = { startY: 0, goalY: 0 };
   var gameStartMs = 0;
   var scrollLock = "";
+  var fabGuideTimer = null;
+  var briefShownAt = 0;
 
   function measureBounds() {
     var header = root.querySelector(".m-topbar");
@@ -60,7 +61,7 @@
       '<div class="m-cap-game-brief-card">' +
       '<p class="m-cap-game-brief-kicker">Kepini Zirveye Fırlat!</p>' +
       '<p class="m-cap-game-brief-line" id="m-cap-game-brief-line">' +
-      "Kepi tıklayarak en yükseğe ulaştır, mezun ol!" +
+      "Alttaki kepi art arda tıklayarak zirveye ulaştır, mezun ol!" +
       "</p></div></div>" +
       '<div class="m-cap-game-trail" data-cap-game-trail aria-hidden="true"></div>' +
       '<div class="m-cap-game-cap" data-cap-game-cap aria-hidden="true">' +
@@ -109,7 +110,46 @@
     );
   }
 
+  function getFab() {
+    return root.querySelector("[data-m-tabbar-fab]");
+  }
+
+  function clearFabGuide() {
+    window.clearTimeout(fabGuideTimer);
+    fabGuideTimer = null;
+    var fab = getFab();
+    if (fab) {
+      fab.classList.remove("is-cap-game-guide", "is-cap-game-press");
+    }
+  }
+
+  function enableFabGuide() {
+    var fab = getFab();
+    if (!fab) return;
+    if (state !== "brief" && state !== "playing") return;
+    fab.classList.add("is-cap-game-guide");
+  }
+
+  function scheduleFabGuide(delayMs) {
+    window.clearTimeout(fabGuideTimer);
+    fabGuideTimer = window.setTimeout(function () {
+      enableFabGuide();
+    }, delayMs);
+  }
+
+  function pulseFabPress() {
+    var fab = getFab();
+    if (!fab) return;
+    fab.classList.remove("is-cap-game-press");
+    void fab.offsetWidth;
+    fab.classList.add("is-cap-game-press");
+    window.setTimeout(function () {
+      fab.classList.remove("is-cap-game-press");
+    }, 380);
+  }
+
   function boostCap() {
+    pulseFabPress();
     velocity -= TAP_IMPULSE;
     if (velocity < -MAX_UP_SPEED) velocity = -MAX_UP_SPEED;
     pulseTrail();
@@ -211,6 +251,12 @@
       briefEl.hidden = true;
       briefEl.classList.remove("is-open");
     }
+    var fab = getFab();
+    if (fab && !fab.classList.contains("is-cap-game-guide")) {
+      var wait = Math.max(0, 2000 - (Date.now() - briefShownAt));
+      scheduleFabGuide(wait);
+    }
+    pulseFabPress();
     lockScroll(true);
     updateCapTransform();
 
@@ -281,6 +327,7 @@
       briefEl.hidden = true;
       briefEl.classList.remove("is-open");
     }
+    clearFabGuide();
     lockScroll(false);
   }
 
@@ -293,23 +340,27 @@
       briefEl.hidden = true;
       briefEl.classList.remove("is-open");
     }
+    clearFabGuide();
     lockScroll(false);
   }
 
   function showBrief() {
-    var fab = root.querySelector("[data-m-tabbar-fab]");
+    var fab = getFab();
     if (fab) {
       fab.classList.remove("is-cap-arming");
       void fab.offsetWidth;
       fab.classList.add("is-cap-arming");
     }
     state = "brief";
+    briefShownAt = Date.now();
     layer.classList.add("is-active", "is-brief");
     layer.setAttribute("aria-hidden", "false");
     if (briefEl) {
       briefEl.hidden = false;
       briefEl.classList.add("is-open");
     }
+    clearFabGuide();
+    scheduleFabGuide(2000);
     lockScroll(true);
   }
 
