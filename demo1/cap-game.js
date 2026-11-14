@@ -2,9 +2,9 @@
   var root = document.getElementById("bumed-mobile-app");
   if (!root) return;
 
-  var GRAVITY = 1580;
-  var TAP_IMPULSE = 320;
-  var MAX_UP_SPEED = 980;
+  var GRAVITY = 2680;
+  var TAP_IMPULSE = 185;
+  var MAX_UP_SPEED = 720;
   var CAP_SIZE = 60;
   var CONTACT_DELAY_MS = 1000;
   var RAPID_GAP_MS = 1000;
@@ -43,7 +43,7 @@
     var startY = window.innerHeight - 100;
     if (header) {
       var hr = header.getBoundingClientRect();
-      goalY = hr.bottom + 6;
+      goalY = hr.bottom - 4;
     }
     if (tabbar) {
       var tr = tabbar.getBoundingClientRect();
@@ -221,19 +221,11 @@
     if (capY >= bounds.startY) {
       capY = bounds.startY;
       velocity = 0;
-      if (!tick.failShown) {
-        tick.failShown = true;
-        showToast("Tekrar dene!");
-        window.setTimeout(function () {
-          tick.failShown = false;
-        }, 1400);
-      }
     }
 
     updateCapTransform();
     rafId = requestAnimationFrame(tick);
   }
-  tick.failShown = false;
 
   function startPlaying() {
     bounds = measureBounds();
@@ -242,8 +234,6 @@
     lastTs = 0;
     state = "playing";
     gameStartMs = performance.now();
-    tick.failShown = false;
-
     layer.classList.add("is-active", "is-playing");
     layer.setAttribute("aria-hidden", "false");
     capEl.setAttribute("aria-hidden", "false");
