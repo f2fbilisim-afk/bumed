@@ -286,30 +286,45 @@
     window.setTimeout(startPlaying, 380);
   }
 
-  function onFabClick(e) {
-    if (state === "playing" || state === "won") {
-      return true;
-    }
+  function registerFabTap() {
     var fab = root.querySelector("[data-m-tabbar-fab]");
-    fabTapCount += 1;
-    if (fab) {
+    if (!fab) return;
+
+    function onFabTap() {
+      if (state === "playing" || state === "won") return;
+      fabTapCount += 1;
       fab.classList.remove("is-cap-arming");
       void fab.offsetWidth;
       fab.classList.add("is-cap-arming");
+      window.clearTimeout(fabTapTimer);
+      if (fabTapCount >= 3) {
+        fabTapCount = 0;
+        window.clearTimeout(fabTapTimer);
+        armGame();
+        return;
+      }
+      fabTapTimer = window.setTimeout(function () {
+        if (fabTapCount === 1 && pendingContactToggle) {
+          pendingContactToggle();
+        }
+        fabTapCount = 0;
+      }, TRIPLE_MS);
     }
-    window.clearTimeout(fabTapTimer);
-    if (fabTapCount >= 3) {
-      fabTapCount = 0;
-      armGame();
+
+    fab.addEventListener("pointerup", function (e) {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      onFabTap();
+    });
+  }
+
+  function onFabClick() {
+    if (state === "playing" || state === "won") {
       return true;
     }
-    fabTapTimer = window.setTimeout(function () {
-      if (fabTapCount === 1 && pendingContactToggle) {
-        pendingContactToggle();
-      }
-      fabTapCount = 0;
-    }, TRIPLE_MS);
-    return true;
+    if (fabTapCount > 0) {
+      return true;
+    }
+    return false;
   }
 
   window.BumedCapGame = {
@@ -324,6 +339,7 @@
   };
 
   buildUi();
+  registerFabTap();
 
   window.addEventListener(
     "resize",

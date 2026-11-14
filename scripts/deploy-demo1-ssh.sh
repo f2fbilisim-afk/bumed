@@ -32,7 +32,7 @@ deploy_file() {
   fi
 }
 
-for f in index.html styles.css events.css events.js events-feed.php mobile.css mobile.js instagram-feed.php; do
+for f in index.html styles.css events.css events.js events-feed.php mobile.css mobile.js cap-game.css cap-game.js instagram-feed.php; do
   deploy_file "$f"
 done
 
