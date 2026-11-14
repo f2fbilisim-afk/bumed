@@ -781,7 +781,7 @@
 }
 
 .m-insta-lead {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.7rem;
   max-width: 18rem;
   font-size: 0.68rem;
   line-height: 1.45;
@@ -818,12 +818,13 @@
   font-family: inherit;
   font-size: 0.72rem;
   font-weight: 700;
+  text-decoration: none;
   cursor: pointer;
   box-shadow: 0 4px 14px color-mix(in srgb, var(--m-accent) 35%, transparent);
 }
 
-.m-insta-cta .fa-calendar {
-  font-size: 0.72rem;
+.m-insta-cta .fa-instagram {
+  font-size: 0.82rem;
 }
 
 /* ——— Etkinlik kartları ——— */
