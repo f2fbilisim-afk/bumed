@@ -40,7 +40,7 @@
   top: 0;
   z-index: 120;
   display: grid;
-  grid-template-columns: 3.15rem minmax(0, 1fr) 3.15rem;
+  grid-template-columns: 2.85rem minmax(0, 1fr) 2.85rem;
   align-items: center;
   gap: 0.35rem;
   min-height: var(--m-top-h);
@@ -55,15 +55,15 @@
 .m-icon-btn {
   display: grid;
   place-items: center;
-  width: 3.15rem;
-  height: 3.15rem;
+  width: 2.85rem;
+  height: 2.85rem;
   margin: 0;
   padding: 0;
   border: 0;
-  border-radius: 0.72rem;
+  border-radius: 0.62rem;
   background: color-mix(in srgb, #fff 11%, transparent);
   color: #fff;
-  font-size: 1.45rem;
+  font-size: 1.28rem;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition:
@@ -90,11 +90,11 @@
 }
 
 .m-topbar .m-icon-btn--menu i {
-  font-size: 1.52rem;
+  font-size: 1.34rem;
 }
 
 .m-topbar .m-icon-btn--search i {
-  font-size: 1.46rem;
+  font-size: 1.28rem;
 }
 
 .m-topbar-logo-link {
