@@ -23,17 +23,24 @@
   bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
   z-index: 128;
   transform: translateX(-50%) translateY(0.5rem);
-  padding: 0.45rem 0.85rem;
-  border-radius: 999px;
+  width: min(17.5rem, calc(100vw - 1.5rem));
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.75rem;
   background: color-mix(in srgb, #202c62 88%, transparent);
   color: #fff;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
   letter-spacing: 0.02em;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease;
   box-shadow: 0 6px 20px rgba(16, 31, 90, 0.35);
+}
+
+.m-cap-game-layer.is-playing .m-cap-game-hint {
+  bottom: calc(6.75rem + env(safe-area-inset-bottom, 0px));
 }
 
 .m-cap-game-hint.is-visible {
