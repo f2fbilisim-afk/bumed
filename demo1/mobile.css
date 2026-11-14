@@ -83,6 +83,16 @@
   outline-offset: 2px;
 }
 
+.m-topbar .m-icon-btn {
+  color: var(--m-accent);
+  background: color-mix(in srgb, var(--m-accent) 14%, transparent);
+}
+
+.m-topbar .m-icon-btn:active {
+  color: #fff;
+  background: color-mix(in srgb, var(--m-accent) 38%, transparent);
+}
+
 .m-topbar .m-icon-btn i {
   display: block;
   line-height: 1;
@@ -90,11 +100,11 @@
 }
 
 .m-topbar .m-icon-btn--menu i {
-  font-size: 1.34rem;
+  font-size: 1.22rem;
 }
 
 .m-topbar .m-icon-btn--search i {
-  font-size: 1.28rem;
+  font-size: 1.16rem;
 }
 
 .m-topbar-logo-link {
