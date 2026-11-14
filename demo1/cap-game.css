@@ -1,0 +1,469 @@
+/* ——— Gizli oyun: Kepini Zirveye Fırlat (yalnızca mobil) ——— */
+.m-cap-game-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 127;
+  pointer-events: none;
+  touch-action: none;
+  visibility: hidden;
+}
+
+.m-cap-game-layer.is-active {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.m-tabbar {
+  z-index: 131;
+}
+
+.m-cap-game-brief {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: color-mix(in srgb, #202c62 48%, transparent);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+  pointer-events: none;
+}
+
+.m-cap-game-brief.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.m-cap-game-brief-card {
+  position: relative;
+  width: min(19rem, calc(100vw - 2rem));
+  padding: 1.35rem 1.15rem 1.25rem;
+  border-radius: 1.15rem;
+  text-align: center;
+  background: linear-gradient(145deg, #202c62 0%, #14204a 55%, #1a2858 100%);
+  border: 2px solid #10ede0;
+  box-shadow:
+    0 20px 50px rgba(8, 16, 48, 0.45),
+    0 0 0 1px color-mix(in srgb, #a8e61d 35%, #10ede0),
+    0 0 28px color-mix(in srgb, #10ede0 28%, transparent);
+  animation: m-cap-brief-pop 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.m-cap-game-brief-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, #10ede0, #a8e61d 45%, #10ede0);
+  z-index: -1;
+  opacity: 0.35;
+  filter: blur(12px);
+}
+
+.m-cap-game-brief-kicker {
+  margin: 0 0 0.65rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #10ede0;
+}
+
+.m-cap-game-brief-line {
+  margin: 0;
+  font-size: clamp(0.92rem, 4.2vw, 1.05rem);
+  font-weight: 800;
+  line-height: 1.35;
+  color: #fff;
+  text-wrap: balance;
+}
+
+@keyframes m-cap-brief-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.m-cap-game-cap {
+  position: fixed;
+  left: 50%;
+  z-index: 129;
+  width: 3.75rem;
+  height: 3.75rem;
+  margin-left: -1.875rem;
+  display: grid;
+  place-items: center;
+  border: 3px solid #10ede0;
+  border-radius: 50%;
+  background: #202c62;
+  color: #fff;
+  font-size: 1.45rem;
+  box-shadow:
+    0 10px 24px rgba(8, 16, 48, 0.38),
+    0 0 0 3px color-mix(in srgb, #10ede0 28%, transparent);
+  will-change: transform;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.m-cap-game-layer.is-playing .m-cap-game-cap {
+  opacity: 1;
+}
+
+.m-cap-game-cap.is-win-flash {
+  animation: m-cap-win-flash 0.55s ease;
+}
+
+@keyframes m-cap-win-flash {
+  0%,
+  100% {
+    filter: brightness(1);
+    box-shadow:
+      0 10px 24px rgba(8, 16, 48, 0.38),
+      0 0 0 3px color-mix(in srgb, #10ede0 28%, transparent);
+  }
+  50% {
+    filter: brightness(1.35);
+    box-shadow:
+      0 12px 32px rgba(16, 237, 224, 0.55),
+      0 0 0 6px color-mix(in srgb, #10ede0 55%, transparent);
+  }
+}
+
+.m-cap-game-trail {
+  position: fixed;
+  left: 50%;
+  z-index: 128;
+  width: 4px;
+  margin-left: -2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, transparent, #10ede0 35%, color-mix(in srgb, #a8e61d 65%, #10ede0));
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: bottom center;
+  will-change: height, opacity;
+}
+
+.m-cap-game-trail.is-on {
+  opacity: 0.75;
+}
+
+.m-cap-game-close {
+  position: fixed;
+  top: calc(0.45rem + env(safe-area-inset-top, 0px));
+  right: 0.55rem;
+  z-index: 130;
+  display: grid;
+  place-items: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, #202c62 82%, transparent);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.m-cap-game-layer.is-playing .m-cap-game-close {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.m-cap-game-toast {
+  position: fixed;
+  left: 50%;
+  top: 45%;
+  z-index: 130;
+  transform: translate(-50%, -50%);
+  padding: 0.65rem 1rem;
+  border-radius: 0.75rem;
+  background: #202c62;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.m-cap-game-toast.is-visible {
+  opacity: 1;
+}
+
+.m-cap-game-confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 131;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.m-cap-game-confetti i {
+  position: absolute;
+  display: block;
+  width: 0.45rem;
+  height: 0.7rem;
+  border-radius: 2px;
+  opacity: 0;
+  animation: m-cap-confetti-fall 1.8s ease-out forwards;
+}
+
+@keyframes m-cap-confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--dx, 0), var(--dy, 80vh), 0) rotate(540deg);
+  }
+}
+
+.m-cap-game-win {
+  position: fixed;
+  inset: 0;
+  z-index: 132;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: color-mix(in srgb, #202c62 55%, transparent);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.m-cap-game-win.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.m-cap-game-win-card {
+  position: relative;
+  width: min(18.5rem, calc(100vw - 2rem));
+  padding: 1.35rem 1.15rem 1.15rem;
+  border-radius: 1.1rem;
+  border: 2px solid #10ede0;
+  background: linear-gradient(165deg, #202c62 0%, color-mix(in srgb, #202c62 88%, #101f5a) 100%);
+  color: #fff;
+  text-align: center;
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.35),
+    0 0 32px color-mix(in srgb, #10ede0 22%, transparent);
+}
+
+.m-cap-game-win-badge {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 auto 0.75rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, #10ede0 18%, #202c62);
+  color: #10ede0;
+  font-size: 1.55rem;
+}
+
+.m-cap-game-win-kicker {
+  margin: 0 0 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #10ede0;
+}
+
+.m-cap-game-win-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.m-cap-game-win-lead {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.m-cap-game-win-time {
+  margin: 0 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #a8e61d;
+}
+
+.m-cap-game-win-note {
+  margin: 0 0 1rem;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.m-cap-game-win-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.m-cap-game-win-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.6rem 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: #10ede0;
+  color: #202c62;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.m-cap-game-win-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.m-tabbar-fab.is-cap-arming {
+  animation: m-cap-fab-pulse 0.45s ease;
+}
+
+.m-tabbar-fab.is-cap-game-guide {
+  z-index: 4;
+  animation: m-cap-fab-guide-glow 1.55s ease-in-out infinite;
+}
+
+.m-tabbar-fab.is-cap-game-guide::before {
+  content: "";
+  position: absolute;
+  inset: -0.45rem;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, #10ede0 85%, #a8e61d);
+  opacity: 0;
+  pointer-events: none;
+  animation: m-cap-fab-guide-ring 1.55s ease-out infinite;
+}
+
+.m-tabbar-fab.is-cap-game-guide::after {
+  content: "";
+  position: absolute;
+  inset: -0.85rem;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, #a8e61d 55%, #10ede0);
+  opacity: 0;
+  pointer-events: none;
+  animation: m-cap-fab-guide-ring 1.55s ease-out 0.35s infinite;
+}
+
+.m-tabbar-fab.is-cap-game-press {
+  animation: m-cap-fab-press 0.36s ease !important;
+}
+
+@keyframes m-cap-fab-guide-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 24px rgba(8, 16, 48, 0.32),
+      0 0 0 3px color-mix(in srgb, #10ede0 35%, transparent),
+      0 0 14px color-mix(in srgb, #10ede0 25%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 14px 30px rgba(8, 16, 48, 0.38),
+      0 0 0 6px color-mix(in srgb, #10ede0 55%, transparent),
+      0 0 22px color-mix(in srgb, #10ede0 45%, transparent),
+      0 0 36px color-mix(in srgb, #a8e61d 22%, transparent);
+  }
+}
+
+@keyframes m-cap-fab-guide-ring {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.92);
+  }
+  70% {
+    opacity: 0.15;
+    transform: scale(1.28);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.38);
+  }
+}
+
+@keyframes m-cap-fab-press {
+  0% {
+    transform: translate(-50%, -24%) scale(1);
+  }
+  45% {
+    transform: translate(-50%, -22%) scale(0.86);
+    box-shadow:
+      0 8px 20px rgba(8, 16, 48, 0.35),
+      0 0 0 8px color-mix(in srgb, #10ede0 65%, transparent),
+      0 0 28px color-mix(in srgb, #a8e61d 35%, transparent);
+  }
+  100% {
+    transform: translate(-50%, -24%) scale(1);
+  }
+}
+
+@keyframes m-cap-fab-pulse {
+  0% {
+    box-shadow:
+      0 10px 24px rgba(8, 16, 48, 0.32),
+      0 0 0 3px color-mix(in srgb, #10ede0 28%, transparent);
+  }
+  70% {
+    box-shadow:
+      0 12px 28px rgba(8, 16, 48, 0.38),
+      0 0 0 10px color-mix(in srgb, #10ede0 55%, transparent);
+  }
+  100% {
+    box-shadow:
+      0 10px 24px rgba(8, 16, 48, 0.32),
+      0 0 0 3px color-mix(in srgb, #10ede0 28%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m-cap-game-cap,
+  .m-cap-game-trail,
+  .m-cap-game-confetti i {
+    animation: none !important;
+    transition: none !important;
+  }
+}

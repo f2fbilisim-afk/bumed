@@ -25,11 +25,24 @@ REMOTE="${USER}@${HOST}:${REMOTE_DIR}/"
 
 echo "Yükleniyor: ${SRC} -> ${REMOTE}"
 
-for f in index.html styles.css hero.jpg logo.png; do
-  sshpass -e scp "${SSH_OPTS[@]}" "${SRC}/${f}" "$REMOTE"
+deploy_file() {
+  local f="$1"
+  if [[ -f "${SRC}/${f}" ]]; then
+    sshpass -e scp "${SSH_OPTS[@]}" "${SRC}/${f}" "$REMOTE"
+  fi
+}
+
+for f in index.html styles.css events.css events.js events-feed.php mobile.css mobile.js cap-game.css cap-game.js instagram-feed.php; do
+  deploy_file "$f"
 done
 
+shopt -s nullglob
+for f in "${SRC}"/*.{jpg,jpeg,png,webp,gif,svg}; do
+  deploy_file "$(basename "$f")"
+done
+shopt -u nullglob
+
 sshpass -e ssh "${SSH_OPTS[@]}" "${USER}@${HOST}" \
-  "chown bumed:bumed ${REMOTE_DIR}/{index.html,styles.css,hero.jpg,logo.png}"
+  "php ${REMOTE_DIR}/instagram-feed.php > ${REMOTE_DIR}/instagram-feed.json && php ${REMOTE_DIR}/events-feed.php > ${REMOTE_DIR}/events-feed.json && chown -R bumed:bumed ${REMOTE_DIR}"
 
 echo "Deploy tamamlandı: https://bumed.webonalti.net/demo1/"
