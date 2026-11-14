@@ -2,9 +2,9 @@
   var root = document.getElementById("bumed-mobile-app");
   if (!root) return;
 
-  var GRAVITY = 1320;
-  var TAP_IMPULSE = 340;
-  var MAX_UP_SPEED = 1020;
+  var GRAVITY = 1560;
+  var TAP_IMPULSE = 308;
+  var MAX_UP_SPEED = 955;
   var CAP_SIZE = 60;
   var CONTACT_DELAY_MS = 1000;
   var RAPID_GAP_MS = 1000;
@@ -43,7 +43,7 @@
     var startY = window.innerHeight - 100;
     if (header) {
       var hr = header.getBoundingClientRect();
-      goalY = hr.bottom + 10;
+      goalY = hr.bottom + 7;
     }
     if (tabbar) {
       var tr = tabbar.getBoundingClientRect();
