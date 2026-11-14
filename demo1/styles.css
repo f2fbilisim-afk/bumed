@@ -1240,6 +1240,7 @@ a {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  height: 100%;
 }
 
 .social-hub-insta {
@@ -1263,6 +1264,7 @@ a {
 .social-hub-lead {
   margin: 0;
   max-width: 34ch;
+  min-height: 4.65em;
   font-size: 0.9rem;
   line-height: 1.55;
   color: var(--text-body-muted);
@@ -1290,7 +1292,8 @@ a {
   align-items: flex-end;
   justify-content: space-between;
   gap: clamp(0.75rem, 2vw, 1.5rem);
-  margin-top: clamp(1rem, 2vw, 1.35rem);
+  margin-top: auto;
+  padding-top: clamp(1rem, 2vw, 1.35rem);
 }
 
 .social-hub-pane-copy {
