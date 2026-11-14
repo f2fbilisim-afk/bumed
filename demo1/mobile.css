@@ -640,62 +640,6 @@
   font-family: inherit;
 }
 
-/* ——— Sosyal hub: Sesler + Instagram yan yana ——— */
-.m-social-duo {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.35rem;
-  align-items: stretch;
-  padding: 0.25rem var(--m-gutter) 0.15rem;
-  box-sizing: border-box;
-}
-
-.m-social-duo .m-voices-head,
-.m-social-duo .m-insta-head,
-.m-social-duo .m-voices-shorts,
-.m-social-duo .m-insta-grid,
-.m-social-duo .m-voices-foot,
-.m-social-duo .m-insta-foot {
-  padding-inline: 0;
-}
-
-.m-social-duo .m-voices,
-.m-social-duo .m-insta-hub {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0;
-  padding-bottom: 0.85rem;
-}
-
-.m-social-duo .m-voices-head,
-.m-social-duo .m-insta-head {
-  flex: 0 0 auto;
-  min-height: 4.85rem;
-  padding-bottom: 0.5rem;
-}
-
-.m-social-duo .m-voices-lead,
-.m-social-duo .m-insta-lead {
-  min-height: 2.85rem;
-}
-
-.m-social-duo .m-voices-shorts,
-.m-social-duo .m-insta-grid {
-  flex: 0 0 auto;
-}
-
-.m-social-duo .m-voices-shorts .short-card,
-.m-social-duo .m-insta-grid .insta-card {
-  aspect-ratio: 9 / 14;
-}
-
-.m-social-duo .m-voices-foot,
-.m-social-duo .m-insta-foot {
-  margin-top: auto;
-  padding-top: 0.55rem;
-}
-
 /* ——— BÜMED'den Sesler ——— */
 .m-voices {
   padding: 0.5rem 0 1.15rem;
@@ -782,7 +726,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.15rem 0.75rem 0;
+  padding: 0.15rem var(--m-gutter) 0;
 }
 
 .m-voices-cta {
