@@ -2,9 +2,17 @@
   var root = document.getElementById("bumed-mobile-app");
   if (!root) return;
 
-  var GRAVITY = 1560;
-  var TAP_IMPULSE = 308;
-  var MAX_UP_SPEED = 955;
+  var CLASS_LEVELS = [
+    { year: 1, label: "1. Sınıf", gravity: 1180, tapImpulse: 355, maxUpSpeed: 1080, goalOffset: 12 },
+    { year: 2, label: "2. Sınıf", gravity: 1380, tapImpulse: 325, maxUpSpeed: 1000, goalOffset: 9 },
+    { year: 3, label: "3. Sınıf", gravity: 1560, tapImpulse: 308, maxUpSpeed: 955, goalOffset: 7 },
+    { year: 4, label: "4. Sınıf", gravity: 1720, tapImpulse: 285, maxUpSpeed: 880, goalOffset: 5 },
+  ];
+
+  var currentYear = 1;
+  var winMode = "class";
+  var physics = CLASS_LEVELS[0];
+
   var CAP_SIZE = 60;
   var CONTACT_DELAY_MS = 1000;
   var RAPID_GAP_MS = 1000;
@@ -24,6 +32,13 @@
   var winEl;
   var confettiEl;
   var winTimeEl;
+  var winKickerEl;
+  var winTitleEl;
+  var winLeadEl;
+  var winNoteEl;
+  var winRetryBtn;
+  var winCardEl;
+  var classHudEl;
   var rafId = 0;
   var lastTs = 0;
   var capY = 0;
@@ -34,6 +49,18 @@
   var fabGuideTimer = null;
   var briefShownAt = 0;
 
+  function setYear(year) {
+    currentYear = Math.max(1, Math.min(4, year));
+    physics = CLASS_LEVELS[currentYear - 1];
+    updateClassHud();
+  }
+
+  function updateClassHud() {
+    if (!classHudEl) return;
+    classHudEl.textContent = physics.label + " · BÜMED yolculuğu";
+    classHudEl.hidden = false;
+  }
+
   function measureBounds() {
     var header = root.querySelector(".m-topbar");
     var tabbar = root.querySelector(".m-tabbar");
@@ -43,7 +70,7 @@
     var startY = window.innerHeight - 100;
     if (header) {
       var hr = header.getBoundingClientRect();
-      goalY = hr.bottom + 7;
+      goalY = hr.bottom + physics.goalOffset;
     }
     if (tabbar) {
       var tr = tabbar.getBoundingClientRect();
@@ -61,8 +88,9 @@
       '<div class="m-cap-game-brief-card">' +
       '<p class="m-cap-game-brief-kicker">Kepini Zirveye Fırlat!</p>' +
       '<p class="m-cap-game-brief-line" id="m-cap-game-brief-line">' +
-      "Alttaki kepi art arda tıklayarak zirveye ulaştır, mezun ol!" +
+      "1. sınıftan başla; her sınıfı geçince bir üst sınıfa yüksel. 4. sınıfı tamamlayınca mezun ol!" +
       "</p></div></div>" +
+      '<p class="m-cap-game-class-hud" data-cap-game-class hidden></p>' +
       '<div class="m-cap-game-trail" data-cap-game-trail aria-hidden="true"></div>' +
       '<div class="m-cap-game-cap" data-cap-game-cap aria-hidden="true">' +
       '<i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>' +
@@ -90,12 +118,16 @@
     winEl = layer.querySelector("[data-cap-game-win]");
     confettiEl = layer.querySelector("[data-cap-game-confetti]");
     winTimeEl = layer.querySelector("[data-cap-game-win-time]");
+    winKickerEl = layer.querySelector(".m-cap-game-win-kicker");
+    winTitleEl = layer.querySelector(".m-cap-game-win-title");
+    winLeadEl = layer.querySelector(".m-cap-game-win-lead");
+    winNoteEl = layer.querySelector(".m-cap-game-win-note");
+    winRetryBtn = layer.querySelector("[data-cap-game-retry]");
+    winCardEl = layer.querySelector(".m-cap-game-win-card");
+    classHudEl = layer.querySelector("[data-cap-game-class]");
 
     layer.querySelector("[data-cap-game-win-close]").addEventListener("click", endGame);
-    layer.querySelector("[data-cap-game-retry]").addEventListener("click", function () {
-      closeWin();
-      startPlaying();
-    });
+    winRetryBtn.addEventListener("click", onWinRetry);
 
     layer.addEventListener(
       "pointerdown",
@@ -150,8 +182,8 @@
 
   function boostCap() {
     pulseFabPress();
-    velocity -= TAP_IMPULSE;
-    if (velocity < -MAX_UP_SPEED) velocity = -MAX_UP_SPEED;
+    velocity -= physics.tapImpulse;
+    if (velocity < -physics.maxUpSpeed) velocity = -physics.maxUpSpeed;
     pulseTrail();
   }
 
@@ -208,7 +240,7 @@
     var dt = Math.min((ts - lastTs) / 1000, 0.032);
     lastTs = ts;
 
-    velocity += GRAVITY * dt;
+    velocity += physics.gravity * dt;
     capY += velocity * dt;
 
     if (capY <= bounds.goalY) {
@@ -228,6 +260,7 @@
   }
 
   function startPlaying() {
+    updateClassHud();
     bounds = measureBounds();
     capY = bounds.startY;
     velocity = 0;
@@ -261,11 +294,12 @@
     rafId = requestAnimationFrame(tick);
   }
 
-  function spawnConfetti() {
+  function spawnConfetti(count) {
     if (!confettiEl || reducedMotion) return;
     confettiEl.innerHTML = "";
     var colors = ["#10ede0", "#a8e61d", "#ffffff", "#10ede0"];
-    for (var i = 0; i < 36; i++) {
+    var n = typeof count === "number" ? count : 36;
+    for (var i = 0; i < n; i++) {
       var p = document.createElement("i");
       p.style.left = Math.random() * 100 + "%";
       p.style.top = "-5%";
@@ -277,9 +311,49 @@
     }
   }
 
-  function formatDuration(ms) {
+  function formatDuration(ms, graduate) {
     var s = ms / 1000;
-    return s.toFixed(1).replace(".", ",") + " saniyede mezun oldun!";
+    var t = s.toFixed(1).replace(".", ",") + " saniyede";
+    return graduate ? t + " mezun oldun!" : t + " zirveye ulaştın!";
+  }
+
+  var CLASS_WIN_COPY = {
+    1: {
+      title: "1. SINIFI GEÇTİN! 🎉",
+      lead: "Üniversite yolculuğun başladı.",
+      note: "İkinci sınıf biraz daha zorlayıcı; ritmini koru!",
+    },
+    2: {
+      title: "2. SINIFI GEÇTİN! ✨",
+      lead: "Harika gidiyorsun.",
+      note: "Üçüncü sınıfta yerçekimi artıyor — dikkatli tıkla!",
+    },
+    3: {
+      title: "3. SINIFI GEÇTİN! 💪",
+      lead: "Son düzlüktesin.",
+      note: "Dördüncü sınıfı geçersen mezun olacaksın!",
+    },
+  };
+
+  function openWinDialog(opts) {
+    winMode = opts.mode;
+    if (winKickerEl) winKickerEl.textContent = opts.kicker || "TEBRİKLER!";
+    if (winTitleEl) winTitleEl.textContent = opts.title;
+    if (winLeadEl) winLeadEl.textContent = opts.lead;
+    if (winNoteEl) winNoteEl.textContent = opts.note;
+    if (winTimeEl) winTimeEl.textContent = opts.time;
+    if (winRetryBtn) {
+      winRetryBtn.innerHTML =
+        '<i class="fa-solid ' +
+        (opts.mode === "graduate" ? "fa-rotate-right" : "fa-arrow-up") +
+        '" aria-hidden="true"></i> ' +
+        opts.retryLabel;
+    }
+    if (winCardEl) {
+      winCardEl.classList.toggle("is-graduate", opts.mode === "graduate");
+    }
+    winEl.hidden = false;
+    winEl.classList.add("is-open");
   }
 
   function onWin() {
@@ -290,11 +364,41 @@
       /* ignore */
     }
     capEl.classList.add("is-win-flash");
-    spawnConfetti();
+    spawnConfetti(currentYear === 4 ? 36 : 22);
     var elapsed = performance.now() - gameStartMs;
-    if (winTimeEl) winTimeEl.textContent = formatDuration(elapsed);
-    winEl.hidden = false;
-    winEl.classList.add("is-open");
+    if (currentYear < 4) {
+      var copy = CLASS_WIN_COPY[currentYear];
+      var next = CLASS_LEVELS[currentYear];
+      openWinDialog({
+        mode: "class",
+        title: copy.title,
+        lead: copy.lead,
+        note: copy.note,
+        time: formatDuration(elapsed, false),
+        retryLabel: next.label + "a Başla",
+      });
+    } else {
+      openWinDialog({
+        mode: "graduate",
+        title: "MEZUN OLDUN! 🎓",
+        lead: "Boğaziçi ruhu hep seninle!",
+        note: "Dört sınıfı tamamladın. Gerçek bir BÜMED'li ruhu! 💙",
+        time: formatDuration(elapsed, true),
+        retryLabel: "Baştan Oyna",
+      });
+    }
+  }
+
+  function onWinRetry() {
+    closeWin();
+    if (winMode === "graduate") {
+      endGame();
+      return;
+    }
+    if (currentYear < 4) {
+      setYear(currentYear + 1);
+      startPlaying();
+    }
   }
 
   function closeWin() {
@@ -309,6 +413,7 @@
   function endGame() {
     stopLoop();
     state = "idle";
+    setYear(1);
     closeWin();
     layer.classList.remove("is-active", "is-playing");
     layer.setAttribute("aria-hidden", "true");
@@ -317,6 +422,7 @@
       briefEl.hidden = true;
       briefEl.classList.remove("is-open");
     }
+    if (classHudEl) classHudEl.hidden = true;
     clearFabGuide();
     lockScroll(false);
   }
@@ -330,11 +436,13 @@
       briefEl.hidden = true;
       briefEl.classList.remove("is-open");
     }
+    if (classHudEl) classHudEl.hidden = true;
     clearFabGuide();
     lockScroll(false);
   }
 
   function showBrief() {
+    setYear(1);
     var fab = getFab();
     if (fab) {
       fab.classList.remove("is-cap-arming");
@@ -351,6 +459,7 @@
     }
     clearFabGuide();
     scheduleFabGuide(2000);
+    updateClassHud();
     lockScroll(true);
   }
 
