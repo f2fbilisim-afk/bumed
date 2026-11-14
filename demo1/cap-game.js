@@ -2,11 +2,12 @@
   var root = document.getElementById("bumed-mobile-app");
   if (!root) return;
 
-  var GRAVITY = 1400;
-  var TAP_IMPULSE = 240;
-  var MAX_UP_SPEED = 950;
+  var GRAVITY = 820;
+  var TAP_IMPULSE = 400;
+  var MAX_UP_SPEED = 1150;
   var CAP_SIZE = 60;
-  var TRIPLE_MS = 750;
+  var CONTACT_DELAY_MS = 420;
+  var RAPID_GAP_MS = 520;
 
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -20,7 +21,6 @@
   var trailEl;
   var hintEl;
   var toastEl;
-  var closeBtn;
   var winEl;
   var confettiEl;
   var winTimeEl;
@@ -41,7 +41,7 @@
     var startY = window.innerHeight - 100;
     if (header) {
       var hr = header.getBoundingClientRect();
-      goalY = hr.bottom;
+      goalY = hr.bottom + 22;
     }
     if (tabbar) {
       var tr = tabbar.getBoundingClientRect();
@@ -55,8 +55,6 @@
     layer.className = "m-cap-game-layer";
     layer.setAttribute("aria-hidden", "true");
     layer.innerHTML =
-      '<button type="button" class="m-cap-game-close" data-cap-game-close aria-label="Oyunu kapat">' +
-      '<i class="fa-solid fa-xmark" aria-hidden="true"></i></button>' +
       '<p class="m-cap-game-hint" data-cap-game-hint>Kepini Zirveye Fırlat!</p>' +
       '<div class="m-cap-game-trail" data-cap-game-trail aria-hidden="true"></div>' +
       '<div class="m-cap-game-cap" data-cap-game-cap aria-hidden="true">' +
@@ -82,12 +80,10 @@
     trailEl = layer.querySelector("[data-cap-game-trail]");
     hintEl = layer.querySelector("[data-cap-game-hint]");
     toastEl = layer.querySelector("[data-cap-game-toast]");
-    closeBtn = layer.querySelector("[data-cap-game-close]");
     winEl = layer.querySelector("[data-cap-game-win]");
     confettiEl = layer.querySelector("[data-cap-game-confetti]");
     winTimeEl = layer.querySelector("[data-cap-game-win-time]");
 
-    closeBtn.addEventListener("click", endGame);
     layer.querySelector("[data-cap-game-win-close]").addEventListener("click", endGame);
     layer.querySelector("[data-cap-game-retry]").addEventListener("click", function () {
       closeWin();
@@ -96,16 +92,19 @@
 
     layer.addEventListener(
       "pointerdown",
-      function (e) {
-        if (state !== "playing") return;
-        if (e.target.closest("[data-cap-game-close]")) return;
-        e.preventDefault();
-        velocity -= TAP_IMPULSE;
-        if (velocity < -MAX_UP_SPEED) velocity = -MAX_UP_SPEED;
-        pulseTrail();
+      function () {
+        if (state === "playing") {
+          endGame();
+        }
       },
-      { passive: false }
+      { passive: true }
     );
+  }
+
+  function boostCap() {
+    velocity -= TAP_IMPULSE;
+    if (velocity < -MAX_UP_SPEED) velocity = -MAX_UP_SPEED;
+    pulseTrail();
   }
 
   function lockScroll(on) {
@@ -278,10 +277,11 @@
       fab.classList.add("is-cap-arming");
     }
     if (hintEl) {
+      hintEl.textContent = "Kepine bas, zirveye fırlat!";
       hintEl.classList.add("is-visible");
       window.setTimeout(function () {
         if (hintEl) hintEl.classList.remove("is-visible");
-      }, 2200);
+      }, 2800);
     }
     window.setTimeout(startPlaying, 380);
   }
@@ -289,32 +289,51 @@
   function registerFabTap() {
     var fab = root.querySelector("[data-m-tabbar-fab]");
     if (!fab) return;
+    var lastFabTapMs = 0;
 
-    function onFabTap() {
-      if (state === "playing" || state === "won") return;
-      fabTapCount += 1;
-      fab.classList.remove("is-cap-arming");
-      void fab.offsetWidth;
-      fab.classList.add("is-cap-arming");
-      window.clearTimeout(fabTapTimer);
-      if (fabTapCount >= 3) {
-        fabTapCount = 0;
-        window.clearTimeout(fabTapTimer);
-        armGame();
-        return;
-      }
-      fabTapTimer = window.setTimeout(function () {
-        if (fabTapCount === 1 && pendingContactToggle) {
-          pendingContactToggle();
+    fab.addEventListener(
+      "pointerup",
+      function (e) {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        e.stopPropagation();
+
+        if (state === "playing") {
+          boostCap();
+          return;
         }
-        fabTapCount = 0;
-      }, TRIPLE_MS);
-    }
 
-    fab.addEventListener("pointerup", function (e) {
-      if (e.pointerType === "mouse" && e.button !== 0) return;
-      onFabTap();
-    });
+        if (state === "won") {
+          return;
+        }
+
+        var now = Date.now();
+        if (now - lastFabTapMs > RAPID_GAP_MS) {
+          fabTapCount = 0;
+        }
+        lastFabTapMs = now;
+        fabTapCount += 1;
+
+        fab.classList.remove("is-cap-arming");
+        void fab.offsetWidth;
+        fab.classList.add("is-cap-arming");
+        window.clearTimeout(fabTapTimer);
+
+        if (fabTapCount >= 3) {
+          fabTapCount = 0;
+          window.clearTimeout(fabTapTimer);
+          armGame();
+          return;
+        }
+
+        fabTapTimer = window.setTimeout(function () {
+          if (fabTapCount === 1 && pendingContactToggle) {
+            pendingContactToggle();
+          }
+          fabTapCount = 0;
+        }, CONTACT_DELAY_MS);
+      },
+      { passive: false }
+    );
   }
 
   function onFabClick() {
