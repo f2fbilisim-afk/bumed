@@ -17,35 +17,80 @@
   z-index: 131;
 }
 
-.m-cap-game-hint {
+.m-cap-game-brief {
   position: fixed;
-  left: 50%;
-  bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
-  z-index: 128;
-  transform: translateX(-50%) translateY(0.5rem);
-  width: min(17.5rem, calc(100vw - 1.5rem));
-  padding: 0.5rem 0.85rem;
-  border-radius: 0.75rem;
-  background: color-mix(in srgb, #202c62 88%, transparent);
-  color: #fff;
-  font-size: 0.68rem;
-  font-weight: 700;
-  line-height: 1.35;
-  text-align: center;
-  letter-spacing: 0.02em;
+  inset: 0;
+  z-index: 130;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: color-mix(in srgb, #202c62 48%, transparent);
+  backdrop-filter: blur(6px);
   opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  box-shadow: 0 6px 20px rgba(16, 31, 90, 0.35);
 }
 
-.m-cap-game-layer.is-playing .m-cap-game-hint {
-  bottom: calc(6.75rem + env(safe-area-inset-bottom, 0px));
-}
-
-.m-cap-game-hint.is-visible {
+.m-cap-game-brief.is-open {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.m-cap-game-brief-card {
+  position: relative;
+  width: min(19rem, calc(100vw - 2rem));
+  padding: 1.35rem 1.15rem 1.25rem;
+  border-radius: 1.15rem;
+  text-align: center;
+  background: linear-gradient(145deg, #202c62 0%, #14204a 55%, #1a2858 100%);
+  border: 2px solid #10ede0;
+  box-shadow:
+    0 20px 50px rgba(8, 16, 48, 0.45),
+    0 0 0 1px color-mix(in srgb, #a8e61d 35%, #10ede0),
+    0 0 28px color-mix(in srgb, #10ede0 28%, transparent);
+  animation: m-cap-brief-pop 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.m-cap-game-brief-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, #10ede0, #a8e61d 45%, #10ede0);
+  z-index: -1;
+  opacity: 0.35;
+  filter: blur(12px);
+}
+
+.m-cap-game-brief-kicker {
+  margin: 0 0 0.65rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #10ede0;
+}
+
+.m-cap-game-brief-line {
+  margin: 0;
+  font-size: clamp(0.92rem, 4.2vw, 1.05rem);
+  font-weight: 800;
+  line-height: 1.35;
+  color: #fff;
+  text-wrap: balance;
+}
+
+@keyframes m-cap-brief-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .m-cap-game-cap {

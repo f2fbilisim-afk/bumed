@@ -20,6 +20,7 @@
   var capEl;
   var trailEl;
   var hintEl;
+  var briefEl;
   var toastEl;
   var winEl;
   var confettiEl;
@@ -55,7 +56,12 @@
     layer.className = "m-cap-game-layer";
     layer.setAttribute("aria-hidden", "true");
     layer.innerHTML =
-      '<p class="m-cap-game-hint" data-cap-game-hint>Kepini Zirveye Fırlat!</p>' +
+      '<div class="m-cap-game-brief" data-cap-game-brief hidden role="dialog" aria-modal="true" aria-labelledby="m-cap-game-brief-line">' +
+      '<div class="m-cap-game-brief-card">' +
+      '<p class="m-cap-game-brief-kicker">Kepini Zirveye Fırlat!</p>' +
+      '<p class="m-cap-game-brief-line" id="m-cap-game-brief-line">' +
+      "Kepi tıklayarak en yükseğe ulaştır, mezun ol!" +
+      "</p></div></div>" +
       '<div class="m-cap-game-trail" data-cap-game-trail aria-hidden="true"></div>' +
       '<div class="m-cap-game-cap" data-cap-game-cap aria-hidden="true">' +
       '<i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>' +
@@ -78,7 +84,7 @@
     root.appendChild(layer);
     capEl = layer.querySelector("[data-cap-game-cap]");
     trailEl = layer.querySelector("[data-cap-game-trail]");
-    hintEl = layer.querySelector("[data-cap-game-hint]");
+    briefEl = layer.querySelector("[data-cap-game-brief]");
     toastEl = layer.querySelector("[data-cap-game-toast]");
     winEl = layer.querySelector("[data-cap-game-win]");
     confettiEl = layer.querySelector("[data-cap-game-confetti]");
@@ -95,6 +101,8 @@
       function () {
         if (state === "playing") {
           endGame();
+        } else if (state === "brief") {
+          dismissBrief();
         }
       },
       { passive: true }
@@ -199,9 +207,9 @@
     layer.classList.add("is-active", "is-playing");
     layer.setAttribute("aria-hidden", "false");
     capEl.setAttribute("aria-hidden", "false");
-    if (hintEl) {
-      hintEl.textContent = "Kepi tıklayarak en yükseğe ulaştır, mezun ol!";
-      hintEl.classList.add("is-visible");
+    if (briefEl) {
+      briefEl.hidden = true;
+      briefEl.classList.remove("is-open");
     }
     lockScroll(true);
     updateCapTransform();
@@ -269,27 +277,40 @@
     layer.classList.remove("is-active", "is-playing");
     layer.setAttribute("aria-hidden", "true");
     if (capEl) capEl.setAttribute("aria-hidden", "true");
-    if (hintEl) hintEl.classList.remove("is-visible");
+    if (briefEl) {
+      briefEl.hidden = true;
+      briefEl.classList.remove("is-open");
+    }
     lockScroll(false);
   }
 
-  function armGame() {
+  function dismissBrief() {
+    if (state !== "brief") return;
+    state = "idle";
+    layer.classList.remove("is-active", "is-brief");
+    layer.setAttribute("aria-hidden", "true");
+    if (briefEl) {
+      briefEl.hidden = true;
+      briefEl.classList.remove("is-open");
+    }
+    lockScroll(false);
+  }
+
+  function showBrief() {
     var fab = root.querySelector("[data-m-tabbar-fab]");
     if (fab) {
       fab.classList.remove("is-cap-arming");
       void fab.offsetWidth;
       fab.classList.add("is-cap-arming");
     }
-    if (hintEl) {
-      hintEl.textContent = "1 · 2 · 3 — Başla!";
-      hintEl.classList.add("is-visible");
-      window.setTimeout(function () {
-        if (hintEl) {
-          hintEl.textContent = "Kepi tıklayarak en yükseğe ulaştır, mezun ol!";
-        }
-      }, 700);
+    state = "brief";
+    layer.classList.add("is-active", "is-brief");
+    layer.setAttribute("aria-hidden", "false");
+    if (briefEl) {
+      briefEl.hidden = false;
+      briefEl.classList.add("is-open");
     }
-    window.setTimeout(startPlaying, 380);
+    lockScroll(true);
   }
 
   function registerFabTap() {
@@ -305,6 +326,11 @@
 
         if (state === "playing") {
           boostCap();
+          return;
+        }
+
+        if (state === "brief") {
+          startPlaying();
           return;
         }
 
@@ -327,7 +353,7 @@
         if (fabTapCount >= 3) {
           fabTapCount = 0;
           window.clearTimeout(fabTapTimer);
-          armGame();
+          showBrief();
           return;
         }
 
@@ -343,7 +369,7 @@
   }
 
   function onFabClick() {
-    if (state === "playing" || state === "won") {
+    if (state === "playing" || state === "won" || state === "brief") {
       return true;
     }
     if (fabTapCount > 0) {
@@ -358,7 +384,7 @@
       pendingContactToggle = fn;
     },
     isActive: function () {
-      return state === "playing" || state === "won";
+      return state === "playing" || state === "won" || state === "brief";
     },
     endGame: endGame,
   };
@@ -387,8 +413,9 @@
   }
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && (state === "playing" || state === "won")) {
-      endGame();
+    if (e.key === "Escape") {
+      if (state === "playing" || state === "won") endGame();
+      else if (state === "brief") dismissBrief();
     }
   });
 })();
