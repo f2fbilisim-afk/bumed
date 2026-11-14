@@ -686,11 +686,14 @@
   height: 0.72rem;
 }
 
-.m-voices-foot {
-  padding: 0 0.75rem;
+.m-voices-head,
+.m-insta-head {
+  padding: 0 0.75rem 0.65rem;
+  text-align: center;
 }
 
-.m-voices-title {
+.m-voices-title,
+.m-insta-title {
   margin: 0 0 0.35rem;
   font-size: 0.92rem;
   font-weight: 700;
@@ -698,19 +701,29 @@
   color: var(--navy);
 }
 
-.m-voices-lead {
-  margin: 0 0 0.7rem;
-  max-width: 18rem;
+.m-voices-lead,
+.m-insta-lead {
+  margin: 0 auto;
+  max-width: 20rem;
   font-size: 0.68rem;
   line-height: 1.45;
   color: var(--muted);
+  text-wrap: balance;
+}
+
+.m-voices-foot,
+.m-insta-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.15rem 0.75rem 0;
 }
 
 .m-voices-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
-  margin-left: auto;
   padding: 0.55rem 1rem;
   border-radius: 999px;
   background: var(--m-accent);
@@ -723,16 +736,6 @@
 
 .m-voices-cta .fa-play {
   font-size: 0.62rem;
-}
-
-.m-voices-foot {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.m-voices-cta {
-  align-self: flex-end;
 }
 
 /* ——— BÜMED Etkinlikleri (Instagram) ——— */
@@ -765,50 +768,11 @@
   border-radius: 3px;
 }
 
-.m-insta-foot {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 0 0.75rem;
-}
-
-.m-insta-title {
-  margin: 0 0 0.35rem;
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--navy);
-}
-
-.m-insta-lead {
-  margin: 0 0 0.7rem;
-  max-width: 18rem;
-  font-size: 0.68rem;
-  line-height: 1.45;
-  color: var(--muted);
-}
-
-.m-insta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-bottom: 0.65rem;
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--navy);
-  text-decoration: none;
-}
-
-.m-insta-link .fa-instagram {
-  font-size: 0.85rem;
-  color: var(--navy);
-}
-
 .m-insta-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
-  align-self: flex-end;
   margin: 0;
   padding: 0.55rem 1rem;
   border: 0;
