@@ -88,6 +88,20 @@ PRODUCTS = [
         "brand": "rolex",
         "short": "Siyah Air-King kadranı, çelik Oyster bilezik, yeşil saniye.",
     },
+    {
+        "file": "78e4aa7f-0158-4fba-8ad4-eb56d8df3773.jpg",
+        "name": "Longines Conquest Automatic Chronograph — Gümüş Kadran",
+        "sku": "MANGO-LG-CON-C001",
+        "brand": "longines",
+        "short": "Takimetreli siyah çerçeve, üç kronograf kadran, çelik bilezik.",
+    },
+    {
+        "file": "26308048-0111-48d2-bbaa-40688d201df6.jpg",
+        "name": "Omega Seamaster Aqua Terra Worldtimer",
+        "sku": "MANGO-OM-AT-W001",
+        "brand": "omega",
+        "short": "Dünya saati fonksiyonlu mavi kadran, çelik Seamaster kasa ve bilezik.",
+    },
 ]
 
 
