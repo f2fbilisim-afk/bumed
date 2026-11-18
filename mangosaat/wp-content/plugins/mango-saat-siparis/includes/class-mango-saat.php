@@ -20,6 +20,11 @@ final class Mango_Saat_Plugin {
 		if ( ! get_option( 'mango_saat_whatsapp_e164' ) ) {
 			update_option( 'mango_saat_whatsapp_e164', '905414631677' );
 		}
+
+		require_once MANGO_SAAT_PLUGIN_DIR . 'includes/class-seeder.php';
+		Mango_Saat_Seeder::run();
+		update_option( 'mango_saat_catalog_version', MANGO_SAAT_CATALOG_VERSION );
+
 		flush_rewrite_rules();
 	}
 

@@ -33,7 +33,7 @@ WordPress panelinde:
 
 1. **Eklentiler** → *Mango Saat Sipariş* → Etkinleştir
 2. **Görünüm → Temalar** → *WoodMart Child — Mango Saat* → Etkinleştir
-3. **WooCommerce → Mango Saat Sipariş** → numarayı doğrula, kategori/marka senkronunu çalıştır
+3. **WooCommerce → Mango Saat Sipariş** → numarayı doğrula (kategoriler/markalar eklenti **etkinleştirildiğinde** otomatik yüklenir; gerekirse aynı ekrandan **senkron** butonuna basın)
 4. Demo ürünleri ve yabancı metinli kampanyaları yayından kaldır (şartname)
 5. WoodMart/Elementor ile ana sayfa ve menüyü Mango kimliğine göre düzenle (Watches demo referans)
 

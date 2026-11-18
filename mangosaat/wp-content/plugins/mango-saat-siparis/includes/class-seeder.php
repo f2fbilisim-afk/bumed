@@ -5,7 +5,22 @@ defined( 'ABSPATH' ) || exit;
 final class Mango_Saat_Seeder {
 
 	public static function init(): void {
-		// Manuel veya aktivasyon sonrası yönetim ekranından çalıştırılır.
+		add_action( 'init', array( __CLASS__, 'maybe_seed_catalog' ), 99 );
+	}
+
+	public static function maybe_seed_catalog(): void {
+		if ( is_admin() && wp_doing_ajax() ) {
+			return;
+		}
+		$stored = get_option( 'mango_saat_catalog_version', '' );
+		if ( $stored === MANGO_SAAT_CATALOG_VERSION ) {
+			return;
+		}
+		if ( ! taxonomy_exists( 'product_cat' ) || ! taxonomy_exists( 'product_brand' ) ) {
+			return;
+		}
+		self::run();
+		update_option( 'mango_saat_catalog_version', MANGO_SAAT_CATALOG_VERSION );
 	}
 
 	/**
