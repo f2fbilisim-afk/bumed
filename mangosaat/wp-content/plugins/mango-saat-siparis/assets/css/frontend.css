@@ -1,0 +1,55 @@
+.mango-saat-whatsapp-btn {
+	background: #25d366 !important;
+	border-color: #1da851 !important;
+	color: #fff !important;
+}
+
+.mango-saat-whatsapp-btn:hover {
+	background: #1da851 !important;
+	color: #fff !important;
+}
+
+.mango-saat-box-offer {
+	margin: 1rem 0 1.25rem;
+	padding: 0.85rem 1rem;
+	border: 1px solid rgba(201, 162, 39, 0.35);
+	border-radius: 6px;
+	background: #faf8f3;
+}
+
+.mango-saat-box-label {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	cursor: pointer;
+}
+
+.mango-saat-box-content {
+	display: flex;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+.mango-saat-box-thumb {
+	max-width: 56px;
+	height: auto;
+	border-radius: 4px;
+}
+
+.mango-saat-box-price {
+	color: #9a7b1a;
+	font-weight: 600;
+}
+
+.mango-saat-single-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+.mango-saat-cart-whatsapp,
+.mango-saat-mini-cart-whatsapp {
+	width: 100%;
+	text-align: center;
+}
