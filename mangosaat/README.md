@@ -19,7 +19,9 @@
 
 ## Canlıya yükleme
 
-**cPanel (önerilen):** `dist/mango-saat-wp-bundle.zip` dosyasını indirin → cPanel Dosya Yöneticisi → `public_html/wp-content/` → yükle ve açın (klasörler `plugins/mango-saat-siparis` ve `themes/woodmart-child` altına yerleşmeli).
+**Sadece eklenti (listedeki sorun için):** `dist/mango-saat-siparis-plugin.zip` → `public_html/wp-content/plugins/` içine açın. Ayrıntı: `docs/EKLENTI-KURULUM.md`.
+
+**Eklenti + tema:** `dist/mango-saat-wp-bundle.zip` → `public_html/wp-content/` altına açın (`plugins/…` ve `themes/…` doğru yere gelsin).
 
 **FTP:** Bazı ağlarda veri bağlantısı kapalı olabilir; yerelde:
 

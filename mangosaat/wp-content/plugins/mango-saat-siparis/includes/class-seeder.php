@@ -84,7 +84,7 @@ final class Mango_Saat_Seeder {
 		}
 		if ( str_contains( $label, '-' ) ) {
 			$parts = explode( '-', $label, 2 );
-			return $map[ $parts[0] ] ?? sanitize_title( $parts[0] ) ) . '-' . ( $map[ $parts[1] ] ?? sanitize_title( $parts[1] ) );
+			return ( $map[ $parts[0] ] ?? sanitize_title( $parts[0] ) ) . '-' . ( $map[ $parts[1] ] ?? sanitize_title( $parts[1] ) );
 		}
 		return sanitize_title( $label );
 	}
