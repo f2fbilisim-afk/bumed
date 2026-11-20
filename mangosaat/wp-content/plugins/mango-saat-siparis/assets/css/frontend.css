@@ -9,6 +9,15 @@
 	color: #fff !important;
 }
 
+.mango-saat-box-offer--cart {
+	margin: 0.65rem 0 0;
+	padding: 0.65rem 0.75rem;
+}
+
+.woocommerce-cart-form .mango-saat-box-thumb {
+	max-width: 44px;
+}
+
 .mango-saat-box-offer {
 	margin: 1rem 0 1.25rem;
 	padding: 0.85rem 1rem;

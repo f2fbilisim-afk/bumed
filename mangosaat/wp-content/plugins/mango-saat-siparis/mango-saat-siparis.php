@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mango Saat Sipariş
  * Description: WhatsApp sipariş akışı, kutu ürünleri ve WooCommerce ödeme devre dışı — Mangosaat.com.tr
- * Version: 1.0.1
+ * Version: 1.0.3
  * Author: Mango Saat
  * Requires Plugins: woocommerce
  * Text Domain: mango-saat-siparis
@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'MANGO_SAAT_VERSION', '1.0.1' );
+define( 'MANGO_SAAT_VERSION', '1.0.3' );
 define( 'MANGO_SAAT_CATALOG_VERSION', '2026.01' );
 define( 'MANGO_SAAT_PLUGIN_FILE', __FILE__ );
 define( 'MANGO_SAAT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

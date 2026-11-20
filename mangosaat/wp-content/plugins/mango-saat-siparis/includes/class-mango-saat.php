@@ -52,7 +52,7 @@ final class Mango_Saat_Plugin {
 	}
 
 	public function enqueue_assets(): void {
-		if ( ! is_woocommerce() && ! is_cart() && ! is_shop() && ! is_front_page() ) {
+		if ( ! ( is_cart() || is_product() || is_shop() || is_product_taxonomy() || is_front_page() ) ) {
 			return;
 		}
 
@@ -80,6 +80,7 @@ final class Mango_Saat_Plugin {
 				'i18n'    => array(
 					'selectVariation' => __( 'Lütfen ürün seçeneklerini belirleyin.', 'mango-saat-siparis' ),
 					'boxOutOfStock'   => __( 'Kutu stokta yok; kutusuz devam edebilirsiniz.', 'mango-saat-siparis' ),
+					'boxToggleFailed' => __( 'Kutu seçimi güncellenemedi. Lütfen tekrar deneyin.', 'mango-saat-siparis' ),
 				),
 			)
 		);

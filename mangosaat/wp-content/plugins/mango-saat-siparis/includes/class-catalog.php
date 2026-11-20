@@ -115,33 +115,7 @@ final class Mango_Saat_Catalog {
 			return;
 		}
 
-		$box      = wc_get_product( $box_id );
-		if ( ! $box ) {
-			return;
-		}
-
-		$price    = Mango_Saat_Product_Meta::get_box_price_for_product( $product->get_id(), $box_id );
-		$in_stock = $box->is_in_stock();
-		$image    = $box->get_image( 'thumbnail', array( 'class' => 'mango-saat-box-thumb' ) );
-
-		?>
-		<div class="mango-saat-box-offer" data-box-id="<?php echo esc_attr( $box_id ); ?>" data-box-price="<?php echo esc_attr( $price ); ?>" data-in-stock="<?php echo $in_stock ? '1' : '0'; ?>">
-			<label class="mango-saat-box-label">
-				<input type="checkbox" name="mango_with_box" value="1" class="mango-saat-box-checkbox" />
-				<span class="mango-saat-box-content">
-					<?php echo $image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<span class="mango-saat-box-text">
-						<strong><?php esc_html_e( 'Kutuyla al', 'mango-saat-siparis' ); ?></strong>
-						<span class="mango-saat-box-name"><?php echo esc_html( $box->get_name() ); ?></span>
-						<span class="mango-saat-box-price">+<?php echo wp_kses_post( wc_price( $price ) ); ?></span>
-					</span>
-				</span>
-			</label>
-			<?php if ( ! $in_stock ) : ?>
-				<p class="mango-saat-box-stock-notice"><?php esc_html_e( 'Kutu şu an stokta yok; kutusuz sipariş verebilirsiniz.', 'mango-saat-siparis' ); ?></p>
-			<?php endif; ?>
-		</div>
-		<?php
+		echo Mango_Saat_Cart::get_box_offer_markup( $product->get_id(), $box_id, false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	public static function single_whatsapp_wrapper_open(): void {

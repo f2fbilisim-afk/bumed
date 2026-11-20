@@ -57,11 +57,42 @@
 		}
 	});
 
-	$(document).on('change', '.mango-saat-box-checkbox', function () {
+	$(document).on('change', '.mango-saat-box-checkbox:not(.mango-saat-cart-box-checkbox)', function () {
 		var $offer = $(this).closest('.mango-saat-box-offer');
 		if ($(this).is(':checked') && $offer.data('in-stock') === 0) {
 			$(this).prop('checked', false);
 			alert(mangoSaat.i18n.boxOutOfStock);
 		}
+	});
+
+	$(document).on('change', '.mango-saat-cart-box-checkbox', function () {
+		var $checkbox = $(this);
+		var $offer = $checkbox.closest('.mango-saat-box-offer');
+		var cartKey = $checkbox.data('cart-key');
+
+		if ($checkbox.is(':checked') && $offer.data('in-stock') === 0) {
+			$checkbox.prop('checked', false);
+			alert(mangoSaat.i18n.boxOutOfStock);
+			return;
+		}
+
+		if (!cartKey) {
+			return;
+		}
+
+		$checkbox.prop('disabled', true);
+		$.post(mangoSaat.ajaxUrl, {
+			action: 'mango_saat_toggle_cart_box',
+			nonce: mangoSaat.nonce,
+			cart_key: cartKey,
+			with_box: $checkbox.is(':checked') ? 1 : 0,
+		})
+			.done(function () {
+				window.location.reload();
+			})
+			.fail(function () {
+				alert(mangoSaat.i18n.boxToggleFailed || 'Kutu seçimi güncellenemedi.');
+				window.location.reload();
+			});
 	});
 })(jQuery);
