@@ -42,6 +42,7 @@ WordPress panelinde:
 - Normal ürün: kategori + `product_brand` markası, fiyat, galeri
 - Kutu ürünü: ürün düzenle → **Kutu ürünü** işaretle (katalogda görünmez)
 - Ana ürün: yan meta kutusundan **Uyumlu kutu** seç; isteğe bağlı özel kutu fiyatı
+- Kutu ürünleri panelde **Ürünler** listesinde görünür; `_mango_is_box` işaretli ve vitrinde gizlidir (Mango Saat Sipariş eklentisi etkinken)
 
 ## Doğrulama kontrol listesi
 
