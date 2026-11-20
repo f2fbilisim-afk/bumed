@@ -1,0 +1,67 @@
+/*
+ Theme Name:   WoodMart Child — Mango Saat
+ Theme URI:    https://www.mangosaat.com.tr
+ Description:  Mango Saat marka renkleri ve tipografi (siyah / mat altın)
+ Author:       Mango Saat
+ Template:     woodmart
+ Version:      1.0.0
+ Text Domain:  woodmart-child-mango
+*/
+
+:root {
+	--mango-gold: #c9a227;
+	--mango-gold-muted: #a8841c;
+	--mango-black: #0c0c0c;
+	--mango-ink: #141414;
+}
+
+/* Koyu header’da logo ve menü kontrastı */
+.whb-header.whb-color-dark,
+.whb-sticky-row.whb-color-dark {
+	background-color: var(--mango-black) !important;
+}
+
+.whb-color-dark .wd-nav > li > a,
+.whb-color-dark .wd-header-cart .wd-tools-icon,
+.whb-color-dark .wd-header-search .wd-tools-icon {
+	color: #f5f5f5;
+}
+
+.whb-color-dark .wd-nav > li:hover > a,
+.whb-color-dark .wd-nav > li.current-menu-item > a {
+	color: var(--mango-gold);
+}
+
+/* Altın vurgular */
+.wd-btn-primary,
+.button.alt:not(.mango-saat-whatsapp-btn) {
+	background-color: var(--mango-gold-muted) !important;
+	border-color: var(--mango-gold) !important;
+}
+
+.wd-product .price,
+.product-grid-item .price {
+	color: var(--mango-ink);
+	font-weight: 600;
+}
+
+.site-footer {
+	background: var(--mango-black);
+	color: #e8e8e8;
+}
+
+.site-footer a {
+	color: var(--mango-gold);
+}
+
+/* Ödeme / checkout kalıntılarını gizle */
+.woocommerce-checkout,
+.woocommerce-checkout-payment,
+.checkout-button.wc-forward:not(.mango-saat-cart-whatsapp),
+.wc-proceed-to-checkout a.checkout-button:not(.mango-saat-cart-whatsapp) {
+	display: none !important;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout {
+	display: block !important;
+}

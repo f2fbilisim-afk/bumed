@@ -1,5 +1,7 @@
 # bumed
 
+**Mango Saat (WordPress):** `mangosaat/` — WooCommerce eklentisi ve WoodMart child tema. Bkz. `mangosaat/README.md`.
+
 Statik BÜMED tanıtım demosu: `demo1/` klasöründe (`index.html`, `styles.css`, görseller).
 
 **Canlı:** https://bumed.webonalti.net/demo1/
